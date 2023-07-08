@@ -1,0 +1,36 @@
+{
+  "name": "Free-Pharma",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "/*"
+  ],
+  "description": "Free Pharma is a decentralized marketplace for frerlancers in the pharmaceutical industry.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elie-Mendy/Free-Pharma"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elie-Mendy/Free-Pharma/issues"
+  },
+  "homepage": "https://github.com/Elie-Mendy/Free-Pharma#readme",
+  "scripts": {
+    "blockchain": "npm run blk --workspace=hardhat-project",
+    "sc:help": "npm run help --workspace=hardhat-project",
+    "sc:test": "npm run test --workspace=hardhat-project",
+    "sc:deploy": "npm run deploy --workspace=hardhat-project",
+    "sc:deploy:local": "npm run deploy:local --workspace=hardhat-project",
+    "sc:deploy:sepolia": "npm run deploy:sepolia --workspace=hardhat-project",
+    "sc:deploy:goerli": "npm run deploy:goerli --workspace=hardhat-project",
+    "dapp:dev": "npm run dev --workspace=frontend",
+    "dapp:build": "npm run build --workspace=frontend",
+    "dapp:start": "npm run start --workspace=frontend",
+    "dapp:lint": "npm run lint --workspace=frontend"
+  },
+  "engines": {
+    "node": ">=16.16.0"
+  }
+}

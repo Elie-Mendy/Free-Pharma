@@ -1,5 +1,15 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "help": "npx hardhat help",
+    "test": "npx hardhat test",
+    "coverage": "npx hardhat coverage",
+    "blk": "npx hardhat node",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "deploy:goerli": "npx hardhat run scripts/deploy.js --network goerli",
+    "clean": "npx hardhat clean"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
