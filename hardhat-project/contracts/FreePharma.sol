@@ -41,7 +41,7 @@ contract FreePharma is AccessControl {
         dataStorage = _dataStorage;
         tokenPHARM = IERC20(_tokenAddress);
     }
-
+    
 
     /* ::::::::::::::: EVENTS :::::::::::::::::: */
 
@@ -169,21 +169,22 @@ contract FreePharma is AccessControl {
         if (jobId >  dataStorage.getJobCount()) {
             revert JobNotExists();
         }
-        if (dataStorage.getJob(jobId).status != status) {
+        
+        if (dataStorage.getJobStatus(jobId) != status) {
             revert NotAuthorized("Job status forbid this action");
         }
         _;
     }
 
     modifier employerChecked(uint jobId) {
-        if (dataStorage.getJob(jobId).employerAddress != msg.sender) {
+        if (dataStorage.getJobEmployerAddress(jobId) != msg.sender) {
             revert NotAuthorized("You're not the employer of this job");
         }
         _;
     }
 
     modifier freelancerChecked(uint jobId) {
-        if (dataStorage.getJob(jobId).freelancerAddress != msg.sender) {
+        if (dataStorage.getJobFreelancerAddress(jobId) != msg.sender) {
             revert NotAuthorized("You're not the freelancer of this job");
         }
         _;
@@ -262,13 +263,10 @@ contract FreePharma is AccessControl {
         onlyRole(FREELANCER_ROLE) 
         jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
     {   
-        IDataStorage.Freelancer memory freelancer = dataStorage.getFreelancer(msg.sender);
-        for (uint i = 0; i < freelancer.appliedJobIds.length; i++) {
-            if (freelancer.appliedJobIds[i] == _jobId) {
-                revert NotAuthorized("You already applied for this job");
-            }
+        if (dataStorage.freelancerAppliedToJob(msg.sender,_jobId) ) {
+            revert NotAuthorized("You already applied for this job");
         }
-        if (dataStorage.getJob(_jobId).nbCandidates >= LIMIT_CANDIDATES) {
+        if (dataStorage.getJobNbCandidates(_jobId) >= LIMIT_CANDIDATES) {
             revert NotAuthorized("This job has already enough candidates");
         }
 
@@ -292,12 +290,12 @@ contract FreePharma is AccessControl {
         onlyRole(FREELANCER_ROLE) 
         jobChecked(_jobId, IDataStorage.JobStatus.CONFIRMATION_PENDING) 
     {
-        if (dataStorage.getJob(_jobId).freelancerAddress != address(0)) {
+        if (dataStorage.getJobFreelancerAddress(_jobId) != address(0)) {
             revert NotAuthorized("Another freelancer already confirmed for this job");
         }
 
-        address employerAddress = dataStorage.getJob(_jobId).employerAddress;
-        if (tokenPHARM.balanceOf(employerAddress) < dataStorage.getJob(_jobId).salary) {
+        address employerAddress = dataStorage.getJobEmployerAddress(_jobId);
+        if (tokenPHARM.balanceOf(employerAddress) < dataStorage.getJobSalary(_jobId)) {
             revert NotAuthorized("Employer doesn't have enough PHARM tokens");
         }
 
@@ -489,13 +487,9 @@ contract FreePharma is AccessControl {
         public 
         onlyRole(EMPLOYER_ROLE) 
         employerChecked(_jobId) 
-        jobChecked(_jobId, IDataStorage.JobStatus.IN_PROGRESS)
     {
         dataStorage.payFreelancer(_jobId);
         dataStorage.completeEmployerJob(_jobId);
         emit EmployerCompletedJob(msg.sender, _jobId, block.timestamp);
     }
-
-
-
-}
+}   

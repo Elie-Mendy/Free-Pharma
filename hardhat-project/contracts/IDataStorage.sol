@@ -117,6 +117,16 @@ interface IDataStorage {
 
     function getEmployer(address _employerAddresses) external view returns(Employer memory);
 
-    function getJob(uint _jobId) external view returns(Job memory);
+    function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
+
+    function getJobStatus(uint _jobId) external view returns(JobStatus);
+
+    function getJobNbCandidates(uint _jobId) external view returns(uint);
+
+    function getJobEmployerAddress(uint _jobId) external view returns(address);
+
+    function getJobFreelancerAddress(uint _jobId) external view returns(address);
+
+    function getJobSalary(uint _jobId) external view returns(uint);
 
 }

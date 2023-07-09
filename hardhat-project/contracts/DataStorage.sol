@@ -84,7 +84,8 @@ contract DataStorage is AccessControl {
         bool visible;
         bool completedByFreelancer;
         bool completedByEmployer;
-        address[] candidatesIds; 
+        bool claimed;
+        address[] candidates; 
         address freelancerAddress;
         address employerAddress;
         string location;
@@ -156,7 +157,8 @@ contract DataStorage is AccessControl {
     /// @param _freelancerAddress the freelancer's address.
     function applyForJob(uint _jobId, address _freelancerAddress) public {
         freelancers[_freelancerAddress].appliedJobIds.push(_jobId);
-        jobs[_jobId].candidatesIds[jobs[_jobId].nbCandidates] = msg.sender;
+        jobs[_jobId].candidates.push(_freelancerAddress);
+        jobs[_jobId].nbCandidates++;
     }
 
     /// @notice allow a freelancer to confirm his candidature for a job.
@@ -164,15 +166,9 @@ contract DataStorage is AccessControl {
     /// @param _freelancerAddress the freelancer's address.
     /// @dev update the job 'freelancerId' attribute.
     /// @dev update the job status to IN_PROGRESS.
-    /// @dev remove the job id from the freelancer 'appliedJobIds' list if it's in.
-    /// @dev add the job id into the freelancer 'hiredJobIds' list.
     function confirmCandidature(uint _jobId, address _freelancerAddress) public {
         jobs[_jobId].freelancerAddress = _freelancerAddress;
         jobs[_jobId].status = JobStatus.IN_PROGRESS;
-        freelancers[_freelancerAddress].hiredJobIds.push(_jobId);
-        freelancers[_freelancerAddress].appliedJobIds = removeJobIdFromArray(
-            _jobId, freelancers[_freelancerAddress].appliedJobIds
-        );
     }
 
     /// @notice allow a freelancer to indicate a job as completed.
@@ -182,6 +178,17 @@ contract DataStorage is AccessControl {
         jobs[_jobId].status = JobStatus.COMPLETED;
     }
 
+    /// @notice allow a freelancer to claim his salary if the employer didn't confirmed the job.
+    /// @param _jobId the job id.
+    /// @dev remove the job id from the freelancer 'hiredJobIds' list.
+    /// @dev add the job id into the freelancer 'completedJobIds'.
+    function processClaim(uint _jobId) public {
+        jobs[_jobId].claimed = true;
+        freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
+        freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = _removeJobIdFromArray(
+            _jobId, freelancers[jobs[_jobId].freelancerAddress].appliedJobIds
+        );
+    }
 
     /// Employers
 
@@ -247,6 +254,7 @@ contract DataStorage is AccessControl {
             true,
             false,
             false,
+            false,
             new address[](0),
             address(0),
             _employerAddress,
@@ -277,11 +285,16 @@ contract DataStorage is AccessControl {
     }
 
     /// @notice allow an employer to hire a freelancer.
-    /// @param freelancerAddress the freelancer address.
+    /// @param _freelancerAddress the freelancer address.
     /// @param _jobId the job id.
-    function hireFreelancer(address freelancerAddress, uint _jobId) public {
-        jobs[_jobId].freelancerAddress = freelancerAddress;
-        jobs[_jobId].status = DataStorage.JobStatus.CONFIRMATION_PENDING;
+    /// @dev remove the job id from the freelancer 'appliedJobIds' list if it's in.
+    /// @dev add the job id into the freelancer 'hiredJobIds' list.
+    function hireFreelancer(address _freelancerAddress, uint _jobId) public {
+        jobs[_jobId].status = JobStatus.CONFIRMATION_PENDING;
+        freelancers[_freelancerAddress].hiredJobIds.push(_jobId);
+        freelancers[_freelancerAddress].appliedJobIds = _removeJobIdFromArray(
+            _jobId, freelancers[_freelancerAddress].appliedJobIds
+        );
     }
 
     /// @notice allow an employer to indicate a job as completed.
@@ -290,9 +303,10 @@ contract DataStorage is AccessControl {
     /// @dev remove the job id from the freelancer 'hiredJobIds' list.
     /// @dev add the job id into the freelancer 'completedJobIds'.
     function completeEmployerJob(uint _jobId) public {
-        jobs[_jobId].status = DataStorage.JobStatus.COMPLETED;
+        jobs[_jobId].completedByEmployer = true;
+        jobs[_jobId].status = JobStatus.COMPLETED;
         freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
-        freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = removeJobIdFromArray(
+        freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = _removeJobIdFromArray(
             _jobId, freelancers[jobs[_jobId].freelancerAddress].appliedJobIds
         );
     }
@@ -308,22 +322,10 @@ contract DataStorage is AccessControl {
             jobs[_jobId].freelancerAddress,
             jobs[_jobId].salary
         );
-        jobs[_jobId].status = DataStorage.JobStatus.PAID;
+        jobs[_jobId].status = JobStatus.PAID;
     }
 
-    /* :::::::::: HELPERS :::::::::: */
-
-    function removeJobIdFromArray(uint _jobId, uint[] memory _array) private pure returns(uint[] memory) {
-        uint[] memory newArray = new uint[](_array.length - 1);
-        uint j = 0;
-        for (uint i = 0; i < _array.length; i++) {
-            if (_array[i] != _jobId) {
-                newArray[j] = _array[i];
-                j++;
-            }
-        }
-        return newArray;
-    }
+    
 
     /* ::::::::::::::: GETTERS :::::::::::::::::: */
 
@@ -347,8 +349,47 @@ contract DataStorage is AccessControl {
         return employers[_employerAddresses];
     }
 
-    function getJob(uint _jobId) public view returns(Job memory) {
-        return jobs[_jobId];
-    }
     
+    /* :::::::::: HELPERS :::::::::: */
+
+    function _removeJobIdFromArray(uint _jobId, uint[] memory _array) private pure returns(uint[] memory) {
+        uint[] memory newArray = new uint[](_array.length - 1);
+        uint j = 0;
+        for (uint i = 0; i < _array.length; i++) {
+            if (_array[i] != _jobId) {
+                newArray[j] = _array[i];
+                j++;
+            }
+        }
+        return newArray;
+    }
+
+    function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) public view returns(bool) {
+        for (uint i = 0; i < freelancers[_freelancerAddress].appliedJobIds.length; i++) {
+            if (freelancers[_freelancerAddress].appliedJobIds[i] == _jobId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getJobStatus(uint _jobId) public view returns(JobStatus) {
+        return jobs[_jobId].status;
+    }
+
+    function getJobNbCandidates(uint _jobId) public view returns(uint) {
+        return jobs[_jobId].candidates.length;
+    }
+
+    function getJobEmployerAddress(uint _jobId) public view returns(address) {
+        return jobs[_jobId].employerAddress;
+    }
+
+    function getJobFreelancerAddress(uint _jobId) public view returns(address) {
+        return jobs[_jobId].freelancerAddress;
+    }
+
+    function getJobSalary(uint _jobId) public view returns(uint) {
+        return jobs[_jobId].salary;
+    }
 }
