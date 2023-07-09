@@ -16,12 +16,18 @@ contract DataStorage is AccessControl {
 
     using Counters for Counters.Counter;
     IERC20 public tokenPHARM; // ERC20 PHARM token
-    constructor(address _tokenAddress, address business_logic_contract) {
+    error NotAuthorized(string message);
+    constructor(address _tokenAddress) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(BUSINESS_LOGIC_CONTRACT_ROLE, business_logic_contract);
         tokenPHARM = IERC20(_tokenAddress);
     }
 
+    function setBusinessLogicContract(address business_logic_contract) public {
+        if (!hasRole(DEFAULT_ADMIN_ROLE, msg.sender)) {
+            revert NotAuthorized("Only admin can set business logic contract");
+        }
+        _grantRole(BUSINESS_LOGIC_CONTRACT_ROLE, business_logic_contract);
+    }
 
     /// Freelancers
 

@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "./DataStorage.sol";
+import "./IDataStorage.sol";
 
 /**
  * @title FreePharma
@@ -23,16 +23,17 @@ contract FreePharma is AccessControl {
     /* ::::::::::::::: STATE :::::::::::::::::: */
 
     using Counters for Counters.Counter;
-    
-    DataStorage private dataStorage;
 
-    IERC20 public tokenPHARM; // ERC20 PHARM token
+    uint8 public constant LIMIT_CANDIDATES = 200;
 
     address public admin;
     address[] public admins;
-    uint8 public constant LIMIT_CANDIDATES = 200;
     
-    constructor(DataStorage _dataStorage, address _tokenAddress) {
+    IDataStorage private dataStorage;
+    IERC20 public tokenPHARM; // ERC20 PHARM token
+
+
+    constructor(IDataStorage _dataStorage, address _tokenAddress) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(ADMIN, msg.sender);
         admin = msg.sender;
@@ -164,7 +165,7 @@ contract FreePharma is AccessControl {
 
     /* ::::::::::::::: MODIFIERS :::::::::::::::::: */
 
-    modifier jobChecked(uint jobId, DataStorage.JobStatus status) {
+    modifier jobChecked(uint jobId, IDataStorage.JobStatus status) {
         if (jobId >  dataStorage.getJobCount()) {
             revert JobNotExists();
         }
@@ -208,7 +209,7 @@ contract FreePharma is AccessControl {
 
     /// @notice fetch all freelancers.
     /// @return Freelancer[], an array of freelancers.
-    function getFreelancers() public view returns(DataStorage.Freelancer[] memory) {
+    function getFreelancers() public view returns(IDataStorage.Freelancer[] memory) {
         return dataStorage.getFreelancers();
     }
 
@@ -259,9 +260,9 @@ contract FreePharma is AccessControl {
     function applyForJob(uint _jobId) 
         public 
         onlyRole(FREELANCER_ROLE) 
-        jobChecked(_jobId, DataStorage.JobStatus.OPEN) 
+        jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
     {   
-        DataStorage.Freelancer memory freelancer = dataStorage.getFreelancer(msg.sender);
+        IDataStorage.Freelancer memory freelancer = dataStorage.getFreelancer(msg.sender);
         for (uint i = 0; i < freelancer.appliedJobIds.length; i++) {
             if (freelancer.appliedJobIds[i] == _jobId) {
                 revert NotAuthorized("You already applied for this job");
@@ -289,7 +290,7 @@ contract FreePharma is AccessControl {
     function confirmCandidature(uint _jobId) 
         public 
         onlyRole(FREELANCER_ROLE) 
-        jobChecked(_jobId, DataStorage.JobStatus.CONFIRMATION_PENDING) 
+        jobChecked(_jobId, IDataStorage.JobStatus.CONFIRMATION_PENDING) 
     {
         if (dataStorage.getJob(_jobId).freelancerAddress != address(0)) {
             revert NotAuthorized("Another freelancer already confirmed for this job");
@@ -311,7 +312,7 @@ contract FreePharma is AccessControl {
     function completeFreelancerJob(uint _jobId) 
         public 
         onlyRole(FREELANCER_ROLE) 
-        jobChecked(_jobId, DataStorage.JobStatus.IN_PROGRESS)
+        jobChecked(_jobId, IDataStorage.JobStatus.IN_PROGRESS)
         freelancerChecked(_jobId)
     {
         dataStorage.completeFreelancerJob(_jobId);
@@ -329,7 +330,7 @@ contract FreePharma is AccessControl {
     function claimSalary(uint _jobId) 
         public 
         onlyRole(FREELANCER_ROLE) 
-        jobChecked(_jobId, DataStorage.JobStatus.COMPLETED)
+        jobChecked(_jobId, IDataStorage.JobStatus.COMPLETED)
         freelancerChecked(_jobId)
     {
         dataStorage.payFreelancer(_jobId);
@@ -354,13 +355,13 @@ contract FreePharma is AccessControl {
     /// @notice fetch an employer.
     /// @param _employerAddresses, the id of the employer.
     /// @return Employer, a representation of the selected frelancer.
-    function getOneEmployer(address _employerAddresses) public view returns(DataStorage.Employer memory) {
+    function getOneEmployer(address _employerAddresses) public view returns(IDataStorage.Employer memory) {
         return dataStorage.getEmployer(_employerAddresses);
     }
 
     /// @notice fetch all freelancers.
     /// @return Freelancer[], an array of freelancers.
-    function getEmployers() public view returns(DataStorage.Employer[] memory) {
+    function getEmployers() public view returns(IDataStorage.Employer[] memory) {
         return dataStorage.getEmployers();
     }
 
@@ -439,7 +440,7 @@ contract FreePharma is AccessControl {
         public 
         onlyRole(EMPLOYER_ROLE) 
         employerChecked(_jobId) 
-        jobChecked(_jobId, DataStorage.JobStatus.OPEN) 
+        jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
     {
         dataStorage.setJob(
             _jobId,
@@ -470,7 +471,7 @@ contract FreePharma is AccessControl {
         public 
         onlyRole(EMPLOYER_ROLE) 
         employerChecked(_jobId) 
-        jobChecked(_jobId, DataStorage.JobStatus.OPEN) 
+        jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
     {
         dataStorage.hireFreelancer(freelancerAddress, _jobId);
     }
@@ -488,7 +489,7 @@ contract FreePharma is AccessControl {
         public 
         onlyRole(EMPLOYER_ROLE) 
         employerChecked(_jobId) 
-        jobChecked(_jobId, DataStorage.JobStatus.IN_PROGRESS)
+        jobChecked(_jobId, IDataStorage.JobStatus.IN_PROGRESS)
     {
         dataStorage.payFreelancer(_jobId);
         dataStorage.completeEmployerJob(_jobId);
@@ -497,23 +498,4 @@ contract FreePharma is AccessControl {
 
 
 
-}   
-
-
-
-/* Todos 
-
-::::::::::::::: STATE :::::::::::::::::: 
-
-define: 
-  skills
-  areas
-  rewards
-
-
-Gestion de pay 
---> acounting
---> payement
---> method (hire / complete / pay)
-
-*/
+}

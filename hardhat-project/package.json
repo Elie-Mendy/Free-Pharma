@@ -5,9 +5,10 @@
     "test": "npx hardhat test",
     "coverage": "npx hardhat coverage",
     "blk": "npx hardhat node",
-    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
-    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
-    "deploy:goerli": "npx hardhat run scripts/deploy.js --network goerli",
+    "deploy:simplestorage": "npx hardhat run scripts/00-SimpleStorage-deploy.js --network localhost",
+    "deploy:local": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network localhost",
+    "deploy:sepolia": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network sepolia",
+    "deploy:goerli": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network goerli",
     "clean": "npx hardhat clean"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
     "@types/mocha": "^10.0.1",
     "chai": "^4.3.7",
     "hardhat": "^2.16.1",
+    "hardhat-contract-sizer": "^2.10.0",
     "hardhat-gas-reporter": "^1.0.9",
     "solidity-coverage": "^0.8.4",
     "ts-node": "^10.9.1",
