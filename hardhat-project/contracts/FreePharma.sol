@@ -208,6 +208,13 @@ contract FreePharma is AccessControl {
         emit FreelancerCreated(msg.sender, block.timestamp);
     }
 
+    /// @notice fetch a freelancer.
+    /// @param _freelancerAddresses, the id of the freelancer.
+    /// @return Freelancer, a representation of the selected frelancer.
+    function getOneFreelancer(address _freelancerAddresses) public view returns(IDataStorage.Freelancer memory) {
+        return dataStorage.getFreelancer(_freelancerAddresses);
+    }
+
     /// @notice fetch all freelancers.
     /// @return Freelancer[], an array of freelancers.
     function getFreelancers() public view returns(IDataStorage.Freelancer[] memory) {
@@ -330,7 +337,11 @@ contract FreePharma is AccessControl {
         onlyRole(FREELANCER_ROLE) 
         jobChecked(_jobId, IDataStorage.JobStatus.COMPLETED)
         freelancerChecked(_jobId)
-    {
+    {   
+        // check the end date + 2 days (for this sample project we use minutes)
+        if (dataStorage.getJobEndDate(_jobId) + 2 minutes > block.timestamp) {
+            revert NotAuthorized("You can't claim your salary yet");
+        }
         dataStorage.payFreelancer(_jobId);
         emit FreelancerClaimedSalary(msg.sender, _jobId, block.timestamp);
     }
@@ -419,6 +430,13 @@ contract FreePharma is AccessControl {
         );
     }
 
+    /// @notice fetch a job.
+    /// @param _jobId the job's id.
+    /// @return Job, a representation of the selected job.
+    function getOneJob(uint _jobId) public view returns(IDataStorage.Job memory) {
+        return dataStorage.getJob(_jobId);
+    }
+
     /// @notice allow an employer to modify the attributes of a given job.
     /// @param _jobId the job' id.
     /// @param _salary the potential new job salary.
@@ -488,8 +506,9 @@ contract FreePharma is AccessControl {
         onlyRole(EMPLOYER_ROLE) 
         employerChecked(_jobId) 
     {
-        dataStorage.payFreelancer(_jobId);
         dataStorage.completeEmployerJob(_jobId);
+        dataStorage.payFreelancer(_jobId);
+
         emit EmployerCompletedJob(msg.sender, _jobId, block.timestamp);
     }
 }   

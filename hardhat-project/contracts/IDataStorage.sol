@@ -33,6 +33,7 @@ interface IDataStorage {
         string name;
         bool visible;
         uint[] currentJobOffersIds;
+        uint[] startedJobOffersIds;
         uint[] completedJobOffersIds;
     }
 
@@ -60,6 +61,12 @@ interface IDataStorage {
 
     function getFreelancers() external view returns(Freelancer[] memory);
 
+    function getFreelancerJobApplied (address _freelancerAddress, uint _jobId) external view returns(bool);
+
+    function getFreelancerJobHired (address _freelancerAddress, uint _jobId) external view returns(bool);
+
+    function getFreelancerJobCompleted (address _freelancerAddress, uint _jobId) external view returns(bool);
+    
     function setFreelancer(
         address freelancerAddresses,
         string calldata _name,
@@ -93,6 +100,20 @@ interface IDataStorage {
         string calldata _location
     ) external;
 
+    function getJob(uint _jobId) external view returns(Job memory);
+
+    function getJobStatus(uint _jobId) external view returns(JobStatus);
+
+    function getJobNbCandidates(uint _jobId) external view returns(uint);
+
+    function getJobEmployerAddress(uint _jobId) external view returns(address);
+
+    function getJobFreelancerAddress(uint _jobId) external view returns(address);
+
+    function getJobSalary(uint _jobId) external view returns(uint);
+
+    function getJobEndDate(uint _jobId) external view returns(uint);
+
     function setJob(
         uint _jobId,
         uint _salary,
@@ -118,15 +139,5 @@ interface IDataStorage {
     function getEmployer(address _employerAddresses) external view returns(Employer memory);
 
     function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
-
-    function getJobStatus(uint _jobId) external view returns(JobStatus);
-
-    function getJobNbCandidates(uint _jobId) external view returns(uint);
-
-    function getJobEmployerAddress(uint _jobId) external view returns(address);
-
-    function getJobFreelancerAddress(uint _jobId) external view returns(address);
-
-    function getJobSalary(uint _jobId) external view returns(uint);
 
 }

@@ -29,6 +29,13 @@ contract DataStorage is AccessControl {
         _grantRole(BUSINESS_LOGIC_CONTRACT_ROLE, business_logic_contract);
     }
 
+    function revokeBusinessLogicContract(address business_logic_contract) public {
+        if (!hasRole(DEFAULT_ADMIN_ROLE, msg.sender)) {
+            revert NotAuthorized("Only admin can revoke business logic contract");
+        }
+        revokeRole(BUSINESS_LOGIC_CONTRACT_ROLE, business_logic_contract);
+    }
+
     /// Freelancers
 
     struct Freelancer {
@@ -57,6 +64,7 @@ contract DataStorage is AccessControl {
         string name;
         bool visible;
         uint[] currentJobOffersIds;
+        uint[] startedJobOffersIds;
         uint[] completedJobOffersIds;
     }
 
@@ -101,8 +109,8 @@ contract DataStorage is AccessControl {
     /// Freelancers
 
     /// @notice create a new freelancer.
-    /// @param _freelancerAddresses the freelancer's address.
-    function createFreelancer(address _freelancerAddresses) public {
+    /// @param _freelancerAddresse the freelancer's address.
+    function createFreelancer(address _freelancerAddresse) public {
         freelancers[msg.sender] = Freelancer(
             block.timestamp,
             block.timestamp,
@@ -116,7 +124,36 @@ contract DataStorage is AccessControl {
             false
         );
         freelancerCount.increment();
-        _freelancersAddresses.push(_freelancerAddresses);
+        _freelancersAddresses.push(_freelancerAddresse);
+    }
+
+
+    /// @notice fetch a freelancer.
+    /// @param _freelancerAddresse the freelancer's address.
+    /// @return Freelancer, the freelancer.
+    function getFreelancer(address _freelancerAddresse) public view returns(Freelancer memory) {
+        return freelancers[_freelancerAddresse];
+    }
+
+    /// @notice fetch all freelancer jobs applied.
+    /// @param _freelancerAddresse the freelancer's address.
+    /// @return uint[], an array of job ids.
+    function getFreelancerJobApplied(address _freelancerAddresse) public view returns(uint[] memory) {
+        return freelancers[_freelancerAddresse].appliedJobIds;
+    }
+
+    /// @notice fetch all freelancer jobs hired.
+    /// @param _freelancerAddresse the freelancer's address.
+    /// @return uint[], an array of job ids.
+    function getFreelancerJobHired(address _freelancerAddresse) public view returns(uint[] memory) {
+        return freelancers[_freelancerAddresse].hiredJobIds;
+    }
+
+    /// @notice fetch all freelancer jobs completed.
+    /// @param _freelancerAddresse the freelancer's address.
+    /// @return uint[], an array of job ids.
+    function getFreelancerJobCompleted(address _freelancerAddresse) public view returns(uint[] memory) {
+        return freelancers[_freelancerAddresse].completedJobIds;
     }
 
     /// @notice fetch all freelancers.
@@ -130,26 +167,26 @@ contract DataStorage is AccessControl {
     }
 
     /// @notice allow a freelancer to modify his attributes.
-    /// @param freelancerAddresses the freelancer's address.
+    /// @param _freelancerAddresse the freelancer's address.
     /// @param _name the freelancer's name.
     /// @param _location the freelancer's location.
     /// @param _averageDailyRate the freelancer's average daily rate.
     /// @param _available the freelancer's availablility.
     /// @param _visible the freelancer's visibility.
     function setFreelancer(
-        address freelancerAddresses,
+        address _freelancerAddresse,
         string calldata _name,
         string calldata _location,
         uint _averageDailyRate,
         bool _available,
         bool _visible
     ) public  {
-        freelancers[freelancerAddresses].updated_at = block.timestamp;
-        freelancers[freelancerAddresses].name = _name;
-        freelancers[freelancerAddresses].location = _location;
-        freelancers[freelancerAddresses].averageDailyRate = _averageDailyRate;
-        freelancers[freelancerAddresses].available = _available;
-        freelancers[freelancerAddresses].visible = _visible;
+        freelancers[_freelancerAddresse].updated_at = block.timestamp;
+        freelancers[_freelancerAddresse].name = _name;
+        freelancers[_freelancerAddresse].location = _location;
+        freelancers[_freelancerAddresse].averageDailyRate = _averageDailyRate;
+        freelancers[_freelancerAddresse].available = _available;
+        freelancers[_freelancerAddresse].visible = _visible;
     }
 
     /// @notice allow a freelancer to apply for a job.
@@ -164,9 +201,16 @@ contract DataStorage is AccessControl {
     /// @notice allow a freelancer to confirm his candidature for a job.
     /// @param _jobId the job id.
     /// @param _freelancerAddress the freelancer's address.
+    /// @dev remove the job id from the freelancer 'hiredJobIds' list.
+    /// @dev add the job id into the freelancer 'completedJobIds'.
     /// @dev update the job 'freelancerId' attribute.
     /// @dev update the job status to IN_PROGRESS.
     function confirmCandidature(uint _jobId, address _freelancerAddress) public {
+        employers[jobs[_jobId].employerAddress].startedJobOffersIds.push(_jobId);
+        employers[jobs[_jobId].employerAddress].currentJobOffersIds = _removeJobIdFromArray(
+            _jobId, employers[jobs[_jobId].employerAddress].currentJobOffersIds
+        );
+
         jobs[_jobId].freelancerAddress = _freelancerAddress;
         jobs[_jobId].status = JobStatus.IN_PROGRESS;
     }
@@ -186,7 +230,7 @@ contract DataStorage is AccessControl {
         jobs[_jobId].claimed = true;
         freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
         freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = _removeJobIdFromArray(
-            _jobId, freelancers[jobs[_jobId].freelancerAddress].appliedJobIds
+            _jobId, freelancers[jobs[_jobId].freelancerAddress].hiredJobIds
         );
     }
 
@@ -201,10 +245,18 @@ contract DataStorage is AccessControl {
             "",
             false,
             new uint[](0),
+            new uint[](0),
             new uint[](0)
         );
         employerCount.increment();
         _employersAddresses.push(_employerAddresses);
+    }
+
+    /// @notice fetch an employer.
+    /// @param _employerAddress the employer's address.
+    /// @return Employer, the employer.
+    function getEmployer(address _employerAddress) public view returns(Employer memory) {
+        return employers[_employerAddress];
     }
 
     /// @notice fetch all freelancers.
@@ -245,7 +297,7 @@ contract DataStorage is AccessControl {
         uint _salary,
         string calldata _location
     ) public {
-
+        uint jobId = jobCount.current();
         jobs[jobCount.current()] = Job(
             _startDate,
             _endDate,
@@ -261,8 +313,59 @@ contract DataStorage is AccessControl {
             _location,
             JobStatus.OPEN
         );
-
         jobCount.increment();
+        employers[_employerAddress].currentJobOffersIds.push(jobId);
+
+    }
+
+    /// @notice fetch a job.
+    /// @param _jobId the job's id.
+    /// @return Job, the job.
+    function getJob(uint _jobId) public view returns(Job memory) {
+        return jobs[_jobId];
+    }
+
+    /// @notice fetch the job status
+    /// @param _jobId the job's id.
+    /// @return JobStatus, the job status.
+    function getJobStatus(uint _jobId) public view returns(JobStatus) {
+        return jobs[_jobId].status;
+    }
+
+    /// @notice fetch the number of candidates for a given job.
+    /// @param _jobId the job's id.
+    /// @return uint, the number of candidates.
+    function getJobNbCandidates(uint _jobId) public view returns(uint) {
+        return jobs[_jobId].candidates.length;
+    }
+
+    /// @notice fetch the job employer address.
+    /// @param _jobId the job's id.
+    /// @return address, the employer address.
+    function getJobEmployerAddress(uint _jobId) public view returns(address) {
+        return jobs[_jobId].employerAddress;
+    }
+
+    /// @notice fetch the job freelancer address.
+    /// @param _jobId the job's id.
+    /// @return address, the freelancer address.
+    function getJobFreelancerAddress(uint _jobId) public view returns(address) {
+        return jobs[_jobId].freelancerAddress;
+    }
+
+
+    /// @notice fetch the job salary.
+    /// @param _jobId the job's id.
+    /// @return uint, the job salary.
+    function getJobSalary(uint _jobId) public view returns(uint) {
+        return jobs[_jobId].salary;
+    }
+
+    /// @notice fetch the job end date.
+    /// @param _jobId the job's id.
+    /// @return uint, the job end date.
+    function getJobEndDate(uint _jobId) public view returns(uint) {
+        return jobs[_jobId].endDate;
     }
 
     /// @notice allow an employer to modify the attributes of a given job.
@@ -307,7 +410,7 @@ contract DataStorage is AccessControl {
         jobs[_jobId].status = JobStatus.COMPLETED;
         freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
         freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = _removeJobIdFromArray(
-            _jobId, freelancers[jobs[_jobId].freelancerAddress].appliedJobIds
+            _jobId, freelancers[jobs[_jobId].freelancerAddress].hiredJobIds
         );
     }
 
@@ -322,6 +425,10 @@ contract DataStorage is AccessControl {
             jobs[_jobId].freelancerAddress,
             jobs[_jobId].salary
         );
+        employers[jobs[_jobId].employerAddress].completedJobOffersIds.push(_jobId);
+        employers[jobs[_jobId].employerAddress].startedJobOffersIds = _removeJobIdFromArray(
+            _jobId, employers[jobs[_jobId].employerAddress].startedJobOffersIds
+        );
         jobs[_jobId].status = JobStatus.PAID;
     }
 
@@ -329,27 +436,24 @@ contract DataStorage is AccessControl {
 
     /* ::::::::::::::: GETTERS :::::::::::::::::: */
 
+    /// @notice fetch the number of job.
+    /// @return uint, the number of job.
     function getJobCount() public view returns(uint) {
         return jobCount.current();
     }
 
+    /// @notice fetch the number of freelancer.
+    /// @return uint, the number of freelancer.
     function getFreelancerCount() public view returns(uint) {
         return freelancerCount.current();
     }
 
+    /// @notice fetch the number of employer.
+    /// @return uint, the number of employer.
     function getEmployerCount() public view returns(uint) {
         return employerCount.current();
     }
 
-    function getFreelancer(address _freelancerAddresses) public view returns(Freelancer memory) {
-        return freelancers[_freelancerAddresses];
-    }
-
-    function getEmployer(address _employerAddresses) public view returns(Employer memory) {
-        return employers[_employerAddresses];
-    }
-
-    
     /* :::::::::: HELPERS :::::::::: */
 
     function _removeJobIdFromArray(uint _jobId, uint[] memory _array) private pure returns(uint[] memory) {
@@ -373,23 +477,4 @@ contract DataStorage is AccessControl {
         return false;
     }
 
-    function getJobStatus(uint _jobId) public view returns(JobStatus) {
-        return jobs[_jobId].status;
-    }
-
-    function getJobNbCandidates(uint _jobId) public view returns(uint) {
-        return jobs[_jobId].candidates.length;
-    }
-
-    function getJobEmployerAddress(uint _jobId) public view returns(address) {
-        return jobs[_jobId].employerAddress;
-    }
-
-    function getJobFreelancerAddress(uint _jobId) public view returns(address) {
-        return jobs[_jobId].freelancerAddress;
-    }
-
-    function getJobSalary(uint _jobId) public view returns(uint) {
-        return jobs[_jobId].salary;
-    }
 }
