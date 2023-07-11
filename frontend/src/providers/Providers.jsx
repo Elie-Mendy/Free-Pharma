@@ -3,13 +3,16 @@ import ChakraUIProvider from "./ChakraUIProvider";
 import RainbowkitProviders from "./RainbowkitProvider";
 
 // contract provider
-import { SimpleStorageProvider }  from "./SimpleStorageProvider";
+import { SimpleStorageProvider } from "./SimpleStorageProvider";
+import { WagmiProvider } from "./WagmiProvider";
 
 export function Providers({ children }) {
     return (
         <ChakraUIProvider>
             <RainbowkitProviders>
-                <SimpleStorageProvider>{children}</SimpleStorageProvider>
+                <WagmiProvider>
+                    <SimpleStorageProvider>{children}</SimpleStorageProvider>
+                </WagmiProvider>
             </RainbowkitProviders>
         </ChakraUIProvider>
     );

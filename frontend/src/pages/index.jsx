@@ -1,41 +1,60 @@
 import { useContext, useState } from "react";
-import { Button, Flex, Heading, Input, Stack, Text } from "@chakra-ui/react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {
+    Button,
+    Flex,
+    HStack,
+    Heading,
+    Input,
+    Stack,
+    Text,
+} from "@chakra-ui/react";
 
 // contract context
 import { SimpleStorageContext } from "@/providers/SimpleStorageProvider";
+import MainLayout from "@/layouts/MainLayout";
 
-function index() {
+const Index = () => {
     const { storedValue, setValue, valueStoredData } =
         useContext(SimpleStorageContext);
     const [inputValue, setInputValue] = useState(0);
     return (
-        <>
-            <ConnectButton />
-            <Flex justify={"center"} mt={8}>
-                <Heading>Stored value : {storedValue}</Heading>
-            </Flex>
+        <MainLayout>
+            <Flex
+                justify={"space-evenly"}
+                align={"center"}
+                direction={"column"}
+                w={"100%"}
+                h={"100%"}
+                gap={4}
+            >
+                <Stack gap={5} >
+                    <Heading>
+                        Stored value : {storedValue}
+                        
+                    </Heading>
+                    <HStack>
+                            <Input
+                                type="number"
+                                placeholder="value to store"
+                                w={"80%"}
+                                onChange={(e) => setInputValue(e.target.value)}
+                            />
+                            <Button onClick={() => setValue(inputValue)}>
+                                Store value
+                            </Button>
+                        </HStack>
+                </Stack>
 
-            <Flex justify={"center"} mt={8}>
-                <Input
-                    type="number"
-                    placeholder="value to store"
-                    w={"25%"}
-                    onChange={(e) => setInputValue(e.target.value)}
-                />
-                <Button onClick={() => setValue(inputValue)}>
-                    Store value
-                </Button>
+                <Stack spacing={4} align="center" justify="center" mt={8}>
+                    {valueStoredData.map((log, index) => (
+                        <Text key={index}>
+                            {log.author} : {log.value}
+                        </Text>
+                    ))}
+                </Stack>
             </Flex>
-            <Stack spacing={4} align="center" justify="center" mt={8}>
-                {valueStoredData.map((log, index) => (
-                    <Text key={index}>
-                        {log.author} : {log.value}
-                    </Text>
-                ))}
-            </Stack>
-        </>
+        </MainLayout>
     );
-}
+};
 
-export default index;
+export default Index;
