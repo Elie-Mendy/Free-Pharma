@@ -118,11 +118,11 @@ export function useSimpleStorage() {
 
     const fetchStoredValues = async () => {
         // get all logs
+        console.log(client.chain)
         const ValueStoredLogs = await client.getLogs({
             address: contractAddress,
             event: parseAbiItem("event ValueStored(address author, uint value)"),
-
-            fromBlock: 0n,
+            fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
             toBlock: 'latest', // default value, no need to specify 
         });
         setValueStoredLogs(ValueStoredLogs);

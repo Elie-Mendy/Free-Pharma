@@ -11,12 +11,19 @@ import {
 
 // Wagmi provider
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, hardhat } from "wagmi/chains";
+import {
+    mainnet,
+    polygon,
+    optimism,
+    arbitrum,
+    sepolia,
+    hardhat,
+} from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 // wagmi config
 const { chains, publicClient } = configureChains(
-    [mainnet, polygon, optimism, arbitrum, hardhat],
+    [mainnet, polygon, optimism, arbitrum, sepolia, hardhat],
     [publicProvider()]
 );
 
