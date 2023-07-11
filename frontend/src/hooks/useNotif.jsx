@@ -11,9 +11,9 @@ export const useNotif = () => {
             toast({
                 title: "Confirmation !",
                 description: info,
-                status: "info",
+                status: "success",
                 duration: 4000,
-                position: "top-right",
+                position: "botom-right",
                 isClosable: true,
             });
         if (error)
