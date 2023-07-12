@@ -12,38 +12,37 @@ export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected, address, chain } = useWagmi();
     const isFreelance = false;
-    const isEmployer = false;
+    const isEmployer = true;
 
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-    const showConnexion = isConnected;
     const isRegistered = isFreelance || isEmployer;
-    const showApp = isConnected & (isFreelance || isEmployer);
+    const showConnexion = !isConnected || !isRegistered;
+    const showApp = !isConnected & !isRegistered;
     // if not connected, display the connexion page
+
     return (
         <Flex direction={"column"} h={"100vh"}>
-            {isConnected || isRegistered ? (
-                <Connexion isRegistered={isRegistered}/>
-            ) : (
-                showApp && (
-                    <>
-                        <Sidebar
-                            variant={variants?.navigation}
-                            isOpen={isSidebarOpen}
-                            onClose={toggleSidebar}
+            {showConnexion ? (
+                <Connexion isConnected={isConnected} isRegistered={isRegistered} />
+            ) :(
+                <>
+                    <Sidebar
+                        variant={variants?.navigation}
+                        isOpen={isSidebarOpen}
+                        onClose={toggleSidebar}
+                    />
+                    <Flex direction={"column"} h={"100%"}>
+                        <Header
+                            showSidebarButton={variants?.navigationButton}
+                            onShowSidebar={toggleSidebar}
                         />
-                        <Flex direction={"column"} h={"100%"}>
-                            <Header
-                                showSidebarButton={variants?.navigationButton}
-                                onShowSidebar={toggleSidebar}
-                            />
-                            {children}
-                        </Flex>
-                    </>
-                )
+                        {children}
+                    </Flex>
+                </>
             )}
         </Flex>
     );

@@ -10,7 +10,6 @@ import {
     useBreakpointValue,
     Box,
 } from "@chakra-ui/react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import BlurBackground from "../generic/BlurBackground";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 import ConnexionForm from "./ConnexionForm";
@@ -39,7 +38,9 @@ const avatars = [
     },
 ];
 
-export default function Connexion({isRegistered}) {
+export default function Connexion({isConnected, isRegistered}) {
+    console.log("isRegistered", isRegistered)
+    console.log("isConnected", isConnected)
     return (
         <Flex p={5} position={"relative"} h={"100%"} align={"center"}>
             <BlurBackground />
@@ -141,7 +142,7 @@ export default function Connexion({isRegistered}) {
                         </Flex>
                     </Stack>
                 </Stack>
-                { isRegistered ? <ConnexionForm /> : <RegistrationForm /> }
+                { isConnected ?  <RegistrationForm /> : <ConnexionForm /> }
             </Container>
             <Box alignSelf={"flex-start"}>
                 <ColorModeSwitcher />

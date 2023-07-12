@@ -1,23 +1,21 @@
 import {
-    Box,
-    Button,
-    HStack,
     Heading,
-    Input,
     Stack,
-    Switch,
     Tab,
     TabList,
     TabPanel,
     TabPanels,
     Tabs,
     Text,
+    useColorModeValue,
 } from "@chakra-ui/react";
+import FreelancerForm from "../profile/FreelancerForm";
+import EmployerForm from "../profile/EmployerForm";
 
 function RegistrationForm() {
     return (
         <Stack
-            bg={"gray.50"}
+            bg={useColorModeValue("gray.50", "gray.700")}
             rounded={"xl"}
             p={{ base: 4, sm: 6, md: 8 }}
             spacing={{ base: 8 }}
@@ -26,6 +24,7 @@ function RegistrationForm() {
             <Stack spacing={4}>
                 <Heading
                     color={"gray.800"}
+                    color={useColorModeValue("gray.800", "white")}
                     lineHeight={1.1}
                     fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                 >
@@ -44,7 +43,7 @@ function RegistrationForm() {
                     aliquam dolor eveniet?
                 </Text>
             </Stack>
-            <Tabs isFitted variant="soft-rounded" colorScheme="cyan">
+            <Tabs isFitted variant="soft-rounded" colorScheme="blue">
                 <TabList>
                     <Tab>Freelancer</Tab>
                     <Tab>Porteur de projet</Tab>
@@ -52,85 +51,13 @@ function RegistrationForm() {
 
                 <TabPanels>
                     <TabPanel>
-                        <p>one!</p>
+                       <FreelancerForm />
                     </TabPanel>
                     <TabPanel>
-                        <p>two!</p>
+                        <EmployerForm />
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-            <Box as={"form"} mt={10}>
-                <Stack spacing={4}>
-                    <Input
-                        placeholder="Pseudonyme"
-                        bg={"gray.100"}
-                        border={0}
-                        color={"gray.500"}
-                        _placeholder={{
-                            color: "gray.400",
-                        }}
-                    />
-                    <Input
-                        placeholder="email@freepharma.fr"
-                        bg={"gray.100"}
-                        border={0}
-                        color={"gray.500"}
-                        _placeholder={{
-                            color: "gray.400",
-                        }}
-                    />
-
-                    <Input
-                        placeholder="Région parisienne"
-                        bg={"gray.100"}
-                        border={0}
-                        color={"gray.500"}
-                        _placeholder={{
-                            color: "gray.400",
-                        }}
-                    />
-                    <HStack>
-                        <Switch
-                            colorScheme="cyan"
-                            id="availablility"
-                            size={"lg"}
-                        />
-                        <Text
-                            color={"gray.500"}
-                            fontSize={{ base: "sm", sm: "md" }}
-                        >
-                            Disponible
-                        </Text>
-                    </HStack>
-                    <HStack>
-                        <Switch
-                            colorScheme="pink"
-                            id="visibility"
-                            size={"lg"}
-                        />
-                        <Text
-                            color={"gray.500"}
-                            fontSize={{ base: "sm", sm: "md" }}
-                        >
-                            Visibile par les recruteurs
-                        </Text>
-                    </HStack>
-                </Stack>
-                <Button
-                    fontFamily={"heading"}
-                    mt={8}
-                    w={"full"}
-                    bgGradient="linear(to-r, red.400,pink.400)"
-                    color={"white"}
-                    _hover={{
-                        bgGradient: "linear(to-r, red.400,pink.400)",
-                        boxShadow: "xl",
-                    }}
-                >
-                    Submit
-                </Button>
-            </Box>
-            form
         </Stack>
     );
 }
