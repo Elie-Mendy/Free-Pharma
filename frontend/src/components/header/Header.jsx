@@ -1,14 +1,4 @@
-import {
-    Center,
-    Text,
-    Flex,
-    Avatar,
-    HStack,
-    Spacer,
-    useColorModeValue,
-    Box,
-    Heading,
-} from "@chakra-ui/react";
+import { Text, Flex, Avatar, HStack, Spacer, Heading } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 
@@ -21,10 +11,13 @@ const Header = ({ onShowSidebar }) => {
                 fontSize={"2xl"}
             >
                 <HStack>
-                    <Box color={useColorModeValue("blue.600", "green.300")}>
-                        FREE
-                    </Box>{" "}
-                    <Box>PHARMA</Box>
+                    <Text
+                        as={"span"}
+                        bgGradient="linear(to-r, red.400,pink.400)"
+                        bgClip="text"
+                    >
+                        FREE PHARMA
+                    </Text>{" "}
                 </HStack>
             </Heading>
             <Spacer />
@@ -35,7 +28,8 @@ const Header = ({ onShowSidebar }) => {
                     mx={"1.5rem"}
                     size="md"
                     name="J C"
-                    bg={useColorModeValue("blue.600", "green.300")}
+                    src="https://bit.ly/sage-adebayo"
+                    bgGradient="linear(to-r, red.400,pink.400)"
                     onClick={onShowSidebar}
                 />
             </HStack>

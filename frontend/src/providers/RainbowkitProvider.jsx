@@ -4,10 +4,21 @@ import { useEffect, useState } from "react";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import {
-    getDefaultWallets,
+    connectorsForWallets,
     RainbowKitProvider,
     lightTheme,
 } from "@rainbow-me/rainbowkit";
+
+import {
+    metaMaskWallet,
+    ledgerWallet,
+    walletConnectWallet,
+    coinbaseWallet,
+    rainbowWallet,
+    argentWallet,
+    trustWallet,
+    injectedWallet
+} from '@rainbow-me/rainbowkit/wallets';
 
 // Wagmi provider
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
@@ -27,11 +38,27 @@ const { chains, publicClient } = configureChains(
     [publicProvider()]
 );
 
-const { connectors } = getDefaultWallets({
-    appName: process.env.NEXT_PUBLIC_WALLET_CONNECT_APPNAME,
-    projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
-    chains,
-});
+const projectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID;
+const connectors = connectorsForWallets([
+    {
+        groupName: 'Recommended',
+        wallets: [
+            injectedWallet({ chains }),
+            metaMaskWallet({ projectId, chains }),
+            ledgerWallet({ projectId, chains }),
+        ],
+    },
+    {
+        groupName: 'Others',
+        wallets: [
+            walletConnectWallet({ projectId, chains }),
+            coinbaseWallet({ chains, appName: projectId }),
+            trustWallet({ projectId, chains }),
+            rainbowWallet({ projectId, chains }),
+            argentWallet({ projectId, chains }),
+        ],
+    },
+]);
 
 const wagmiConfig = createConfig({
     autoConnect: true,
