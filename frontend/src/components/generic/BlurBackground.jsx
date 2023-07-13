@@ -2,7 +2,7 @@ import { Flex, useBreakpointValue, Icon } from "@chakra-ui/react";
 
 export default function BlurBackground({ children }) {
     return (
-        <Flex position={"relative"} h={"100%"} align={"center"}>
+        <Flex position={"relative"} h={"100%"} align={"center"} zIndex={-1}>
             <Icon
                 width={useBreakpointValue({
                     base: "100%",

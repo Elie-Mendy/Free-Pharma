@@ -2,7 +2,7 @@ import { Box, Button, HStack, Input, Stack, Switch, Text, useColorModeValue } fr
 
 export default function FreelancerForm() {
     return (
-        <Box as={"form"} mt={10}>
+        <Box as={"form"} mt={5}>
             <Stack spacing={4}>
                 <Input
                     placeholder="Pseudonyme"

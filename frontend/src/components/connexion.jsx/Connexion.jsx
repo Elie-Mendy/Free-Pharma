@@ -39,15 +39,14 @@ const avatars = [
 ];
 
 export default function Connexion({isConnected, isRegistered}) {
-    console.log("isRegistered", isRegistered)
-    console.log("isConnected", isConnected)
+    
     return (
         <Flex p={5} position={"relative"} h={"100%"} align={"center"}>
             <BlurBackground />
             <Container
                 as={SimpleGrid}
                 maxW={"7xl"}
-                columns={{ base: 1, md: 2 }}
+                columns={{ base: 1, lg: 2 }}
                 spacing={{ base: 10, lg: 32 }}
                 py={{ base: 10, sm: 20, lg: 32 }}
             >
@@ -79,10 +78,10 @@ export default function Connexion({isConnected, isRegistered}) {
                                     key={avatar.name}
                                     name={avatar.name}
                                     src={avatar.url}
-                                    size={useBreakpointValue({
+                                    size={{
                                         base: "md",
                                         md: "lg",
-                                    })}
+                                    }}
                                     position={"relative"}
                                     zIndex={2}
                                     _before={{

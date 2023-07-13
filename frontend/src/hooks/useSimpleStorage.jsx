@@ -25,7 +25,7 @@ export function useSimpleStorage() {
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
-    const [storedValue, setStoredValue] = useState(null);
+    const [storedValue, setStoredValue] = useState("");
 
     // ::::::::::: LOGS & DATA :::::::::::
     const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -43,30 +43,13 @@ export function useSimpleStorage() {
 
         // get stored value
         const value = await getStoredData();
-        
+
         // Set state hook
         setContract(simpleStorage);
         setStoredValue(value.toString());
     };
 
-    useEffect(() => {
-        if (!isConnected) return;
-        try {
-            loadContract();
-            fetchStoredValues();
-            setUpListeners();
-        } catch (error) {
-            toast({
-                title: "Error Contract !",
-                description: "Impossible de trouver le contract.",
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
-        }
-    }, [isConnected, address, chain?.id]);
-
+    
     // ::::::::::: Contract Functions :::::::::::
 
     const getStoredData = async () => {
@@ -118,12 +101,13 @@ export function useSimpleStorage() {
 
     const fetchStoredValues = async () => {
         // get all logs
-        console.log(client.chain)
         const ValueStoredLogs = await client.getLogs({
             address: contractAddress,
-            event: parseAbiItem("event ValueStored(address author, uint value)"),
+            event: parseAbiItem(
+                "event ValueStored(address author, uint value)"
+            ),
             fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
-            toBlock: 'latest', // default value, no need to specify 
+            toBlock: "latest", // default value, no need to specify
         });
         setValueStoredLogs(ValueStoredLogs);
 
@@ -145,6 +129,30 @@ export function useSimpleStorage() {
         setStoredValue(value.toString());
     };
 
+
+    useEffect(() => {
+        if (!isConnected) return;
+        try {
+            loadContract();
+            fetchStoredValues();
+            setUpListeners();
+        } catch (error) {
+            toast({
+                title: "Error Contract !",
+                description: "Impossible de trouver le contract.",
+                status: "error",
+                duration: 9000,
+                position: "top-right",
+                isClosable: true,
+            });
+        }
+    }, [
+        isConnected,
+        address,
+        chain?.id
+    ]);
+
+    
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data

@@ -1,6 +1,6 @@
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/header/Header";
-import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, useBreakpointValue } from "@chakra-ui/react";
 import { useState } from "react";
 import { useWagmi } from "@/hooks/useWagmi";
 import Connexion from "@/components/connexion.jsx/Connexion";
@@ -10,7 +10,7 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
-    const { isConnected, address, chain } = useWagmi();
+    const { isConnected } = useWagmi();
     const isFreelance = false;
     const isEmployer = true;
 

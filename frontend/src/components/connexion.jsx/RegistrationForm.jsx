@@ -18,14 +18,12 @@ function RegistrationForm() {
             bg={useColorModeValue("gray.50", "gray.700")}
             rounded={"xl"}
             p={{ base: 4, sm: 6, md: 8 }}
-            spacing={{ base: 8 }}
-            maxW={{ lg: "lg" }}
+            spacing={8 }
+            maxW={"lg"}
         >
             <Stack spacing={4}>
                 <Heading
-                    color={"gray.800"}
                     color={useColorModeValue("gray.800", "white")}
-                    lineHeight={1.1}
                     fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                 >
                     Parlez nous de vous{" "}
