@@ -61,7 +61,7 @@ export default function FreelancerStats() {
                 py={10}
                 fontWeight={"bold"}
             >
-                Récapitulatif de votre parcour
+                Récapitulatif de votre parcours
             </chakra.h1>
             <SimpleGrid
                 columns={{ base: 1, md: 3 }}

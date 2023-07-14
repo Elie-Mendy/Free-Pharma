@@ -1,57 +1,36 @@
-import { useContext, useState } from "react";
-import {
-    Button,
-    Flex,
-    HStack,
-    Heading,
-    Input,
-    Stack,
-    Text,
-} from "@chakra-ui/react";
+import { Flex, SimpleGrid } from "@chakra-ui/react";
 
 // contract context
-import { SimpleStorageContext } from "@/providers/SimpleStorageProvider";
 import MainLayout from "@/layouts/MainLayout";
+import { FreelancerCard } from "@/components/feed/FreelancerCard";
+import SearchBar from "@/components/generic/Searchbar";
+import BlurBackground from "@/components/generic/BlurBackground";
+import { OfferCard } from "@/components/feed/OfferCard";
 
+const searchMode = "offers";
+const freelancers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const offers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Index = () => {
-    const { storedValue, setValue, valueStoredData } =
-        useContext(SimpleStorageContext);
-    const [inputValue, setInputValue] = useState(0);
     return (
         <MainLayout>
             <Flex
-                justify={"space-evenly"}
-                align={"center"}
-                direction={"column"}
-                w={"100%"}
-                h={"100%"}
-                gap={4}
+                mt={"1vh"}
+                ml={{ base: "1vh", lg: "5vh", xl: "10vh", "2xl": "15vh" }}
+                mr={{ base: "1vh", lg: "5vh", xl: "10vh", "2xl": "15vh" }}
+                maxW={{ base: "100%", lg: "90%", xl: "80%", "2xl": "70%" }}
+                p="10px"
+                flexDirection={"column"}
             >
-                <Stack gap={5} >
-                    <Heading>
-                        Stored value : {storedValue}
-                        
-                    </Heading>
-                    <HStack>
-                            <Input
-                                type="number"
-                                placeholder="value to store"
-                                w={"80%"}
-                                onChange={(e) => setInputValue(e.target.value)}
-                            />
-                            <Button onClick={() => setValue(inputValue)}>
-                                Store value
-                            </Button>
-                        </HStack>
-                </Stack>
+                <SearchBar />
 
-                <Stack spacing={4} align="center" justify="center" mt={8}>
-                    {valueStoredData.map((log, index) => (
-                        <Text key={index}>
-                            {log.author} : {log.value}
-                        </Text>
-                    ))}
-                </Stack>
+                <BlurBackground />
+                <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} spacing={10}>
+                    {searchMode === "offers" ? freelancers.map(() => (
+                        <OfferCard />
+                    )) : offers.map(() => (
+                        <FreelancerCard />
+                    )) }
+                </SimpleGrid>
             </Flex>
         </MainLayout>
     );

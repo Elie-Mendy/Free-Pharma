@@ -22,7 +22,7 @@ import EmployerStats from "@/components/profile/EmployerStats";
 import { EmployerTableData } from "@/components/profile/EmployerTableData";
 import EmployerForm from "@/components/profile/EmployerForm";
 
-const isEmployer = true;
+const isEmployer = false;
 
 const data = {
     title: isEmployer

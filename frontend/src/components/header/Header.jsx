@@ -1,39 +1,69 @@
-import { Text, Flex, Avatar, HStack, Spacer, Heading } from "@chakra-ui/react";
+import {
+    Text,
+    Flex,
+    Avatar,
+    HStack,
+    Spacer,
+    Heading,
+    Hide,
+} from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 
 const Header = ({ onShowSidebar }) => {
     return (
-        <Flex p={4} justifyContent={"space-evenly"}>
-            <Heading
-                ml={{ base: "2vh", lg: "5vh", xl: "5vh", "2xl": "5vh" }}
-                as="h1"
-                fontSize={"2xl"}
+        <>
+            <Flex
+                p={4}
+                justifyContent={"space-evenly"}
+                w={"100%"}
+                align={"center"}
             >
+                <Heading
+                    ml={{ base: "2vh", lg: "5vh", xl: "5vh", "2xl": "5vh" }}
+                    as="h1"
+                    fontSize={"4xl"}
+                >
+                    <HStack>
+                        <Text
+                            as={"span"}
+                            bgGradient="linear(to-r, red.400,pink.400)"
+                            bgClip="text"
+                            letterSpacing={"0.2rem"}
+                        >
+                            FREE PHARMA
+                        </Text>{" "}
+                    </HStack>
+                </Heading>
+                <Spacer />
                 <HStack>
-                    <Text
-                        as={"span"}
+                    <Hide below="lg">
+                        <ConnectButton />
+                        <ColorModeSwitcher />
+                    </Hide>
+
+                    <Avatar
+                        mx={"1.5rem"}
+                        size="md"
+                        name="J C"
+                        src="https://bit.ly/sage-adebayo"
                         bgGradient="linear(to-r, red.400,pink.400)"
-                        bgClip="text"
-                    >
-                        FREE PHARMA
-                    </Text>{" "}
+                        onClick={onShowSidebar}
+                    />
                 </HStack>
-            </Heading>
-            <Spacer />
-            <HStack>
-                <ConnectButton />
-                <ColorModeSwitcher />
-                <Avatar
-                    mx={"1.5rem"}
-                    size="md"
-                    name="J C"
-                    src="https://bit.ly/sage-adebayo"
-                    bgGradient="linear(to-r, red.400,pink.400)"
-                    onClick={onShowSidebar}
-                />
-            </HStack>
-        </Flex>
+            </Flex>
+            <Flex
+                px={10}
+                justifyContent={"space-between"}
+                w={"100%"}
+                align={"center"}
+            >
+                <Hide above="lg">
+                    <ConnectButton />
+                    <ColorModeSwitcher />
+                </Hide>
+            </Flex>
+        </>
     );
 };
 

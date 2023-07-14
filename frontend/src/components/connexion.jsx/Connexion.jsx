@@ -69,7 +69,14 @@ export default function Connexion({isConnected, isRegistered}) {
                         >
                             &
                         </Text>{" "}
-                        Porteurs de projets
+                        Porteurs de projets en{" "}
+                        <Text
+                            as={"span"}
+                            bgGradient="linear(to-r, red.400,pink.400)"
+                            bgClip="text"
+                        >
+                            pharmacie
+                        </Text>{" "}
                     </Heading>
                     <Stack direction={"row"} spacing={4} align={"center"}>
                         <AvatarGroup>
