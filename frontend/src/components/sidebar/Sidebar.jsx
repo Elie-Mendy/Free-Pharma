@@ -40,6 +40,11 @@ const SidebarContent = ({ onClick }) => (
                 Vote
             </Button>
         </Link>
+        <Link href="/simplestorage">
+            <Button onClick={onClick} w="100%">
+                Simple Storage
+            </Button>
+        </Link>
     </Flex>
 );
 
