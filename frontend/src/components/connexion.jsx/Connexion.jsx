@@ -10,7 +10,6 @@ import {
     useBreakpointValue,
     Box,
 } from "@chakra-ui/react";
-import BlurBackground from "../generic/BlurBackground";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 import ConnexionForm from "./ConnexionForm";
 import RegistrationForm from "./RegistrationForm";
@@ -42,7 +41,6 @@ export default function Connexion({isConnected, isRegistered}) {
     
     return (
         <Flex p={5} position={"relative"} h={"100%"} align={"center"}>
-            <BlurBackground />
             <Container
                 as={SimpleGrid}
                 maxW={"7xl"}

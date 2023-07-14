@@ -33,11 +33,7 @@ const Logo = (props) => {
     );
 };
 
-const SocialButton = ({
-    children,
-    label,
-    href,
-}) => {
+const SocialButton = ({ children, label, href }) => {
     return (
         <chakra.button
             bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
@@ -69,81 +65,81 @@ const ListHeader = ({ children }) => {
     );
 };
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
     return (
         <Flex
             bg={useColorModeValue("gray.50", "gray.900")}
             color={useColorModeValue("gray.700", "gray.200")}
             p={10}
             w={"full"}
+            h={"full"}
             justify={"space-evenly"}
             direction={{ base: "column", md: "row" }}
             gap={5}
             mt={10}
         >
-
-                    <Stack spacing={6}>
-                        <Box>
-                            <Text fontSize={"xl"} fontWeight={"bold"}>
-                                Free Pharma
-                            </Text>
-                        </Box>
-                        <Text fontSize={"sm"}>
-                            © 2022 free pharma. All rights reserved
-                        </Text>
-                        <Stack direction={"row"} spacing={6}>
-                            <SocialButton label={"Twitter"} href={"#"}>
-                                <FaTwitter />
-                            </SocialButton>
-                            <SocialButton label={"YouTube"} href={"#"}>
-                                <FaYoutube />
-                            </SocialButton>
-                            <SocialButton label={"Instagram"} href={"#"}>
-                                <FaInstagram />
-                            </SocialButton>
-                        </Stack>
-                    </Stack>
-                    <Stack align={"flex-start"}>
-                        <ListHeader>Organisation décentralisée</ListHeader>
-                        <Link href={"#"}>A propos</Link>
-                        <Link href={"#"}>Blog</Link>
-                        <Link href={"#"}>Contact</Link>
-                        <Link href={"#"}>Stacking</Link>
-                        <Link href={"#"}>Témoignages</Link>
-                    </Stack>
-                    <Stack align={"flex-start"}>
-                        <ListHeader>Support</ListHeader>
-                        <Link href={"#"}>Aide</Link>
-                        <Link href={"#"}>Terms of Service</Link>
-                        <Link href={"#"}>Legal</Link>
-                        <Link href={"#"}>Politique de confidentialité</Link>
-                        <Link href={"#"}>Statut</Link>
-                    </Stack>
-                    <Stack align={"flex-start"}>
-                        <ListHeader>Restez informé</ListHeader>
-                        <Stack direction={"row"}>
-                            <Input
-                                placeholder={"Votre adresse email"}
-                                bg={useColorModeValue(
-                                    "blackAlpha.100",
-                                    "whiteAlpha.100"
-                                )}
-                                border={0}
-                                _focus={{
-                                    bg: "whiteAlpha.300",
-                                }}
-                            />
-                            <IconButton
-                                bg={useColorModeValue("green.400", "green.800")}
-                                color={useColorModeValue("white", "gray.800")}
-                                _hover={{
-                                    bg: "green.600",
-                                }}
-                                aria-label="Subscribe"
-                                icon={<BiMailSend />}
-                            />
-                        </Stack>
-                    </Stack>
+            <Stack spacing={6}>
+                <Box>
+                    <Text fontSize={"xl"} fontWeight={"bold"}>
+                        Free Pharma
+                    </Text>
+                </Box>
+                <Text fontSize={"sm"}>
+                    © 2022 free pharma. All rights reserved
+                </Text>
+                <Stack direction={"row"} spacing={6}>
+                    <SocialButton label={"Twitter"} href={"#"}>
+                        <FaTwitter />
+                    </SocialButton>
+                    <SocialButton label={"YouTube"} href={"#"}>
+                        <FaYoutube />
+                    </SocialButton>
+                    <SocialButton label={"Instagram"} href={"#"}>
+                        <FaInstagram />
+                    </SocialButton>
+                </Stack>
+            </Stack>
+            <Stack align={"flex-start"}>
+                <ListHeader>Organisation décentralisée</ListHeader>
+                <Link href={"#"}>A propos</Link>
+                <Link href={"#"}>Blog</Link>
+                <Link href={"#"}>Contact</Link>
+                <Link href={"#"}>Stacking</Link>
+                <Link href={"#"}>Témoignages</Link>
+            </Stack>
+            <Stack align={"flex-start"}>
+                <ListHeader>Support</ListHeader>
+                <Link href={"#"}>Aide</Link>
+                <Link href={"#"}>Terms of Service</Link>
+                <Link href={"#"}>Legal</Link>
+                <Link href={"#"}>Politique de confidentialité</Link>
+                <Link href={"#"}>Statut</Link>
+            </Stack>
+            <Stack align={"flex-start"}>
+                <ListHeader>Restez informé</ListHeader>
+                <Stack direction={"row"}>
+                    <Input
+                        placeholder={"Votre adresse email"}
+                        bg={useColorModeValue(
+                            "blackAlpha.100",
+                            "whiteAlpha.100"
+                        )}
+                        border={0}
+                        _focus={{
+                            bg: "whiteAlpha.300",
+                        }}
+                    />
+                    <IconButton
+                        bg={useColorModeValue("green.400", "green.800")}
+                        color={useColorModeValue("white", "gray.800")}
+                        _hover={{
+                            bg: "green.600",
+                        }}
+                        aria-label="Subscribe"
+                        icon={<BiMailSend />}
+                    />
+                </Stack>
+            </Stack>
         </Flex>
     );
 }

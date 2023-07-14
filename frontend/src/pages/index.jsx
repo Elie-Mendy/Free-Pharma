@@ -1,4 +1,4 @@
-import { Flex, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
 
 // contract context
 import MainLayout from "@/layouts/MainLayout";
@@ -6,31 +6,43 @@ import { FreelancerCard } from "@/components/feed/FreelancerCard";
 import SearchBar from "@/components/generic/Searchbar";
 import BlurBackground from "@/components/generic/BlurBackground";
 import { OfferCard } from "@/components/feed/OfferCard";
+import { useState } from "react";
 
-const searchMode = "offers";
+
 const freelancers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const offers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Index = () => {
+    const [searchMode, setSearchMode] = useState("");
+
     return (
         <MainLayout>
             <Flex
-                mt={"1vh"}
-                ml={{ base: "1vh", lg: "5vh", xl: "10vh", "2xl": "15vh" }}
-                mr={{ base: "1vh", lg: "5vh", xl: "10vh", "2xl": "15vh" }}
-                maxW={{ base: "100%", lg: "90%", xl: "80%", "2xl": "70%" }}
-                p="10px"
-                flexDirection={"column"}
+                h={"100%"}
+                w={"100%"}
+                direction={{ base: "column", xl: "row" }}
+                align="center"
+                justify={"center"}
             >
-                <SearchBar />
+                <Flex
+                    direction={"column"}
+                    position={"relative"}
+                    w="95%"
+                    maxW="7xl"
+                    h={"100%"}
+                    gap={25}
+                    align={{ base: "stretch" }}
+                >
+                    
+                    <SearchBar searchMode={searchMode} setSearchMode={setSearchMode}/>
 
-                <BlurBackground />
-                <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} spacing={10}>
-                    {searchMode === "offers" ? freelancers.map(() => (
-                        <OfferCard />
-                    )) : offers.map(() => (
-                        <FreelancerCard />
-                    )) }
-                </SimpleGrid>
+                    <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} gap={10}>
+                        {searchMode === "offers"
+                            ? freelancers.map((key) => <OfferCard key={key}/>)
+                            : offers.map((key) => <FreelancerCard key={key}/>)}
+                    </SimpleGrid>
+                    
+                </Flex>
+                
             </Flex>
         </MainLayout>
     );

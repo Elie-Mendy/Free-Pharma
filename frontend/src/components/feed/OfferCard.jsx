@@ -1,6 +1,7 @@
 import {
     Badge,
     Box,
+    Button,
     Flex,
     Icon,
     Image,
@@ -10,26 +11,26 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin, BsCalendar3 } from "react-icons/bs";
 
-
 export const OfferCard = () => {
     return (
         <Box
-            mx="auto"
+            mt="auto"
             bg="white"
             _dark={{
                 bg: "gray.700",
             }}
-            shadow="lg"
+            shadow="xl"
             rounded="lg"
             overflow="hidden"
+            w={"full"}
             minW={"xs"}
         >
             <Image
                 w="full"
-                h={56}
+                h={"35%"}
                 fit="cover"
                 objectPosition="center"
-                src="https://www.ladn.eu/wp-content/uploads/2018/04/loreal.jpg"
+                src="https://images-ext-1.discordapp.net/external/ayq6m2KZmnOIpeKvq23FMEuPewXW1kaT7avIhbE22OA/https/logo-marque.com/wp-content/uploads/2022/03/Sanofi-Logo.jpg?width=1532&height=862"
                 alt="avatar"
             />
             <Flex
@@ -94,7 +95,7 @@ export const OfferCard = () => {
                         color: "gray.400",
                     }}
                 >
-                    Description du poste... 
+                    Description du poste...
                 </Text>
 
                 <Flex
@@ -155,6 +156,17 @@ export const OfferCard = () => {
                     <Text px={2} fontSize="md" fontWeight={"bold"}>
                         540€
                     </Text>
+                </Flex>
+                <Flex
+                    justify={"flex-end"}
+                    alignItems="center"
+                    mt={4}
+                    color="gray.700"
+                    _dark={{
+                        color: "gray.200",
+                    }}
+                >
+                    <Button variant={"outline"}>Postuler</Button>
                 </Flex>
             </Box>
         </Box>

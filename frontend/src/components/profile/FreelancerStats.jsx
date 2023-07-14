@@ -11,17 +11,16 @@ import {
 import { CgFileDocument } from "react-icons/cg";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { BsCashCoin } from "react-icons/bs";
-
+import { ProfileModal } from "./ProfileModal";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
-    const bg = useColorModeValue("white", "gray.700")
+    const bg = useColorModeValue("white", "gray.700");
     return (
         <Stat
             px={{ base: 2, md: 4 }}
             py={"5"}
             shadow={"xl"}
-            borderColor={useColorModeValue("gray.800", "gray.500")}
             rounded={"lg"}
             bg={bg}
         >
@@ -64,7 +63,7 @@ export default function FreelancerStats() {
                 Récapitulatif de votre parcours
             </chakra.h1>
             <SimpleGrid
-                columns={{ base: 1, md: 3 }}
+                columns={{ base: 1, md: 2, lg: 4 }}
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
@@ -82,6 +81,7 @@ export default function FreelancerStats() {
                     stat={"€780"}
                     icon={<BsCashCoin size={"3em"} />}
                 />
+                <ProfileModal />
             </SimpleGrid>
         </Box>
     );
