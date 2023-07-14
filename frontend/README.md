@@ -46,3 +46,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   - header
   - connexion page
 - deployment on sepolia
+
+[0.1.2] 
+- maquette front
+  - profile screen
+  - wallet screen
+  - feed screen
+  - minor style modifications
+
