@@ -11,6 +11,7 @@ import {
 import { CgFileDocument } from "react-icons/cg";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { BsCashCoin } from "react-icons/bs";
+import { ProfileModal } from "./ProfileModal";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -60,10 +61,10 @@ export default function EmployerStats() {
                 py={10}
                 fontWeight={"bold"}
             >
-                Ensemble de vos missions
+                Récapitulatif des missions
             </chakra.h1>
             <SimpleGrid
-                columns={{ base: 1, md: 3 }}
+                columns={{ base: 1, md: 2, lg: 4 }}
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
@@ -81,6 +82,7 @@ export default function EmployerStats() {
                     stat={"€780"}
                     icon={<BsCashCoin size={"3em"} />}
                 />
+                <ProfileModal />
             </SimpleGrid>
         </Box>
     );

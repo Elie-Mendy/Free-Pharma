@@ -6,13 +6,6 @@ import {
     Text,
     Box,
     useColorModeValue,
-    Hide,
-    Show,
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionIcon,
-    AccordionPanel,
 } from "@chakra-ui/react";
 import BlurBackground from "@/components/generic/BlurBackground";
 import FreelancerForm from "@/components/profile/FreelancerForm";
@@ -22,7 +15,7 @@ import EmployerStats from "@/components/profile/EmployerStats";
 import { EmployerTableData } from "@/components/profile/EmployerTableData";
 import EmployerForm from "@/components/profile/EmployerForm";
 
-const isEmployer = false;
+const isEmployer = true;
 
 const data = {
     title: isEmployer
@@ -72,56 +65,30 @@ function ProfilePage() {
                 h={"100%"}
                 w={"100%"}
                 direction={{ base: "column", xl: "row" }}
-                align={{ base: "center", xl: "stretch" }}
+                align="center"
+                justify={"center"}
             >
                 <Flex
                     direction={"column"}
                     position={"relative"}
                     w={{ base: "100%", lg: "95%" }}
+                    maxW="7xl"
                     h={"100%"}
                     gap={25}
                     justify={{ base: "flex-start" }}
                 >
-                    {isEmployer ? <EmployerStats /> : <FreelancerStats />}
-
-                    <Show above="xl">
-                        {isEmployer ? (
+                    {isEmployer ? (
+                        <>
+                            <EmployerStats />
                             <EmployerTableData />
-                        ) : (
+                        </>
+                    ) : (
+                        <>
+                            <FreelancerStats />
                             <FreelancerTableData />
-                        )}
-                    </Show>
-                    <Hide above="xl">
-                        <Accordion allowMultiple>
-                            <AccordionItem>
-                                <h2>
-                                    <AccordionButton>
-                                        <Box
-                                            as="span"
-                                            flex="1"
-                                            textAlign="center"
-                                            fontSize={"xl"}
-                                        >
-                                            <Heading>
-                                                Détails de vos missions
-                                            </Heading>
-                                        </Box>
-                                        <AccordionIcon />
-                                    </AccordionButton>
-                                </h2>
-                                <AccordionPanel>
-                                    <FreelancerTableData />
-                                </AccordionPanel>
-                            </AccordionItem>
-                        </Accordion>
-                        <Box pb={10}>
-                            <EditProfile />
-                        </Box>
-                    </Hide>
+                        </>
+                    )}
                 </Flex>
-                <Show above="xl">
-                    <EditProfile />
-                </Show>
             </Flex>
         </MainLayout>
     );

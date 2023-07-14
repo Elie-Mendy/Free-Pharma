@@ -7,21 +7,20 @@ import {
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { MdHeadset, MdLocationOn, MdEmail } from "react-icons/md";
+import { MdLocationOn, MdEmail } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin } from "react-icons/bs";
+import { HireModal } from "./HireModal";
 
 export const FreelancerCard = () => {
     return (
         <Box
-            mx="auto"
             bg="white"
             _dark={{
                 bg: "gray.700",
             }}
-            shadow="lg"
+            shadow="xl"
             rounded="lg"
             overflow="hidden"
-            minW={{base: "xs" , md: "sm"}}
         >
             <Image
                 w="full"
@@ -93,7 +92,7 @@ export const FreelancerCard = () => {
                         color: "gray.400",
                     }}
                 >
-                    Description du profil... 
+                    Description du profil...
                 </Text>
 
                 <Flex
@@ -138,7 +137,6 @@ export const FreelancerCard = () => {
                     <Text px={2} fontSize="sm">
                         freelance@example.com
                     </Text>
-                
                 </Flex>
                 <Flex
                     alignItems="center"
@@ -153,7 +151,17 @@ export const FreelancerCard = () => {
                     <Text px={2} fontSize="md" fontWeight={"bold"}>
                         140€/jour
                     </Text>
-                
+                </Flex>
+                <Flex
+                    justify={"flex-end"}
+                    alignItems="center"
+                    mt={4}
+                    color="gray.700"
+                    _dark={{
+                        color: "gray.200",
+                    }}
+                >
+                    <HireModal />
                 </Flex>
             </Box>
         </Box>

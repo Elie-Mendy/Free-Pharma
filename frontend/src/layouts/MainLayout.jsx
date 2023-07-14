@@ -35,7 +35,7 @@ export default function MainLayout({ children }) {
                         isOpen={isSidebarOpen}
                         onClose={toggleSidebar}
                     />
-                    <Flex direction={"column"} h={"100%"} align={"center"}>
+                    <Flex direction={"column"}  align={"center"}>
                         <Header
                             showSidebarButton={variants?.navigationButton}
                             onShowSidebar={toggleSidebar}
