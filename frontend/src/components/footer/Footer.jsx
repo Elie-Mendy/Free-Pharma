@@ -72,6 +72,7 @@ export default function Footer() {
             color={useColorModeValue("gray.700", "gray.200")}
             p={10}
             w={"full"}
+            h={"full"}
             justify={"space-evenly"}
             direction={{ base: "column", md: "row" }}
             gap={5}

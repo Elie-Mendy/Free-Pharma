@@ -1,7 +1,5 @@
 import {
-    Box,
     Button,
-    Flex,
     Modal,
     ModalBody,
     ModalCloseButton,
@@ -9,13 +7,8 @@ import {
     ModalFooter,
     ModalHeader,
     ModalOverlay,
-    Stat,
-    StatLabel,
-    StatNumber,
-    useColorModeValue,
     useDisclosure,
 } from "@chakra-ui/react";
-import { FiEdit } from "react-icons/fi";
 import { MissionsTableData } from "./MissionsTableData";
 
 export const HireModal = () => {

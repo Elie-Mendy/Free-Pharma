@@ -12,24 +12,15 @@ import {
     Stat,
     StatLabel,
     StatNumber,
+    
     useColorModeValue,
     useDisclosure,
 } from "@chakra-ui/react";
 import { FiEdit } from "react-icons/fi";
-import FreelancerForm from "./FreelancerForm";
-import EmployerForm from "./EmployerForm";
+import ApprovalForm from "./ApprovalForm";
 
-const isEmployer = true;
-
-export const ProfileModal = () => {
+export const ApprovalModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const data = {
-        title: isEmployer
-            ? "Mettez à jour les informations de votre entreprise."
-            : "Mettez à jour vos informations personnels.",
-        helpText:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe veritatis adipisci architecto repudiandae rerum! Ut aliquam dolor eveniet?",
-    };
 
     return (
         <>
@@ -45,9 +36,7 @@ export const ProfileModal = () => {
                 <Flex justifyContent={"space-between"}>
                     <Box pl={{ base: 2, md: 4 }}>
                         <StatLabel fontWeight={"medium"} isTruncated>
-                            {isEmployer
-                                ? "Infos entreprise"
-                                : "Infos personnelles"}
+                            Approval
                         </StatLabel>
                         <StatNumber fontWeight={"medium"} isTruncated>
                             Modifier
@@ -69,10 +58,10 @@ export const ProfileModal = () => {
                     backdropFilter="blur(10px) hue-rotate(1deg)"
                 />
                 <ModalContent>
-                    <ModalHeader>{data.title}</ModalHeader>
+                    <ModalHeader>Modification de la l'approbation</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {isEmployer ? <EmployerForm /> : <FreelancerForm />}
+                        <ApprovalForm />
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>

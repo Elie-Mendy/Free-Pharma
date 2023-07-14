@@ -1,15 +1,31 @@
 import MainLayout from "@/layouts/MainLayout";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
+
+import WalletStats from "@/components/wallet/WalletStats";
+import TransferWidget from "@/components/wallet/TransferWidget";
+import BuySellWidget from "@/components/wallet/BuySellWidget";
+import { TransactionsHistoryTableData } from "@/components/wallet/TransactionsHistoryTableData";
 
 function WalletPage() {
     return (
         <MainLayout>
-            <Flex w={"100%"} h={"100vh"} justify={"center"} align={"center"}>
-                <Heading>
-                    <Text fontSize={{ base: "2xl", md: "5xl" }} mb={2}>
-                        Espace portefeuille en construction ...
-                    </Text>
-                </Heading>
+            <WalletStats />
+            <Flex
+                direction={{ base: "column", xl: "row" }}
+                gap={10}
+                align={{ base: "flex-start", md: "center", xl: "flex-start" }}
+            >
+                <Box w="full">
+                    <TransactionsHistoryTableData />
+                </Box>
+                <Flex
+                    direction={{ base: "column", md: "row", xl: "column" }}
+                    w="md"
+                    gap={10}
+                >
+                    <BuySellWidget />
+                    <TransferWidget />
+                </Flex>
             </Flex>
         </MainLayout>
     );

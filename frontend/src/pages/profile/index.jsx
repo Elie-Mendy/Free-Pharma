@@ -58,25 +58,7 @@ const EditProfile = () => {
 function ProfilePage() {
     return (
         <MainLayout>
-            <Box>
-                <BlurBackground />
-            </Box>
-            <Flex
-                h={"100%"}
-                w={"100%"}
-                direction={{ base: "column", xl: "row" }}
-                align="center"
-                justify={"center"}
-            >
-                <Flex
-                    direction={"column"}
-                    position={"relative"}
-                    w={{ base: "100%", lg: "95%" }}
-                    maxW="7xl"
-                    h={"100%"}
-                    gap={25}
-                    justify={{ base: "flex-start" }}
-                >
+            
                     {isEmployer ? (
                         <>
                             <EmployerStats />
@@ -88,8 +70,6 @@ function ProfilePage() {
                             <FreelancerTableData />
                         </>
                     )}
-                </Flex>
-            </Flex>
         </MainLayout>
     );
 }

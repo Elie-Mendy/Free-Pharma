@@ -1,23 +1,15 @@
 import {
-    Box,
     Button,
     Flex,
-    HStack,
     Icon,
     Input,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuList,
-    Spacer,
-    Text,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { BiChevronDown, BiSearchAlt } from "react-icons/bi";
 
-const isEmplorer = false;
+import { BiSearchAlt } from "react-icons/bi";
 
-export default function SearchBar() {
+export default function SearchBar({searchMode, setSearchMode}) {
+
     const themeCardColor = useColorModeValue("white", "gray.700");
     const themeShadow = "0 5px 25px rgba(9,17,53,.18823529411764706)";
     return (
@@ -27,19 +19,19 @@ export default function SearchBar() {
             borderRadius="lg"
             bg={themeCardColor}
             boxShadow={themeShadow}
-            mb={12}
+            my={6}
             alignItems={"center"}
             gap={{base:2, md:3}}
             w={"100%"}
         >   
             <Flex gap={3} w={{base:"100%", md:"md"}}>
-            <Button w={"50%"} h={{base:"2.5rem", md: "3.5rem"}}>Offres</Button>
-            <Button w={"50%"} h={{base:"2.5rem", md: "3.5rem"}}>Freelances</Button>
+            <Button w={"50%"} h={{base:"2.5rem", md: "3.5rem"}} onClick={() => setSearchMode("offers")}>Offres</Button>
+            <Button w={"50%"} h={{base:"2.5rem", md: "3.5rem"}} onClick={() => setSearchMode("freelancers")}>Freelances</Button>
             </Flex>
             <Flex w="100%">
                 <Input
                     type="text"
-                    placeholder={isEmplorer ? "Rechercher un freelance" :  "Rechercher une mission"}
+                    placeholder={searchMode === "offers" ? "Rechercher une mission": "Rechercher un freelance"}
                     h={"3.5rem"}
                     borderRadius={"lg"}
                     borderWidth={3}

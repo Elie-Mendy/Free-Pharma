@@ -19,14 +19,7 @@ const Index = () => {
     const [inputValue, setInputValue] = useState(0);
     return (
         <MainLayout>
-            <Flex
-                justify={"space-evenly"}
-                align={"center"}
-                direction={"column"}
-                w={"100%"}
-                h={"100%"}
-                gap={4}
-            >
+            <Flex w={"100%"} h={"100vh"} justify={"center"} align={"center"} gap={10}>
                 <Stack gap={5} >
                     <Heading>
                         Stored value : {storedValue}
