@@ -13,7 +13,7 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
-    const isFreelance = true;
+    const isFreelance = false;
     const isEmployer = false;
 
     // sidebars parameters

@@ -197,14 +197,35 @@ contract FreePharma is AccessControl {
     /// Freelancers
 
     /// @notice create a new freelancer.
+    /// @param _name the freelancer's name.
+    /// @param _email the freelancer's email.
+    /// @param _location the freelancer's location.
+    /// @param _averageDailyRate the freelancer's average daily rate.
+    /// @param _available the freelancer's availability.
+    /// @param _visible the freelancer's visiblility.
     /// @dev function called at the first registration of the voter.
     /// @dev emit a FreelancerCreated event.
-    function createFreelancer() public {
+    function createFreelancer(
+        string calldata _name, 
+        string calldata _email,
+        string calldata _location,
+        uint _averageDailyRate,
+        bool _available,
+        bool _visible
+    ) public {
         if (hasRole(FREELANCER_ROLE, msg.sender)) {
             revert AlreadyRegistered();
         }
         _setupRole(FREELANCER_ROLE, msg.sender);
-        dataStorage.createFreelancer(msg.sender);
+        dataStorage.createFreelancer(
+            msg.sender, 
+            _name, 
+            _email,
+            _location,
+            _averageDailyRate,
+            _available,
+            _visible
+    );
         emit FreelancerCreated(msg.sender, block.timestamp);
     }
 
@@ -212,6 +233,9 @@ contract FreePharma is AccessControl {
     /// @param _freelancerAddresses, the id of the freelancer.
     /// @return Freelancer, a representation of the selected frelancer.
     function getOneFreelancer(address _freelancerAddresses) public view returns(IDataStorage.Freelancer memory) {
+        if(!hasRole(FREELANCER_ROLE, _freelancerAddresses)) {
+            revert FreelancerNotExists();
+        }
         return dataStorage.getFreelancer(_freelancerAddresses);
     }
 
@@ -223,6 +247,7 @@ contract FreePharma is AccessControl {
 
     /// @notice allow a freelancer to modify his attributes.
     /// @param _name the freelancer's name.
+    /// @param _email the freelancer's email.
     /// @param _location the freelancer's location.
     /// @param _averageDailyRate the freelancer's average daily rate.
     /// @param _available the freelancer's availablility.
@@ -231,6 +256,7 @@ contract FreePharma is AccessControl {
     /// @dev emit a FreelancerUpdated event.
     function setFreelancer(
         string calldata _name,
+        string calldata _email,
         string calldata _location,
         uint _averageDailyRate,
         bool _available,
@@ -242,6 +268,7 @@ contract FreePharma is AccessControl {
         dataStorage.setFreelancer(
             msg.sender,
             _name,
+            _email,
             _location,
             _averageDailyRate,
             _available,
@@ -343,6 +370,7 @@ contract FreePharma is AccessControl {
             revert NotAuthorized("You can't claim your salary yet");
         }
         dataStorage.payFreelancer(_jobId);
+        dataStorage.processClaim(_jobId);
         emit FreelancerClaimedSalary(msg.sender, _jobId, block.timestamp);
     }
 
@@ -350,14 +378,17 @@ contract FreePharma is AccessControl {
     /// Employers
 
     /// @notice create a new employer.
+    /// @param _name the name of the employer.
+    /// @param _email the email of the employer.
+    /// @param _visible the visibility of the employer.
     /// @dev function called at the first registration of the employer.
     /// @dev emit a EmployerCreated event.
-    function createEmployer() public {
+    function createEmployer(string calldata _name, string calldata _email, bool _visible) public {
         if (hasRole(EMPLOYER_ROLE, msg.sender)) {
             revert AlreadyRegistered();
         }
         _setupRole(EMPLOYER_ROLE, msg.sender);
-        dataStorage.createEmployer(msg.sender);
+        dataStorage.createEmployer(msg.sender, _name, _email, _visible);
         emit EmployerCreated(msg.sender, block.timestamp);
     }
 
@@ -365,6 +396,9 @@ contract FreePharma is AccessControl {
     /// @param _employerAddresses, the id of the employer.
     /// @return Employer, a representation of the selected frelancer.
     function getOneEmployer(address _employerAddresses) public view returns(IDataStorage.Employer memory) {
+        if(!hasRole(EMPLOYER_ROLE, _employerAddresses)) {
+            revert EmployerNotExists();
+        }
         return dataStorage.getEmployer(_employerAddresses);
     }
 
@@ -377,18 +411,20 @@ contract FreePharma is AccessControl {
     /// @notice allow an employer to modify his attributes.
     /// @param _employerAddress the employer's address.
     /// @param _name the employer's name.
+    /// @param _email the employer's email.
     /// @param _visible the employer's visibility.
     /// @dev can only be called by an employer.
     /// @dev emit a EmployerUpdated event.
     function setEmployer(
         address _employerAddress,
         string calldata _name,
+        string calldata _email,
         bool _visible
     ) public onlyRole(EMPLOYER_ROLE) {
         if(dataStorage.getEmployer(_employerAddress).created_at == 0) {
             revert EmployerNotExists();
         }
-        dataStorage.setEmployer(_employerAddress, _name, _visible);
+        dataStorage.setEmployer(_employerAddress, _name, _email, _visible);
         emit EmployerUpdated(_employerAddress,_name, _visible, block.timestamp);
     }
 
@@ -478,8 +514,8 @@ contract FreePharma is AccessControl {
     }
 
     /// @notice allow an employer to hire a freelancer.
-    /// @param freelancerAddress the freelancer address.
     /// @param _jobId the job id.
+    /// @param freelancerAddress the freelancer address.
     /// @dev can only be called by an employer.
     /// @dev can't be called once the job has started.
     /// @dev define the job's freelancerAddress
@@ -489,7 +525,7 @@ contract FreePharma is AccessControl {
         employerChecked(_jobId) 
         jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
     {
-        dataStorage.hireFreelancer(freelancerAddress, _jobId);
+        dataStorage.hireFreelancer(_jobId, freelancerAddress);
     }
 
     /// @notice allow an employer to indicate a job as completed.
