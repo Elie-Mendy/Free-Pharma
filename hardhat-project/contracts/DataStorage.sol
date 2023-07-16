@@ -97,7 +97,7 @@ contract DataStorage is Ownable {
     /// Freelancers
 
     /// @notice create a new freelancer.
-    /// @param _freelancerAddresse the freelancer's address.
+    /// @param _freelancerAddress the freelancer's address.
     /// @param _name the freelancer's name.
     /// @param _email the freelancer's email.
     /// @param _location the freelancer's location.
@@ -105,7 +105,7 @@ contract DataStorage is Ownable {
     /// @param _available the freelancer's availability.
     /// @param _visible the freelancer's visibility.
     function createFreelancer(
-        address _freelancerAddresse, 
+        address _freelancerAddress, 
         string calldata _name, 
         string calldata _email,
         string calldata _location,
@@ -113,7 +113,7 @@ contract DataStorage is Ownable {
         bool _available,
         bool _visible
     ) public {
-        freelancers[msg.sender] = Freelancer(
+        freelancers[_freelancerAddress] = Freelancer(
             block.timestamp,
             block.timestamp,
             _averageDailyRate,
@@ -127,15 +127,15 @@ contract DataStorage is Ownable {
             _visible
         );
         _freelancerCount.increment();
-        _freelancersAddresses.push(_freelancerAddresse);
+        _freelancersAddresses.push(_freelancerAddress);
     }
 
 
     /// @notice fetch a freelancer.
-    /// @param _freelancerAddresse the freelancer's address.
+    /// @param _freelancerAddress the freelancer's address.
     /// @return Freelancer, the freelancer.
-    function getFreelancer(address _freelancerAddresse) public view returns(Freelancer memory) {
-        return freelancers[_freelancerAddresse];
+    function getFreelancer(address _freelancerAddress) public view returns(Freelancer memory) {
+        return freelancers[_freelancerAddress];
     }
 
     /// @notice fetch all freelancer jobs applied.
@@ -207,8 +207,7 @@ contract DataStorage is Ownable {
     /// @notice allow a freelancer to confirm his candidature for a job.
     /// @param _jobId the job id.
     /// @param _freelancerAddress the freelancer's address.
-    /// @dev remove the job id from the freelancer 'hiredJobIds' list.
-    /// @dev add the job id into the freelancer 'completedJobIds'.
+    /// @dev add the job id into the freelancer 'startedJobOffersIds'.
     /// @dev update the job 'freelancerId' attribute.
     /// @dev update the job status to IN_PROGRESS.
     function confirmCandidature(uint _jobId, address _freelancerAddress) public {
@@ -490,17 +489,33 @@ contract DataStorage is Ownable {
         return newArray;
     }
 
+    /// @notice check if a job id is in an array.
+    /// @param _jobId the job id.
+    /// @param _array the array.
+    /// @return bool, true if the job id is in the array, false otherwise.
+    function _jobIdInArray(uint _jobId, uint[] memory _array) private pure returns(bool) {
+        for (uint i = 0; i < _array.length; i++) {
+            if (_array[i] == _jobId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /// @notice check if a freelancer has applied to a given job.
     /// @param _freelancerAddress the freelancer address.
     /// @param _jobId the job id.
     /// @return bool, true if the freelancer has applied to the job, false otherwise.
     function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) public view returns(bool) {
-        for (uint i = 0; i < freelancers[_freelancerAddress].appliedJobIds.length; i++) {
-            if (freelancers[_freelancerAddress].appliedJobIds[i] == _jobId) {
-                return true;
-            }
-        }
-        return false;
+        return _jobIdInArray(_jobId, freelancers[_freelancerAddress].appliedJobIds);
+    }
+
+    /// @notice check if a freelancer was hired.
+    /// @param _freelancerAddress the freelancer address.
+    /// @param _jobId the job id.
+    /// @return bool, true if the freelancer was hired, false otherwise.
+    function freelancerHired(address _freelancerAddress, uint _jobId) public view returns(bool) {
+        return _jobIdInArray(_jobId, freelancers[_freelancerAddress].hiredJobIds);
     }
 
 }

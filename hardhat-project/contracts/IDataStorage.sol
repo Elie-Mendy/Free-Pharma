@@ -61,7 +61,7 @@ interface IDataStorage {
     function setBusinessLogicContract(address business_logic_contract) external;
 
     function createFreelancer(
-        address _freelancerAddresses, 
+        address _freelancerAddress, 
         string calldata _name, 
         string calldata _email,
         string calldata _location,
@@ -160,4 +160,5 @@ interface IDataStorage {
 
     function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
 
+    function freelancerHiredToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
 }

@@ -116,6 +116,18 @@ contract FreePharma is AccessControl {
         uint timestamp
     );
 
+    /// @notice Event triggered when an employer hire a freelancer.
+    /// @param employerAddress the employer's address.
+    /// @param freelancerAddress the freelancer's address.
+    /// @param jobId the job's id.
+    /// @param timestamp the event datetime.
+    event EmployerHiredFreelancer(
+        address employerAddress,
+        address freelancerAddress,
+        uint jobId,
+        uint timestamp
+    );
+
     /// @notice Event triggered when an employer indicate a job as completed.
     /// @param employerAddress the employer's address.
     /// @param timestamp the event datetime.
@@ -162,15 +174,23 @@ contract FreePharma is AccessControl {
     error FreelancerNotExists();
     error EmployerNotExists();
     error JobNotExists();
+    error EmployerHasNotEnoughFunds();
 
     /* ::::::::::::::: MODIFIERS :::::::::::::::::: */
 
     modifier jobChecked(uint jobId, IDataStorage.JobStatus status) {
-        if (jobId >  dataStorage.getJobCount()) {
+        if (jobId >=  dataStorage.getJobCount()) {
             revert JobNotExists();
         }
         
         if (dataStorage.getJobStatus(jobId) != status) {
+            revert NotAuthorized("Job status forbid this action");
+        }
+        _;
+    }
+
+    modifier jobOpen(uint jobId) {
+        if (dataStorage.getJobStatus(jobId) > IDataStorage.JobStatus.CONFIRMATION_PENDING) {
             revert NotAuthorized("Job status forbid this action");
         }
         _;
@@ -262,7 +282,7 @@ contract FreePharma is AccessControl {
         bool _available,
         bool _visible
     ) public onlyRole(FREELANCER_ROLE)  {
-        if (dataStorage.getFreelancer(msg.sender).created_at != 0) {
+        if (dataStorage.getFreelancer(msg.sender).created_at == 0) {
             revert FreelancerNotExists();
         }
         dataStorage.setFreelancer(
@@ -324,13 +344,15 @@ contract FreePharma is AccessControl {
         onlyRole(FREELANCER_ROLE) 
         jobChecked(_jobId, IDataStorage.JobStatus.CONFIRMATION_PENDING) 
     {
+        if (dataStorage.freelancerAppliedToJob(msg.sender,_jobId) ) {
+            revert NotAuthorized("You was not hired for that job");
+        }
         if (dataStorage.getJobFreelancerAddress(_jobId) != address(0)) {
             revert NotAuthorized("Another freelancer already confirmed for this job");
         }
-
         address employerAddress = dataStorage.getJobEmployerAddress(_jobId);
         if (tokenPHARM.balanceOf(employerAddress) < dataStorage.getJobSalary(_jobId)) {
-            revert NotAuthorized("Employer doesn't have enough PHARM tokens");
+            revert EmployerHasNotEnoughFunds();
         }
 
         dataStorage.confirmCandidature(_jobId, msg.sender);
@@ -367,7 +389,7 @@ contract FreePharma is AccessControl {
     {   
         // check the end date + 2 days (for this sample project we use minutes)
         if (dataStorage.getJobEndDate(_jobId) + 2 minutes > block.timestamp) {
-            revert NotAuthorized("You can't claim your salary yet");
+            revert NotAuthorized();
         }
         dataStorage.payFreelancer(_jobId);
         dataStorage.processClaim(_jobId);
@@ -409,23 +431,21 @@ contract FreePharma is AccessControl {
     }
 
     /// @notice allow an employer to modify his attributes.
-    /// @param _employerAddress the employer's address.
     /// @param _name the employer's name.
     /// @param _email the employer's email.
     /// @param _visible the employer's visibility.
     /// @dev can only be called by an employer.
     /// @dev emit a EmployerUpdated event.
     function setEmployer(
-        address _employerAddress,
         string calldata _name,
         string calldata _email,
         bool _visible
     ) public onlyRole(EMPLOYER_ROLE) {
-        if(dataStorage.getEmployer(_employerAddress).created_at == 0) {
+        if(dataStorage.getEmployer(msg.sender).created_at == 0) {
             revert EmployerNotExists();
         }
-        dataStorage.setEmployer(_employerAddress, _name, _email, _visible);
-        emit EmployerUpdated(_employerAddress,_name, _visible, block.timestamp);
+        dataStorage.setEmployer(msg.sender, _name, _email, _visible);
+        emit EmployerUpdated(msg.sender,_name, _visible, block.timestamp);
     }
 
     /// @notice allow an employer to create a new job.
@@ -444,7 +464,7 @@ contract FreePharma is AccessControl {
     ) public onlyRole(EMPLOYER_ROLE) {
         
         if (tokenPHARM.balanceOf(msg.sender) < _salary) {
-            revert NotAuthorized("Employer doesn't have enough PHARM tokens");
+            revert EmployerHasNotEnoughFunds();
         }
         uint jobId =  dataStorage.getJobCount();
         dataStorage.createJob(
@@ -470,6 +490,9 @@ contract FreePharma is AccessControl {
     /// @param _jobId the job's id.
     /// @return Job, a representation of the selected job.
     function getOneJob(uint _jobId) public view returns(IDataStorage.Job memory) {
+        if(_jobId > dataStorage.getJobCount()) {
+            revert JobNotExists();
+        }
         return dataStorage.getJob(_jobId);
     }
 
@@ -514,18 +537,19 @@ contract FreePharma is AccessControl {
     }
 
     /// @notice allow an employer to hire a freelancer.
-    /// @param _jobId the job id.
     /// @param freelancerAddress the freelancer address.
+    /// @param _jobId the job id.
     /// @dev can only be called by an employer.
     /// @dev can't be called once the job has started.
     /// @dev define the job's freelancerAddress
-    function hireFreelancer(address freelancerAddress, uint _jobId) 
+    function hireFreelancer( uint _jobId,address freelancerAddress) 
         public 
         onlyRole(EMPLOYER_ROLE) 
-        employerChecked(_jobId) 
-        jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
+        employerChecked(_jobId)
+        jobOpen(_jobId) 
     {
         dataStorage.hireFreelancer(_jobId, freelancerAddress);
+        emit EmployerHiredFreelancer(msg.sender, freelancerAddress, _jobId, block.timestamp);
     }
 
     /// @notice allow an employer to indicate a job as completed.
