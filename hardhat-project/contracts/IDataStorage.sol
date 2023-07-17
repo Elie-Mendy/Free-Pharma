@@ -19,6 +19,7 @@ interface IDataStorage {
         uint updated_at;
         uint averageDailyRate;
         string name;
+        string email;
         string location;
         uint[] appliedJobIds; 
         uint[] hiredJobIds; 
@@ -31,6 +32,7 @@ interface IDataStorage {
         uint created_at;
         uint updated_at;
         string name;
+        string email;
         bool visible;
         uint[] currentJobOffersIds;
         uint[] startedJobOffersIds;
@@ -45,7 +47,8 @@ interface IDataStorage {
         bool visible;
         bool completedByFreelancer;
         bool completedByEmployer;
-        address[] candidatesIds; 
+        bool claimed;
+        address[] candidates; 
         address freelancerAddress;
         address employerAddress;
         string location;
@@ -57,7 +60,15 @@ interface IDataStorage {
 
     function setBusinessLogicContract(address business_logic_contract) external;
 
-    function createFreelancer(address _freelancerAddresses) external;
+    function createFreelancer(
+        address _freelancerAddress, 
+        string calldata _name, 
+        string calldata _email,
+        string calldata _location,
+        uint _averageDailyRate,
+        bool _available,
+        bool _visible
+    ) external;
 
     function getFreelancers() external view returns(Freelancer[] memory);
 
@@ -70,6 +81,7 @@ interface IDataStorage {
     function setFreelancer(
         address freelancerAddresses,
         string calldata _name,
+        string calldata _email,
         string calldata _location,
         uint _averageDailyRate,
         bool _available,
@@ -82,13 +94,21 @@ interface IDataStorage {
     
     function completeFreelancerJob(uint _jobId) external;
 
-    function createEmployer(address _employerAddresses) external;
+    function processClaim(uint _jobId) external;
+
+    function createEmployer(
+        address _employerAddresses,
+        string calldata _name,
+        string calldata _email,
+        bool _visible
+    ) external;
 
     function getEmployers() external view returns(Employer[] memory);
 
     function setEmployer(
         address employerAddress,
         string calldata _name,
+        string calldata _email,
         bool _visible
     ) external;
 
@@ -122,7 +142,7 @@ interface IDataStorage {
         string calldata _location
     ) external;
 
-    function hireFreelancer(address freelancerAddress, uint _jobId) external;
+    function hireFreelancer(uint _jobId, address freelancerAddress) external;
 
     function completeEmployerJob(uint _jobId) external;
 
@@ -140,4 +160,5 @@ interface IDataStorage {
 
     function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
 
+    function freelancerHiredToJob(address _freelancerAddress, uint _jobId) external view returns(bool);
 }
