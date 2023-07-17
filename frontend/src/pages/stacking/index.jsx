@@ -1,15 +1,31 @@
 import MainLayout from "@/layouts/MainLayout";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
+
+import StackingStats from "@/components/stacking/StackingStats";
+import ClaimWidget from "@/components/stacking/ClaimWidget";
+import { StackingHistoryTableData } from "@/components/stacking/StackingHistoryTableData";
+import StackingWidget from "@/components/stacking/StackingWidget";
 
 function StackingPage() {
     return (
         <MainLayout>
-            <Flex w={"100%"} h={"100vh"} justify={"center"} align={"center"}>
-                <Heading>
-                    <Text fontSize={{ base: "2xl", md: "5xl" }} mb={2}>
-                        Espace de rendements en construction ...
-                    </Text>
-                </Heading>
+            <StackingStats />
+            <Flex
+                direction={{ base: "column", xl: "row" }}
+                gap={10}
+                align={{ base: "flex-start", md: "center", xl: "flex-start" }}
+            >
+                <Box w="full">
+                    <StackingHistoryTableData />
+                </Box>
+                <Flex
+                    direction={{ base: "column", md: "row", xl: "column" }}
+                    w={{ base: "full", md: "full", xl: "md" }}
+                    gap={10}
+                >
+                    <StackingWidget />
+                    <ClaimWidget />
+                </Flex>
             </Flex>
         </MainLayout>
     );

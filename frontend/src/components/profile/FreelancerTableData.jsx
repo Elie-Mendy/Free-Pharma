@@ -29,62 +29,71 @@ const TableData = ({ table }) => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                <Tr>
-                        <Td>Lafarge</Td>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>
                         <Td>actions</Td>
-                    </Tr><Tr>
-                        <Td>Lafarge</Td>
+                    </Tr>
+                    <Tr>
+                        <Td>Sanofi</Td>
                         <Td>15/07/2022</Td>
                         <Td>23/07/2022</Td>
                         <Td>780 € </Td>

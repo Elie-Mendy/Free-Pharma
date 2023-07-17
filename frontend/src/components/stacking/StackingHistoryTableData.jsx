@@ -21,61 +21,48 @@ const TableData = () => {
             <Table variant="simple">
                 <Thead>
                     <Tr>
-                        <Th>destinataire</Th>
                         <Th>date</Th>
                         <Th>montant</Th>
+                        <Th>token</Th>
+                        <Th>durée</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>0.3</Td>
+                        <Td>ETH</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>1045</Td>
+                        <Td>PHARM</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>457</Td>
+                        <Td>PHARM</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>0.3</Td>
+                        <Td>ETH</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>1045</Td>
+                        <Td>PHARM</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                     <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
-                        <Td>50</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>50</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>50</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>50</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>50</Td>
+                        <Td>457</Td>
+                        <Td>PHARM</Td>
+                        <Td>6 mois</Td>
                     </Tr>
                 </Tbody>
             </Table>
@@ -83,18 +70,21 @@ const TableData = () => {
     );
 };
 
-export const TransactionsHistoryTableData = () => {
+export const StackingHistoryTableData = () => {
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>
                 <Tab fontSize={"xl"} fontWeight={"bold"}>
-                    Entrées
+                    Dépots
                 </Tab>
                 <Tab fontSize={"xl"} fontWeight={"bold"}>
-                    Sorties
+                    Retraits
                 </Tab>
             </TabList>
             <TabPanels>
+                <TabPanel px={0}>
+                    <TableData />
+                </TabPanel>
                 <TabPanel px={0}>
                     <TableData />
                 </TabPanel>

@@ -1,6 +1,5 @@
 import {
     Box,
-    chakra,
     Flex,
     SimpleGrid,
     Stat,
@@ -11,7 +10,6 @@ import {
 import { AiOutlineBarChart } from "react-icons/ai";
 import { FaWallet } from "react-icons/fa";
 import { BsCashCoin } from "react-icons/bs";
-import { ProfileModal } from "../profile/ProfileModal";
 import { ApprovalModal } from "./ApprovalModal";
 
 function StatsCard(props) {
@@ -49,13 +47,7 @@ function StatsCard(props) {
 
 export default function WalletStats() {
     return (
-        <Box
-            
-            mx={"auto"}
-            mt={10}
-            pt={5}
-            w={"100%"}
-        >
+        <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid
                 columns={{ base: 1, md: 2, lg: 4 }}
                 spacing={{ base: 5, lg: 8 }}
@@ -71,7 +63,7 @@ export default function WalletStats() {
                     icon={<FaWallet size={"3em"} />}
                 />
                 <StatsCard
-                    title={"transfer approuvé"}
+                    title={"transfert approuvé"}
                     stat={"€780"}
                     icon={<BsCashCoin size={"3em"} />}
                 />
