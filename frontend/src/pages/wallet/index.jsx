@@ -3,8 +3,8 @@ import { Flex, Box } from "@chakra-ui/react";
 
 import WalletStats from "@/components/wallet/WalletStats";
 import TransferWidget from "@/components/wallet/TransferWidget";
-import BuySellWidget from "@/components/wallet/BuySellWidget";
 import { TransactionsHistoryTableData } from "@/components/wallet/TransactionsHistoryTableData";
+import BuyPHARMWidget from "@/components/wallet/BuyPHARMWidget";
 
 function WalletPage() {
     return (
@@ -20,10 +20,10 @@ function WalletPage() {
                 </Box>
                 <Flex
                     direction={{ base: "column", md: "row", xl: "column" }}
-                    w={{base: "full", md: "full", xl: "md"}}
+                    w={{ base: "full", md: "full", xl: "md" }}
                     gap={10}
                 >
-                    <BuySellWidget />
+                    <BuyPHARMWidget />
                     <TransferWidget />
                 </Flex>
             </Flex>

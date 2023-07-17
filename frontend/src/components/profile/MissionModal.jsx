@@ -15,10 +15,11 @@ import {
     useColorModeValue,
     useDisclosure,
 } from "@chakra-ui/react";
-import { FiEdit } from "react-icons/fi";
-import ApprovalForm from "./ApprovalForm";
 
-export const ApprovalModal = () => {
+import { MdAssignmentAdd } from "react-icons/md";
+
+import JobForm from "./JobForm";
+export const MissionModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
@@ -35,10 +36,10 @@ export const ApprovalModal = () => {
                 <Flex justifyContent={"space-between"}>
                     <Box pl={{ base: 2, md: 4 }}>
                         <StatLabel fontWeight={"medium"} isTruncated>
-                            transfert approuvé
+                            nouvelle mission
                         </StatLabel>
                         <StatNumber fontWeight={"medium"} isTruncated>
-                            Modifier
+                            Poster
                         </StatNumber>
                     </Box>
                     <Box
@@ -46,7 +47,7 @@ export const ApprovalModal = () => {
                         color={useColorModeValue("gray.800", "gray.200")}
                         alignContent={"center"}
                     >
-                        <FiEdit size={"3em"} color="white" />
+                        <MdAssignmentAdd size={"3em"} color="white" />
                     </Box>
                 </Flex>
             </Stat>
@@ -57,12 +58,10 @@ export const ApprovalModal = () => {
                     backdropFilter="blur(10px) hue-rotate(1deg)"
                 />
                 <ModalContent>
-                    <ModalHeader>
-                        Modification de l&apos;approbation
-                    </ModalHeader>
+                    <ModalHeader>Détail de la mission</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <ApprovalForm />
+                        <JobForm />
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>

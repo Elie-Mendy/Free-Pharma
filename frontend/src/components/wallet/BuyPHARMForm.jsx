@@ -7,7 +7,7 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 
-export default function BuySellForm() {
+export default function BuyPHARMForm() {
     return (
         <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
             <Stack spacing={4}>
@@ -25,26 +25,14 @@ export default function BuySellForm() {
                 <Button
                     fontFamily={"heading"}
                     w={"full"}
-                    bgGradient="linear(to-r, green.300,green.500)"
+                    bgGradient="linear(to-r, red.300,pink.400)"
                     color={"white"}
                     _hover={{
-                        bgGradient: "linear(to-r, green.400,green.600)",
+                        bgGradient: "linear(to-r, red.400,pink.600)",
                         boxShadow: "xl",
                     }}
                 >
-                    Déposer
-                </Button>
-                <Button
-                    fontFamily={"heading"}
-                    w={"full"}
-                    bgGradient="linear(to-r, red.300,red.500)"
-                    color={"white"}
-                    _hover={{
-                        bgGradient: "linear(to-r, red.400,red.600)",
-                        boxShadow: "xl",
-                    }}
-                >
-                    Retirer
+                    Acheter
                 </Button>
             </HStack>
         </Flex>

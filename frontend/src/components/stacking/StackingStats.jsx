@@ -1,6 +1,5 @@
 import {
     Box,
-    chakra,
     Flex,
     SimpleGrid,
     Stat,
@@ -8,11 +7,9 @@ import {
     StatNumber,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { CgFileDocument } from "react-icons/cg";
-import { AiOutlineFileDone } from "react-icons/ai";
-import { BsCashCoin } from "react-icons/bs";
-import { ProfileModal } from "./ProfileModal";
-import { MissionModal } from "./MissionModal";
+import { FaEthereum } from "react-icons/fa";
+import { BsCashCoin, BsCoin } from "react-icons/bs";
+import { ApprovalModal } from "./ApprovalModal";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -47,44 +44,29 @@ function StatsCard(props) {
     );
 }
 
-export default function EmployerStats() {
+export default function StackingStats() {
     return (
-        <Box
-            maxW="7xl"
-            mx={"auto"}
-            pt={5}
-            px={{ base: 2, sm: 12, md: 17 }}
-            w={"100%"}
-        >
-            <chakra.h1
-                textAlign={"center"}
-                fontSize={"4xl"}
-                py={10}
-                fontWeight={"bold"}
-            >
-                Récapitulatif des missions
-            </chakra.h1>
+        <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid
-                columns={{ base: 1, md: 2, xl: 5 }}
+                columns={{ base: 1, md: 2, lg: 4 }}
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
-                    title={"Offres postées"}
-                    stat={"7"}
-                    icon={<CgFileDocument size={"3em"} />}
+                    title={"total valeur stackés"}
+                    stat={"PHARM: 4521"}
+                    icon={<BsCoin size={"3em"} />}
                 />
                 <StatsCard
-                    title={"Freelancers engagés"}
-                    stat={"1"}
-                    icon={<AiOutlineFileDone size={"3em"} />}
+                    title={"balance"}
+                    stat={"ETH: 4.54"}
+                    icon={<FaEthereum size={"3em"} />}
                 />
                 <StatsCard
-                    title={"Budjet total"}
+                    title={"transfert approuvé"}
                     stat={"€780"}
                     icon={<BsCashCoin size={"3em"} />}
                 />
-                <ProfileModal />
-                <MissionModal />
+                <ApprovalModal />
             </SimpleGrid>
         </Box>
     );

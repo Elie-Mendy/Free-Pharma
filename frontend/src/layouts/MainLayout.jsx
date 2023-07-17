@@ -13,7 +13,7 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
-    const isFreelance = false;
+    const isFreelance = true;
     const isEmployer = false;
 
     // sidebars parameters
@@ -28,10 +28,17 @@ export default function MainLayout({ children }) {
     return (
         <Flex direction={"column"} h={"100vh"}>
             {showConnexion ? (
-                <Connexion
-                    isConnected={isConnected}
-                    isRegistered={isRegistered}
-                />
+                <>
+                    <Hide below="lg">
+                        <Box>
+                            <BlurBackground />
+                        </Box>
+                    </Hide>
+                    <Connexion
+                        isConnected={isConnected}
+                        isRegistered={isRegistered}
+                    />
+                </>
             ) : (
                 <>
                     <Sidebar
