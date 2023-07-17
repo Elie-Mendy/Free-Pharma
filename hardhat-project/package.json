@@ -31,6 +31,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
     "@openzeppelin/contracts": "^4.9.2",
     "dotenv": "^16.3.1"
   }

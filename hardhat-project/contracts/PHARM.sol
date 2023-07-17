@@ -41,3 +41,5 @@ contract TokenPHARM is ERC20, Pausable, AccessControl {
         _mint(to, amount);
     }
 }
+
+// sepolia address: 0xaE25f1839a166cc9d9Be15FAD7C5C7c08485ff17

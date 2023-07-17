@@ -6,6 +6,14 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+
+/**
+ * @title DataStorage
+ * @author Elie MENDY
+ * @notice This contract is the data storage contract.
+ * @notice It stores all the data of the FreePharma application.
+ * @notice It is used by the BusinessLogic contract.
+ */
 contract DataStorage is Ownable {
     
     /* ::::::::::::::: STATE  :::::::::::::::::: */

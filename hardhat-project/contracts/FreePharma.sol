@@ -5,12 +5,14 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "./IDataStorage.sol";
+import "../interfaces/IDataStorage.sol";
 
 /**
  * @title FreePharma
  * @author Elie MENDY
  * @notice You can use this contract for only the most educational purpose
+ * @notice This contract is a POC of a freelancing platform
+ * @notice This contract is the business logic of the platform
  */
 contract FreePharma is AccessControl {
     /* ::::::::::::::: ROLES :::::::::::::::::: */
