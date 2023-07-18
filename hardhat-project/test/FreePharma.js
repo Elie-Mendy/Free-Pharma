@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 const { expect, assert } = require("chai");
 
-describe("Test FreePharma - business logic smart contract", () => {
+describe("FreePharma - business logic smart contract", () => {
     let tokenPHARM, dataStorage, freePharma;
     let admin, addr1, addr2, addr3, addr4, unknown, addresses;
 

@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract PriceProvider is Ownable {
 
     /// Chainlink Price feeds
-    AggregatorV3Interface internal dataFeedETH;
+    AggregatorV3Interface public dataFeedETH;
 
     /// @notice ETH/USD price feed
     constructor() {
@@ -25,13 +25,4 @@ contract PriceProvider is Ownable {
             ) = dataFeedETH.latestRoundData();
         return answer;
     }
-
-    /// @notice Set the data feed address for ETH/USD
-    /// @param _pair the address of the ETH/USD price feed
-    function setEthAddr(address _pair) external onlyOwner {
-        dataFeedETH = AggregatorV3Interface(_pair);
-    }
 }
-
-
-// sepolia addres : 0xA0b693E503f90Fcf3F0448652621fdBE78E18BE9

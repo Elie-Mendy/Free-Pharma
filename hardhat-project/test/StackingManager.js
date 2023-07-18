@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 const { expect, assert } = require("chai");
 const { time } = require("@nomicfoundation/hardhat-network-helpers");
 
-describe("ETHstackingManager", function (accounts) {
+describe("StackingManager", function (accounts) {
     let tokenPHARM, priceProvider, stackingManager;
     let admin, addr1, addr2, addr3, addr4, unknown, addresses;
 

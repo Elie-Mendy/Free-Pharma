@@ -16,28 +16,7 @@ contract TokenPHARM is ERC20, Pausable, AccessControl {
         _mint(msg.sender, 1000000 * 10 ** decimals());
     }
 
-    function pause() public onlyRole(PAUSER_ROLE) {
-        _pause();
-    }
-
-    function unpause() public onlyRole(PAUSER_ROLE) {
-        _unpause();
-    }
-
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
-        _mint(to, amount);
-    }
-
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        whenNotPaused
-        override
-    {
-        super._beforeTokenTransfer(from, to, amount);
-    }
-
-    // Temporary function  for testing
-    function faucet(address to, uint256 amount) public {
         _mint(to, amount);
     }
 }

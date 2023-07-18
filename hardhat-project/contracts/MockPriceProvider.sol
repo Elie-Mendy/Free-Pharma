@@ -12,7 +12,7 @@ contract MockPriceProvider {
     /// @notice Get the latest ETH/USD price
     /// @return the latest ETH/USD price
     function getLatestPriceETH() public pure returns (int256) {
-        // return 191092980000 * 10 ** 10;
+        // arbitrary value for testing purpose
         return 200000000000 * 10 ** 10;
     }
 }
