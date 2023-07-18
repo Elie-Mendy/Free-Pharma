@@ -2,9 +2,9 @@
  "stats": {
   "suites": 89,
   "tests": 186,
-  "passes": 183,
+  "passes": 186,
   "pending": 0,
-  "failures": 3
+  "failures": 0
  },
  "tests": [
   {
@@ -985,30 +985,21 @@
    "fullTitle": "PriceProvider Deployment getLatestPriceETH() Should be deployed with the right owner",
    "file": "test/PriceProvider.js",
    "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:29:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
+   "err": {}
   },
   {
    "title": "Should return the latest price of ETH in USD",
    "fullTitle": "PriceProvider Function unit tests getLatestPriceETH() Should return the latest price of ETH in USD",
    "file": "test/PriceProvider.js",
    "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:42:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
+   "err": {}
   },
   {
    "title": "Should return the dataFeed's address",
    "fullTitle": "PriceProvider Function unit tests dataFeedETH() Should return the dataFeed's address",
    "file": "test/PriceProvider.js",
    "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:50:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
+   "err": {}
   },
   {
    "title": "should allow a user to stake PHARM tokens",
@@ -1319,38 +1310,7 @@
    "err": {}
   }
  ],
- "failures": [
-  {
-   "title": "Should be deployed with the right owner",
-   "fullTitle": "PriceProvider Deployment getLatestPriceETH() Should be deployed with the right owner",
-   "file": "test/PriceProvider.js",
-   "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:29:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
-  },
-  {
-   "title": "Should return the latest price of ETH in USD",
-   "fullTitle": "PriceProvider Function unit tests getLatestPriceETH() Should return the latest price of ETH in USD",
-   "file": "test/PriceProvider.js",
-   "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:42:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
-  },
-  {
-   "title": "Should return the dataFeed's address",
-   "fullTitle": "PriceProvider Function unit tests dataFeedETH() Should return the dataFeed's address",
-   "file": "test/PriceProvider.js",
-   "currentRetry": 0,
-   "err": {
-    "stack": "ReferenceError: assert is not defined\n    at Context.<anonymous> (test/PriceProvider.js:50:17)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at runNextTicks (node:internal/process/task_queues:65:3)\n    at listOnTimeout (node:internal/timers:528:9)\n    at processTimers (node:internal/timers:502:7)",
-    "message": "assert is not defined"
-   }
-  }
- ],
+ "failures": [],
  "passes": [
   {
    "title": "should set the right owner",
@@ -2322,6 +2282,27 @@
    "title": "Should not allow minting tokens by non-minter",
    "fullTitle": "TokenPHARM Should not allow minting tokens by non-minter",
    "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should be deployed with the right owner",
+   "fullTitle": "PriceProvider Deployment getLatestPriceETH() Should be deployed with the right owner",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the latest price of ETH in USD",
+   "fullTitle": "PriceProvider Function unit tests getLatestPriceETH() Should return the latest price of ETH in USD",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the dataFeed's address",
+   "fullTitle": "PriceProvider Function unit tests dataFeedETH() Should return the dataFeed's address",
+   "file": "test/PriceProvider.js",
    "currentRetry": 0,
    "err": {}
   },
