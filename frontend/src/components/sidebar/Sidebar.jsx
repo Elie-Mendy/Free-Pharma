@@ -1,5 +1,4 @@
 import {
-    Box,
     Button,
     Drawer,
     DrawerOverlay,
@@ -38,11 +37,6 @@ const SidebarContent = ({ onClick }) => (
         <Link href="/voting">
             <Button onClick={onClick} w="100%">
                 Vote
-            </Button>
-        </Link>
-        <Link href="/simplestorage">
-            <Button onClick={onClick} w="100%">
-                Simple Storage
             </Button>
         </Link>
     </Flex>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNotif } from "@/hooks/useNotif";
+import { useWagmi } from "./useWagmi";
 
 import {
     getWalletClient,
@@ -10,7 +11,7 @@ import {
     readContract,
     watchContractEvent,
 } from "@wagmi/core";
-import { useAccount, useNetwork } from "wagmi";
+
 import { parseAbiItem } from "viem";
 
 import { config, client } from "@/config";
@@ -18,8 +19,7 @@ const contractAddress = config.contracts.simpleStorage.address;
 const contractABI = config.contracts.simpleStorage.abi;
 
 export function useSimpleStorage() {
-    const { isConnected, address } = useAccount();
-    const { chain } = useNetwork();
+    const { isConnected, address, chain } = useWagmi();
     const { setInfo, setError } = useNotif();
     const toast = useToast();
 
