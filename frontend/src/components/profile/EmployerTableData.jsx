@@ -66,7 +66,7 @@ const TableData = ({ data }) => {
 };
 
 export const EmployerTableData = () => {
-    const { currentJobOffers, startedJobOffers, completedJobOffersIds } =
+    const { currentJobOffers, startedJobOffers, completedJobOffers } =
         useContext(FreePharmaContext);
     return (
         <Tabs isFitted colorScheme="twitter">

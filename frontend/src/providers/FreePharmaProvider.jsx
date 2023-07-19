@@ -13,7 +13,8 @@ export const FreePharmaProvider = ({ children }) => {
         currentUser,
         currentJobOffers,
         startedJobOffers,
-        completedJobOffersIds,
+        completedJobOffers,
+        totalFreelancerEarn,
 
         // Functions
         createFreelancer,
@@ -49,7 +50,8 @@ export const FreePharmaProvider = ({ children }) => {
             currentUser,
             currentJobOffers,
             startedJobOffers,
-            completedJobOffersIds,
+            completedJobOffers,
+            totalFreelancerEarn,
 
             // Functions
             createFreelancer,
@@ -83,7 +85,8 @@ export const FreePharmaProvider = ({ children }) => {
             currentUser,
             currentJobOffers,
             startedJobOffers,
-            completedJobOffersIds,
+            completedJobOffers,
+            totalFreelancerEarn,
 
             // Functions
             createFreelancer,
