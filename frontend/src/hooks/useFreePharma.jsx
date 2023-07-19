@@ -30,7 +30,7 @@ export function useFreePharma() {
     const [currentUser, setCurrentUser] = useState({});
     const [currentJobOffers, setCurrentJobOffers] = useState([]);
     const [startedJobOffers, setStartedJobOffers] = useState([]);
-    const [completedJobOffers, setCompletedJobOffersIds] = useState([]);
+    const [completedJobOffers, setCompletedJobOffers] = useState([]);
     const [totalFreelancerEarn, setTotalFreelancerEarn] = useState(0);
 
     // ::::::::::: LOGS & DATA :::::::::::
@@ -151,7 +151,7 @@ export function useFreePharma() {
 
             // fetch completed job offers
             let completedJobs = await Promise.all(
-                employer.completedJobOffers.map(async (jobId) => {
+                employer.completedJobOffersIds.map(async (jobId) => {
                     const job = await getOneJob(jobId);
                     return {
                         freelancerAddress: job.freelancerAddress,
@@ -162,6 +162,18 @@ export function useFreePharma() {
                     };
                 })
             );
+            setCompletedJobOffers(completedJobs);
+
+            // fetch total paid
+            if (employer.completedJobOffersIds.length == 0) return;
+            let totalPaid = await Promise.all(
+                employer.completedJobOffersIds.reduce(async (acc, jobId) => {
+                    const job = await getOneJob(jobId);
+                    return acc + parseInt(job.salary.toString());
+                }, 0)
+            );
+            setTotalFreelancerEarn(totalPaid); 
+
         }
     };
 
@@ -532,6 +544,7 @@ export function useFreePharma() {
         startedJobOffers,
         completedJobOffers,
         totalFreelancerEarn,
+        setTotalFreelancerEarn,
 
 
         // Functions
