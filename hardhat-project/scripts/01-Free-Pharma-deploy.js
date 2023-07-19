@@ -28,14 +28,14 @@ async function main() {
     await priceProvider.deployed();
 
     // StakingManager deployment
-    const StakingManager = await hre.ethers.getContractFactory("StakingManager");
+    const StakingManager = await hre.ethers.getContractFactory("StackingManager");
     const stakingManager = await StakingManager.deploy(
         tokenPHARM.address,
         priceProvider.address
     );
     await stakingManager.deployed();
 
-    // // Pre-minting of PHARM tokens
+    // Pre-minting of PHARM tokens
     await tokenPHARM.mint(
         stakingManager.address,
         ethers.utils.parseEther("1000000000")
@@ -44,7 +44,7 @@ async function main() {
 
     // log contract address
     console.log(`TokenPHARM deployed to ${tokenPHARM.address}`);
-    console.log(`SimpleStorage deployed to ${dataStorage.address}`);
+    console.log(`DataStorage deployed to ${dataStorage.address}`);
     console.log(`FreePharma deployed to ${freePharma.address}`);
     console.log(`PriceProvider deployed to ${priceProvider.address}`);
     console.log(`StakingManager deployed to ${stakingManager.address}`);

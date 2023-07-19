@@ -6,7 +6,7 @@ export const config = {
     chain: process.env.NEXT_PUBLIC_CLIENT_CHAIN,
     contracts: {
         simpleStorage: {
-            address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+            address: process.env.NEXT_PUBLIC_TOKEN_PHARM_CONTRACT_ADDRESS,
             abi: ABIs.SimpleStorage,
         }
     }
