@@ -6,6 +6,14 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+
+/**
+ * @title DataStorage
+ * @author Elie MENDY
+ * @notice This contract is the data storage contract.
+ * @notice It stores all the data of the FreePharma application.
+ * @notice It is used by the BusinessLogic contract.
+ */
 contract DataStorage is Ownable {
     
     /* ::::::::::::::: STATE  :::::::::::::::::: */
@@ -18,7 +26,7 @@ contract DataStorage is Ownable {
     }
 
 
-    function setBusinessLogicContract(address _businessLogicContract) public onlyOwner {
+    function setBusinessLogicContract(address _businessLogicContract) external onlyOwner {
         businessLogicContract = _businessLogicContract;
     }
 
@@ -112,7 +120,7 @@ contract DataStorage is Ownable {
         uint _averageDailyRate,
         bool _available,
         bool _visible
-    ) public {
+    ) external {
         freelancers[_freelancerAddress] = Freelancer(
             block.timestamp,
             block.timestamp,
@@ -134,34 +142,34 @@ contract DataStorage is Ownable {
     /// @notice fetch a freelancer.
     /// @param _freelancerAddress the freelancer's address.
     /// @return Freelancer, the freelancer.
-    function getFreelancer(address _freelancerAddress) public view returns(Freelancer memory) {
+    function getFreelancer(address _freelancerAddress) external view returns(Freelancer memory) {
         return freelancers[_freelancerAddress];
     }
 
     /// @notice fetch all freelancer jobs applied.
     /// @param _freelancerAddresse the freelancer's address.
     /// @return uint[], an array of job ids.
-    function getFreelancerJobApplied(address _freelancerAddresse) public view returns(uint[] memory) {
+    function getFreelancerJobApplied(address _freelancerAddresse) external view returns(uint[] memory) {
         return freelancers[_freelancerAddresse].appliedJobIds;
     }
 
     /// @notice fetch all freelancer jobs hired.
     /// @param _freelancerAddresse the freelancer's address.
     /// @return uint[], an array of job ids.
-    function getFreelancerJobHired(address _freelancerAddresse) public view returns(uint[] memory) {
+    function getFreelancerJobHired(address _freelancerAddresse) external view returns(uint[] memory) {
         return freelancers[_freelancerAddresse].hiredJobIds;
     }
 
     /// @notice fetch all freelancer jobs completed.
     /// @param _freelancerAddresse the freelancer's address.
     /// @return uint[], an array of job ids.
-    function getFreelancerJobCompleted(address _freelancerAddresse) public view returns(uint[] memory) {
+    function getFreelancerJobCompleted(address _freelancerAddresse) external view returns(uint[] memory) {
         return freelancers[_freelancerAddresse].completedJobIds;
     }
 
     /// @notice fetch all freelancers.
     /// @return Freelancer[], an array of freelancers.
-    function getFreelancers() public view returns(Freelancer[] memory) {
+    function getFreelancers() external view returns(Freelancer[] memory) {
         Freelancer[] memory _freelancers = new Freelancer[](_freelancersAddresses.length);
         for (uint i = 0; i < _freelancersAddresses.length; i++) {
             _freelancers[i] = freelancers[_freelancersAddresses[i]];
@@ -185,7 +193,7 @@ contract DataStorage is Ownable {
         uint _averageDailyRate,
         bool _available,
         bool _visible
-    ) public  {
+    ) external  {
         freelancers[_freelancerAddresse].updated_at = block.timestamp;
         freelancers[_freelancerAddresse].name = _name;
         freelancers[_freelancerAddresse].email = _email;
@@ -198,7 +206,7 @@ contract DataStorage is Ownable {
     /// @notice allow a freelancer to apply for a job.
     /// @param _jobId the job id.
     /// @param _freelancerAddress the freelancer's address.
-    function applyForJob(uint _jobId, address _freelancerAddress) public {
+    function applyForJob(uint _jobId, address _freelancerAddress) external {
         freelancers[_freelancerAddress].appliedJobIds.push(_jobId);
         jobs[_jobId].candidates.push(_freelancerAddress);
         jobs[_jobId].nbCandidates++;
@@ -210,7 +218,7 @@ contract DataStorage is Ownable {
     /// @dev add the job id into the freelancer 'startedJobOffersIds'.
     /// @dev update the job 'freelancerId' attribute.
     /// @dev update the job status to IN_PROGRESS.
-    function confirmCandidature(uint _jobId, address _freelancerAddress) public {
+    function confirmCandidature(uint _jobId, address _freelancerAddress) external {
         employers[jobs[_jobId].employerAddress].startedJobOffersIds.push(_jobId);
         employers[jobs[_jobId].employerAddress].currentJobOffersIds = _removeJobIdFromArray(
             _jobId, employers[jobs[_jobId].employerAddress].currentJobOffersIds
@@ -222,7 +230,7 @@ contract DataStorage is Ownable {
 
     /// @notice allow a freelancer to indicate a job as completed.
     /// @param _jobId the job id.
-    function completeFreelancerJob(uint _jobId) public {
+    function completeFreelancerJob(uint _jobId) external {
         jobs[_jobId].completedByFreelancer = true;
         jobs[_jobId].status = JobStatus.COMPLETED;
     }
@@ -231,7 +239,7 @@ contract DataStorage is Ownable {
     /// @param _jobId the job id.
     /// @dev remove the job id from the freelancer 'hiredJobIds' list.
     /// @dev add the job id into the freelancer 'completedJobIds'.
-    function processClaim(uint _jobId) public {
+    function processClaim(uint _jobId) external {
         jobs[_jobId].claimed = true;
         freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
         freelancers[jobs[_jobId].freelancerAddress].hiredJobIds = _removeJobIdFromArray(
@@ -251,7 +259,7 @@ contract DataStorage is Ownable {
         string calldata _name,
         string calldata _email,
         bool _visible
-    ) public {
+    ) external {
         employers[_employerAddresses] = Employer(
             block.timestamp,
             block.timestamp,
@@ -269,13 +277,13 @@ contract DataStorage is Ownable {
     /// @notice fetch an employer.
     /// @param _employerAddress the employer's address.
     /// @return Employer, the employer.
-    function getEmployer(address _employerAddress) public view returns(Employer memory) {
+    function getEmployer(address _employerAddress) external view returns(Employer memory) {
         return employers[_employerAddress];
     }
 
     /// @notice fetch all freelancers.
     /// @return Freelancer[], an array of freelancers.
-    function getEmployers() public view returns(Employer[] memory) {
+    function getEmployers() external view returns(Employer[] memory) {
         Employer[] memory _employers = new Employer[](_employerCount.current());
         for (uint i = 0; i < _employerCount.current(); i++) {
             _employers[i] = employers[_employersAddresses[i]];
@@ -293,7 +301,7 @@ contract DataStorage is Ownable {
         string calldata _name,
         string calldata _email,
         bool _visible
-    ) public {
+    ) external {
         employers[employerAddress].name = _name;
         employers[employerAddress].email = _email;
         employers[employerAddress].visible = _visible;
@@ -313,7 +321,7 @@ contract DataStorage is Ownable {
         uint _endDate,
         uint _salary,
         string calldata _location
-    ) public {
+    ) external {
         uint jobId = _jobCount.current();
         jobs[_jobCount.current()] = Job(
             _startDate,
@@ -338,35 +346,35 @@ contract DataStorage is Ownable {
     /// @notice fetch a job.
     /// @param _jobId the job's id.
     /// @return Job, the job.
-    function getJob(uint _jobId) public view returns(Job memory) {
+    function getJob(uint _jobId) external view returns(Job memory) {
         return jobs[_jobId];
     }
 
     /// @notice fetch the job status
     /// @param _jobId the job's id.
     /// @return JobStatus, the job status.
-    function getJobStatus(uint _jobId) public view returns(JobStatus) {
+    function getJobStatus(uint _jobId) external view returns(JobStatus) {
         return jobs[_jobId].status;
     }
 
     /// @notice fetch the number of candidates for a given job.
     /// @param _jobId the job's id.
     /// @return uint, the number of candidates.
-    function getJobNbCandidates(uint _jobId) public view returns(uint) {
+    function getJobNbCandidates(uint _jobId) external view returns(uint) {
         return jobs[_jobId].candidates.length;
     }
 
     /// @notice fetch the job employer address.
     /// @param _jobId the job's id.
     /// @return address, the employer address.
-    function getJobEmployerAddress(uint _jobId) public view returns(address) {
+    function getJobEmployerAddress(uint _jobId) external view returns(address) {
         return jobs[_jobId].employerAddress;
     }
 
     /// @notice fetch the job freelancer address.
     /// @param _jobId the job's id.
     /// @return address, the freelancer address.
-    function getJobFreelancerAddress(uint _jobId) public view returns(address) {
+    function getJobFreelancerAddress(uint _jobId) external view returns(address) {
         return jobs[_jobId].freelancerAddress;
     }
 
@@ -374,14 +382,14 @@ contract DataStorage is Ownable {
     /// @notice fetch the job salary.
     /// @param _jobId the job's id.
     /// @return uint, the job salary.
-    function getJobSalary(uint _jobId) public view returns(uint) {
+    function getJobSalary(uint _jobId) external view returns(uint) {
         return jobs[_jobId].salary;
     }
 
     /// @notice fetch the job end date.
     /// @param _jobId the job's id.
     /// @return uint, the job end date.
-    function getJobEndDate(uint _jobId) public view returns(uint) {
+    function getJobEndDate(uint _jobId) external view returns(uint) {
         return jobs[_jobId].endDate;
     }
 
@@ -397,7 +405,7 @@ contract DataStorage is Ownable {
         uint _startDate,
         uint _endDate,
         string calldata _location
-    ) public {
+    ) external {
         jobs[_jobId].salary = _salary;
         jobs[_jobId].startDate = _startDate;
         jobs[_jobId].endDate = _endDate;
@@ -409,7 +417,7 @@ contract DataStorage is Ownable {
     /// @param _freelancerAddress the freelancer address.
     /// @dev remove the job id from the freelancer 'appliedJobIds' list if it's in.
     /// @dev add the job id into the freelancer 'hiredJobIds' list.
-    function hireFreelancer(uint _jobId, address _freelancerAddress) public {
+    function hireFreelancer(uint _jobId, address _freelancerAddress) external {
         jobs[_jobId].status = JobStatus.CONFIRMATION_PENDING;
         freelancers[_freelancerAddress].hiredJobIds.push(_jobId);
         freelancers[_freelancerAddress].appliedJobIds = _removeJobIdFromArray(
@@ -422,7 +430,7 @@ contract DataStorage is Ownable {
     /// @dev define the job's status as completed.
     /// @dev remove the job id from the freelancer 'hiredJobIds' list.
     /// @dev add the job id into the freelancer 'completedJobIds'.
-    function completeEmployerJob(uint _jobId) public {
+    function completeEmployerJob(uint _jobId) external {
         jobs[_jobId].completedByEmployer = true;
         jobs[_jobId].status = JobStatus.COMPLETED;
         freelancers[jobs[_jobId].freelancerAddress].completedJobIds.push(_jobId);
@@ -436,7 +444,7 @@ contract DataStorage is Ownable {
     /// @dev can only be called by the function completeEmployerJob().
     /// @dev can't be called once the job has started.
     /// @dev update the job 'paid' attribute.
-    function payFreelancer(uint _jobId) public {
+    function payFreelancer(uint _jobId) external {
         tokenPHARM.transferFrom(
             jobs[_jobId].employerAddress,
             jobs[_jobId].freelancerAddress,
@@ -455,19 +463,19 @@ contract DataStorage is Ownable {
 
     /// @notice fetch the number of job.
     /// @return uint, the number of job.
-    function getJobCount() public view returns(uint) {
+    function getJobCount() external view returns(uint) {
         return _jobCount.current();
     }
 
     /// @notice fetch the number of freelancer.
     /// @return uint, the number of freelancer.
-    function getFreelancerCount() public view returns(uint) {
+    function getFreelancerCount() external view returns(uint) {
         return _freelancerCount.current();
     }
 
     /// @notice fetch the number of employer.
     /// @return uint, the number of employer.
-    function getEmployerCount() public view returns(uint) {
+    function getEmployerCount() external view returns(uint) {
         return _employerCount.current();
     }
 
@@ -506,7 +514,7 @@ contract DataStorage is Ownable {
     /// @param _freelancerAddress the freelancer address.
     /// @param _jobId the job id.
     /// @return bool, true if the freelancer has applied to the job, false otherwise.
-    function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) public view returns(bool) {
+    function freelancerAppliedToJob(address _freelancerAddress, uint _jobId) external view returns(bool) {
         return _jobIdInArray(_jobId, freelancers[_freelancerAddress].appliedJobIds);
     }
 
@@ -514,7 +522,7 @@ contract DataStorage is Ownable {
     /// @param _freelancerAddress the freelancer address.
     /// @param _jobId the job id.
     /// @return bool, true if the freelancer was hired, false otherwise.
-    function freelancerHired(address _freelancerAddress, uint _jobId) public view returns(bool) {
+    function freelancerHired(address _freelancerAddress, uint _jobId) external view returns(bool) {
         return _jobIdInArray(_jobId, freelancers[_freelancerAddress].hiredJobIds);
     }
 

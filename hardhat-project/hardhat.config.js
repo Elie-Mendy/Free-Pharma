@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("hardhat-contract-sizer");
+require("solidity-coverage");
+require("hardhat-docgen");
 
 // fetching configuration from .env file
 const { INFURA_API_KEY, SEPOLIA_PRIVATE_KEY, GOERLI_PRIVATE_KEY } = process.env;
@@ -13,7 +15,7 @@ module.exports = {
             optimizer: {
                 enabled: true,
                 runs: 200,
-                details: { yul: false }
+                details: { yul: false },
             },
         },
     },
@@ -34,5 +36,10 @@ module.exports = {
     },
     gasReporter: {
         enabled: false,
+    },
+    docgen: {
+        path: "./docs",
+        clear: true,
+        runOnCompile: true,
     },
 };

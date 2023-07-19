@@ -5,12 +5,14 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "./IDataStorage.sol";
+import "../interfaces/IDataStorage.sol";
 
 /**
  * @title FreePharma
  * @author Elie MENDY
  * @notice You can use this contract for only the most educational purpose
+ * @notice This contract is a POC of a freelancing platform
+ * @notice This contract is the business logic of the platform
  */
 contract FreePharma is AccessControl {
     /* ::::::::::::::: ROLES :::::::::::::::::: */
@@ -389,7 +391,7 @@ contract FreePharma is AccessControl {
     {   
         // check the end date + 2 days (for this sample project we use minutes)
         if (dataStorage.getJobEndDate(_jobId) + 2 minutes > block.timestamp) {
-            revert NotAuthorized();
+            revert NotAuthorized("you can't claim your salary yet");
         }
         dataStorage.payFreelancer(_jobId);
         dataStorage.processClaim(_jobId);

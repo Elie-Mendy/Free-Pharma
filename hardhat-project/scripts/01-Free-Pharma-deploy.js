@@ -22,10 +22,33 @@ async function main() {
     // dataStorage configuration
     await dataStorage.setBusinessLogicContract(freePharma.address);
 
+    // PriceProvider deployment
+    const PriceProvider = await hre.ethers.getContractFactory("PriceProvider");
+    const priceProvider = await PriceProvider.deploy();
+    await priceProvider.deployed();
+
+    // StakingManager deployment
+    const StakingManager = await hre.ethers.getContractFactory("StakingManager");
+    const stakingManager = await StakingManager.deploy(
+        tokenPHARM.address,
+        priceProvider.address
+    );
+    await stakingManager.deployed();
+
+    // // Pre-minting of PHARM tokens
+    await tokenPHARM.mint(
+        stakingManager.address,
+        ethers.utils.parseEther("1000000000")
+    );
+
+
     // log contract address
     console.log(`TokenPHARM deployed to ${tokenPHARM.address}`);
     console.log(`SimpleStorage deployed to ${dataStorage.address}`);
     console.log(`FreePharma deployed to ${freePharma.address}`);
+    console.log(`PriceProvider deployed to ${priceProvider.address}`);
+    console.log(`StakingManager deployed to ${stakingManager.address}`);
+    
 }
 
 main().catch((error) => {

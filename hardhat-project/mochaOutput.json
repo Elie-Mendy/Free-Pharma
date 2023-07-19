@@ -1,0 +1,2618 @@
+{
+ "stats": {
+  "suites": 89,
+  "tests": 186,
+  "passes": 186,
+  "pending": 0,
+  "failures": 0
+ },
+ "tests": [
+  {
+   "title": "should set the right owner",
+   "fullTitle": "DataStorage - storage smart contract Deployment should set the right owner",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should set the right PHARM token address",
+   "fullTitle": "DataStorage - storage smart contract Deployment should set the right PHARM token address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any job",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any freelancer",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any employer",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should set the business logic contract address",
+   "fullTitle": "DataStorage - storage smart contract Admin Function unit tests setBusinessLogicContract() should set the business logic contract address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should only allow the owner to set the business logic contract address",
+   "fullTitle": "DataStorage - storage smart contract Admin Function unit tests setBusinessLogicContract() should only allow the owner to set the business logic contract address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should create a freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer with right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should create a freelancer with right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancer() should get the right freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get all freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all jobs applied by a freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancerJobApplied() should get all jobs applied by a freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the freelancer with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should update the freelancer with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create an employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should create an employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer with right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should create a freelancer with right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployer() should get the right employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get all freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the employer with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer should update the employer with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJob() should get the right job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the job with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should update the job with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job status",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobStatus() should get the right job status",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of candidates",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobNbCandidates should get the right number of candidates",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right employer address",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobEmployerAddress should get the right employer address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right freelancer address",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobFreelancerAddress should get the right freelancer address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job salary",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobSalary() should get the right job salary",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job end date",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobEndDate() should get the right job end date",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should allow a freelancer to apply for a job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the employer completed startedJobOffersIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should add the job id into the employer completed startedJobOffersIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to IN_PROGRESS",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should modify the job status to IN_PROGRESS",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to COMPLETED",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should modify the job status to COMPLETED",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the 'claimed' job attribute to true",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions processClaim() should update the 'claimed' job attribute to true",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer completed completedJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions processClaim() should add the job id into the freelancer completed completedJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to CANDIDATURE_PENDING",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer should modify the job status to CANDIDATURE_PENDING",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer hiredJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer should add the job id into the freelancer hiredJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should note the job as completed by employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should note the job as completed by employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to COMPLETED",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should modify the job status to COMPLETED",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer completedJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should add the job id into the freelancer completedJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to PAID",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions payFreelancer should modify the job status to PAID",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should transfer the salary to the freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions payFreelancer should transfer the salary to the freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the number of jobs",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getJobCount() should return the number of jobs",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right number of freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getFreelancerCount() should return the right number of freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right number of employers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getEmployerCount() should return the right number of employers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return true if the freelancer applied to the job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions freelancerAppliedToJob() should return true if the freelancer applied to the job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return false if the freelancer didn't applied to the job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions freelancerAppliedToJob() should return false if the freelancer didn't applied to the job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed with the right admin",
+   "fullTitle": "FreePharma - business logic smart contract Deployment should be deployed with the right admin",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to register",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should allow a freelancer to register",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should register a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should register a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should emit a FreelancerCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer registration if already registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should forbid a freelancer registration if already registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getOneFreelancer() should get a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not return a freelancer that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getOneFreelancer() should not return a freelancer that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get the right number of freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get all freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to update his data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should allow a freelancer to update his data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should update a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should emit a FreelancerUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to update data if not registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should forbid a freelancer to update data if not registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to register",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should allow an employer to register",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should register an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should register an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit an EmployerCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should emit an EmployerCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to register if already registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should forbid an employer to register if already registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getOneEmployer() should get an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not get an employer that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getOneEmployer() should not get an employer that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get the right number of freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get all freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to update data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should allow an employer to update data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should update an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit an EmployerUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should emit an EmployerUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update data if not registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should forbid an employer to update data if not registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should allow an employer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should create a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should emit a JobCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to create a job if he does not have enough found to pay the freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an employer to create a job if he does not have enough found to pay the freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an freelancer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an freelancer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unregistered account to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an unregistered account to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions getOneJob() should get a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not get a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions getOneJob() should not get a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to update one his job's data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should allow an employer to update one his job's data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should update a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should emit a JobUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an employer to update a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update a job that is not his",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an employer to update a job that is not his",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to update a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid a freelancer to update a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to update a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an unknown account to update a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should allow a freelancer to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobApplied event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should emit a JobApplied event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job if he already applied",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job if he already applied",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job that is already provided",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job that is already provided",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer  to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid an employer  to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid an unknown account to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to confirm his candidature",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should allow a freelancer to confirm his candidature",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerConfirmedCandidature event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should emit a FreelancerConfirmedCandidature event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if another freelancer was hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if another freelancer was hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if the employer does not have enough found to pay him",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if the employer does not have enough found to pay him",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to confirm a candidature as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid an employer to confirm a candidature as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to confirm a candidature as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid an unknown account to confirm a candidature as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to complete a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should allow a freelancer to complete a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerCompletedJob event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should emit a FreelancerCompletedJob event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to complete a job if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid a freelancer to complete a job if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to complete a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid a freelancer to complete a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid an employer to complete a job as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to complete a job as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid an unknown account to complete a job as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to claim his salary",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should allow a freelancer to claim his salary",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerClaimedSalary event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should emit a FreelancerClaimedSalary event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim his salary if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim his salary if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim his salary if the job is not completed",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim his salary if the job is not completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim a salary for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim a salary for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to claim a salary as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid an employer to claim a salary as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to claim a salary as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid an unknown account to claim a salary as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to hire a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should allow an employer to hire a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to send hire invitation for several freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should allow an employer to send hire invitation for several freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerHired event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should emit a FreelancerHired event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if he is not the owner of the job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if he is not the owner of the job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if the job does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if the job does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if the freelancer does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if the freelancer does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid a freelancer to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an unknown account to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to complete his job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should allow an employer to complete his job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a EmployerCompletedJob event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should emit a EmployerCompletedJob event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job if he is not the owner of the job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an employer to complete a job if he is not the owner of the job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job if the job does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an employer to complete a job if the job does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid a freelancer to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an unknown account to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer registration",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer registration",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer registration",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer registration",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to hire a applicant",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to hire a applicant",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to confirm his candidature",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to confirm his candidature",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to indicate the job as completed",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to indicate the job as completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to indicate the job as completed",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to indicate the job as completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should have updated data",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should have updated data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should have correct name, symbol, and initial supply",
+   "fullTitle": "TokenPHARM Should have correct name, symbol, and initial supply",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should grant roles to the deployer",
+   "fullTitle": "TokenPHARM Should grant roles to the deployer",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should mint tokens",
+   "fullTitle": "TokenPHARM Should mint tokens",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should not allow minting tokens by non-minter",
+   "fullTitle": "TokenPHARM Should not allow minting tokens by non-minter",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should be deployed with the right owner",
+   "fullTitle": "PriceProvider Deployment getLatestPriceETH() Should be deployed with the right owner",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the latest price of ETH in USD",
+   "fullTitle": "PriceProvider Function unit tests getLatestPriceETH() Should return the latest price of ETH in USD",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the dataFeed's address",
+   "fullTitle": "PriceProvider Function unit tests dataFeedETH() Should return the dataFeed's address",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to stake PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the user's reward at the first staking",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake more PHARM tokens than he has",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a StakePHARM event",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to stake ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the user's reward at the first staking",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a StakeETH event",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to unstake PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to unstake more PHARM tokens than he has staked",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a UnstakePHARM event",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to unstake ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to unstake more ETH tokens than he has staked",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a UnstakeETH event",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to claim his rewards",
+   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a RewardsClaimed event",
+   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right user's data",
+   "fullTitle": "StackingManager Function unit tests Helpers getUser() should return the right user's data",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not return emply values for an unexisting user's data",
+   "fullTitle": "StackingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the reward before one day",
+   "fullTitle": "StackingManager Reward Fuzzing should not update the reward before one day",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the reward after one day",
+   "fullTitle": "StackingManager Reward Fuzzing should not update the reward after one day",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ],
+ "failures": [],
+ "passes": [
+  {
+   "title": "should set the right owner",
+   "fullTitle": "DataStorage - storage smart contract Deployment should set the right owner",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should set the right PHARM token address",
+   "fullTitle": "DataStorage - storage smart contract Deployment should set the right PHARM token address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any job",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any freelancer",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed without any employer",
+   "fullTitle": "DataStorage - storage smart contract Deployment should be deployed without any employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should set the business logic contract address",
+   "fullTitle": "DataStorage - storage smart contract Admin Function unit tests setBusinessLogicContract() should set the business logic contract address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should only allow the owner to set the business logic contract address",
+   "fullTitle": "DataStorage - storage smart contract Admin Function unit tests setBusinessLogicContract() should only allow the owner to set the business logic contract address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should create a freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer with right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should create a freelancer with right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancer() should get the right freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get all freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all jobs applied by a freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancerJobApplied() should get all jobs applied by a freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the freelancer with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should update the freelancer with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create an employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should create an employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a freelancer with right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should create a freelancer with right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployer() should get the right employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get all freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the employer with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer should update the employer with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJob() should get the right job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the job with the right values",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should update the job with the right values",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job status",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobStatus() should get the right job status",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of candidates",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobNbCandidates should get the right number of candidates",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right employer address",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobEmployerAddress should get the right employer address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right freelancer address",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobFreelancerAddress should get the right freelancer address",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job salary",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobSalary() should get the right job salary",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right job end date",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Entities - creation and data fetching Jobs functions getJobEndDate() should get the right job end date",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should allow a freelancer to apply for a job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the employer completed startedJobOffersIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should add the job id into the employer completed startedJobOffersIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to IN_PROGRESS",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should modify the job status to IN_PROGRESS",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to COMPLETED",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should modify the job status to COMPLETED",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the 'claimed' job attribute to true",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions processClaim() should update the 'claimed' job attribute to true",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer completed completedJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions processClaim() should add the job id into the freelancer completed completedJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to CANDIDATURE_PENDING",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer should modify the job status to CANDIDATURE_PENDING",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer hiredJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer should add the job id into the freelancer hiredJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should note the job as completed by employer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should note the job as completed by employer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to COMPLETED",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should modify the job status to COMPLETED",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should add the job id into the freelancer completedJobIds list",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob should add the job id into the freelancer completedJobIds list",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should modify the job status to PAID",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions payFreelancer should modify the job status to PAID",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should transfer the salary to the freelancer",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Hiring / Payment - prosess functions Employers functions payFreelancer should transfer the salary to the freelancer",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the number of jobs",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getJobCount() should return the number of jobs",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right number of freelancers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getFreelancerCount() should return the right number of freelancers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right number of employers",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions getEmployerCount() should return the right number of employers",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return true if the freelancer applied to the job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions freelancerAppliedToJob() should return true if the freelancer applied to the job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return false if the freelancer didn't applied to the job",
+   "fullTitle": "DataStorage - storage smart contract Function unit tests Helpers functions freelancerAppliedToJob() should return false if the freelancer didn't applied to the job",
+   "file": "test/DataStorage.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should be deployed with the right admin",
+   "fullTitle": "FreePharma - business logic smart contract Deployment should be deployed with the right admin",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to register",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should allow a freelancer to register",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should register a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should register a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should emit a FreelancerCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer registration if already registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions createFreelancer() should forbid a freelancer registration if already registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getOneFreelancer() should get a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not return a freelancer that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getOneFreelancer() should not return a freelancer that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get the right number of freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions getFreelancers() should get all freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to update his data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should allow a freelancer to update his data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update a freelancer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should update a freelancer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should emit a FreelancerUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to update data if not registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Freelancers functions setFreelancer() should forbid a freelancer to update data if not registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to register",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should allow an employer to register",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should register an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should register an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit an EmployerCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should emit an EmployerCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to register if already registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions createEmployer() should forbid an employer to register if already registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getOneEmployer() should get an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not get an employer that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getOneEmployer() should not get an employer that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get the right number of freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get the right number of freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get all freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions getEmployers() should get all freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to update data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should allow an employer to update data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update an employer with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should update an employer with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit an EmployerUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should emit an EmployerUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update data if not registered",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Employers functions setEmployer() should forbid an employer to update data if not registered",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should allow an employer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should create a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should create a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobCreated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should emit a JobCreated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to create a job if he does not have enough found to pay the freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an employer to create a job if he does not have enough found to pay the freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an freelancer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an freelancer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unregistered account to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions createJob() should forbid an unregistered account to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should get a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions getOneJob() should get a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not get a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions getOneJob() should not get a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to update one his job's data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should allow an employer to update one his job's data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update a job with the right data",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should update a job with the right data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobUpdated event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should emit a JobUpdated event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an employer to update a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to update a job that is not his",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an employer to update a job that is not his",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to update a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid a freelancer to update a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to update a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Entities - creation and data fetching Jobs functions setJob() should forbid an unknown account to update a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should allow a freelancer to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a JobApplied event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should emit a JobApplied event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job if he already applied",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job if he already applied",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to apply for a job that is already provided",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid a freelancer to apply for a job that is already provided",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer  to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid an employer  to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions applyForJob() should forbid an unknown account to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to confirm his candidature",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should allow a freelancer to confirm his candidature",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerConfirmedCandidature event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should emit a FreelancerConfirmedCandidature event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if another freelancer was hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if another freelancer was hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to confirm his candidature if the employer does not have enough found to pay him",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid a freelancer to confirm his candidature if the employer does not have enough found to pay him",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to confirm a candidature as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid an employer to confirm a candidature as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to confirm a candidature as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions confirmCandidature() should forbid an unknown account to confirm a candidature as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to complete a job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should allow a freelancer to complete a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerCompletedJob event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should emit a FreelancerCompletedJob event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to complete a job if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid a freelancer to complete a job if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to complete a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid a freelancer to complete a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid an employer to complete a job as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to complete a job as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions completeFreelancerJob() should forbid an unknown account to complete a job as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to claim his salary",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should allow a freelancer to claim his salary",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerClaimedSalary event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should emit a FreelancerClaimedSalary event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim his salary if he was not hired",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim his salary if he was not hired",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim his salary if the job is not completed",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim his salary if the job is not completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to claim a salary for a job that does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid a freelancer to claim a salary for a job that does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to claim a salary as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid an employer to claim a salary as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to claim a salary as a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Freelancers functions claimSalary() should forbid an unknown account to claim a salary as a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to hire a freelancer",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should allow an employer to hire a freelancer",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to send hire invitation for several freelancers",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should allow an employer to send hire invitation for several freelancers",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a FreelancerHired event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should emit a FreelancerHired event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if he is not the owner of the job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if he is not the owner of the job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if the job does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if the job does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to hire a freelancer if the freelancer does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an employer to hire a freelancer if the freelancer does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid a freelancer to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions hireFreelancer() should forbid an unknown account to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to complete his job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should allow an employer to complete his job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a EmployerCompletedJob event",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should emit a EmployerCompletedJob event",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job if he is not the owner of the job",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an employer to complete a job if he is not the owner of the job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an employer to complete a job if the job does not exist",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an employer to complete a job if the job does not exist",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a freelancer to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid a freelancer to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid an unknown account to call that function",
+   "fullTitle": "FreePharma - business logic smart contract Function unit tests Hiring / Payment - prosess functions Employers functions completeEmployerJob() should forbid an unknown account to call that function",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer registration",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer registration",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to create a job",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to create a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer registration",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer registration",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to apply for a job",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to apply for a job",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to hire a applicant",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to hire a applicant",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to confirm his candidature",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to confirm his candidature",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a freelancer to indicate the job as completed",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow a freelancer to indicate the job as completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow an employer to indicate the job as completed",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should allow an employer to indicate the job as completed",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should have updated data",
+   "fullTitle": "FreePharma - business logic smart contract Integration test should have updated data",
+   "file": "test/FreePharma.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should have correct name, symbol, and initial supply",
+   "fullTitle": "TokenPHARM Should have correct name, symbol, and initial supply",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should grant roles to the deployer",
+   "fullTitle": "TokenPHARM Should grant roles to the deployer",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should mint tokens",
+   "fullTitle": "TokenPHARM Should mint tokens",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should not allow minting tokens by non-minter",
+   "fullTitle": "TokenPHARM Should not allow minting tokens by non-minter",
+   "file": "test/PHARM.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should be deployed with the right owner",
+   "fullTitle": "PriceProvider Deployment getLatestPriceETH() Should be deployed with the right owner",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the latest price of ETH in USD",
+   "fullTitle": "PriceProvider Function unit tests getLatestPriceETH() Should return the latest price of ETH in USD",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Should return the dataFeed's address",
+   "fullTitle": "PriceProvider Function unit tests dataFeedETH() Should return the dataFeed's address",
+   "file": "test/PriceProvider.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to stake PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the user's reward at the first staking",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake more PHARM tokens than he has",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a StakePHARM event",
+   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to stake ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the user's reward at the first staking",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a StakeETH event",
+   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to unstake PHARM tokens",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to unstake more PHARM tokens than he has staked",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a UnstakePHARM event",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to unstake ETH tokens",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should update the user's reward if required time has passed since the last update",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should forbid a user to unstake more ETH tokens than he has staked",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a UnstakeETH event",
+   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow a user to claim his rewards",
+   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should emit a RewardsClaimed event",
+   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should return the right user's data",
+   "fullTitle": "StackingManager Function unit tests Helpers getUser() should return the right user's data",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not return emply values for an unexisting user's data",
+   "fullTitle": "StackingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the reward before one day",
+   "fullTitle": "StackingManager Reward Fuzzing should not update the reward before one day",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not update the reward after one day",
+   "fullTitle": "StackingManager Reward Fuzzing should not update the reward after one day",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "file": "test/StackingManager.js",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ]
+}
