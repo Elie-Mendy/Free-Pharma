@@ -27,6 +27,7 @@ export function useDataStorage() {
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
+    const [currentUser, setCurrentUser] = useState({});
     const [userProfile, setUserProfile] = useState({});
 
     // const [storedValue, setStoredValue] = useState("");
@@ -38,17 +39,17 @@ export function useDataStorage() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const simpleStorage = getContract({
+        const dataStorage = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
         });
 
         // get stored value
+        await getUserInfo(address)
 
         // Set state hook
-        setContract(simpleStorage);
-        getUserProfile(address)
+        setContract(dataStorage);
     };
 
 
@@ -170,18 +171,18 @@ export function useDataStorage() {
 
     // ::::::::::: HELPERS :::::::::::
 
-    const getUserProfile = async (_address) => {
+    const getUserInfo = async (_address) => {
         let freelancer = await getFreelancer(_address);
         let employer = await getEmployer(_address);
-        console.log("getUserProfile !", freelancer);
 
-        let profile =
-            employer && employer.created_at != 0
-                ? "employer"
-                : freelancer && freelancer.created_at
-                ? "freelancer"
-                : "unknown";
-        setUserProfile(profile);
+        if(freelancer && freelancer.created_at != 0) {
+            setUserProfile("freelancer");
+            setCurrentUser(freelancer);
+            
+        } else if (employer && employer.created_at != 0) {
+            setUserProfile("employer");
+            setCurrentUser(employer);
+        } 
     };
 
 
@@ -210,6 +211,7 @@ export function useDataStorage() {
 
         // State contract
         contract,
+        currentUser,
         userProfile,
         setUserProfile,
 

@@ -13,10 +13,8 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
-    const { isConnected , address } = useWagmi();
+    const { isConnected } = useWagmi();
     const { userProfile } = useContext(DataStorageContext)
-
-    console.log("userProfile", userProfile)
 
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);

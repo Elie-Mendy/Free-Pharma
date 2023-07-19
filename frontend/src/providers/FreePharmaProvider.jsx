@@ -10,9 +10,26 @@ export const FreePharmaProvider = ({ children }) => {
 
         // State contract
         contract,
+        currentUser,
 
         // Functions
         createFreelancer,
+        getOneFreelancer,
+        setFreelancer,
+        applyForJob,
+        confirmCandidature,
+        completeFreelancerJob,
+        claimSalary,
+
+        createEmployer,
+        getOneEmployer,
+        setEmployer,
+        hireFreelancer,
+        completeEmployerJob,
+
+        createJob,
+        getOneJob,
+        setJob,
 
         // Events
 
@@ -26,9 +43,26 @@ export const FreePharmaProvider = ({ children }) => {
 
             // State contract
             contract,
+            currentUser,
 
             // Functions
             createFreelancer,
+            getOneFreelancer,
+            setFreelancer,
+            applyForJob,
+            confirmCandidature,
+            completeFreelancerJob,
+            claimSalary,
+
+            createEmployer,
+            getOneEmployer,
+            setEmployer,
+            hireFreelancer,
+            completeEmployerJob,
+
+            createJob,
+            getOneJob,
+            setJob,
 
             // Events
 
@@ -40,9 +74,26 @@ export const FreePharmaProvider = ({ children }) => {
 
             // State contract
             contract,
-
+            currentUser,
+            
             // Functions
             createFreelancer,
+            getOneFreelancer,
+            setFreelancer,
+            applyForJob,
+            confirmCandidature,
+            completeFreelancerJob,
+            claimSalary,
+
+            createEmployer,
+            getOneEmployer,
+            setEmployer,
+            hireFreelancer,
+            completeEmployerJob,
+
+            createJob,
+            getOneJob,
+            setJob,
 
             // Events
 

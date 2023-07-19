@@ -11,7 +11,7 @@ import {
 import { CgFileDocument } from "react-icons/cg";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { BsCashCoin } from "react-icons/bs";
-import { ProfileModal } from "./ProfileModal";
+import { EmployerProfileModal } from "./EmployerProfileModal";
 import { MissionModal } from "./MissionModal";
 
 function StatsCard(props) {
@@ -83,7 +83,7 @@ export default function EmployerStats() {
                     stat={"€780"}
                     icon={<BsCashCoin size={"3em"} />}
                 />
-                <ProfileModal />
+                <EmployerProfileModal />
                 <MissionModal />
             </SimpleGrid>
         </Box>

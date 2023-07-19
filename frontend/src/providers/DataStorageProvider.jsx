@@ -10,6 +10,7 @@ export const DataStorageProvider = ({ children }) => {
 
         // State contract
         contract,
+        currentUser,
         userProfile,
         setUserProfile,
 
@@ -27,6 +28,7 @@ export const DataStorageProvider = ({ children }) => {
 
             // State contract
             contract,
+            currentUser,
             userProfile,
             setUserProfile,
 
@@ -42,6 +44,7 @@ export const DataStorageProvider = ({ children }) => {
 
             // State contract
             contract,
+            currentUser,
             userProfile,
             setUserProfile,
 

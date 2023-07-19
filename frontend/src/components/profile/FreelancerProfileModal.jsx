@@ -22,21 +22,13 @@ import { FiEdit } from "react-icons/fi";
 import FreelancerForm from "./FreelancerForm";
 import EmployerForm from "./EmployerForm";
 
-
-const isEmployer = true;
-
-export const ProfileModal = () => {
-
-    const { userProfil } = useContext(DataStorageContext);
+export const FreelancerProfileModal = () => {
+    const { userProfile } = useContext(DataStorageContext);
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const data = {
-        title: userProfil === "employer"
-            ? "Mettez à jour les informations de votre entreprise."
-            : "Mettez à jour vos informations personnels.",
-        label: userProfil === "employer"
-            ? "Infos entreprise"
-            : "Infos personnelles",
+        title: "Mettez à jour vos informations personnels.",
+        label: "Infos personnelles",
         helpText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe veritatis adipisci architecto repudiandae rerum! Ut aliquam dolor eveniet?",
     };
@@ -80,7 +72,11 @@ export const ProfileModal = () => {
                     <ModalHeader>{data.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {isEmployer ? <EmployerForm /> : <FreelancerForm />}
+                        {userProfile === "employer" ? (
+                            <EmployerForm />
+                        ) : (
+                            <FreelancerForm />
+                        )}
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>

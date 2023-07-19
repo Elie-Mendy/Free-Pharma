@@ -1,3 +1,8 @@
+import { useContext, useState } from "react";
+import { useNotif } from "@/hooks/useNotif";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
 import {
     Box,
     Button,
@@ -8,32 +13,37 @@ import {
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { useContext, useState } from "react";
-
-import { FreePharmaContext } from "@/providers/FreePharmaProvider";
-import { useNotif } from "@/hooks/useNotif";
 
 export default function FreelancerForm() {
-    const { throwNotif} = useNotif();
-    const { createFreelancer } = useContext(FreePharmaContext);
+    const { userProfile, setUserProfile } = useContext(DataStorageContext);
+
+    const { createFreelancer, setFreelancer, currentUser } =
+        useContext(FreePharmaContext);
+
+    const { throwNotif } = useNotif();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [location, setLocation] = useState("");
-    const [available, setAvailable] = useState(false);
-    const [visible, setVisible] = useState(false);
+    const [averageDailyRate, setAverageDailyRate] = useState("");
+    const [available, setAvailable] = useState(currentUser.available && currentUser.available);
+    const [visible, setVisible] = useState(currentUser.visible && currentUser.visible);
 
     const handleSubmit = () => {
-        if (
-            name === "" ||
-            email === "" ||
-            location === "" 
-        ) {
-            throwNotif("error", "Veuillez renseigner tous les champs du formulaire.");
+        if (name === "" || email === "" || location === "") {
+            throwNotif(
+                "error",
+                "Veuillez renseigner tous les champs du formulaire."
+            );
             return;
         }
-
-        createFreelancer(name, email, location, available, visible);
+        if (currentUser & (currentUser.created_at == 0)) {
+            console.log("createFreelancer function !")
+            createFreelancer(name, email, location, averageDailyRate,  available, visible);
+        } else {
+            console.log("setFreelancer function !")
+            setFreelancer(name, email, location, averageDailyRate, available, visible);
+        }
     };
 
     return (
@@ -41,7 +51,9 @@ export default function FreelancerForm() {
             <Stack spacing={4}>
                 <Input
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Pseudonyme"
+                    placeholder={
+                        currentUser.created_at ? currentUser.name : "Nom"
+                    }
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -52,7 +64,11 @@ export default function FreelancerForm() {
                 <Input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
-                    placeholder="email@freepharma.fr"
+                    placeholder={
+                        currentUser.created_at
+                            ? currentUser.email
+                            : "email@freepharma.fr"
+                    }
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -61,9 +77,29 @@ export default function FreelancerForm() {
                     }}
                 />
 
+                
                 <Input
                     onChange={(e) => setLocation(e.target.value)}
-                    placeholder="Région parisienne"
+                    placeholder={
+                        currentUser.created_at
+                            ? currentUser.location
+                            : "Lieu de résidence"
+                    }
+                    bg={useColorModeValue("gray.100", "gray.600")}
+                    border={0}
+                    color={useColorModeValue("gray.600", "gray.300")}
+                    _placeholder={{
+                        color: "gray.400",
+                    }}
+                />
+                <Input
+                    onChange={(e) => setAverageDailyRate(e.target.value)}
+                    type="number"
+                    placeholder={
+                        currentUser.created_at
+                            ? currentUser.averageDailyRate
+                            : "Taux horaire journalier"
+                    }
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -72,7 +108,13 @@ export default function FreelancerForm() {
                     }}
                 />
                 <HStack>
-                    <Switch onChange={() => setAvailable(!available)} colorScheme="cyan" id="availablility" size={"lg"} />
+                    <Switch
+                        onChange={() => setAvailable(!available)}
+                        isChecked={available}
+                        colorScheme="cyan"
+                        id="availablility"
+                        size={"lg"}
+                    />
                     <Text
                         color={"gray.500"}
                         fontSize={{ base: "sm", sm: "md" }}
@@ -81,7 +123,13 @@ export default function FreelancerForm() {
                     </Text>
                 </HStack>
                 <HStack>
-                    <Switch onChange={() => setVisible(!visible)} colorScheme="pink" id="visibility" size={"lg"} />
+                    <Switch
+                        onChange={() => setVisible(!visible)}
+                        isChecked={visible}
+                        colorScheme="pink"
+                        id="visibility"
+                        size={"lg"}
+                    />
                     <Text
                         color={"gray.500"}
                         fontSize={{ base: "sm", sm: "md" }}

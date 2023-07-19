@@ -23,11 +23,11 @@ export function useFreePharma() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { throwNotif } = useNotif();
-    const { setUserProfile } = useContext(DataStorageContext);
+    const { userProfile, setUserProfile } = useContext(DataStorageContext);
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
-    // const [storedValue, setStoredValue] = useState("");
+    const [currentUser, setCurrentUser] = useState({});
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -36,7 +36,7 @@ export function useFreePharma() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const simpleStorage = getContract({
+        const FreePharma = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
@@ -45,7 +45,15 @@ export function useFreePharma() {
         // get stored value
 
         // Set state hook
-        setContract(simpleStorage);
+        setContract(FreePharma);
+
+        if(userProfile == "freelancer") {
+            setCurrentUser(await getOneFreelancer(address));
+        } else if(userProfile == "employer") {
+            setCurrentUser(await getOneEmployer(address));
+        } 
+        console.log("currentUser: ", currentUser);
+
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -106,6 +114,8 @@ export function useFreePharma() {
         _visible = false
     ) => {
         try {
+            console.log("setFreelancer", _name, _email, _location, _averageDailyRate, _available, _visible) 
+
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
@@ -114,7 +124,7 @@ export function useFreePharma() {
                     _name,
                     _email,
                     _location,
-                    Number(_averageDailyRate),
+                    _averageDailyRate,
                     _available,
                     _visible,
                 ],
@@ -211,6 +221,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Profile created !");
+            setUserProfile("employer");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -399,7 +410,7 @@ export function useFreePharma() {
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
-    }, [isConnected, address, chain?.id]);
+    }, [isConnected, address, chain?.id, userProfile]);
 
     // ::::::::::: Returned data :::::::::::
     return {
@@ -409,9 +420,27 @@ export function useFreePharma() {
 
         // State contract
         contract,
+        currentUser,
 
         // Functions
         createFreelancer,
+        getOneFreelancer,
+        setFreelancer,
+        applyForJob,
+        confirmCandidature,
+        completeFreelancerJob,
+        claimSalary,
+
+        createEmployer,
+        getOneEmployer,
+        setEmployer,
+        hireFreelancer,
+        completeEmployerJob,
+        
+        createJob,
+        getOneJob,
+        setJob,
+
 
         // Events
 
