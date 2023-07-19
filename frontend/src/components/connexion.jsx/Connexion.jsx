@@ -8,12 +8,14 @@ import {
     Avatar,
     AvatarGroup,
     useBreakpointValue,
-    Box,
     HStack,
+    Hide,
+    Spacer,
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 import ConnexionForm from "./ConnexionForm";
 import RegistrationForm from "./RegistrationForm";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const avatars = [
     {
@@ -43,11 +45,16 @@ export default function Connexion({ isConnected, isRegistered }) {
         <Flex
             p={5}
             position={"relative"}
-            direction={{ base: "column-reverse", lg: "row" }}
+            direction={{ base: "column" }}
             h={{ sm: "100%" }}
             align={"center"}
             justify={"center"}
         >
+            <HStack justifySelf={"flex-start"} alignSelf={"flex-end"}>
+                {isConnected && <ConnectButton />}
+                <ColorModeSwitcher />
+            </HStack>
+            <Spacer />
             <Container
                 as={SimpleGrid}
                 maxW={"7xl"}
@@ -153,13 +160,11 @@ export default function Connexion({ isConnected, isRegistered }) {
                         </Flex>
                     </Stack>
                 </Stack>
-                <HStack justify={"center"}>
+                <HStack justifySelf={"flex-start"} justify={"center"}>
                     {isConnected ? <RegistrationForm /> : <ConnexionForm />}
                 </HStack>
             </Container>
-            <Box alignSelf={{ base: "flex-end", lg: "flex-start" }}>
-                <ColorModeSwitcher />
-            </Box>
+            <Spacer />
         </Flex>
     );
 }

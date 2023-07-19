@@ -1,4 +1,8 @@
 import MainLayout from "@/layouts/MainLayout";
+
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
 import {
     Flex,
     Stack,
@@ -55,14 +59,17 @@ const EditProfile = () => {
 };
 
 function ProfilePage() {
+
+    const { userProfile } = useContext(DataStorageContext);
+
     return (
         <MainLayout>
-            {isEmployer ? (
+            {userProfile == "employer" ? (
                 <>
                     <EmployerStats />
                     <EmployerTableData />
                 </>
-            ) : (
+            ) : userProfile == "freelancer" && (
                 <>
                     <FreelancerStats />
                     <FreelancerTableData />

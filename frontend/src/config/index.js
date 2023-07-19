@@ -24,14 +24,16 @@ export const config = {
         StakingManager: {
             address: process.env.NEXT_PUBLIC_STAKING_MANAGER_CONTRACT_ADDRESS,
             abi: ABIs.StakingManager,
-        }
-    }
-}
+        },
+    },
+};
 
-const chain = process.env.NEXT_PUBLIC_CLIENT_CHAIN === "mainnet"
-    ? mainnet
-    : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "sepolia"
-        ? sepolia : hardhat;
+const chain =
+    process.env.NEXT_PUBLIC_CLIENT_CHAIN === "mainnet"
+        ? mainnet
+        : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "sepolia"
+        ? sepolia
+        : hardhat;
 
 export const client = createPublicClient({
     chain: chain,

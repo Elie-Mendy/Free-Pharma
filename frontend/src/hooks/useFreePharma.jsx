@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useState, useEffect, useContext } from "react";
 import { useNotif } from "@/hooks/useNotif";
 import { useWagmi } from "./useWagmi";
 
@@ -15,6 +14,7 @@ import {
 import { parseAbiItem } from "viem";
 
 import { config, client } from "@/config";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 const contractAddress = config.contracts.FreePharma.address;
 const contractABI = config.contracts.FreePharma.abi;
@@ -22,8 +22,8 @@ const contractABI = config.contracts.FreePharma.abi;
 export function useFreePharma() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
-    const { setInfo, setError } = useNotif();
-    const toast = useToast();
+    const { throwNotif } = useNotif();
+    const { setUserProfile } = useContext(DataStorageContext);
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
@@ -48,39 +48,295 @@ export function useFreePharma() {
         setContract(simpleStorage);
     };
 
-    
     // ::::::::::: Contract Functions :::::::::::
 
-    /*
-    const getStoredData = async () => {
+    /// Freelancers
+
+    const createFreelancer = async (
+        _name = "",
+        _email = "",
+        _location = "",
+        _averageDailyRate = 0,
+        _available = false,
+        _visible = false
+    ) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "createFreelancer",
+                args: [
+                    _name,
+                    _email,
+                    _location,
+                    _averageDailyRate,
+                    _available,
+                    _visible,
+                ],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Profile created !");
+            setUserProfile("freelancer");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getOneFreelancer = async (_freelancerAddress) => {
         try {
             const data = await readContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "storedData",
+                functionName: "getOneFreelancer",
+                args: [_freelancerAddress],
             });
             return data;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
-    const setValue = async (_value) => {
+
+    const setFreelancer = async (
+        _name = "",
+        _email = "",
+        _location = "",
+        _averageDailyRate = 0,
+        _available = false,
+        _visible = false
+    ) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "setFreelancer",
+                args: [
+                    _name,
+                    _email,
+                    _location,
+                    Number(_averageDailyRate),
+                    _available,
+                    _visible,
+                ],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Profile updated !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const applyForJob = async (_jobId) => {
         if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "set",
-                args: [Number(_value)],
+                functionName: "applyForJob",
+                args: [Number(_jobId)],
             });
             const { hash } = await writeContract(request);
-            setInfo("Value stored !");
+            throwNotif("info", "Applied for job !");
             return hash;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
-    */
+
+    const confirmCandidature = async (_jobId) => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "confirmCandidature",
+                args: [Number(_jobId)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Candidate confirmed !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const completeFreelancerJob = async (_jobId) => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "completeFreelancerJob",
+                args: [Number(_jobId)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Job completed !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const claimSalary = async (_jobId) => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "claimSalary",
+                args: [Number(_jobId)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Salary claimed !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    /// Employers
+
+    const createEmployer = async (
+        _name = "",
+        _email = "",
+        _visible = false
+    ) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "createEmployer",
+                args: [_name, _email, _visible],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Profile created !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getOneEmployer = async (_employerAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getOneEmployer",
+                args: [_employerAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const setEmployer = async (_name = "", _email = "", _visible = false) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "setEmployer",
+                args: [_name, _email, _visible],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Profile updated !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const hireFreelancer = async (_jobId, _freelancerAddress) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "hireFreelancer",
+                args: [_jobId, _freelancerAddress],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Freelancer hired !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const completeEmployerJob = async (_jobId) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "completeEmployerJob",
+                args: [_jobId],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Job completed !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    /// Jobs
+
+    const createJob = async (
+        _startDate,
+        _endDate,
+        _salary = "",
+        _location = ""
+    ) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "createJob",
+                args: [_startDate, _endDate, _salary, _location],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Job created !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getOneJob = async (_jobId) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getOneJob",
+                args: [_jobId],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const setJob = async (
+        _jobId,
+        _salary = "",
+        _startDate,
+        _endDate,
+        _location = ""
+    ) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "createJob",
+                args: [_jobId, _salary, _startDate, _endDate, _location],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Job updated !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
 
     // ::::::::::: Contract Events :::::::::::
 
@@ -141,31 +397,21 @@ export function useFreePharma() {
             // fetchStoredValues();
             // setUpListeners();
         } catch (error) {
-            toast({
-                title: "Error Contract !",
-                description: "Erreur lors du chargement du contrat.",
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
+            throwNotif("error", "Erreur lors du chargement du contrat.");
         }
-    }, [
-        isConnected,
-        address,
-        chain?.id
-    ]);
+    }, [isConnected, address, chain?.id]);
 
-    
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
         contractAddress,
+        address,
 
         // State contract
         contract,
 
         // Functions
+        createFreelancer,
 
         // Events
 

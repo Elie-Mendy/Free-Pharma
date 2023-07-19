@@ -22,7 +22,7 @@ const contractABI = config.contracts.TokenPHARM.abi;
 export function useTokenPHARM() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
-    const { setInfo, setError } = useNotif();
+    const { throwNotif } = useNotif();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
@@ -61,7 +61,7 @@ export function useTokenPHARM() {
             });
             return data;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     const setValue = async (_value) => {
@@ -77,7 +77,7 @@ export function useTokenPHARM() {
             setInfo("Value stored !");
             return hash;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     */

@@ -22,11 +22,13 @@ const contractABI = config.contracts.DataStorage.abi;
 export function useDataStorage() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
-    const { setInfo, setError } = useNotif();
+    const { throwNotif } = useNotif();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
+    const [userProfile, setUserProfile] = useState({});
+
     // const [storedValue, setStoredValue] = useState("");
 
     // ::::::::::: LOGS & DATA :::::::::::
@@ -46,10 +48,42 @@ export function useDataStorage() {
 
         // Set state hook
         setContract(simpleStorage);
+        getUserProfile(address)
     };
 
-    
+
     // ::::::::::: Contract Functions :::::::::::
+
+    const getFreelancer = async (_freelancerAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getFreelancer",
+                args: [_freelancerAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getEmployer = async (_freelancerAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getEmployer",
+                args: [_freelancerAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+
+
 
     /*
     const getStoredData = async () => {
@@ -61,7 +95,7 @@ export function useDataStorage() {
             });
             return data;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     const setValue = async (_value) => {
@@ -77,7 +111,7 @@ export function useDataStorage() {
             setInfo("Value stored !");
             return hash;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     */
@@ -134,6 +168,23 @@ export function useDataStorage() {
     };
     */
 
+    // ::::::::::: HELPERS :::::::::::
+
+    const getUserProfile = async (_address) => {
+        let freelancer = await getFreelancer(_address);
+        let employer = await getEmployer(_address);
+        console.log("getUserProfile !", freelancer);
+
+        let profile =
+            employer && employer.created_at != 0
+                ? "employer"
+                : freelancer && freelancer.created_at
+                ? "freelancer"
+                : "unknown";
+        setUserProfile(profile);
+    };
+
+
     useEffect(() => {
         if (!isConnected) return;
         try {
@@ -150,13 +201,8 @@ export function useDataStorage() {
                 isClosable: true,
             });
         }
-    }, [
-        isConnected,
-        address,
-        chain?.id
-    ]);
+    }, [isConnected, address, chain?.id]);
 
-    
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
@@ -164,6 +210,8 @@ export function useDataStorage() {
 
         // State contract
         contract,
+        userProfile,
+        setUserProfile,
 
         // Functions
 

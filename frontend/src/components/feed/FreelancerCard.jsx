@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
 import {
     Badge,
     Box,
@@ -12,6 +15,8 @@ import { BsFillBriefcaseFill, BsCashCoin } from "react-icons/bs";
 import { HireModal } from "./HireModal";
 
 export const FreelancerCard = () => {
+    const { userProfile } = useContext(DataStorageContext);
+
     return (
         <Box
             bg="white"
@@ -161,7 +166,7 @@ export const FreelancerCard = () => {
                         color: "gray.200",
                     }}
                 >
-                    <HireModal />
+                    {userProfile == "employer" && <HireModal />}
                 </Flex>
             </Box>
         </Box>

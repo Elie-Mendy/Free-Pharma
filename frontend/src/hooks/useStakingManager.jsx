@@ -22,7 +22,7 @@ const contractABI = config.contracts.StakingManager.abi;
 export function useStakingManager() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
-    const { setInfo, setError } = useNotif();
+    const { throwNotif } = useNotif();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
@@ -61,7 +61,7 @@ export function useStakingManager() {
             });
             return data;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     const setValue = async (_value) => {
@@ -77,7 +77,7 @@ export function useStakingManager() {
             setInfo("Value stored !");
             return hash;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     */

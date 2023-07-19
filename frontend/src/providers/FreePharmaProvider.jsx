@@ -12,6 +12,7 @@ export const FreePharmaProvider = ({ children }) => {
         contract,
 
         // Functions
+        createFreelancer,
 
         // Events
 
@@ -27,6 +28,7 @@ export const FreePharmaProvider = ({ children }) => {
             contract,
 
             // Functions
+            createFreelancer,
 
             // Events
 
@@ -40,6 +42,7 @@ export const FreePharmaProvider = ({ children }) => {
             contract,
 
             // Functions
+            createFreelancer,
 
             // Events
 

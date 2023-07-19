@@ -1,27 +1,29 @@
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/header/Header";
 import { Box, Flex, Hide, useBreakpointValue } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useWagmi } from "@/hooks/useWagmi";
 import Connexion from "@/components/connexion.jsx/Connexion";
 import Footer from "@/components/footer/Footer";
 import BlurBackground from "@/components/generic/BlurBackground";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 const smVariant = { navigation: "drawer", navigationButton: true };
 const mdVariant = { navigation: "sidebar", navigationButton: false };
 
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
-    const { isConnected } = useWagmi();
-    const isFreelance = true;
-    const isEmployer = false;
+    const { isConnected , address } = useWagmi();
+    const { userProfile } = useContext(DataStorageContext)
+
+    console.log("userProfile", userProfile)
 
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-    const isRegistered = isFreelance || isEmployer;
+    const isRegistered = userProfile != "unknown";
     const showConnexion = !isConnected || !isRegistered;
     // if not connected, display the connexion page
 
