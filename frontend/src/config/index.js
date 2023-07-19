@@ -21,9 +21,9 @@ export const config = {
             address: process.env.NEXT_PUBLIC_PRICE_PROVIDER_CONTRACT_ADDRESS,
             abi: ABIs.PriceProvider,
         },
-        StackingManager: {
+        StakingManager: {
             address: process.env.NEXT_PUBLIC_STAKING_MANAGER_CONTRACT_ADDRESS,
-            abi: ABIs.StackingManager,
+            abi: ABIs.StakingManager,
         }
     }
 }

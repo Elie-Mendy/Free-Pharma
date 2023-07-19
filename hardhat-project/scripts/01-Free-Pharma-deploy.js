@@ -28,7 +28,7 @@ async function main() {
     await priceProvider.deployed();
 
     // StakingManager deployment
-    const StakingManager = await hre.ethers.getContractFactory("StackingManager");
+    const StakingManager = await hre.ethers.getContractFactory("StakingManager");
     const stakingManager = await StakingManager.deploy(
         tokenPHARM.address,
         priceProvider.address

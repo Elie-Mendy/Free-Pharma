@@ -7,7 +7,7 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 
-export default function StackingForm() {
+export default function StakingForm() {
     return (
         <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
             <Stack spacing={4}>

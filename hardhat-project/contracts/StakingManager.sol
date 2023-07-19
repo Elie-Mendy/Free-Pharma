@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./PriceProvider.sol";
 
-contract StackingManager is Ownable {
+contract StakingManager is Ownable {
 
     /* ::::::::::::::: STATE :::::::::::::::::: */
 

@@ -8,7 +8,7 @@ import { TokenPHARMProvider } from "./TokenPHARMProvider";
 import { DataStorageProvider } from "./DataStorageProvider";
 import { FreePharmaProvider } from "./FreePharmaProvider";
 import { PriceProviderProvider } from "./PriceProviderProvider";
-import { StackingManagerProvider } from "./StackingManagerProvider";
+import { StakingManagerProvider } from "./StakingManagerProvider";
 
 export function Providers({ children }) {
     return (
@@ -19,9 +19,9 @@ export function Providers({ children }) {
                         <DataStorageProvider>
                             <FreePharmaProvider>
                                 <PriceProviderProvider>
-                                    <StackingManagerProvider>
+                                    <StakingManagerProvider>
                                         {children}
-                                    </StackingManagerProvider>
+                                    </StakingManagerProvider>
                                 </PriceProviderProvider>
                             </FreePharmaProvider>
                         </DataStorageProvider>

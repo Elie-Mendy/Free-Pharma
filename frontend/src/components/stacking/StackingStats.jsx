@@ -44,7 +44,7 @@ function StatsCard(props) {
     );
 }
 
-export default function StackingStats() {
+export default function StakingStats() {
     return (
         <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid

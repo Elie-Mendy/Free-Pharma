@@ -28,7 +28,7 @@ const SidebarContent = ({ onClick }) => (
             </Button>
         </Link>
 
-        <Link href="/stacking">
+        <Link href="/staking">
             <Button onClick={onClick} w="100%">
                 Rendements
             </Button>

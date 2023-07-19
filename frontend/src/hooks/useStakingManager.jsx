@@ -16,10 +16,10 @@ import { parseAbiItem } from "viem";
 
 import { config, client } from "@/config";
 
-const contractAddress = config.contracts.StackingManager.address;
-const contractABI = config.contracts.StackingManager.abi;
+const contractAddress = config.contracts.StakingManager.address;
+const contractABI = config.contracts.StakingManager.abi;
 
-export function useStackingManager() {
+export function useStakingManager() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { setInfo, setError } = useNotif();

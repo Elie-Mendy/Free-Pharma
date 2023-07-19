@@ -15134,91 +15134,91 @@
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ]
  },
@@ -15570,163 +15570,163 @@
    },
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "14": [
@@ -16076,163 +16076,163 @@
    },
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "15": [
@@ -16582,163 +16582,163 @@
    },
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "16": [
@@ -17088,163 +17088,163 @@
    },
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "20": [
@@ -17614,163 +17614,163 @@
    },
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ]
  },
@@ -17792,3547 +17792,3547 @@
   "20": [],
   "26": []
  },
- "contracts/StackingManager.sol": {
+ "contracts/StakingManager.sol": {
   "36": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "37": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "38": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "57": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not return emply values for an unexisting user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "66": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "67": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he has",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "68": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "69": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "70": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "71": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "73": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "74": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "75": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "81": [
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "82": [
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "83": [
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "84": [
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "85": [
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "93": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "94": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "95": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "96": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "98": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "99": [
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "105": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "106": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "107": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "108": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "109": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "110": [
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "115": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "116": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "117": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "118": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "119": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "120": [
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "126": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "133": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "139": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "145": [
    {
     "title": "should allow a user to stake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the user's reward at the first staking",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to stake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a StakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake PHARM tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakePHARM event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to unstake ETH tokens",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should forbid a user to unstake more ETH tokens than he has staked",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a UnstakeETH event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward before one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should not update the reward after one day",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "146": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "147": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "150": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "151": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "152": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "154": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ],
   "155": [
    {
     "title": "should update the user's reward if required time has passed since the last update",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should allow a user to claim his rewards",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should emit a RewardsClaimed event",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should return the right user's data",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    },
    {
     "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-    "file": "test/StackingManager.js"
+    "file": "test/StakingManager.js"
    }
   ]
  }

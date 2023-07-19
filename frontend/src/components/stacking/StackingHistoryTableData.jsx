@@ -70,7 +70,7 @@ const TableData = () => {
     );
 };
 
-export const StackingHistoryTableData = () => {
+export const StakingHistoryTableData = () => {
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>

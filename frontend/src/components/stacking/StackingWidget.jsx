@@ -1,7 +1,7 @@
 import { Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
-import StackingForm from "./StackingForm";
+import StakingForm from "./StakingForm";
 
-function StackingWidget() {
+function StakingWidget() {
     return (
         <Stack
             bg={useColorModeValue("gray.50", "gray.700")}
@@ -30,9 +30,9 @@ function StackingWidget() {
                     Saepe veritatis adipisci
                 </Text>
             </Stack>
-            <StackingForm />
+            <StakingForm />
         </Stack>
     );
 }
 
-export default StackingWidget;
+export default StakingWidget;

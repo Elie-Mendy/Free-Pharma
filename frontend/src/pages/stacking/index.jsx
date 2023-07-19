@@ -1,29 +1,29 @@
 import MainLayout from "@/layouts/MainLayout";
 import { Flex, Box } from "@chakra-ui/react";
 
-import StackingStats from "@/components/stacking/StackingStats";
-import ClaimWidget from "@/components/stacking/ClaimWidget";
-import { StackingHistoryTableData } from "@/components/stacking/StackingHistoryTableData";
-import StackingWidget from "@/components/stacking/StackingWidget";
+import StakingStats from "@/components/staking/StakingStats";
+import ClaimWidget from "@/components/staking/ClaimWidget";
+import { StakingHistoryTableData } from "@/components/staking/StakingHistoryTableData";
+import StakingWidget from "@/components/staking/StakingWidget";
 
-function StackingPage() {
+function StakingPage() {
     return (
         <MainLayout>
-            <StackingStats />
+            <StakingStats />
             <Flex
                 direction={{ base: "column", xl: "row" }}
                 gap={10}
                 align={{ base: "flex-start", md: "center", xl: "flex-start" }}
             >
                 <Box w="full">
-                    <StackingHistoryTableData />
+                    <StakingHistoryTableData />
                 </Box>
                 <Flex
                     direction={{ base: "column", md: "row", xl: "column" }}
                     w={{ base: "full", md: "full", xl: "md" }}
                     gap={10}
                 >
-                    <StackingWidget />
+                    <StakingWidget />
                     <ClaimWidget />
                 </Flex>
             </Flex>
@@ -31,4 +31,4 @@ function StackingPage() {
     );
 }
 
-export default StackingPage;
+export default StakingPage;

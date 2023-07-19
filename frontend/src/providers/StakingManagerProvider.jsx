@@ -1,9 +1,9 @@
 import { createContext, useMemo } from "react";
-import { useStackingManager } from "@/hooks/useStackingManager";
+import { useStakingManager } from "@/hooks/useStakingManager";
 
-export const StackingManagerContext = createContext();
+export const StakingManagerContext = createContext();
 
-export const StackingManagerProvider = ({ children }) => {
+export const StakingManagerProvider = ({ children }) => {
     const {
         // Static data
         contractAddress,
@@ -16,7 +16,7 @@ export const StackingManagerProvider = ({ children }) => {
         // Events
 
         // Data
-    } = useStackingManager();
+    } = useStakingManager();
 
     const values = useMemo(
         () => ({
@@ -49,8 +49,8 @@ export const StackingManagerProvider = ({ children }) => {
 
     // Contexts
     return (
-        <StackingManagerContext.Provider value={values}>
+        <StakingManagerContext.Provider value={values}>
             {children}
-        </StackingManagerContext.Provider>
+        </StakingManagerContext.Provider>
     );
 };
