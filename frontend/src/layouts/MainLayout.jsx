@@ -77,7 +77,7 @@ export default function MainLayout({ children }) {
                                 </Flex>
                             </Flex>
                         </Box>
-                        <Box w={"full"}>
+                        <Box w={"full"} h={"full"} >
                             <Footer />
                         </Box>
                     </Flex>
