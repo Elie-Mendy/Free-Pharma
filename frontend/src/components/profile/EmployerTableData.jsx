@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+import moment from "moment";
 import {
     useColorModeValue,
     TableContainer,
@@ -12,93 +15,50 @@ import {
     TabPanel,
     TabPanels,
     Tabs,
+    IconButton,
 } from "@chakra-ui/react";
-
-const TableData = ({ table }) => {
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+import { EditMissionModal } from "./EditMissionModal";
+const TableData = ({ data }) => {
     const bg = useColorModeValue("white", "gray.700");
     return (
         <TableContainer rounded={"xl"} shadow={"xl"} w={"100%"} bg={bg}>
             <Table variant="simple">
                 <Thead>
                     <Tr>
-                        <Th>Freelancer</Th>
                         <Th>Début</Th>
                         <Th>Fin</Th>
                         <Th>Rémunération</Th>
-                        <Th>Détail</Th>
+                        <Th>Candidats</Th>
+                        <Th>Détails</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Addr...657687</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
+                    {data?.map((jobOffer) => {
+                        // format date
+                        let startDate = moment(
+                            new Date(
+                                parseInt(jobOffer.startDate.toString()) * 1000
+                            )
+                        ).format("YYYY-MM-DD");
+                        let endDate = moment(
+                            new Date(
+                                parseInt(jobOffer.endDate.toString()) * 1000
+                            )
+                        ).format("YYYY-MM-DD");
+
+                        return (
+                            <Tr key={jobOffer.id}>
+                                <Td>{startDate}</Td>
+                                <Td>{endDate}</Td>
+                                <Td>{jobOffer.salary.toString()}</Td>
+                                <Td>{jobOffer.candidates.length}</Td>
+                                <Td>
+                                    <EditMissionModal jobOffer={jobOffer} />
+                                </Td>
+                            </Tr>
+                        );
+                    })}
                 </Tbody>
             </Table>
         </TableContainer>
@@ -106,6 +66,8 @@ const TableData = ({ table }) => {
 };
 
 export const EmployerTableData = () => {
+    const { currentJobOffers, startedJobOffers, completedJobOffersIds } =
+        useContext(FreePharmaContext);
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>
@@ -121,7 +83,7 @@ export const EmployerTableData = () => {
             </TabList>
             <TabPanels>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={currentJobOffers} />
                 </TabPanel>
                 <TabPanel>
                     <TableData />

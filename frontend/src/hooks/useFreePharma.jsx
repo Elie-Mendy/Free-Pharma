@@ -28,6 +28,9 @@ export function useFreePharma() {
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
     const [currentUser, setCurrentUser] = useState({});
+    const [currentJobOffers, setCurrentJobOffers] = useState([]);
+    const [startedJobOffers, setStartedJobOffers] = useState([]);
+    const [completedJobOffersIds, setCompletedJobOffersIds] = useState([]);
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -47,13 +50,58 @@ export function useFreePharma() {
         // Set state hook
         setContract(FreePharma);
 
-        if(userProfile == "freelancer") {
+        if (userProfile == "freelancer") {
             setCurrentUser(await getOneFreelancer(address));
-        } else if(userProfile == "employer") {
-            setCurrentUser(await getOneEmployer(address));
-        } 
-        console.log("currentUser: ", currentUser);
+        } else if (userProfile == "employer") {
+            // fetch employer
+            let employer = await getOneEmployer(address);
+            setCurrentUser(employer);
 
+            // fetch current job offers
+            let currentJobs = await Promise.all(
+                employer.currentJobOffersIds.map(async (jobId) => {
+                    const job = await getOneJob(jobId);
+                    return {
+                        id: jobId,
+                        startDate: job.startDate,
+                        endDate: job.endDate,
+                        salary: job.salary,
+                        candidates: job.candidates,
+                        location: job.location,
+                    };
+                })
+            );
+            setCurrentJobOffers(currentJobs);
+
+            // fetch started job offers
+            let startedJobs = await Promise.all(
+                employer.startedJobOffersIds.map(async (jobId) => {
+                    const job = await getOneJob(jobId);
+                    return {
+                        freelancerAddress: job.freelancerAddress,
+                        startDate: job.startDate,
+                        endDate: job.endDate,
+                        salary: job.salary,
+                        location: job.location,
+                    };
+                })
+            );
+            setStartedJobOffers(startedJobs);
+
+            // fetch completed job offers
+            let completedJobs = await Promise.all(
+                employer.completedJobOffersIds.map(async (jobId) => {
+                    const job = await getOneJob(jobId);
+                    return {
+                        freelancerAddress: job.freelancerAddress,
+                        startDate: job.startDate,
+                        endDate: job.endDate,
+                        salary: job.salary,
+                        location: job.location,
+                    };
+                })
+            );
+        }
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -114,8 +162,6 @@ export function useFreePharma() {
         _visible = false
     ) => {
         try {
-            console.log("setFreelancer", _name, _email, _location, _averageDailyRate, _available, _visible) 
-
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
@@ -338,7 +384,7 @@ export function useFreePharma() {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "createJob",
+                functionName: "setJob",
                 args: [_jobId, _salary, _startDate, _endDate, _location],
             });
             const { hash } = await writeContract(request);
@@ -421,6 +467,10 @@ export function useFreePharma() {
         // State contract
         contract,
         currentUser,
+        currentJobOffers,
+        startedJobOffers,
+        completedJobOffersIds,
+
 
         // Functions
         createFreelancer,
@@ -436,11 +486,10 @@ export function useFreePharma() {
         setEmployer,
         hireFreelancer,
         completeEmployerJob,
-        
+
         createJob,
         getOneJob,
         setJob,
-
 
         // Events
 

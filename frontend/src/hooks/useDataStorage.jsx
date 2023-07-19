@@ -174,7 +174,6 @@ export function useDataStorage() {
     const getUserInfo = async (_address) => {
         let freelancer = await getFreelancer(_address);
         let employer = await getEmployer(_address);
-
         if(freelancer && freelancer.created_at != 0) {
             setUserProfile("freelancer");
             setCurrentUser(freelancer);
@@ -182,7 +181,9 @@ export function useDataStorage() {
         } else if (employer && employer.created_at != 0) {
             setUserProfile("employer");
             setCurrentUser(employer);
-        } 
+        } else {
+            setUserProfile("unknown")
+        }
     };
 
 

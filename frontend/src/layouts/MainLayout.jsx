@@ -20,11 +20,10 @@ export default function MainLayout({ children }) {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-
-    const isRegistered = userProfile != "unknown";
+    
+    const isRegistered = userProfile != "unknown" && userProfile != null;
     const showConnexion = !isConnected || !isRegistered;
     // if not connected, display the connexion page
-
     return (
         <Flex direction={"column"} h={"100vh"}>
             {showConnexion ? (

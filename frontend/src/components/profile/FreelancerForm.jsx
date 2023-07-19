@@ -22,13 +22,12 @@ export default function FreelancerForm() {
 
     const { throwNotif } = useNotif();
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [location, setLocation] = useState("");
-    const [averageDailyRate, setAverageDailyRate] = useState("");
+    const [name, setName] = useState(currentUser?.name);
+    const [email, setEmail] = useState(currentUser?.email);
+    const [location, setLocation] = useState(currentUser?.location);
+    const [averageDailyRate, setAverageDailyRate] = useState(currentUser?.averageDailyRate.toString());
     const [available, setAvailable] = useState(currentUser.available && currentUser.available);
     const [visible, setVisible] = useState(currentUser.visible && currentUser.visible);
-
     const handleSubmit = () => {
         if (name === "" || email === "" || location === "") {
             throwNotif(
@@ -37,11 +36,9 @@ export default function FreelancerForm() {
             );
             return;
         }
-        if (currentUser & (currentUser.created_at == 0)) {
-            console.log("createFreelancer function !")
+        if (userProfile == "unknown") {
             createFreelancer(name, email, location, averageDailyRate,  available, visible);
         } else {
-            console.log("setFreelancer function !")
             setFreelancer(name, email, location, averageDailyRate, available, visible);
         }
     };
@@ -51,9 +48,7 @@ export default function FreelancerForm() {
             <Stack spacing={4}>
                 <Input
                     onChange={(e) => setName(e.target.value)}
-                    placeholder={
-                        currentUser.created_at ? currentUser.name : "Nom"
-                    }
+                    value={name}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -64,11 +59,7 @@ export default function FreelancerForm() {
                 <Input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
-                    placeholder={
-                        currentUser.created_at
-                            ? currentUser.email
-                            : "email@freepharma.fr"
-                    }
+                    value={email}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -80,11 +71,7 @@ export default function FreelancerForm() {
                 
                 <Input
                     onChange={(e) => setLocation(e.target.value)}
-                    placeholder={
-                        currentUser.created_at
-                            ? currentUser.location
-                            : "Lieu de résidence"
-                    }
+                    value={location}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -95,11 +82,7 @@ export default function FreelancerForm() {
                 <Input
                     onChange={(e) => setAverageDailyRate(e.target.value)}
                     type="number"
-                    placeholder={
-                        currentUser.created_at
-                            ? currentUser.averageDailyRate
-                            : "Taux horaire journalier"
-                    }
+                    value={averageDailyRate}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}

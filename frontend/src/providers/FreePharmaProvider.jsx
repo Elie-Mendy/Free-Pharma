@@ -11,6 +11,9 @@ export const FreePharmaProvider = ({ children }) => {
         // State contract
         contract,
         currentUser,
+        currentJobOffers,
+        startedJobOffers,
+        completedJobOffersIds,
 
         // Functions
         createFreelancer,
@@ -44,6 +47,9 @@ export const FreePharmaProvider = ({ children }) => {
             // State contract
             contract,
             currentUser,
+            currentJobOffers,
+            startedJobOffers,
+            completedJobOffersIds,
 
             // Functions
             createFreelancer,
@@ -75,7 +81,10 @@ export const FreePharmaProvider = ({ children }) => {
             // State contract
             contract,
             currentUser,
-            
+            currentJobOffers,
+            startedJobOffers,
+            completedJobOffersIds,
+
             // Functions
             createFreelancer,
             getOneFreelancer,

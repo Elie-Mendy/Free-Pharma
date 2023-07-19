@@ -15,12 +15,13 @@ import {
 
 export default function EmployerForm() {
     const { setEmployer, currentUser } = useContext(FreePharmaContext);
-    console.log("EmployerForm currentUser: ", currentUser);
     const { throwNotif } = useNotif();
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [visible, setVisible] = useState(currentUser.visible && currentUser.visible);
+    const [name, setName] = useState(currentUser?.name);
+    const [email, setEmail] = useState(currentUser?.email);
+    const [visible, setVisible] = useState(
+        currentUser.visible && currentUser.visible
+    );
 
     const handleSubmit = () => {
         if (name === "" || email === "" || location === "") {
@@ -38,9 +39,8 @@ export default function EmployerForm() {
             <Stack spacing={4}>
                 <Input
                     onChange={(e) => setName(e.target.value)}
-                    placeholder={
-                        currentUser.created_at ? currentUser.name : "Nom"
-                    }
+                    type="text"
+                    value={name}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -50,9 +50,8 @@ export default function EmployerForm() {
                 />
                 <Input
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={
-                        currentUser.created_at ? currentUser.email : "Email"
-                    }
+                    type="email"
+                    value={email}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
