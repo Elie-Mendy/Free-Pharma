@@ -3113,7 +3113,7 @@
             "type": "function"
         }
     ],
-    "StakingManager": [
+    "StackingManager": [
         {
             "inputs": [
                 {
