@@ -36,7 +36,7 @@ export function useStakingManager() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const simpleStorage = getContract({
+        const stekingManager = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
@@ -45,42 +45,110 @@ export function useStakingManager() {
         // get stored value
 
         // Set state hook
-        setContract(simpleStorage);
+        setContract(stekingManager);
     };
 
     
     // ::::::::::: Contract Functions :::::::::::
 
-    /*
-    const getStoredData = async () => {
+
+    const getUser = async (_userAddress) => {
         try {
             const data = await readContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "storedData",
+                functionName: "getUser",
+                args: [_userAddress],
             });
             return data;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
-    const setValue = async (_value) => {
+
+    const stakePHARM = async (_amount) => {
         if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "set",
-                args: [Number(_value)],
+                functionName: "stakePHARM",
+                args: [Number(_amount)],
             });
             const { hash } = await writeContract(request);
-            setInfo("Value stored !");
+            throwNotif("info", "PHARM staked !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
-    */
+
+    const unstakePHARM = async (_amount) => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "unstakePHARM",
+                args: [Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "PHARM unstaked !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const stakeETH = async () => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "stakeETH",
+                args: [Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "ETH staked !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const unstakeETH = async (_amount) => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "unstakeETH",
+                args: [Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "ETH unstaked !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const claimRewards = async () => {
+        if (!_value) return;
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "claimRewards",
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Reward unstaked !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
 
     // ::::::::::: Contract Events :::::::::::
 

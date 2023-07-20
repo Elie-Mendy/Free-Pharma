@@ -109,7 +109,7 @@ export function useDataStorage() {
                 args: [Number(_value)],
             });
             const { hash } = await writeContract(request);
-            setInfo("Value stored !");
+            throwNotif("info", "Value stored !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);

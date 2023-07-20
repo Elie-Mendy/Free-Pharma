@@ -27,7 +27,11 @@ export function useTokenPHARM() {
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
-    // const [storedValue, setStoredValue] = useState("");
+    const [totalSupplyInfo, setTotalSupplyInfo] = useState(0);
+    const [balanceOfUser, setBalanceOfUser] = useState(0);
+    const [allowanceForFreePharma, setAllowanceForFreePharma] = useState(0);
+    const [allowanceForStackingManager, setAllowanceForStackingManager] = useState(0);
+
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -36,20 +40,153 @@ export function useTokenPHARM() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const simpleStorage = getContract({
+        const tokenPHARM = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
         });
 
         // get stored value
+        let PHARMsupply = await totalSupply();
+        PHARMsupply = parseInt(PHARMsupply.toString()) / 10 ** 18;
+        PHARMsupply = Math.round(PHARMsupply * 100) / 100;
+
+
+        let PHARMbalance = await balanceOf(address);
+        PHARMbalance = parseInt(PHARMbalance.toString()) / 10 ** 18;
+        PHARMbalance = Math.round(PHARMbalance * 100) / 100;
+
+        let PHARMallowanceForFreePharma = await allowance(address, config.contracts.FreePharma.address);
+        PHARMallowanceForFreePharma = parseInt(PHARMallowanceForFreePharma.toString()) / 10 ** 18;
+        PHARMallowanceForFreePharma = Math.round(PHARMallowanceForFreePharma * 100) / 100;
 
         // Set state hook
-        setContract(simpleStorage);
+        setTotalSupplyInfo(PHARMsupply.toString());
+        setBalanceOfUser(PHARMbalance.toString());
+        setAllowanceForFreePharma(PHARMallowanceForFreePharma.toString());
+        setContract(tokenPHARM);
     };
 
     
     // ::::::::::: Contract Functions :::::::::::
+
+
+    const totalSupply = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "totalSupply",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const balanceOf = async (_address) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "balanceOf",
+                args: [_address],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const allowance = async (_ownerAddress, _spenderAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "allowance",
+                args: [_ownerAddress, _spenderAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const approve = async (_address, _amount) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "approve",
+                args: [_address, Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Allowance set !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const increaseAllowance = async (_address, _amount) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "increaseAllowance",
+                args: [_address, Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Allowance increased !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const decreaseAllowance = async (_address, _amount) => {
+        console.log("DECREASE ! ",_address, _amount);
+        if (!_amount) {
+            throwNotif("error", "Amount is required !");
+            return;
+        }
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "decreaseAllowance",
+                args: [_address, Number(_amount)],
+            });
+
+            const { hash } = await writeContract(request);
+            console.log("test success")
+
+            throwNotif("info", "Allowance decreased !");
+            return hash;
+
+        } catch (err) {
+            console.log("test error")
+
+            throwNotif("error", err.message);
+        }
+    };
+
+    const mint = async (_address, _amount) => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "mint",
+                args: [_address, Number(_amount)],
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Allowance decreased !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
 
     /*
     const getStoredData = async () => {
@@ -74,7 +211,7 @@ export function useTokenPHARM() {
                 args: [Number(_value)],
             });
             const { hash } = await writeContract(request);
-            setInfo("Value stored !");
+            throwNotif("info", "Value stored !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -164,8 +301,17 @@ export function useTokenPHARM() {
 
         // State contract
         contract,
+        totalSupplyInfo,
+        balanceOfUser,
+        allowanceForFreePharma,
+        allowanceForStackingManager,
 
         // Functions
+        approve,
+        increaseAllowance,
+        decreaseAllowance,
+        mint,
+
 
         // Events
 

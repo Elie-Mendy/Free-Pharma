@@ -10,8 +10,16 @@ export const TokenPHARMProvider = ({ children }) => {
 
         // State contract
         contract,
+        totalSupplyInfo,
+        balanceOfUser,
+        allowanceForFreePharma,
+        allowanceForStackingManager,
 
         // Functions
+        approve,
+        increaseAllowance,
+        decreaseAllowance,
+        mint,
 
         // Events
 
@@ -25,8 +33,16 @@ export const TokenPHARMProvider = ({ children }) => {
 
             // State contract
             contract,
+            totalSupplyInfo,
+            balanceOfUser,
+            allowanceForFreePharma,
+            allowanceForStackingManager,
 
             // Functions
+            approve,
+            increaseAllowance,
+            decreaseAllowance,
+            mint,
 
             // Events
 
@@ -38,10 +54,18 @@ export const TokenPHARMProvider = ({ children }) => {
 
             // State contract
             contract,
+            totalSupplyInfo,
+            balanceOfUser,
+            allowanceForFreePharma,
+            allowanceForStackingManager,
 
             // Functions
 
             // Events
+            approve,
+            increaseAllowance,
+            decreaseAllowance,
+            mint,
 
             // Data
         ]
