@@ -11,6 +11,10 @@ export const StakingManagerProvider = ({ children }) => {
         // State contract
         contract,
         currentUserStakingInfos,
+        pharmDeposits,
+        pharmWithdrawals,
+        ethDeposits,
+        ethWithdrawals,
 
         // FunctionsstakePHARM,
         stakePHARM,
@@ -29,6 +33,10 @@ export const StakingManagerProvider = ({ children }) => {
             // Static data
             contractAddress,
             currentUserStakingInfos,
+            pharmDeposits,
+            pharmWithdrawals,
+            ethDeposits,
+            ethWithdrawals,
 
             // State contract
             contract,
@@ -51,6 +59,10 @@ export const StakingManagerProvider = ({ children }) => {
             // State contract
             contract,
             currentUserStakingInfos,
+            pharmDeposits,
+            pharmWithdrawals,
+            ethDeposits,
+            ethWithdrawals,
 
             // FunctionsstakePHARM,
             stakePHARM,

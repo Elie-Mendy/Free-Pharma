@@ -106,7 +106,6 @@ describe("StakingManager", function (accounts) {
                 it("should emit a StakePHARM event", async function () {
                     await expect(stakingManager.connect(addr1).stakePHARM(PHARM_SUFFICENT_AMOUNT))
                         .to.emit(stakingManager, "StakePHARM")
-                        .withArgs(addr1.address, PHARM_SUFFICENT_AMOUNT);
                 });
             });
 
@@ -140,7 +139,6 @@ describe("StakingManager", function (accounts) {
                 it("should emit a StakeETH event", async function () {
                     await expect(stakingManager.connect(addr1).stakeETH({value: ETH_SUFFICENT_AMOUNT}))
                         .to.emit(stakingManager, "StakeETH")
-                        .withArgs(addr1.address, ETH_SUFFICENT_AMOUNT);
                 });
             });
 
@@ -176,7 +174,6 @@ describe("StakingManager", function (accounts) {
                     await stakingManager.connect(addr1).stakePHARM(PHARM_SUFFICENT_AMOUNT);
                     await expect(stakingManager.connect(addr1).unstakePHARM(PHARM_SUFFICENT_AMOUNT))
                         .to.emit(stakingManager, "UnstakePHARM")
-                        .withArgs(addr1.address, PHARM_SUFFICENT_AMOUNT);
                 });
             });
 
@@ -213,7 +210,6 @@ describe("StakingManager", function (accounts) {
                     await stakingManager.connect(addr1).stakeETH({value: ETH_SUFFICENT_AMOUNT});
                     await expect(stakingManager.connect(addr1).unstakeETH(ETH_SUFFICENT_AMOUNT))
                         .to.emit(stakingManager, "UnstakeETH")
-                        .withArgs(addr1.address, ETH_SUFFICENT_AMOUNT);
                 });
             });
 

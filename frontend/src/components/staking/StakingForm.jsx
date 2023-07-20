@@ -15,7 +15,7 @@ import { useContext, useState } from "react";
 
 export default function StakingForm() {
     const { throwNotif } = useNotif();
-    const { stakeETH, stakePHARM, unsakeETH, unstakePHARM } = useContext(
+    const { stakeETH, stakePHARM, unstakeETH, unstakePHARM } = useContext(
         StakingManagerContext
     );
     const [stackPHARM, setStackPHARM] = useState(true);

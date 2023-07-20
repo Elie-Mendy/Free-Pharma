@@ -12,9 +12,9 @@ import {
     watchContractEvent,
 } from "@wagmi/core";
 
-import { config } from "@/config";
+import { config, client } from "@/config";
 import { useTokenPHARM } from "./useTokenPHARM";
-import { parseEther } from "viem";
+import { parseEther, parseAbiItem } from "viem";
 
 const contractAddress = config.contracts.StakingManager.address;
 const contractABI = config.contracts.StakingManager.abi;
@@ -29,9 +29,20 @@ export function useStakingManager() {
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
     const [currentUserStakingInfos, setcurrentUserStakingInfos] = useState({});
+    const [pharmDeposits, setPharmDeposits] = useState([]);
+    const [pharmWithdrawals, setPharmWithdrawals] = useState([]);
+    const [ethDeposits, setEthDeposits] = useState([]);
+    const [ethWithdrawals, setEthWithdrawals] = useState([]);
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
+
+    const convertInUSD= (_amount) => {
+        return Math.round(
+            (_amount.toString() / 10 ** 18) *
+                100
+        ) / 100
+    }
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
@@ -48,20 +59,9 @@ export function useStakingManager() {
         // Set state hook
         setContract(stakingManager);
         setcurrentUserStakingInfos({
-            PHARMStaked:
-                Math.round(
-                    (currentUserInfo.pharmAmountStaked.toString() / 10 ** 18) *
-                        100
-                ) / 100,
-            ETHStaked:
-                Math.round(
-                    (currentUserInfo.ethAmountStaked.toString() / 10 ** 18) *
-                        100
-                ) / 100,
-            PHARMRewards:
-                Math.round(
-                    (currentUserInfo.pendingRewards.toString() / 10 ** 18) * 100
-                ) / 100,
+            PHARMStaked: convertInUSD(currentUserInfo.pharmAmountStaked),
+            ETHStaked: convertInUSD(currentUserInfo.ethAmountStaked),
+            PHARMRewards: convertInUSD(currentUserInfo.pendingRewards)
         });
     };
 
@@ -126,7 +126,7 @@ export function useStakingManager() {
             throwNotif("error", "Veuillez entrer un montant");
             return;
         }
-        console.log(_amount)
+        console.log(_amount);
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -179,71 +179,126 @@ export function useStakingManager() {
 
     // ::::::::::: Contract Events :::::::::::
 
-    /*
-    function setUpListeners() {
-        // event VoterRegistered
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "ValueStored",
-            },
-            (log) => {
-                fetchStoredValues();
-            }
-        );
-    }
-    */
+    const getSkakingPHARMDeposits = async () => {
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
 
-    // ::::::::::: Data Fetching :::::::::::
-
-    /*
-    const fetchStoredValues = async () => {
-        // get all logs
-        const ValueStoredLogs = await client.getLogs({
+        const depositsLogs = await client.getLogs({
             address: contractAddress,
             event: parseAbiItem(
-                "event ValueStored(address author, uint value)"
+                "event StakePHARM(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
-            toBlock: "latest", // default value, no need to specify
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
-        setValueStoredLogs(ValueStoredLogs);
 
-        // process data
-        const processedValueStored = await Promise.all(
-            ValueStoredLogs.map(async (log) => {
-                return { author: log.args.author, value: log.args.value };
-            })
-        );
-        setValueStoredData(
-            processedValueStored.map((storedValue) => ({
-                author: storedValue.author,
-                value: storedValue.value.toString(),
-            }))
-        );
+        const deposits = (
+            await Promise.all(
+                depositsLogs.map(async (log, i) => {
+                    return {
+                        id: Number(i + 1),
+                        address: String(log.args.userAddress),
+                        amount: convertInUSD(log.args.amount),
+                        timestamp: Number(log.args.timestamp),
+                    };
+                })
+            )
+        ).map((w) => w);
 
-        // Set state hook
-        const value = await getStoredData();
-        setStoredValue(value.toString());
+        setPharmDeposits(deposits);
     };
-    */
+
+    const getSkakingPHARMWithdrawals = async () => {
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+
+        const withdrawalsLogs = await client.getLogs({
+            address: contractAddress,
+            event: parseAbiItem(
+                "event UnstakePHARM(address indexed userAddress, uint amount, uint timestamp)"
+            ),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+        });
+
+        const withdrawals = (
+            await Promise.all(
+                withdrawalsLogs.map(async (log, i) => {
+                    return {
+                        id: Number(i + 1),
+                        address: String(log.args.userAddress),
+                        amount: convertInUSD(log.args.amount),
+                        timestamp: Number(log.args.timestamp),
+                    };
+                })
+            )
+        ).map((w) => w);
+
+        setPharmWithdrawals(withdrawals);
+    };
+
+    const getSkakingETHDeposits = async () => {
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+
+        const depositsLogs = await client.getLogs({
+            address: contractAddress,
+            event: parseAbiItem(
+                "event StakeETH(address indexed userAddress, uint amount, uint timestamp)"
+            ),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+        });
+
+        const deposits = (
+            await Promise.all(
+                depositsLogs.map(async (log, i) => {
+                    return {
+                        id: Number(i + 1),
+                        address: String(log.args.userAddress),
+                        amount: convertInUSD(log.args.amount),
+                        timestamp: Number(log.args.timestamp),
+                    };
+                })
+            )
+        ).map((w) => w);
+
+        setEthDeposits(deposits);
+    };
+
+    const getSkakingETHWithdrawals = async () => {
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+
+        const withdrawalsLogs = await client.getLogs({
+            address: contractAddress,
+            event: parseAbiItem(
+                "event UnstakeETH(address indexed userAddress, uint amount, uint timestamp)"
+            ),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+        });
+
+        const withdrawals = (
+            await Promise.all(
+                withdrawalsLogs.map(async (log, i) => {
+                    return {
+                        id: Number(i + 1),
+                        address: String(log.args.userAddress),
+                        amount: convertInUSD(log.args.amount),
+                        timestamp: Number(log.args.timestamp),
+                    };
+                })
+            )
+        ).map((w) => w);
+
+        setEthWithdrawals(withdrawals);
+    };
 
     useEffect(() => {
         if (!isConnected) return;
         try {
             loadContract();
-            // fetchStoredValues();
-            // setUpListeners();
+
+            // get events logs
+            getSkakingPHARMDeposits();
+            getSkakingPHARMWithdrawals();
+            getSkakingETHDeposits();
+            getSkakingETHWithdrawals();
         } catch (error) {
-            toast({
-                title: "Error Contract !",
-                description: "Erreur lors du chargement du contrat.",
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
+            throwNotif("error", "Erreur lors du chargement du contrat.");
         }
     }, [isConnected, address, chain?.id]);
 
@@ -255,6 +310,11 @@ export function useStakingManager() {
         // State contract
         contract,
         currentUserStakingInfos,
+        pharmDeposits,
+        pharmWithdrawals,
+        ethDeposits,
+        ethWithdrawals,
+        
 
         // Functions
         stakePHARM,

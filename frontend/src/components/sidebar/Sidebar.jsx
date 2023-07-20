@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, variant, onClose }) => {
             <DrawerOverlay>
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Chakra-UI</DrawerHeader>
+                    <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <SidebarContent onClick={onClose} />
                     </DrawerBody>

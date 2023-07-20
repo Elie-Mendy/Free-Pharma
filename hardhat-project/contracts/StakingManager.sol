@@ -41,11 +41,11 @@ contract StakingManager is Ownable {
 
     /* ::::::::::::::: EVENTS :::::::::::::::::: */
 
-    event StakePHARM(address indexed user, uint amount);
-    event UnstakePHARM(address indexed user, uint amount);
-    event StakeETH(address indexed user, uint amount);
-    event UnstakeETH(address indexed user, uint amount);
-    event RewardsClaimed(address indexed user, uint amount);
+    event StakePHARM(address indexed userAddress, uint amount, uint timestamp);
+    event UnstakePHARM(address indexed userAddress, uint amount, uint timestamp);
+    event StakeETH(address indexed userAddress, uint amount, uint timestamp);
+    event UnstakeETH(address indexed userAddress, uint amount, uint timestamp);
+    event RewardsClaimed(address indexed userAddress, uint amount, uint timestamp);
     event RewardsUpdated();
 
     /* ::::::::::::::: FUNCTIONS :::::::::::::::::: */
@@ -72,7 +72,7 @@ contract StakingManager is Ownable {
         }
         tokenPHARM.transferFrom(msg.sender, address(this), _amount);
         users[msg.sender].pharmAmountStaked += _amount;
-        emit StakePHARM(msg.sender,  _amount);
+        emit StakePHARM(msg.sender,  _amount, block.timestamp);
     }
 
     /// @notice Unstake PHARM tokens.
@@ -82,7 +82,7 @@ contract StakingManager is Ownable {
         _updateRewards();
         users[msg.sender].pharmAmountStaked -= _amount;
         tokenPHARM.transfer(msg.sender, _amount);
-        emit UnstakePHARM(msg.sender,  _amount);
+        emit UnstakePHARM(msg.sender,  _amount, block.timestamp);
     }
 
 
@@ -96,7 +96,7 @@ contract StakingManager is Ownable {
             userList.push(msg.sender);
         }
         users[msg.sender].ethAmountStaked += msg.value;
-        emit StakeETH(msg.sender, msg.value);
+        emit StakeETH(msg.sender, msg.value, block.timestamp);
     }
 
     /// @notice Unstake ETH.
@@ -107,7 +107,7 @@ contract StakingManager is Ownable {
         users[msg.sender].ethAmountStaked -= _amount;
         (bool success, ) = msg.sender.call{value: _amount}("");
         require(success, "Transfer failed.");
-        emit UnstakeETH(msg.sender, _amount);
+        emit UnstakeETH(msg.sender, _amount, block.timestamp);
     }
 
     /// @notice Claim rewards.
@@ -117,7 +117,7 @@ contract StakingManager is Ownable {
         uint _amount = users[msg.sender].pendingRewards;
         users[msg.sender].pendingRewards = 0;
         tokenPHARM.transfer(msg.sender, _amount);
-        emit RewardsClaimed(msg.sender, _amount);
+        emit RewardsClaimed(msg.sender, _amount, block.timestamp);
     }
 
     /// @notice Update ETH price.

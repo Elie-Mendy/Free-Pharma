@@ -1,3 +1,6 @@
+import { StakingManagerContext } from "@/providers/StakingManagerProvider";
+import moment from "moment";
+
 import {
     useColorModeValue,
     TableContainer,
@@ -13,8 +16,9 @@ import {
     TabPanels,
     Tabs,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 
-const TableData = () => {
+const TableData = ({ data }) => {
     const bg = useColorModeValue("white", "gray.700");
     return (
         <TableContainer rounded={"xl"} shadow={"xl"} w={"100%"} bg={bg}>
@@ -24,46 +28,25 @@ const TableData = () => {
                         <Th>date</Th>
                         <Th>montant</Th>
                         <Th>token</Th>
-                        <Th>durée</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>0.3</Td>
-                        <Td>ETH</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>1045</Td>
-                        <Td>PHARM</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>457</Td>
-                        <Td>PHARM</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>0.3</Td>
-                        <Td>ETH</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>1045</Td>
-                        <Td>PHARM</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>15/07/2022</Td>
-                        <Td>457</Td>
-                        <Td>PHARM</Td>
-                        <Td>6 mois</Td>
-                    </Tr>
+                    {data?.map((transaction, idx) => {
+                        // format date
+                        let transactionDate = moment(
+                            new Date(
+                                parseInt(transaction.timestamp.toString()) * 1000
+                            )
+                        ).format("YYYY-MM-DD");
+                        
+                        return (
+                            <Tr key={idx}>
+                                <Td>{transactionDate}</Td>
+                                <Td>{transaction.amount}</Td>
+                                <Td>{transaction.token}</Td>
+                            </Tr>
+                        );
+                    })}
                 </Tbody>
             </Table>
         </TableContainer>
@@ -71,6 +54,29 @@ const TableData = () => {
 };
 
 export const StakingHistoryTableData = () => {
+    const { pharmDeposits, ethDeposits, pharmWithdrawals, ethWithdrawals } = useContext(StakingManagerContext);
+
+    // process deposits
+    const mergedDeposits = [...pharmDeposits, ...ethDeposits];
+    const sortedByTimestampDeposits = mergedDeposits.sort(
+        (a, b) => b.timestamp - a.timestamp
+    );
+    sortedByTimestampDeposits.forEach(function(item) {
+        item.token = pharmDeposits.includes(item) ? 'PHARM' : 'ETH';
+      });
+
+    // process withdrawals
+    const mergedWithdrawals = [...pharmWithdrawals, ...ethWithdrawals];
+    const sortedByTimestampWithdrawals = mergedWithdrawals.sort(
+        (a, b) => b.timestamp - a.timestamp
+    );
+    sortedByTimestampWithdrawals.forEach(function(item) {
+        item.token = pharmWithdrawals.includes(item) ? 'PHARM' : 'ETH';
+        });
+
+    console.log("PHARL DEPOSITS ", pharmDeposits);
+    console.log("ETH DEPOSITS ", ethDeposits);
+    console.log("MERGED DEPOSITS ", mergedDeposits);
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>
@@ -80,10 +86,16 @@ export const StakingHistoryTableData = () => {
                 <Tab fontSize={"xl"} fontWeight={"bold"}>
                     Retraits
                 </Tab>
+                <Tab fontSize={"xl"} fontWeight={"bold"}>
+                    Récompenses
+                </Tab>
             </TabList>
             <TabPanels>
                 <TabPanel px={0}>
-                    <TableData />
+                    <TableData data={sortedByTimestampDeposits} />
+                </TabPanel>
+                <TabPanel px={0}>
+                    <TableData data={sortedByTimestampWithdrawals} />
                 </TabPanel>
                 <TabPanel px={0}>
                     <TableData />
