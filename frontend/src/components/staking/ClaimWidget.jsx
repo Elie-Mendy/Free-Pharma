@@ -1,3 +1,4 @@
+import { StakingManagerContext } from "@/providers/StakingManagerProvider";
 import {
     Button,
     Heading,
@@ -5,8 +6,11 @@ import {
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 
 function ClaimWidget() {
+    const { currentUserStakingInfos } = useContext(StakingManagerContext);
+
     return (
         <Stack
             bg={useColorModeValue("gray.50", "gray.700")}
@@ -30,8 +34,15 @@ function ClaimWidget() {
                     </Text>
                 </Heading>
                 <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe veritatis adipisci
+                    Vous avez actuellement{" "}
+                    <Text
+                        as={"span"}
+                        bgGradient="linear(to-r, red.400,pink.400)"
+                        bgClip="text"
+                    >
+                        {currentUserStakingInfos.PHARMRewards}
+                    </Text>{" "}
+                    PHARM à réclamer !
                 </Text>
                 <Button
                     fontFamily={"heading"}

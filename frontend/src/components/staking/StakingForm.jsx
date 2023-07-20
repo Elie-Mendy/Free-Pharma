@@ -1,4 +1,7 @@
+import { useNotif } from "@/hooks/useNotif";
+import { StakingManagerContext } from "@/providers/StakingManagerProvider";
 import {
+    Box,
     Button,
     Flex,
     HStack,
@@ -8,12 +11,38 @@ import {
     Stack,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext, useState } from "react";
 
 export default function StakingForm() {
+    const { throwNotif } = useNotif();
+    const { stakeETH, stakePHARM, unsakeETH, unstakePHARM } = useContext(
+        StakingManagerContext
+    );
+    const [stackPHARM, setStackPHARM] = useState(true);
+    const [amount, setAmount] = useState(0);
+
+    const handleDeposit = () => {
+        console.log(stackPHARM)
+        if (stackPHARM) {
+            stakePHARM(amount * 10 ** 18);
+        } else {
+            stakeETH(amount);
+        }
+    };
+    const handleWithdraw = () => {
+        if (stackPHARM) {
+            unstakePHARM(amount * 10 ** 18);
+        } else {
+            unstakeETH(amount * 10 ** 18);
+        }
+    };
+
     return (
         <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
             <HStack spacing={4}>
                 <Input
+                    type={"number"}
+                    onChange={(e) => setAmount(e.target.value)}
                     placeholder="Montant"
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -22,12 +51,18 @@ export default function StakingForm() {
                         color: "gray.400",
                     }}
                 />
-                <RadioGroup defaultValue="1">
+                <RadioGroup defaultValue="1" onChange={() => setStackPHARM(!stackPHARM)}>
                     <Stack spacing={4} direction="row">
-                        <Radio colorScheme="pink" value="1">
+                        <Radio
+                            colorScheme="pink"
+                            value="1"
+                        >
                             PHARM
                         </Radio>
-                        <Radio colorScheme="pink" value="2">
+                        <Radio
+                            colorScheme="pink"
+                            value="2"
+                        >
                             ETH
                         </Radio>
                     </Stack>
@@ -35,6 +70,7 @@ export default function StakingForm() {
             </HStack>
             <HStack w={"full"} gap={4}>
                 <Button
+                    onClick={handleDeposit}
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, green.300,green.500)"
@@ -47,6 +83,7 @@ export default function StakingForm() {
                     Déposer
                 </Button>
                 <Button
+                    onClick={handleWithdraw}
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, red.300,red.500)"

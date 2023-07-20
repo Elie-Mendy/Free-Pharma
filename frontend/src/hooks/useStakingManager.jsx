@@ -14,6 +14,7 @@ import {
 
 import { config } from "@/config";
 import { useTokenPHARM } from "./useTokenPHARM";
+import { parseEther } from "viem";
 
 const contractAddress = config.contracts.StakingManager.address;
 const contractABI = config.contracts.StakingManager.abi;
@@ -36,17 +37,32 @@ export function useStakingManager() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const stekingManager = getContract({
+        const stakingManager = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
         });
 
         // get stored value
-
+        let currentUserInfo = await getUser(address);
         // Set state hook
-        setContract(stekingManager);
-        setcurrentUserStakingInfos(await getUser(address));
+        setContract(stakingManager);
+        setcurrentUserStakingInfos({
+            PHARMStaked:
+                Math.round(
+                    (currentUserInfo.pharmAmountStaked.toString() / 10 ** 18) *
+                        100
+                ) / 100,
+            ETHStaked:
+                Math.round(
+                    (currentUserInfo.ethAmountStaked.toString() / 10 ** 18) *
+                        100
+                ) / 100,
+            PHARMRewards:
+                Math.round(
+                    (currentUserInfo.pendingRewards.toString() / 10 ** 18) * 100
+                ) / 100,
+        });
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -66,7 +82,10 @@ export function useStakingManager() {
     };
 
     const stakePHARM = async (_amount) => {
-        if (!_value) return;
+        if (!_amount) {
+            throwNotif("error", "Veuillez entrer un montant");
+            return;
+        }
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -83,7 +102,10 @@ export function useStakingManager() {
     };
 
     const unstakePHARM = async (_amount) => {
-        if (!_value) return;
+        if (!_amount) {
+            throwNotif("error", "Veuillez entrer un montant");
+            return;
+        }
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -99,14 +121,18 @@ export function useStakingManager() {
         }
     };
 
-    const stakeETH = async () => {
-        if (!_value) return;
+    const stakeETH = async (_amount) => {
+        if (!_amount) {
+            throwNotif("error", "Veuillez entrer un montant");
+            return;
+        }
+        console.log(_amount)
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
                 abi: contractABI,
                 functionName: "stakeETH",
-                args: [Number(_amount)],
+                value: parseEther(_amount),
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "ETH staked !");
@@ -117,7 +143,10 @@ export function useStakingManager() {
     };
 
     const unstakeETH = async (_amount) => {
-        if (!_value) return;
+        if (!_amount) {
+            throwNotif("error", "Veuillez entrer un montant");
+            return;
+        }
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -134,7 +163,6 @@ export function useStakingManager() {
     };
 
     const claimRewards = async () => {
-        if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -229,6 +257,11 @@ export function useStakingManager() {
         currentUserStakingInfos,
 
         // Functions
+        stakePHARM,
+        unstakePHARM,
+        stakeETH,
+        unstakeETH,
+        claimRewards,
 
         // Events
 

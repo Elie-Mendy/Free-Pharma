@@ -12,7 +12,12 @@ export const StakingManagerProvider = ({ children }) => {
         contract,
         currentUserStakingInfos,
 
-        // Functions
+        // FunctionsstakePHARM,
+        stakePHARM,
+        unstakePHARM,
+        stakeETH,
+        unstakeETH,
+        claimRewards,
 
         // Events
 
@@ -28,7 +33,12 @@ export const StakingManagerProvider = ({ children }) => {
             // State contract
             contract,
 
-            // Functions
+            // FunctionsstakePHARM,
+            stakePHARM,
+            unstakePHARM,
+            stakeETH,
+            unstakeETH,
+            claimRewards,
 
             // Events
 
@@ -42,7 +52,12 @@ export const StakingManagerProvider = ({ children }) => {
             contract,
             currentUserStakingInfos,
 
-            // Functions
+            // FunctionsstakePHARM,
+            stakePHARM,
+            unstakePHARM,
+            stakeETH,
+            unstakeETH,
+            claimRewards,
 
             // Events
 
