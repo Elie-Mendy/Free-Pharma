@@ -14,8 +14,6 @@ const Index = () => {
 
     const { freelancers } = useContext(FreePharmaContext);
     const { jobs } = useContext(FreePharmaContext);
-    console.log(freelancers);
-    console.log(jobs);
     return (
         <MainLayout>
             <Flex

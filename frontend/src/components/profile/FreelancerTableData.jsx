@@ -23,7 +23,6 @@ import { PiMagnifyingGlassLight } from "react-icons/pi";
 
 const TableData = ({ data, tab }) => {
     const bg = useColorModeValue("white", "gray.700");
-    console.log(data);
     return (
         <TableContainer rounded={"xl"} shadow={"xl"} w={"100%"} bg={bg}>
             <Table variant="simple">

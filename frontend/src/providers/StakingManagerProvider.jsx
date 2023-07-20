@@ -15,6 +15,7 @@ export const StakingManagerProvider = ({ children }) => {
         pharmWithdrawals,
         ethDeposits,
         ethWithdrawals,
+        stackingRewards,
 
         // FunctionsstakePHARM,
         stakePHARM,
@@ -37,6 +38,7 @@ export const StakingManagerProvider = ({ children }) => {
             pharmWithdrawals,
             ethDeposits,
             ethWithdrawals,
+            stackingRewards,
 
             // State contract
             contract,
@@ -63,6 +65,7 @@ export const StakingManagerProvider = ({ children }) => {
             pharmWithdrawals,
             ethDeposits,
             ethWithdrawals,
+            stackingRewards,
 
             // FunctionsstakePHARM,
             stakePHARM,

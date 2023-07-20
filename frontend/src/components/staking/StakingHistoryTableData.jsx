@@ -54,29 +54,20 @@ const TableData = ({ data }) => {
 };
 
 export const StakingHistoryTableData = () => {
-    const { pharmDeposits, ethDeposits, pharmWithdrawals, ethWithdrawals } = useContext(StakingManagerContext);
+    const { pharmDeposits, ethDeposits, pharmWithdrawals, ethWithdrawals, stackingRewards } = useContext(StakingManagerContext);
 
     // process deposits
     const mergedDeposits = [...pharmDeposits, ...ethDeposits];
     const sortedByTimestampDeposits = mergedDeposits.sort(
         (a, b) => b.timestamp - a.timestamp
     );
-    sortedByTimestampDeposits.forEach(function(item) {
-        item.token = pharmDeposits.includes(item) ? 'PHARM' : 'ETH';
-      });
 
     // process withdrawals
     const mergedWithdrawals = [...pharmWithdrawals, ...ethWithdrawals];
     const sortedByTimestampWithdrawals = mergedWithdrawals.sort(
         (a, b) => b.timestamp - a.timestamp
     );
-    sortedByTimestampWithdrawals.forEach(function(item) {
-        item.token = pharmWithdrawals.includes(item) ? 'PHARM' : 'ETH';
-        });
-
-    console.log("PHARL DEPOSITS ", pharmDeposits);
-    console.log("ETH DEPOSITS ", ethDeposits);
-    console.log("MERGED DEPOSITS ", mergedDeposits);
+    
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>
@@ -98,7 +89,7 @@ export const StakingHistoryTableData = () => {
                     <TableData data={sortedByTimestampWithdrawals} />
                 </TabPanel>
                 <TabPanel px={0}>
-                    <TableData />
+                    <TableData data={stackingRewards}/>
                 </TabPanel>
             </TabPanels>
         </Tabs>

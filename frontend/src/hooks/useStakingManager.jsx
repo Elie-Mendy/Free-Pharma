@@ -33,16 +33,7 @@ export function useStakingManager() {
     const [pharmWithdrawals, setPharmWithdrawals] = useState([]);
     const [ethDeposits, setEthDeposits] = useState([]);
     const [ethWithdrawals, setEthWithdrawals] = useState([]);
-
-    // ::::::::::: LOGS & DATA :::::::::::
-    // const [valueStoredLogs, setValueStoredLogs] = useState([]);
-
-    const convertInUSD= (_amount) => {
-        return Math.round(
-            (_amount.toString() / 10 ** 18) *
-                100
-        ) / 100
-    }
+    const [stackingRewards, setStackingRewards] = useState([]);
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
@@ -126,7 +117,6 @@ export function useStakingManager() {
             throwNotif("error", "Veuillez entrer un montant");
             return;
         }
-        console.log(_amount);
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -198,6 +188,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
+                        token: "PHARM"
                     };
                 })
             )
@@ -225,6 +216,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
+                        token: "PHARM"
                     };
                 })
             )
@@ -252,6 +244,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
+                        token: "ETH"
                     };
                 })
             )
@@ -279,6 +272,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
+                        token: "ETH"
                     };
                 })
             )
@@ -286,6 +280,35 @@ export function useStakingManager() {
 
         setEthWithdrawals(withdrawals);
     };
+
+    const getSkakingRewards = async () => {
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+
+        const rewardsLogs = await client.getLogs({
+            address: contractAddress,
+            event: parseAbiItem(
+                "event ClaimRewards(address indexed userAddress, uint amount, uint timestamp)"
+            ),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+        });
+        
+        const rewards = (
+            await Promise.all(
+                rewardsLogs.map(async (log, i) => {
+                    return {
+                        id: Number(i + 1),
+                        address: String(log.args.userAddress),
+                        amount: convertInUSD(log.args.amount),
+                        timestamp: Number(log.args.timestamp),
+                        token: "PHARM"
+                    };
+                })
+            )
+        ).map((w) => w);
+
+        setStackingRewards(rewards);
+    };
+
 
     useEffect(() => {
         if (!isConnected) return;
@@ -297,10 +320,23 @@ export function useStakingManager() {
             getSkakingPHARMWithdrawals();
             getSkakingETHDeposits();
             getSkakingETHWithdrawals();
+            getSkakingRewards();
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
     }, [isConnected, address, chain?.id]);
+
+
+
+    // ::::::::::: HELPER :::::::::::
+
+
+    const convertInUSD= (_amount) => {
+        return Math.round(
+            (_amount.toString() / 10 ** 18) *
+                100
+        ) / 100
+    }
 
     // ::::::::::: Returned data :::::::::::
     return {
@@ -314,6 +350,7 @@ export function useStakingManager() {
         pharmWithdrawals,
         ethDeposits,
         ethWithdrawals,
+        stackingRewards,
         
 
         // Functions

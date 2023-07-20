@@ -19,7 +19,6 @@ import { BsFillBriefcaseFill, BsCashCoin, BsCalendar3 } from "react-icons/bs";
 export const OfferCard = ({jobId}) => {
     const { userProfile } = useContext(DataStorageContext);
     const { applyForJob } = useContext(FreePharmaContext);
-    console.log("userProfile", userProfile);
     return (
         <Box
             mt="auto"

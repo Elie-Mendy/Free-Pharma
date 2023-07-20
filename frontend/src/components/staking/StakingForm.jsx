@@ -22,7 +22,6 @@ export default function StakingForm() {
     const [amount, setAmount] = useState(0);
 
     const handleDeposit = () => {
-        console.log(stackPHARM)
         if (stackPHARM) {
             stakePHARM(amount * 10 ** 18);
         } else {

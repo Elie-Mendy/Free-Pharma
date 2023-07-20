@@ -9,7 +9,7 @@ import {
 import { useContext } from "react";
 
 function ClaimWidget() {
-    const { currentUserStakingInfos } = useContext(StakingManagerContext);
+    const { currentUserStakingInfos, claimRewards } = useContext(StakingManagerContext);
 
     return (
         <Stack
@@ -45,6 +45,7 @@ function ClaimWidget() {
                     PHARM à réclamer !
                 </Text>
                 <Button
+                    onClick={claimRewards}
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, red.300,pink.400)"

@@ -13,7 +13,6 @@ import { useContext, useState } from "react";
 export default function ApprovalForm() {
     const [amount, setAmount] = useState(0);
     const contractAddress = config.contracts.StakingManager.address;
-    console.log(contractAddress);
     const { increaseAllowance, decreaseAllowance } =
         useContext(TokenPHARMContext);
 

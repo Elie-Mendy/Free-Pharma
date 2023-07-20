@@ -30,8 +30,8 @@ export function useTokenPHARM() {
     const [totalSupplyInfo, setTotalSupplyInfo] = useState(0);
     const [balanceOfUser, setBalanceOfUser] = useState(0);
     const [allowanceForFreePharma, setAllowanceForFreePharma] = useState(0);
-    const [allowanceForStackingManager, setAllowanceForStackingManager] = useState(0);
-
+    const [allowanceForStackingManager, setAllowanceForStackingManager] =
+        useState(0);
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -51,31 +51,39 @@ export function useTokenPHARM() {
         PHARMsupply = parseInt(PHARMsupply.toString()) / 10 ** 18;
         PHARMsupply = Math.round(PHARMsupply * 100) / 100;
 
-
         let PHARMbalance = await balanceOf(address);
         PHARMbalance = parseInt(PHARMbalance.toString()) / 10 ** 18;
         PHARMbalance = Math.round(PHARMbalance * 100) / 100;
 
-        let PHARMallowanceForFreePharma = await allowance(address, config.contracts.FreePharma.address);
-        PHARMallowanceForFreePharma = parseInt(PHARMallowanceForFreePharma.toString()) / 10 ** 18;
-        PHARMallowanceForFreePharma = Math.round(PHARMallowanceForFreePharma * 100) / 100;
+        let PHARMallowanceForFreePharma = await allowance(
+            address,
+            config.contracts.FreePharma.address
+        );
+        PHARMallowanceForFreePharma =
+            parseInt(PHARMallowanceForFreePharma.toString()) / 10 ** 18;
+        PHARMallowanceForFreePharma =
+            Math.round(PHARMallowanceForFreePharma * 100) / 100;
 
-        let PHARMallowanceForStackingManager = await allowance(address, config.contracts.StakingManager.address);
-        PHARMallowanceForStackingManager = parseInt(PHARMallowanceForStackingManager.toString()) / 10 ** 18;
-        PHARMallowanceForStackingManager = Math.round(PHARMallowanceForStackingManager * 100) / 100;
-        
+        let PHARMallowanceForStackingManager = await allowance(
+            address,
+            config.contracts.StakingManager.address
+        );
+        PHARMallowanceForStackingManager =
+            parseInt(PHARMallowanceForStackingManager.toString()) / 10 ** 18;
+        PHARMallowanceForStackingManager =
+            Math.round(PHARMallowanceForStackingManager * 100) / 100;
 
         // Set state hook
         setTotalSupplyInfo(PHARMsupply.toString());
         setBalanceOfUser(PHARMbalance.toString());
         setAllowanceForFreePharma(PHARMallowanceForFreePharma.toString());
-        setAllowanceForStackingManager(PHARMallowanceForStackingManager.toString());
+        setAllowanceForStackingManager(
+            PHARMallowanceForStackingManager.toString()
+        );
         setContract(tokenPHARM);
     };
 
-    
     // ::::::::::: Contract Functions :::::::::::
-
 
     const totalSupply = async () => {
         try {
@@ -151,7 +159,6 @@ export function useTokenPHARM() {
     };
 
     const decreaseAllowance = async (_address, _amount) => {
-        console.log("DECREASE ! ",_address, _amount);
         if (!_amount) {
             throwNotif("error", "Amount is required !");
             return;
@@ -165,14 +172,9 @@ export function useTokenPHARM() {
             });
 
             const { hash } = await writeContract(request);
-            console.log("test success")
-
             throwNotif("info", "Allowance decreased !");
             return hash;
-
         } catch (err) {
-            console.log("test error")
-
             throwNotif("error", err.message);
         }
     };
@@ -192,7 +194,6 @@ export function useTokenPHARM() {
             throwNotif("error", err.message);
         }
     };
-
 
     /*
     const getStoredData = async () => {
@@ -293,13 +294,8 @@ export function useTokenPHARM() {
                 isClosable: true,
             });
         }
-    }, [
-        isConnected,
-        address,
-        chain?.id
-    ]);
+    }, [isConnected, address, chain?.id]);
 
-    
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
@@ -317,7 +313,6 @@ export function useTokenPHARM() {
         increaseAllowance,
         decreaseAllowance,
         mint,
-
 
         // Events
 
