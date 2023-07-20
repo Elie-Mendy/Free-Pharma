@@ -42,8 +42,8 @@ async function main() {
     await tokenPHARM.mint(employer3.address, ethers.utils.parseEther("1000000000"));
 
 
+    /* :::::::::::::::  Free PHARMA Scenario :::::::::::::::::: */
 
-    /// Free PHARMA Scenario
 
     /// 1.  - Account one two and three are employers
     console.log("Creating employers...")

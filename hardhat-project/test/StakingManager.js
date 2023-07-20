@@ -9,15 +9,15 @@ describe("StakingManager", function (accounts) {
     
     /* ::::::::::::::: STATE :::::::::::::::::: */
 
-    const PHARM_STAKING_REWARDS_SUPPLY      = "20000000000000000000000000"; // 20 000 000 PHARM
+    const PHARM_STAKING_REWARDS_SUPPLY      = ethers.utils.parseEther("20000000"); // 20 000 000 PHARM
 
-    const PHARM_PREFUND_SUPPLY              = "10000000000000000000000";    // 10 000 PHARM
-    const PHARM_SUFFICENT_AMOUNT            = "1000000000000000000000";     // 1000 PHARM
-    const PHARM_INSUFFICENT_AMOUNT          = "10000000000000000000";       // 10 PHARM
-    const PHARM_INSUFFICENT_ALLOWED_AMOUNT  = "900000000000000000000";      // 90 PHARM
+    const PHARM_PREFUND_SUPPLY              = ethers.utils.parseEther("10000");    // 10 000 PHARM
+    const PHARM_SUFFICENT_AMOUNT            = ethers.utils.parseEther("1000");     // 1000 PHARM
+    const PHARM_INSUFFICENT_AMOUNT          = ethers.utils.parseEther("10");       // 10 PHARM
+    const PHARM_INSUFFICENT_ALLOWED_AMOUNT  = ethers.utils.parseEther("90");       // 90 PHARM
 
-    const ETH_SUFFICENT_AMOUNT              = "1000000000000000000";        // 1 ETH
-    const ETH_INSUFFICENT_AMOUNT            = "10000000000000000";          // 0.01 ETH
+    const ETH_SUFFICENT_AMOUNT              = ethers.utils.parseEther("1");        // 1 ETH
+    const ETH_INSUFFICENT_AMOUNT            = ethers.utils.parseEther("0.01");      // 0.01 ETH
 
     const year                    = 31536000;                    // 1 year in seconds
     const month                   = 2592000;                     // 1 month in seconds
@@ -67,7 +67,7 @@ describe("StakingManager", function (accounts) {
                 it("should allow a user to stake PHARM tokens", async function () {
                     await stakingManager.connect(addr1).stakePHARM(PHARM_SUFFICENT_AMOUNT);
                     let user = await stakingManager.connect(addr1).getUser(addr1.address);
-                    assert.equal(user.pharmAmountStaked, PHARM_SUFFICENT_AMOUNT);
+                    assert.equal(user.pharmAmountStaked.toString(), PHARM_SUFFICENT_AMOUNT.toString());
                 });
 
                 it("should not update the user's reward at the first staking", async function () {
@@ -113,7 +113,7 @@ describe("StakingManager", function (accounts) {
                 it("should allow a user to stake ETH tokens", async function () {
                     await stakingManager.connect(addr1).stakeETH({value: ETH_SUFFICENT_AMOUNT});
                     let user = await stakingManager.connect(addr1).getUser(addr1.address);
-                    assert.equal(user.ethAmountStaked, ETH_SUFFICENT_AMOUNT);
+                    assert.equal(user.ethAmountStaked.toString(), ETH_SUFFICENT_AMOUNT.toString());
                 });
 
                 it("should not update the user's reward at the first staking", async function () {
@@ -132,7 +132,7 @@ describe("StakingManager", function (accounts) {
                 });
 
                 it("should forbid a user to stake an unsuficient amount of ETH tokens", async function () {
-                    await expect(stakingManager.connect(addr1).stakeETH({value: ETH_INSUFFICENT_AMOUNT}))
+                    await expect(stakingManager.connect(addr1).stakeETH({value: ETH_INSUFFICENT_AMOUNT.toString()}))
                         .to.be.revertedWith("ETH: minimum stake amount is 0.1 ETH.");
                 });
 
@@ -152,7 +152,7 @@ describe("StakingManager", function (accounts) {
                     await stakingManager.connect(addr1).unstakePHARM(PHARM_SUFFICENT_AMOUNT);
                     let user = await stakingManager.connect(addr1).getUser(addr1.address);
                     assert.equal(user.pharmAmountStaked, 0);
-                    assert.equal(await tokenPHARM.balanceOf(addr1.address), PHARM_PREFUND_SUPPLY);
+                    assert.equal(await tokenPHARM.balanceOf(addr1.address), PHARM_PREFUND_SUPPLY.toString());
                 });
 
                 it("should update the user's reward if required time has passed since the last update", async function () {
@@ -252,8 +252,8 @@ describe("StakingManager", function (accounts) {
                     await stakingManager.connect(addr1).stakeETH({value: ETH_SUFFICENT_AMOUNT});
                     let user = await stakingManager.connect(addr1).getUser(addr1.address);
                     assert.notEqual(user.pendingRewards.toString(), '0');
-                    assert.equal(user.ethAmountStaked, ETH_SUFFICENT_AMOUNT);
-                    assert.equal(user.pharmAmountStaked, PHARM_SUFFICENT_AMOUNT);
+                    assert.equal(user.ethAmountStaked, ETH_SUFFICENT_AMOUNT.toString());
+                    assert.equal(user.pharmAmountStaked, PHARM_SUFFICENT_AMOUNT.toString());
                 });
 
                 it("should not return emply values for an unexisting user's data", async function () {               
