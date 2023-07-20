@@ -14,7 +14,7 @@ export const useNotif = () => {
                     description: message,
                     status: "success",
                     duration: 9000,
-                    position: "bottom-right",
+                    position: "top",
                     isClosable: true,
                 });
                 break;

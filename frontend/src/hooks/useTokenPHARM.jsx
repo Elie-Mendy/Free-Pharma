@@ -60,10 +60,16 @@ export function useTokenPHARM() {
         PHARMallowanceForFreePharma = parseInt(PHARMallowanceForFreePharma.toString()) / 10 ** 18;
         PHARMallowanceForFreePharma = Math.round(PHARMallowanceForFreePharma * 100) / 100;
 
+        let PHARMallowanceForStackingManager = await allowance(address, config.contracts.StakingManager.address);
+        PHARMallowanceForStackingManager = parseInt(PHARMallowanceForStackingManager.toString()) / 10 ** 18;
+        PHARMallowanceForStackingManager = Math.round(PHARMallowanceForStackingManager * 100) / 100;
+        
+
         // Set state hook
         setTotalSupplyInfo(PHARMsupply.toString());
         setBalanceOfUser(PHARMbalance.toString());
         setAllowanceForFreePharma(PHARMallowanceForFreePharma.toString());
+        setAllowanceForStackingManager(PHARMallowanceForStackingManager.toString());
         setContract(tokenPHARM);
     };
 

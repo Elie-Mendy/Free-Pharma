@@ -3,6 +3,8 @@ import {
     Flex,
     HStack,
     Input,
+    Radio,
+    RadioGroup,
     Stack,
     useColorModeValue,
 } from "@chakra-ui/react";
@@ -10,7 +12,7 @@ import {
 export default function StakingForm() {
     return (
         <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
-            <Stack spacing={4}>
+            <HStack spacing={4}>
                 <Input
                     placeholder="Montant"
                     bg={useColorModeValue("gray.100", "gray.600")}
@@ -20,7 +22,17 @@ export default function StakingForm() {
                         color: "gray.400",
                     }}
                 />
-            </Stack>
+                <RadioGroup defaultValue="1">
+                    <Stack spacing={4} direction="row">
+                        <Radio colorScheme="pink" value="1">
+                            PHARM
+                        </Radio>
+                        <Radio colorScheme="pink" value="2">
+                            ETH
+                        </Radio>
+                    </Stack>
+                </RadioGroup>
+            </HStack>
             <HStack w={"full"} gap={4}>
                 <Button
                     fontFamily={"heading"}

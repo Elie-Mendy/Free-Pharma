@@ -10,6 +10,7 @@ export const StakingManagerProvider = ({ children }) => {
 
         // State contract
         contract,
+        currentUserStakingInfos,
 
         // Functions
 
@@ -22,6 +23,7 @@ export const StakingManagerProvider = ({ children }) => {
         () => ({
             // Static data
             contractAddress,
+            currentUserStakingInfos,
 
             // State contract
             contract,
@@ -38,6 +40,7 @@ export const StakingManagerProvider = ({ children }) => {
 
             // State contract
             contract,
+            currentUserStakingInfos,
 
             // Functions
 

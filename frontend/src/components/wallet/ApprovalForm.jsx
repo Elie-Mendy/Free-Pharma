@@ -13,7 +13,8 @@ import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
 export default function ApprovalForm() {
     const [amount, setAmount] = useState(0);
     const contractAddress = config.contracts.FreePharma.address;
-    const { increaseAllowance, decreaseAllowance } = useContext(TokenPHARMContext);
+    const { increaseAllowance, decreaseAllowance } =
+        useContext(TokenPHARMContext);
 
     return (
         <Flex as={"form"} mt={4} direction={"column"} align={"stretch"}>
@@ -32,7 +33,9 @@ export default function ApprovalForm() {
             </Stack>
             <HStack mt={4} w={"full"} gap={4}>
                 <Button
-                    onClick={() => increaseAllowance(contractAddress, amount * 10 ** 18)}
+                    onClick={() =>
+                        increaseAllowance(contractAddress, amount * 10 ** 18)
+                    }
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, green.300,green.500)"
@@ -42,10 +45,12 @@ export default function ApprovalForm() {
                         boxShadow: "xl",
                     }}
                 >
-                    Augmenter 
+                    Augmenter
                 </Button>
                 <Button
-                    onClick={() => decreaseAllowance(contractAddress, amount * 10 ** 18)}
+                    onClick={() =>
+                        decreaseAllowance(contractAddress, amount * 10 ** 18)
+                    }
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, red.300,red.500)"

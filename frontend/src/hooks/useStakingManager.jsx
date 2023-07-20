@@ -12,9 +12,8 @@ import {
     watchContractEvent,
 } from "@wagmi/core";
 
-import { parseAbiItem } from "viem";
-
-import { config, client } from "@/config";
+import { config } from "@/config";
+import { useTokenPHARM } from "./useTokenPHARM";
 
 const contractAddress = config.contracts.StakingManager.address;
 const contractABI = config.contracts.StakingManager.abi;
@@ -23,11 +22,12 @@ export function useStakingManager() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { throwNotif } = useNotif();
+    const { allowance } = useTokenPHARM();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
-    // const [storedValue, setStoredValue] = useState("");
+    const [currentUserStakingInfos, setcurrentUserStakingInfos] = useState({});
 
     // ::::::::::: LOGS & DATA :::::::::::
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
@@ -46,11 +46,10 @@ export function useStakingManager() {
 
         // Set state hook
         setContract(stekingManager);
+        setcurrentUserStakingInfos(await getUser(address));
     };
 
-    
     // ::::::::::: Contract Functions :::::::::::
-
 
     const getUser = async (_userAddress) => {
         try {
@@ -218,13 +217,8 @@ export function useStakingManager() {
                 isClosable: true,
             });
         }
-    }, [
-        isConnected,
-        address,
-        chain?.id
-    ]);
+    }, [isConnected, address, chain?.id]);
 
-    
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
@@ -232,6 +226,7 @@ export function useStakingManager() {
 
         // State contract
         contract,
+        currentUserStakingInfos,
 
         // Functions
 
