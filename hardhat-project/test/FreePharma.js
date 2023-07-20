@@ -383,6 +383,22 @@ describe("FreePharma - business logic smart contract", () => {
                     });
                 });
 
+                describe("getJobs()", () => {
+                    it("should get all jobs", async () => {
+                        await freePharma.connect(addr1).createEmployer("Sanofi", "sanofi@example.com", true );
+                        await freePharma.connect(addr1).createJob(startDateTimestamp, endDateTimestamp, salary, location);
+                        await freePharma.connect(addr1).createJob(startDateTimestamp, endDateTimestamp, salary, location);
+                        await freePharma.connect(addr1).createJob(startDateTimestamp, endDateTimestamp, salary, location);
+
+                        let jobCount = await dataStorage.getJobCount();
+                        assert.equal(jobCount.toString(), '3');
+                        
+                        let jobs = await freePharma.getJobs();
+                        assert.equal(jobs.length, 3);
+                    });
+                });
+
+
                 describe("setJob()", () => {
                     it("should allow an employer to update one his job's data", async () => {
                         await freePharma.connect(addr1).createEmployer("Sanofi", "sanofi@example.com", true );

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
 export const useNotif = () => {
@@ -6,29 +6,39 @@ export const useNotif = () => {
     const [info, setInfo] = useState(null);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        if (info)
-            toast({
-                title: "Confirmation !",
-                description: info,
-                status: "success",
-                duration: 4000,
-                position: "botom-right",
-                isClosable: true,
-            });
-        if (error)
-            toast({
-                title: "Une erreur est survenue !",
-                description: error,
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
-    }, [info, error]);
+    const throwNotif = (level, message) => {
+        switch (level) {
+            case "info":
+                toast({
+                    title: "Confirmation:",
+                    description: message,
+                    status: "success",
+                    duration: 9000,
+                    position: "top",
+                    isClosable: true,
+                });
+                break;
+
+            case "error":
+                toast({
+                    title: "Erreur:",
+                    description: message,
+                    status: "error",
+                    duration: 9000,
+                    position: "top-right",
+                    isClosable: true,
+                });
+                break;
+
+            default:
+                break;
+        }
+    };
 
     return {
+        throwNotif,
         error,
+        info,
         setInfo,
         setError,
     };

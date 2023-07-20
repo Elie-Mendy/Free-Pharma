@@ -1,11 +1,52 @@
-import { Box, Button, HStack, Input, Stack, Switch, Text, useColorModeValue } from "@chakra-ui/react";
+import { useContext, useState } from "react";
+import { useNotif } from "@/hooks/useNotif";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
+import {
+    Box,
+    Button,
+    HStack,
+    Input,
+    Stack,
+    Switch,
+    Text,
+    useColorModeValue,
+} from "@chakra-ui/react";
 
 export default function EmployerForm() {
+    const { userProfile, setUserProfile } = useContext(DataStorageContext);
+    const { setEmployer, createEmployer, currentUser } =
+        useContext(FreePharmaContext);
+    const { throwNotif } = useNotif();
+
+    const [name, setName] = useState(currentUser?.name);
+    const [email, setEmail] = useState(currentUser?.email);
+    const [visible, setVisible] = useState(currentUser?.visible);
+
+    const handleSubmit = () => {
+        if (name === "" || email === "" || location === "") {
+            throwNotif(
+                "error",
+                "Veuillez renseigner tous les champs du formulaire."
+            );
+            return;
+        }
+        if (userProfile == "unknown") {
+            createEmployer(name, email, visible);
+        } else {
+            setEmployer(name, email, visible);
+        }
+    };
+
     return (
         <Box as={"form"} mt={10}>
             <Stack spacing={4}>
                 <Input
-                    placeholder="Nom de votre entreprise"
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    placeholder="Nom votre entreprise"
+                    value={name}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -14,17 +55,10 @@ export default function EmployerForm() {
                     }}
                 />
                 <Input
-                    placeholder="email@freepharma.fr"
-                    bg={useColorModeValue("gray.100", "gray.600")}
-                    border={0}
-                    color={useColorModeValue("gray.600", "gray.300")}
-                    _placeholder={{
-                        color: "gray.400",
-                    }}
-                />
-
-                <Input
-                    placeholder="Région parisienne"
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="Email"
+                    value={email}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
                     color={useColorModeValue("gray.600", "gray.300")}
@@ -33,7 +67,13 @@ export default function EmployerForm() {
                     }}
                 />
                 <HStack>
-                    <Switch colorScheme="pink" id="visibility" size={"lg"} />
+                    <Switch
+                        onChange={() => setVisible(!visible)}
+                        isChecked={visible}
+                        colorScheme="pink"
+                        id="visibility"
+                        size={"lg"}
+                    />
                     <Text
                         color={"gray.500"}
                         fontSize={{ base: "sm", sm: "md" }}
@@ -43,6 +83,7 @@ export default function EmployerForm() {
                 </HStack>
             </Stack>
             <Button
+                onClick={handleSubmit}
                 fontFamily={"heading"}
                 mt={8}
                 w={"full"}

@@ -1,5 +1,4 @@
 import {
-    Box,
     Button,
     Drawer,
     DrawerOverlay,
@@ -29,7 +28,7 @@ const SidebarContent = ({ onClick }) => (
             </Button>
         </Link>
 
-        <Link href="/stacking">
+        <Link href="/staking">
             <Button onClick={onClick} w="100%">
                 Rendements
             </Button>
@@ -38,11 +37,6 @@ const SidebarContent = ({ onClick }) => (
         <Link href="/voting">
             <Button onClick={onClick} w="100%">
                 Vote
-            </Button>
-        </Link>
-        <Link href="/simplestorage">
-            <Button onClick={onClick} w="100%">
-                Simple Storage
             </Button>
         </Link>
     </Flex>
@@ -54,7 +48,7 @@ const Sidebar = ({ isOpen, variant, onClose }) => {
             <DrawerOverlay>
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Chakra-UI</DrawerHeader>
+                    <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <SidebarContent onClick={onClose} />
                     </DrawerBody>

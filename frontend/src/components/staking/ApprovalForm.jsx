@@ -1,3 +1,4 @@
+import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
 import {
     Button,
     Flex,
@@ -6,12 +7,21 @@ import {
     Stack,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { config } from "@/config";
+import { useContext, useState } from "react";
 
-export default function StackingForm() {
+export default function ApprovalForm() {
+    const [amount, setAmount] = useState(0);
+    const contractAddress = config.contracts.StakingManager.address;
+    const { increaseAllowance, decreaseAllowance } =
+        useContext(TokenPHARMContext);
+
     return (
-        <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
+        <Flex as={"form"} mt={4} direction={"column"} align={"stretch"}>
             <Stack spacing={4}>
                 <Input
+                    type={"number"}
+                    onChange={(e) => setAmount(e.target.value)}
                     placeholder="Montant"
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -21,8 +31,11 @@ export default function StackingForm() {
                     }}
                 />
             </Stack>
-            <HStack w={"full"} gap={4}>
+            <HStack mt={4} w={"full"} gap={4}>
                 <Button
+                    onClick={() =>
+                        increaseAllowance(contractAddress, amount * 10 ** 18)
+                    }
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, green.300,green.500)"
@@ -32,9 +45,12 @@ export default function StackingForm() {
                         boxShadow: "xl",
                     }}
                 >
-                    Déposer
+                    Augmenter
                 </Button>
                 <Button
+                    onClick={() =>
+                        decreaseAllowance(contractAddress, amount * 10 ** 18)
+                    }
                     fontFamily={"heading"}
                     w={"full"}
                     bgGradient="linear(to-r, red.300,red.500)"
@@ -44,7 +60,7 @@ export default function StackingForm() {
                         boxShadow: "xl",
                     }}
                 >
-                    Retirer
+                    Abaisser
                 </Button>
             </HStack>
         </Flex>

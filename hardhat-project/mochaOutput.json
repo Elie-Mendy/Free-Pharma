@@ -1003,309 +1003,309 @@
   },
   {
    "title": "should allow a user to stake PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the user's reward at the first staking",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake more PHARM tokens than he has",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a StakePHARM event",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to stake ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the user's reward at the first staking",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a StakeETH event",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to unstake PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a UnstakePHARM event",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to unstake ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to unstake more ETH tokens than he has staked",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a UnstakeETH event",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to claim his rewards",
-   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a RewardsClaimed event",
-   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should return the right user's data",
-   "fullTitle": "StackingManager Function unit tests Helpers getUser() should return the right user's data",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Helpers getUser() should return the right user's data",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not return emply values for an unexisting user's data",
-   "fullTitle": "StackingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the reward before one day",
-   "fullTitle": "StackingManager Reward Fuzzing should not update the reward before one day",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should not update the reward before one day",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the reward after one day",
-   "fullTitle": "StackingManager Reward Fuzzing should not update the reward after one day",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should not update the reward after one day",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   }
@@ -2308,309 +2308,309 @@
   },
   {
    "title": "should allow a user to stake PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should allow a user to stake PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the user's reward at the first staking",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should not update the user's reward at the first staking",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake an unsuficient amount of PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake an unsuficient amount of PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake more PHARM tokens than he has",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he has",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should forbid a user to stake more PHARM tokens than he allowed the contract to transfer",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a StakePHARM event",
-   "fullTitle": "StackingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakePHARM() should emit a StakePHARM event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to stake ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should allow a user to stake ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the user's reward at the first staking",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should not update the user's reward at the first staking",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to stake an unsuficient amount of ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should forbid a user to stake an unsuficient amount of ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a StakeETH event",
-   "fullTitle": "StackingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Staking stakeETH() should emit a StakeETH event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to unstake PHARM tokens",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should allow a user to unstake PHARM tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to unstake more PHARM tokens than he has staked",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should forbid a user to unstake more PHARM tokens than he has staked",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a UnstakePHARM event",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakePHARM() should emit a UnstakePHARM event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to unstake ETH tokens",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should allow a user to unstake ETH tokens",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should update the user's reward if required time has passed since the last update",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should update the user's reward if required time has passed since the last update",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should forbid a user to unstake more ETH tokens than he has staked",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should forbid a user to unstake more ETH tokens than he has staked",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a UnstakeETH event",
-   "fullTitle": "StackingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Unstaking unstakeETH() should emit a UnstakeETH event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should allow a user to claim his rewards",
-   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Rewards claimRewards() should allow a user to claim his rewards",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should emit a RewardsClaimed event",
-   "fullTitle": "StackingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Rewards claimRewards() should emit a RewardsClaimed event",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should return the right user's data",
-   "fullTitle": "StackingManager Function unit tests Helpers getUser() should return the right user's data",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Helpers getUser() should return the right user's data",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not return emply values for an unexisting user's data",
-   "fullTitle": "StackingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Function unit tests Helpers getUser() should not return emply values for an unexisting user's data",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the reward before one day",
-   "fullTitle": "StackingManager Reward Fuzzing should not update the reward before one day",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should not update the reward before one day",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should not update the reward after one day",
-   "fullTitle": "StackingManager Reward Fuzzing should not update the reward after one day",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should not update the reward after one day",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1000 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 1000 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 1000 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 40 PHARM tokens for 500 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 20 PHARM tokens for 500 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 10 PHARM tokens for 500 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 100 PHARM staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 4 PHARM tokens for 100 PHARM staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 2 PHARM tokens for 100 PHARM staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 3200 PHARM tokens for 10 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 320 PHARM tokens for 1 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 32 PHARM tokens for 0.1 ETH staked on one year",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 1600 PHARM tokens for 10 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 160 PHARM tokens for 1 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 16 PHARM tokens for 0.1 ETH staked on six months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 800 PHARM tokens for 10 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 80 PHARM tokens for 1 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   },
   {
    "title": "should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-   "fullTitle": "StackingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
-   "file": "test/StackingManager.js",
+   "fullTitle": "StakingManager Reward Fuzzing should aproximatively rewarding 8 PHARM tokens for 0.1 ETH staked on three months",
+   "file": "test/StakingManager.js",
    "currentRetry": 0,
    "err": {}
   }

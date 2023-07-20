@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
 import {
     Box,
     Button,
@@ -19,14 +22,13 @@ import { FiEdit } from "react-icons/fi";
 import FreelancerForm from "./FreelancerForm";
 import EmployerForm from "./EmployerForm";
 
-const isEmployer = true;
+export const FreelancerProfileModal = () => {
+    const { userProfile } = useContext(DataStorageContext);
 
-export const ProfileModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const data = {
-        title: isEmployer
-            ? "Mettez à jour les informations de votre entreprise."
-            : "Mettez à jour vos informations personnels.",
+        title: "Mettez à jour vos informations personnels.",
+        label: "Infos personnelles",
         helpText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe veritatis adipisci architecto repudiandae rerum! Ut aliquam dolor eveniet?",
     };
@@ -45,9 +47,7 @@ export const ProfileModal = () => {
                 <Flex justifyContent={"space-between"}>
                     <Box pl={{ base: 2, md: 4 }}>
                         <StatLabel fontWeight={"medium"} isTruncated>
-                            {isEmployer
-                                ? "Infos entreprise"
-                                : "Infos personnelles"}
+                            {data.label}
                         </StatLabel>
                         <StatNumber fontWeight={"medium"} isTruncated>
                             Modifier
@@ -72,7 +72,11 @@ export const ProfileModal = () => {
                     <ModalHeader>{data.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {isEmployer ? <EmployerForm /> : <FreelancerForm />}
+                        {userProfile === "employer" ? (
+                            <EmployerForm />
+                        ) : (
+                            <FreelancerForm />
+                        )}
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>

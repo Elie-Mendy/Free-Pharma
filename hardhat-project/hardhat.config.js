@@ -23,6 +23,8 @@ module.exports = {
         // local network
         hardhat: {
             blockGasLimit: 30000000, // Default 30_000_000
+            gas: 2100000,
+            gasPrice: 8000000000,
         },
         // testnet network
         sepolia: {

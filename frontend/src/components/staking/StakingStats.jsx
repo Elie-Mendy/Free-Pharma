@@ -2,6 +2,7 @@ import {
     Box,
     Flex,
     SimpleGrid,
+    Stack,
     Stat,
     StatLabel,
     StatNumber,
@@ -10,6 +11,9 @@ import {
 import { FaEthereum } from "react-icons/fa";
 import { BsCashCoin, BsCoin } from "react-icons/bs";
 import { ApprovalModal } from "./ApprovalModal";
+import { useContext } from "react";
+import { StakingManagerContext } from "@/providers/StakingManagerProvider";
+import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -44,7 +48,10 @@ function StatsCard(props) {
     );
 }
 
-export default function StackingStats() {
+export default function StakingStats() {
+    const { allowanceForStackingManager } = useContext(TokenPHARMContext);
+    const { currentUserStakingInfos } = useContext(StakingManagerContext);
+
     return (
         <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid
@@ -52,18 +59,18 @@ export default function StackingStats() {
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
-                    title={"total valeur stackés"}
-                    stat={"PHARM: 4521"}
+                    title={"montant stacké"}
+                    stat={`ETH: ${currentUserStakingInfos?.ETHStaked}`}
                     icon={<BsCoin size={"3em"} />}
                 />
                 <StatsCard
-                    title={"balance"}
-                    stat={"ETH: 4.54"}
+                    title={"montant stacké"}
+                    stat={`PHARM: ${currentUserStakingInfos?.PHARMStaked}`}
                     icon={<FaEthereum size={"3em"} />}
                 />
                 <StatsCard
                     title={"transfert approuvé"}
-                    stat={"€780"}
+                    stat={allowanceForStackingManager}
                     icon={<BsCashCoin size={"3em"} />}
                 />
                 <ApprovalModal />

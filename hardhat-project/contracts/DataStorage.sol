@@ -350,6 +350,16 @@ contract DataStorage is Ownable {
         return jobs[_jobId];
     }
 
+    /// @notice fetch all jobs.
+    /// @return Job[], an array of jobs.
+    function getJobs() external view returns(Job[] memory) {
+        Job[] memory _jobs = new Job[](_jobCount.current());
+        for (uint i = 0; i < _jobCount.current(); i++) {
+            _jobs[i] = jobs[i];
+        }
+        return _jobs;
+    }
+
     /// @notice fetch the job status
     /// @param _jobId the job's id.
     /// @return JobStatus, the job status.
