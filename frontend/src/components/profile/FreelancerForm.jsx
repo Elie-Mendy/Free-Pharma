@@ -25,7 +25,7 @@ export default function FreelancerForm() {
     const [name, setName] = useState(currentUser?.name);
     const [email, setEmail] = useState(currentUser?.email);
     const [location, setLocation] = useState(currentUser?.location);
-    const [averageDailyRate, setAverageDailyRate] = useState(currentUser?.averageDailyRate.toString());
+    const [averageDailyRate, setAverageDailyRate] = useState(currentUser?.averageDailyRate?.toString());
     const [available, setAvailable] = useState(currentUser.available && currentUser.available);
     const [visible, setVisible] = useState(currentUser.visible && currentUser.visible);
     const handleSubmit = () => {
@@ -48,6 +48,7 @@ export default function FreelancerForm() {
             <Stack spacing={4}>
                 <Input
                     onChange={(e) => setName(e.target.value)}
+                    placeholder="Nom"
                     value={name}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -58,6 +59,7 @@ export default function FreelancerForm() {
                 />
                 <Input
                     onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
                     type="email"
                     value={email}
                     bg={useColorModeValue("gray.100", "gray.600")}
@@ -71,6 +73,7 @@ export default function FreelancerForm() {
                 
                 <Input
                     onChange={(e) => setLocation(e.target.value)}
+                    placeholder="Localisation"
                     value={location}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -81,6 +84,7 @@ export default function FreelancerForm() {
                 />
                 <Input
                     onChange={(e) => setAverageDailyRate(e.target.value)}
+                    placeholder="Taux journalier moyen"
                     type="number"
                     value={averageDailyRate}
                     bg={useColorModeValue("gray.100", "gray.600")}

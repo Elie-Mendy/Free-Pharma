@@ -9,8 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 const Header = ({ onShowSidebar }) => {
+    const { userProfile } = useContext(DataStorageContext);
+
     return (
         <>
             <Flex
@@ -46,7 +50,11 @@ const Header = ({ onShowSidebar }) => {
                         mx={"1.5rem"}
                         size="md"
                         name="J C"
-                        src="https://bit.ly/sage-adebayo"
+                        src={
+                            userProfile === "employer"
+                                ? "https://bit.ly/sage-adebayo"
+                                : "https://bit.ly/ryan-florence"
+                        }
                         bgGradient="linear(to-r, red.400,pink.400)"
                         onClick={onShowSidebar}
                     />

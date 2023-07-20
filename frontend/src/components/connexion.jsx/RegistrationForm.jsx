@@ -44,7 +44,7 @@ function RegistrationForm() {
             <Tabs isFitted variant="soft-rounded" colorScheme="blue">
                 <TabList>
                     <Tab>Freelancer</Tab>
-                    <Tab>Porteur de projet</Tab>
+                    <Tab>Porteur de missions</Tab>
                 </TabList>
 
                 <TabPanels>

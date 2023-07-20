@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNotif } from "@/hooks/useNotif";
 import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 import {
     Box,
@@ -14,14 +15,14 @@ import {
 } from "@chakra-ui/react";
 
 export default function EmployerForm() {
-    const { setEmployer, currentUser } = useContext(FreePharmaContext);
+    const { userProfile, setUserProfile } = useContext(DataStorageContext);
+    const { setEmployer, createEmployer, currentUser } =
+        useContext(FreePharmaContext);
     const { throwNotif } = useNotif();
 
     const [name, setName] = useState(currentUser?.name);
     const [email, setEmail] = useState(currentUser?.email);
-    const [visible, setVisible] = useState(
-        currentUser.visible && currentUser.visible
-    );
+    const [visible, setVisible] = useState(currentUser?.visible);
 
     const handleSubmit = () => {
         if (name === "" || email === "" || location === "") {
@@ -31,7 +32,11 @@ export default function EmployerForm() {
             );
             return;
         }
-        setEmployer(name, email, visible);
+        if (userProfile == "unknown") {
+            createEmployer(name, email, visible);
+        } else {
+            setEmployer(name, email, visible);
+        }
     };
 
     return (
@@ -40,6 +45,7 @@ export default function EmployerForm() {
                 <Input
                     onChange={(e) => setName(e.target.value)}
                     type="text"
+                    placeholder="Nom votre entreprise"
                     value={name}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -51,6 +57,7 @@ export default function EmployerForm() {
                 <Input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
+                    placeholder="Email"
                     value={email}
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}

@@ -1,3 +1,7 @@
+import moment from "moment";
+
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+
 import {
     useColorModeValue,
     TableContainer,
@@ -12,93 +16,61 @@ import {
     TabPanel,
     TabPanels,
     Tabs,
+    Icon,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { PiMagnifyingGlassLight } from "react-icons/pi";
 
-const TableData = ({ table }) => {
+const TableData = ({ data, tab }) => {
     const bg = useColorModeValue("white", "gray.700");
+    console.log(data);
     return (
         <TableContainer rounded={"xl"} shadow={"xl"} w={"100%"} bg={bg}>
             <Table variant="simple">
                 <Thead>
                     <Tr>
-                        <Th>Porteur de projet</Th>
+                        <Th>Porteur de missions</Th>
                         <Th>Début</Th>
                         <Th>Fin</Th>
                         <Th>Rémunération</Th>
-                        <Th>Détail</Th>
+                        <Th>details</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Sanofi</Td>
-                        <Td>15/07/2022</Td>
-                        <Td>23/07/2022</Td>
-                        <Td>780 € </Td>
-                        <Td>actions</Td>
-                    </Tr>
+                    {
+                        /* Open jobs / Candidatures pending */
+                        tab === 1 &&
+                            data?.map((jobOffer) => {
+                                // format date
+                                let startDate = moment(
+                                    new Date(
+                                        parseInt(
+                                            jobOffer.startDate.toString()
+                                        ) * 1000
+                                    )
+                                ).format("YYYY-MM-DD");
+                                let endDate = moment(
+                                    new Date(
+                                        parseInt(jobOffer.endDate.toString()) *
+                                            1000
+                                    )
+                                ).format("YYYY-MM-DD");
+
+                                return (
+                                    <Tr key={jobOffer.id}>
+                                        <Td>{jobOffer.employerAddress}</Td>
+                                        <Td>{startDate}</Td>
+                                        <Td>{endDate}</Td>
+                                        <Td>{jobOffer.salary.toString()}</Td>
+                                        <Td>
+                                            <Icon as={PiMagnifyingGlassLight} h={"1.2rem"} w={"1.2rem"}/>
+                                        </Td>
+                                    </Tr>
+                                );
+                            })
+                    }
+                    {/* started jobs / completed jobs */}
+                    {/* paid jobs */}
                 </Tbody>
             </Table>
         </TableContainer>
@@ -106,6 +78,9 @@ const TableData = ({ table }) => {
 };
 
 export const FreelancerTableData = () => {
+    const { currentJobOffers, startedJobOffers, completedJobOffers } =
+        useContext(FreePharmaContext);
+
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>
@@ -121,13 +96,13 @@ export const FreelancerTableData = () => {
             </TabList>
             <TabPanels>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={currentJobOffers} tab={1} />
                 </TabPanel>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={startedJobOffers} tab={2} />
                 </TabPanel>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={completedJobOffers} tab={3} />
                 </TabPanel>
             </TabPanels>
         </Tabs>

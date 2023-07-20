@@ -52,12 +52,12 @@ export default function StakingStats() {
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
-                    title={"total valeur stackés"}
+                    title={"montant stacké"}
                     stat={"PHARM: 4521"}
                     icon={<BsCoin size={"3em"} />}
                 />
                 <StatsCard
-                    title={"balance"}
+                    title={"montant stacké"}
                     stat={"ETH: 4.54"}
                     icon={<FaEthereum size={"3em"} />}
                 />

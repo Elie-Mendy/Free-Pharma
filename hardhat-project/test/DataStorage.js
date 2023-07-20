@@ -422,14 +422,6 @@ describe("DataStorage - storage smart contract", function () {
 
                 describe("getJob()", async () => {
                     it("should get the right job", async function () {
-                        // stock a startDate and an endDate
-                        let startDate = new Date(2023, 0, 1); // January 1, 2023
-                        let endDate = new Date(2023, 1, 1); // January 1, 2023
-                        
-                        // convert them to timestamp
-                        let startDateTimestamp = Math.floor(startDate.getTime() / 1000);
-                        let endDateTimestamp = Math.floor(endDate.getTime() / 1000);
-                        let salary = 5000
 
                         // employers creation
                         await dataStorage.connect(addr2).createEmployer(addr2.address, "Sanofi", "sanofi@example.com", false);
@@ -462,6 +454,23 @@ describe("DataStorage - storage smart contract", function () {
                         assert.equal(job3.endDate, endDateTimestamp);
                         assert.equal(job3.salary, salary);
                         assert.equal(job3.location, "Marseille");
+                    });
+                });
+
+                describe("getJobs()", async () => {
+                    it("should get all jobs", async function () {
+                        // employers creation
+                        await dataStorage.connect(addr2).createEmployer(addr2.address, "Sanofi", "sanofi@example.com", false);
+                        await dataStorage.connect(addr3).createEmployer(addr3.address, "Pfizer", "pfizer@example.com", false);
+                        await dataStorage.connect(addr4).createEmployer(addr4.address, "Boiron","boiron@example.com", true);
+                        
+                        // jobs creation
+                        await dataStorage.connect(addr2).createJob(addr2.address, startDateTimestamp, endDateTimestamp, salary, location);
+                        await dataStorage.connect(addr3).createJob(addr3.address, startDateTimestamp, endDateTimestamp, salary, "Toulouse");
+                        await dataStorage.connect(addr4).createJob(addr4.address, startDateTimestamp, endDateTimestamp, salary, "Marseille");
+
+                        let jobs = await dataStorage.getJobs();
+                        assert.equal(jobs.length, 3);
                     });
                 });
 

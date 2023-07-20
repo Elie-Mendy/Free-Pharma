@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
+
 import {
     Badge,
     Box,
@@ -8,10 +12,14 @@ import {
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
+
 import { MdLocationOn } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin, BsCalendar3 } from "react-icons/bs";
 
-export const OfferCard = () => {
+export const OfferCard = ({jobId}) => {
+    const { userProfile } = useContext(DataStorageContext);
+    const { applyForJob } = useContext(FreePharmaContext);
+    console.log("userProfile", userProfile);
     return (
         <Box
             mt="auto"
@@ -166,7 +174,10 @@ export const OfferCard = () => {
                         color: "gray.200",
                     }}
                 >
-                    <Button variant={"outline"}>Postuler</Button>
+                    {" "}
+                    {userProfile === "freelancer" && (
+                        <Button onClick={() => applyForJob(jobId)} variant={"outline"}>Postuler</Button>
+                    )}
                 </Flex>
             </Box>
         </Box>

@@ -27,6 +27,8 @@ export function useFreePharma() {
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
+    const [jobs, setJobs] = useState([]);
+    const [freelancers, setFreelancers] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
     const [currentJobOffers, setCurrentJobOffers] = useState([]);
     const [startedJobOffers, setStartedJobOffers] = useState([]);
@@ -46,22 +48,24 @@ export function useFreePharma() {
             walletClient,
         });
 
-        // get stored value
+        // fetch feed data
+        setJobs(await getJobs());
+        setFreelancers(await getFreelancers());
 
         // Set state hook
         setContract(FreePharma);
 
         if (userProfile == "freelancer") {
             let freelancer = await getOneFreelancer(address);
-            console.log(freelancer)
             setCurrentUser(freelancer);
-
+            if (!freelancer) return;
             // fetch current job applied
             let currentJobs = await Promise.all(
                 freelancer.appliedJobIds.map(async (jobId) => {
                     const job = await getOneJob(jobId);
                     return {
                         id: jobId,
+                        employerAddress: job.employerAddress.substring(0,15) + "...",
                         startDate: job.startDate,
                         endDate: job.endDate,
                         salary: job.salary,
@@ -100,7 +104,7 @@ export function useFreePharma() {
                     };
                 })
             );
-            setCompletedJobOffersIds(completedJobs);
+            setCompletedJobOffers(completedJobs);
 
             // fetch total earn
             if (freelancer.completedJobIds.length == 0) return;
@@ -117,6 +121,8 @@ export function useFreePharma() {
             // fetch employer
             let employer = await getOneEmployer(address);
             setCurrentUser(employer);
+
+            if (!employer) return;
 
             // fetch current job offers
             let currentJobs = await Promise.all(
@@ -226,6 +232,19 @@ export function useFreePharma() {
         }
     };
 
+    const getFreelancers = async (_freelancerAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getFreelancers"
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
     const setFreelancer = async (
         _name = "",
         _email = "",
@@ -257,7 +276,6 @@ export function useFreePharma() {
     };
 
     const applyForJob = async (_jobId) => {
-        if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -446,6 +464,19 @@ export function useFreePharma() {
         }
     };
 
+    const getJobs = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getJobs",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
     const setJob = async (
         _jobId,
         _salary = "",
@@ -539,6 +570,8 @@ export function useFreePharma() {
 
         // State contract
         contract,
+        jobs,
+        freelancers,
         currentUser,
         currentJobOffers,
         startedJobOffers,

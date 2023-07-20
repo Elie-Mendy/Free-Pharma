@@ -14,8 +14,8 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
-    const { userProfile } = useContext(DataStorageContext)
-
+    const { userProfile } = useContext(DataStorageContext);
+    
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });

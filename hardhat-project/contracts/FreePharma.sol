@@ -498,6 +498,12 @@ contract FreePharma is AccessControl {
         return dataStorage.getJob(_jobId);
     }
 
+    /// @notice fetch all jobs.
+    /// @return Job[], an array of jobs.
+    function getJobs() public view returns(IDataStorage.Job[] memory) {
+        return dataStorage.getJobs();
+    }
+
     /// @notice allow an employer to modify the attributes of a given job.
     /// @param _jobId the job' id.
     /// @param _salary the potential new job salary.

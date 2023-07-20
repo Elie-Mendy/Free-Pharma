@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { DataStorageContext } from "@/providers/DataStorageProvider";
 import moment from "moment";
 import {
     useColorModeValue,
@@ -15,10 +14,10 @@ import {
     TabPanel,
     TabPanels,
     Tabs,
-    IconButton,
 } from "@chakra-ui/react";
 import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 import { EditMissionModal } from "./EditMissionModal";
+
 const TableData = ({ data }) => {
     const bg = useColorModeValue("white", "gray.700");
     return (
@@ -34,6 +33,9 @@ const TableData = ({ data }) => {
                     </Tr>
                 </Thead>
                 <Tbody>
+                    {/* Open jobs / Candidatures pending */}
+                    {/* started jobs / completed jobs */}
+                    {/* paid jobs */}
                     {data?.map((jobOffer) => {
                         // format date
                         let startDate = moment(
@@ -83,13 +85,13 @@ export const EmployerTableData = () => {
             </TabList>
             <TabPanels>
                 <TabPanel>
-                    <TableData data={currentJobOffers} />
+                    <TableData data={currentJobOffers} tab={1}/>
                 </TabPanel>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={startedJobOffers} tab={2}/>
                 </TabPanel>
                 <TabPanel>
-                    <TableData />
+                    <TableData data={completedJobOffers} tab={3}/>
                 </TabPanel>
             </TabPanels>
         </Tabs>

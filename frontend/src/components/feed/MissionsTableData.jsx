@@ -19,7 +19,7 @@ export const MissionsTableData = ({ table }) => {
             <Table variant="simple">
                 <Thead>
                     <Tr>
-                        <Th>Porteur de projet</Th>
+                        <Th>Porteur de missions</Th>
                         <Th>Début</Th>
                         <Th>Fin</Th>
                         <Th>Rémunération</Th>

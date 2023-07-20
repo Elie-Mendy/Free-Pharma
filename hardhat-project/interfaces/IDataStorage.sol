@@ -122,6 +122,8 @@ interface IDataStorage {
 
     function getJob(uint _jobId) external view returns(Job memory);
 
+    function getJobs() external view returns(Job[] memory) ;
+
     function getJobStatus(uint _jobId) external view returns(JobStatus);
 
     function getJobNbCandidates(uint _jobId) external view returns(uint);

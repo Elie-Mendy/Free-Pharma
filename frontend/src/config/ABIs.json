@@ -565,2469 +565,2629 @@
     ],
     "DataStorage": [
         {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_tokenAddress",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "nonpayable",
-            "type": "constructor"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_tokenAddress",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "previousOwner",
-                    "type": "address"
-                },
-                {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "newOwner",
-                    "type": "address"
-                }
-            ],
-            "name": "OwnershipTransferred",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "applyForJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "applyForJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "businessLogicContract",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [],
+          "name": "businessLogicContract",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "completeEmployerJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "completeEmployerJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "completeFreelancerJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "completeFreelancerJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "confirmCandidature",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "confirmCandidature",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_employerAddresses",
-                    "type": "address"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
-                }
-            ],
-            "name": "createEmployer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_employerAddresses",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "createEmployer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_averageDailyRate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_available",
-                    "type": "bool"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
-                }
-            ],
-            "name": "createFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "_available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "createFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_employerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_startDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_endDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_salary",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            }
+          ],
+          "name": "createJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "employers",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "created_at",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "updated_at",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "visible",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "freelancerAppliedToJob",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "freelancerHired",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "freelancers",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "created_at",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "updated_at",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "visible",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_employerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "getEmployer",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "address",
-                    "name": "_employerAddress",
-                    "type": "address"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_startDate",
-                    "type": "uint256"
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_endDate",
-                    "type": "uint256"
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_salary",
-                    "type": "uint256"
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                }
-            ],
-            "name": "createJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "employers",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "created_at",
-                    "type": "uint256"
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "updated_at",
-                    "type": "uint256"
+                  "internalType": "uint256[]",
+                  "name": "currentJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "internalType": "string",
-                    "name": "name",
-                    "type": "string"
+                  "internalType": "uint256[]",
+                  "name": "startedJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "internalType": "string",
-                    "name": "email",
-                    "type": "string"
+                  "internalType": "uint256[]",
+                  "name": "completedJobOffersIds",
+                  "type": "uint256[]"
+                }
+              ],
+              "internalType": "struct DataStorage.Employer",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getEmployerCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getEmployers",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "visible",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "freelancerAppliedToJob",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "freelancerHired",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "freelancers",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "created_at",
-                    "type": "uint256"
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "updated_at",
-                    "type": "uint256"
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "averageDailyRate",
-                    "type": "uint256"
+                  "internalType": "uint256[]",
+                  "name": "currentJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "internalType": "string",
-                    "name": "name",
-                    "type": "string"
+                  "internalType": "uint256[]",
+                  "name": "startedJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "internalType": "string",
-                    "name": "email",
-                    "type": "string"
+                  "internalType": "uint256[]",
+                  "name": "completedJobOffersIds",
+                  "type": "uint256[]"
+                }
+              ],
+              "internalType": "struct DataStorage.Employer[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "getFreelancer",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "location",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "available",
-                    "type": "bool"
+                  "internalType": "uint256",
+                  "name": "averageDailyRate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "visible",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_employerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getEmployer",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "currentJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "startedJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobOffersIds",
-                            "type": "uint256[]"
-                        }
-                    ],
-                    "internalType": "struct DataStorage.Employer",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getEmployerCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getEmployers",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "currentJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "startedJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobOffersIds",
-                            "type": "uint256[]"
-                        }
-                    ],
-                    "internalType": "struct DataStorage.Employer[]",
-                    "name": "",
-                    "type": "tuple[]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getFreelancer",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "averageDailyRate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "appliedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "hiredJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "available",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        }
-                    ],
-                    "internalType": "struct DataStorage.Freelancer",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getFreelancerCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddresse",
-                    "type": "address"
-                }
-            ],
-            "name": "getFreelancerJobApplied",
-            "outputs": [
-                {
-                    "internalType": "uint256[]",
-                    "name": "",
-                    "type": "uint256[]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddresse",
-                    "type": "address"
-                }
-            ],
-            "name": "getFreelancerJobCompleted",
-            "outputs": [
-                {
-                    "internalType": "uint256[]",
-                    "name": "",
-                    "type": "uint256[]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddresse",
-                    "type": "address"
-                }
-            ],
-            "name": "getFreelancerJobHired",
-            "outputs": [
-                {
-                    "internalType": "uint256[]",
-                    "name": "",
-                    "type": "uint256[]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getFreelancers",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "averageDailyRate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "appliedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "hiredJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "available",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        }
-                    ],
-                    "internalType": "struct DataStorage.Freelancer[]",
-                    "name": "",
-                    "type": "tuple[]"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJob",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "startDate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "endDate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "salary",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "nbCandidates",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "completedByFreelancer",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "completedByEmployer",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "claimed",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "candidates",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "address",
-                            "name": "freelancerAddress",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "address",
-                            "name": "employerAddress",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "enum DataStorage.JobStatus",
-                            "name": "status",
-                            "type": "uint8"
-                        }
-                    ],
-                    "internalType": "struct DataStorage.Job",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getJobCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobEmployerAddress",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobEndDate",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobFreelancerAddress",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobNbCandidates",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobSalary",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getJobStatus",
-            "outputs": [
-                {
-                    "internalType": "enum DataStorage.JobStatus",
-                    "name": "",
-                    "type": "uint8"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
                 },
                 {
-                    "internalType": "address",
-                    "name": "_freelancerAddress",
-                    "type": "address"
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "appliedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "hiredJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "completedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "available",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 }
-            ],
-            "name": "hireFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct DataStorage.Freelancer",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [],
+          "name": "getFreelancerCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "payFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddresse",
+              "type": "address"
+            }
+          ],
+          "name": "getFreelancerJobApplied",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "processClaim",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddresse",
+              "type": "address"
+            }
+          ],
+          "name": "getFreelancerJobCompleted",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "renounceOwnership",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddresse",
+              "type": "address"
+            }
+          ],
+          "name": "getFreelancerJobHired",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [],
+          "name": "getFreelancers",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "address",
-                    "name": "_businessLogicContract",
-                    "type": "address"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "averageDailyRate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "appliedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "hiredJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "completedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "available",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 }
-            ],
-            "name": "setBusinessLogicContract",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct DataStorage.Freelancer[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJob",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
+                  "internalType": "uint256",
+                  "name": "startDate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "endDate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "salary",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
+                  "internalType": "uint256",
+                  "name": "nbCandidates",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByFreelancer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByEmployer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "claimed",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "candidates",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "address",
+                  "name": "freelancerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "employerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum DataStorage.JobStatus",
+                  "name": "status",
+                  "type": "uint8"
                 }
-            ],
-            "name": "setEmployer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct DataStorage.Job",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddresse",
-                    "type": "address"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_averageDailyRate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_available",
-                    "type": "bool"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
-                }
-            ],
-            "name": "setFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [],
+          "name": "getJobCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_salary",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_startDate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_endDate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                }
-            ],
-            "name": "setJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobEmployerAddress",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "tokenPHARM",
-            "outputs": [
-                {
-                    "internalType": "contract IERC20",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobEndDate",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobFreelancerAddress",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobNbCandidates",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobSalary",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getJobStatus",
+          "outputs": [
+            {
+              "internalType": "enum DataStorage.JobStatus",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getJobs",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "address",
-                    "name": "newOwner",
-                    "type": "address"
+                  "internalType": "uint256",
+                  "name": "startDate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endDate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salary",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "nbCandidates",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByFreelancer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByEmployer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "claimed",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "candidates",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "address",
+                  "name": "freelancerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "employerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum DataStorage.JobStatus",
+                  "name": "status",
+                  "type": "uint8"
                 }
-            ],
-            "name": "transferOwnership",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct DataStorage.Job[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "_freelancerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "hireFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "payFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "processClaim",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "renounceOwnership",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_businessLogicContract",
+              "type": "address"
+            }
+          ],
+          "name": "setBusinessLogicContract",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "setEmployer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddresse",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "_available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "setFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_salary",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_startDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_endDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            }
+          ],
+          "name": "setJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenPHARM",
+          "outputs": [
+            {
+              "internalType": "contract IERC20",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "transferOwnership",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         }
-    ],
+      ],
     "FreePharma": [
         {
-            "inputs": [
-                {
-                    "internalType": "contract IDataStorage",
-                    "name": "_dataStorage",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_tokenAddress",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "nonpayable",
-            "type": "constructor"
+          "inputs": [
+            {
+              "internalType": "contract IDataStorage",
+              "name": "_dataStorage",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_tokenAddress",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
         },
         {
-            "inputs": [],
-            "name": "AlreadyRegistered",
-            "type": "error"
+          "inputs": [],
+          "name": "AlreadyRegistered",
+          "type": "error"
         },
         {
-            "inputs": [],
-            "name": "EmployerHasNotEnoughFunds",
-            "type": "error"
+          "inputs": [],
+          "name": "EmployerHasNotEnoughFunds",
+          "type": "error"
         },
         {
-            "inputs": [],
-            "name": "EmployerNotExists",
-            "type": "error"
+          "inputs": [],
+          "name": "EmployerNotExists",
+          "type": "error"
         },
         {
-            "inputs": [],
-            "name": "FreelancerNotExists",
-            "type": "error"
+          "inputs": [],
+          "name": "FreelancerNotExists",
+          "type": "error"
         },
         {
-            "inputs": [],
-            "name": "JobNotExists",
-            "type": "error"
+          "inputs": [],
+          "name": "JobNotExists",
+          "type": "error"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "message",
-                    "type": "string"
-                }
-            ],
-            "name": "NotAuthorized",
-            "type": "error"
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "name": "NotAuthorized",
+          "type": "error"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "jobId",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "EmployerCompletedJob",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "jobId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "EmployerCompletedJob",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "EmployerCreated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "EmployerCreated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "jobId",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "EmployerHiredFreelancer",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "jobId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "EmployerHiredFreelancer",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "string",
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "bool",
-                    "name": "visible",
-                    "type": "bool"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "EmployerUpdated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "visible",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "EmployerUpdated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerApplied",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerApplied",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "jobId",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerClaimedSalary",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "jobId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerClaimedSalary",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "jobId",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerCompletedJob",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "jobId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerCompletedJob",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerConfirmedCandidature",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerConfirmedCandidature",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerCreated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerCreated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "jobId",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerPaid",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "jobId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerPaid",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "string",
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "string",
-                    "name": "location",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "averageDailyRate",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "bool",
-                    "name": "available",
-                    "type": "bool"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "bool",
-                    "name": "visible",
-                    "type": "bool"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "FreelancerUpdated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "available",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "visible",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "FreelancerUpdated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "id",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "employerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "startDate",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "endDate",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "salary",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "string",
-                    "name": "location",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "JobCreated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "employerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "startDate",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "endDate",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "salary",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "JobCreated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "id",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "salary",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "startDate",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "endDate",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "string",
-                    "name": "location",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "name": "JobUpdated",
-            "type": "event"
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "salary",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "startDate",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "endDate",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "JobUpdated",
+          "type": "event"
         },
         {
-            "anonymous": false,
-            "inputs": [
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "previousAdminRole",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "newAdminRole",
+              "type": "bytes32"
+            }
+          ],
+          "name": "RoleAdminChanged",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "RoleGranted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "RoleRevoked",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "ADMIN",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "DEFAULT_ADMIN_ROLE",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "EMPLOYER_ROLE",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "FREELANCER_ROLE",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LIMIT_CANDIDATES",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "admin",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "admins",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "applyForJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "claimSalary",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "completeEmployerJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "completeFreelancerJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "confirmCandidature",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "createEmployer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "_available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "createFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_startDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_endDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_salary",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            }
+          ],
+          "name": "createJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getEmployers",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "indexed": true,
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "bytes32",
-                    "name": "previousAdminRole",
-                    "type": "bytes32"
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "bytes32",
-                    "name": "newAdminRole",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "RoleAdminChanged",
-            "type": "event"
-        },
-        {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": true,
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "sender",
-                    "type": "address"
-                }
-            ],
-            "name": "RoleGranted",
-            "type": "event"
-        },
-        {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": true,
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
+                  "internalType": "uint256[]",
+                  "name": "currentJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "indexed": true,
-                    "internalType": "address",
-                    "name": "sender",
-                    "type": "address"
-                }
-            ],
-            "name": "RoleRevoked",
-            "type": "event"
-        },
-        {
-            "inputs": [],
-            "name": "ADMIN",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "DEFAULT_ADMIN_ROLE",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "EMPLOYER_ROLE",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "FREELANCER_ROLE",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "LIMIT_CANDIDATES",
-            "outputs": [
-                {
-                    "internalType": "uint8",
-                    "name": "",
-                    "type": "uint8"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "admin",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "admins",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "applyForJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "claimSalary",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "completeEmployerJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "completeFreelancerJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "confirmCandidature",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
+                  "internalType": "uint256[]",
+                  "name": "startedJobOffersIds",
+                  "type": "uint256[]"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
+                  "internalType": "uint256[]",
+                  "name": "completedJobOffersIds",
+                  "type": "uint256[]"
                 }
-            ],
-            "name": "createEmployer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Employer[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [],
+          "name": "getFreelancers",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "averageDailyRate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_averageDailyRate",
-                    "type": "uint256"
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "_available",
-                    "type": "bool"
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
                 },
                 {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "appliedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "hiredJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "completedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "available",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 }
-            ],
-            "name": "createFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Freelancer[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [],
+          "name": "getJobs",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "uint256",
-                    "name": "_startDate",
-                    "type": "uint256"
+                  "internalType": "uint256",
+                  "name": "startDate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_endDate",
-                    "type": "uint256"
+                  "internalType": "uint256",
+                  "name": "endDate",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_salary",
-                    "type": "uint256"
+                  "internalType": "uint256",
+                  "name": "salary",
+                  "type": "uint256"
                 },
                 {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
+                  "internalType": "uint256",
+                  "name": "nbCandidates",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByFreelancer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByEmployer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "claimed",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "candidates",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "address",
+                  "name": "freelancerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "employerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum IDataStorage.JobStatus",
+                  "name": "status",
+                  "type": "uint8"
                 }
-            ],
-            "name": "createJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Job[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "getEmployers",
-            "outputs": [
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_employerAddresses",
+              "type": "address"
+            }
+          ],
+          "name": "getOneEmployer",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "currentJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "startedJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobOffersIds",
-                            "type": "uint256[]"
-                        }
-                    ],
-                    "internalType": "struct IDataStorage.Employer[]",
-                    "name": "",
-                    "type": "tuple[]"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "currentJobOffersIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "startedJobOffersIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "completedJobOffersIds",
+                  "type": "uint256[]"
                 }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Employer",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [],
-            "name": "getFreelancers",
-            "outputs": [
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_freelancerAddresses",
+              "type": "address"
+            }
+          ],
+          "name": "getOneFreelancer",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "averageDailyRate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "appliedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "hiredJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "available",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        }
-                    ],
-                    "internalType": "struct IDataStorage.Freelancer[]",
-                    "name": "",
-                    "type": "tuple[]"
+                  "internalType": "uint256",
+                  "name": "created_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "updated_at",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "averageDailyRate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "appliedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "hiredJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "completedJobIds",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "available",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
                 }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Freelancer",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getOneJob",
+          "outputs": [
+            {
+              "components": [
                 {
-                    "internalType": "address",
-                    "name": "_employerAddresses",
-                    "type": "address"
-                }
-            ],
-            "name": "getOneEmployer",
-            "outputs": [
+                  "internalType": "uint256",
+                  "name": "startDate",
+                  "type": "uint256"
+                },
                 {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "currentJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "startedJobOffersIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobOffersIds",
-                            "type": "uint256[]"
-                        }
-                    ],
-                    "internalType": "struct IDataStorage.Employer",
-                    "name": "",
-                    "type": "tuple"
+                  "internalType": "uint256",
+                  "name": "endDate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salary",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "nbCandidates",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "visible",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByFreelancer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "completedByEmployer",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "claimed",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "candidates",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "address",
+                  "name": "freelancerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "employerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum IDataStorage.JobStatus",
+                  "name": "status",
+                  "type": "uint8"
                 }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+              ],
+              "internalType": "struct IDataStorage.Job",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_freelancerAddresses",
-                    "type": "address"
-                }
-            ],
-            "name": "getOneFreelancer",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "created_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "updated_at",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "averageDailyRate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "email",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "appliedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "hiredJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "completedJobIds",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "available",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        }
-                    ],
-                    "internalType": "struct IDataStorage.Freelancer",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getRoleAdmin",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getOneJob",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "startDate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "endDate",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "salary",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "nbCandidates",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "visible",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "completedByFreelancer",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "completedByEmployer",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "claimed",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "candidates",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "address",
-                            "name": "freelancerAddress",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "address",
-                            "name": "employerAddress",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "string",
-                            "name": "location",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "enum IDataStorage.JobStatus",
-                            "name": "status",
-                            "type": "uint8"
-                        }
-                    ],
-                    "internalType": "struct IDataStorage.Job",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "grantRole",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "getRoleAdmin",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "hasRole",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
-                }
-            ],
-            "name": "grantRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "freelancerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "hireFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
-                }
-            ],
-            "name": "hasRole",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "renounceRole",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "freelancerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "hireFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "revokeRole",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
-                }
-            ],
-            "name": "renounceRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "setEmployer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "role",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "account",
-                    "type": "address"
-                }
-            ],
-            "name": "revokeRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_email",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_averageDailyRate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "_available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "_visible",
+              "type": "bool"
+            }
+          ],
+          "name": "setFreelancer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
-                }
-            ],
-            "name": "setEmployer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_jobId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_salary",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_startDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_endDate",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "_location",
+              "type": "string"
+            }
+          ],
+          "name": "setJob",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_averageDailyRate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_available",
-                    "type": "bool"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_visible",
-                    "type": "bool"
-                }
-            ],
-            "name": "setFreelancer",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "interfaceId",
+              "type": "bytes4"
+            }
+          ],
+          "name": "supportsInterface",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_jobId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_salary",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_startDate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_endDate",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_location",
-                    "type": "string"
-                }
-            ],
-            "name": "setJob",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes4",
-                    "name": "interfaceId",
-                    "type": "bytes4"
-                }
-            ],
-            "name": "supportsInterface",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "tokenPHARM",
-            "outputs": [
-                {
-                    "internalType": "contract IERC20",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+          "inputs": [],
+          "name": "tokenPHARM",
+          "outputs": [
+            {
+              "internalType": "contract IERC20",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         }
-    ],
+      ],
     "PriceProvider": [
         {
             "inputs": [],
