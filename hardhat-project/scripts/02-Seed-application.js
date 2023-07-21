@@ -36,8 +36,6 @@ async function main() {
 
     // PHARM Minting
     console.log("PHARM Minting...");
-    await tokenPHARM.mint(stakingManager.address, ethers.utils.parseEther("1000000000"));
-    await tokenPHARM.mint(employer1.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer2.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer3.address, ethers.utils.parseEther("1000000000"));
 
@@ -105,29 +103,38 @@ async function main() {
 
     ///     - each freelancer apply to at for jobs
     console.log("Applying for jobs...")
-    for (let i = 0; i < freelancers.length; i++) {
-        for (let j = 0; j < 4; j++) {
-            let randomJobId = Math.floor(Math.random() * 21);
-            let signer = await ethers.getSigner(freelancers[i].address);
-            try {
-                await freePharma.connect(signer).applyForJob(randomJobId);
-            } catch (error) {
-                continue;
-            }
-        }
-    }
+    let signerFreelancer1 = await ethers.getSigner(freelancers[0].address);
+    let signerFreelancer2 = await ethers.getSigner(freelancers[1].address);
+    let signerFreelancer3 = await ethers.getSigner(freelancers[2].address);
+    let signerFreelancer4 = await ethers.getSigner(freelancers[3].address);
 
+    await freePharma.connect(signerFreelancer1).applyForJob(0);
+    await freePharma.connect(signerFreelancer1).applyForJob(1);
+    await freePharma.connect(signerFreelancer1).applyForJob(2);
+
+    await freePharma.connect(signerFreelancer2).applyForJob(0);
+    await freePharma.connect(signerFreelancer2).applyForJob(1);
+    await freePharma.connect(signerFreelancer2).applyForJob(2);
+
+    await freePharma.connect(signerFreelancer3).applyForJob(0);
+    await freePharma.connect(signerFreelancer3).applyForJob(1);
+    await freePharma.connect(signerFreelancer3).applyForJob(2);
+
+    await freePharma.connect(signerFreelancer4).applyForJob(0);
+    await freePharma.connect(signerFreelancer4).applyForJob(1);
+    await freePharma.connect(signerFreelancer4).applyForJob(2);
 
     /// 3.  - Some employers hire freelancers
+    await freePharma.connect(employer1).hireFreelancer(0, freelancers[0].address);
+    await freePharma.connect(employer2).hireFreelancer(1, freelancers[1].address);
+    await freePharma.connect(employer3).hireFreelancer(2, freelancers[2].address);
 
     /// 4.  - Some Freelancers confirm their candidatures
+    await freePharma.connect(signerFreelancer1).confirmCandidature(0);
+    await freePharma.connect(signerFreelancer2).confirmCandidature(1);
 
     /// 5.  - Some Freelancers complete their jobs
-
-    /// 6.  - Some Employers set the job as completed and pay the freelancer
-
-    /// 7.  - Some Freelancers claim their payment
-
+    await freePharma.connect(signerFreelancer1).completeFreelancerJob(0);
 }
 
 main().catch((error) => {

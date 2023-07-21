@@ -315,7 +315,7 @@ export function useStakingManager() {
             event: parseAbiItem(
                 "event StakePHARM(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
         });
 
         const deposits = (
@@ -343,7 +343,7 @@ export function useStakingManager() {
             event: parseAbiItem(
                 "event UnstakePHARM(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
         });
 
         const withdrawals = (
@@ -371,7 +371,7 @@ export function useStakingManager() {
             event: parseAbiItem(
                 "event StakeETH(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
         });
 
         const deposits = (
@@ -399,7 +399,7 @@ export function useStakingManager() {
             event: parseAbiItem(
                 "event UnstakeETH(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
         });
 
         const withdrawals = (
@@ -427,7 +427,7 @@ export function useStakingManager() {
             event: parseAbiItem(
                 "event RewardsClaimed(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
+            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
         });
 
         const rewards = (

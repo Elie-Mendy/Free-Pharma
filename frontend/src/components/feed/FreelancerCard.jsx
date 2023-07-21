@@ -32,7 +32,7 @@ export const FreelancerCard = () => {
                 h={56}
                 fit="cover"
                 objectPosition="center"
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+                src="https://blog.mieux-etre.fr/wp-content/uploads/2023/01/role_pharmacienne-1080x675.jpg"
                 alt="avatar"
             />
             <Flex

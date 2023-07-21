@@ -64,7 +64,7 @@ export default function Connexion({ isConnected, isRegistered }) {
             >
                 <Stack spacing={{ base: 10, md: 20 }} justify={"center"}>
                     <Heading
-                        zIndex={9999}
+                        zIndex={2}
                         lineHeight={1.1}
                         fontSize={{
                             base: "3xl",

@@ -42,7 +42,7 @@ export const StakingInfoModal = () => {
                         <Stack spacing={4}>
                             <Text my={2}>
                                 Le rendement annualisé est de 5%. un bonus
-                                s'applique en fonction du pourcentage de votre
+                                s&apos;applique en fonction du pourcentage de votre
                                 participation à la valeur totale stackée. Un
                                 mode démo est proposé pour intéragir avec le
                                 smart contract de stacking et générer des

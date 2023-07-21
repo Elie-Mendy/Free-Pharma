@@ -72,7 +72,7 @@ export default function StakingStats() {
                 <StatsCard
                     title={"montant stacké"}
                     stat={`PHARM: ${currentUserStakingInfos?.PHARMStaked}`}
-                    icon={<BsCoin BsCoin size={"3em"} />}
+                    icon={<BsCoin size={"3em"} />}
                 />
                 <StatsCard
                     title={"montant stacké"}

@@ -36,7 +36,7 @@ const TableData = ({ data }) => {
                     {/* Open jobs / Candidatures pending */}
                     {/* started jobs / completed jobs */}
                     {/* paid jobs */}
-                    {data?.map((jobOffer) => {
+                    {data?.map((jobOffer, idx) => {
                         // format date
                         let startDate = moment(
                             new Date(
@@ -48,13 +48,14 @@ const TableData = ({ data }) => {
                                 parseInt(jobOffer.endDate.toString()) * 1000
                             )
                         ).format("YYYY-MM-DD");
-
+                        
+                        
                         return (
-                            <Tr key={jobOffer.id}>
+                            <Tr key={idx}>
                                 <Td>{startDate}</Td>
                                 <Td>{endDate}</Td>
                                 <Td>{jobOffer.salary.toString()}</Td>
-                                <Td>{jobOffer.candidates.length}</Td>
+                                <Td>{jobOffer?.candidates?.length}</Td>
                                 <Td>
                                     <EditMissionModal jobOffer={jobOffer} />
                                 </Td>
@@ -70,6 +71,7 @@ const TableData = ({ data }) => {
 export const EmployerTableData = () => {
     const { currentJobOffers, startedJobOffers, completedJobOffers } =
         useContext(FreePharmaContext);
+
     return (
         <Tabs isFitted colorScheme="twitter">
             <TabList>

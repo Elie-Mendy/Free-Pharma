@@ -36,7 +36,7 @@ function StakingWidget() {
                         color={"gray.500"}
                         fontSize={{ base: "sm", sm: "md" }}
                     >
-                        Le rendement annualisé est de 5%. un bonus s'applique en
+                        Le rendement annualisé est de 5%. un bonus s&apos;applique en
                         fonction du pourcentage de votre participation à la
                         valeur totale stackée.
                     </Text>

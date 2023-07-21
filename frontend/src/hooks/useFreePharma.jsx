@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { useNotif } from "@/hooks/useNotif";
 import { useWagmi } from "./useWagmi";
 
@@ -11,9 +11,7 @@ import {
     watchContractEvent,
 } from "@wagmi/core";
 
-import { parseAbiItem } from "viem";
-
-import { config, client } from "@/config";
+import { config } from "@/config";
 import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 const contractAddress = config.contracts.FreePharma.address;
@@ -53,131 +51,138 @@ export function useFreePharma() {
         setContract(FreePharma);
 
         if (userProfile == "freelancer") {
-            let freelancer = await getOneFreelancer(address);
-            setCurrentUser(freelancer);
-            if (!freelancer) return;
-            // fetch current job applied
-            let currentJobs = await Promise.all(
-                freelancer.appliedJobIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        id: jobId,
-                        employerAddress: job.employerAddress.substring(0,15) + "...",
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        candidates: job.candidates,
-                        location: job.location,
-                    };
-                })
-            );
-            setCurrentJobOffers(currentJobs);
-
-            // fetch started job offers
-            let startedJobs = await Promise.all(
-                freelancer.hiredJobIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        employerAddress: job.employerAddress,
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        location: job.location,
-                    };
-                })
-            );
-            setStartedJobOffers(startedJobs);
-
-            // fetch completed job offers
-            let completedJobs = await Promise.all(
-                freelancer.completedJobIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        employerAddress: job.employerAddress,
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        location: job.location,
-                    };
-                })
-            );
-            setCompletedJobOffers(completedJobs);
-
-            // fetch total earn
-            if (freelancer.completedJobIds.length == 0) return;
-            let totalEarn = await Promise.all(
-                freelancer.completedJobIds.reduce(async (acc, jobId) => {
-                    const job = await getOneJob(jobId);
-                    return acc + parseInt(job.salary.toString());
-                }, 0)
-            );
-            setTotalFreelancerEarn(totalEarn);
-
-
+            loadFreelancerData();
         } else if (userProfile == "employer") {
-            // fetch employer
-            let employer = await getOneEmployer(address);
-            setCurrentUser(employer);
-
-            if (!employer) return;
-
-            // fetch current job offers
-            let currentJobs = await Promise.all(
-                employer.currentJobOffersIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        id: jobId,
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        candidates: job.candidates,
-                        location: job.location,
-                    };
-                })
-            );
-            setCurrentJobOffers(currentJobs);
-
-            // fetch started job offers
-            let startedJobs = await Promise.all(
-                employer.startedJobOffersIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        freelancerAddress: job.freelancerAddress,
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        location: job.location,
-                    };
-                })
-            );
-            setStartedJobOffers(startedJobs);
-
-            // fetch completed job offers
-            let completedJobs = await Promise.all(
-                employer.completedJobOffersIds.map(async (jobId) => {
-                    const job = await getOneJob(jobId);
-                    return {
-                        freelancerAddress: job.freelancerAddress,
-                        startDate: job.startDate,
-                        endDate: job.endDate,
-                        salary: job.salary,
-                        location: job.location,
-                    };
-                })
-            );
-            setCompletedJobOffers(completedJobs);
-
-            // fetch total paid
-            if (employer.completedJobOffersIds.length == 0) return;
-            let totalPaid = await Promise.all(
-                employer.completedJobOffersIds.reduce(async (acc, jobId) => {
-                    const job = await getOneJob(jobId);
-                    return acc + parseInt(job.salary.toString());
-                }, 0)
-            );
-            setTotalFreelancerEarn(totalPaid); 
-
+            loadEmployerData();
         }
+    };
+
+    const loadFreelancerData = async () => {
+        let freelancer = await getOneFreelancer(address);
+        console.log(freelancer);
+        setCurrentUser(freelancer);
+        if (!freelancer) return;
+        // fetch current job applied
+        let currentJobs = await Promise.all(
+            freelancer.appliedJobIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    id: jobId,
+                    employerAddress:
+                        job.employerAddress.substring(0, 15) + "...",
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    candidates: job.candidates,
+                    location: job.location,
+                };
+            })
+        );
+        setCurrentJobOffers(currentJobs);
+
+        // fetch started job offers
+        let startedJobs = await Promise.all(
+            freelancer.hiredJobIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    employerAddress: job.employerAddress,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    location: job.location,
+                };
+            })
+        );
+        setStartedJobOffers(startedJobs);
+
+        // fetch completed job offers
+        let completedJobs = await Promise.all(
+            freelancer.completedJobIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    employerAddress: job.employerAddress,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    location: job.location,
+                };
+            })
+        );
+        setCompletedJobOffers(completedJobs);
+
+        // fetch total earn
+        if (freelancer.completedJobIds.length == 0) return;
+        let totalEarn = await Promise.all(
+            freelancer.completedJobIds.reduce(async (acc, jobId) => {
+                const job = await getOneJob(jobId);
+                return acc + parseInt(job.salary.toString());
+            }, 0)
+        );
+        setTotalFreelancerEarn(totalEarn);
+    };
+
+    const loadEmployerData = async () => {
+        // fetch employer
+        let employer = await getOneEmployer(address);
+        setCurrentUser(employer);
+
+        if (!employer) return;
+
+        // fetch current job offers
+        let currentJobs = await Promise.all(
+            employer.currentJobOffersIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    id: jobId,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    candidates: job.candidates,
+                    location: job.location,
+                };
+            })
+        );
+        setCurrentJobOffers(currentJobs);
+
+        // fetch started job offers
+        let startedJobs = await Promise.all(
+            employer.startedJobOffersIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    freelancerAddress: job.freelancerAddress,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    location: job.location,
+                };
+            })
+        );
+        setStartedJobOffers(startedJobs);
+
+        // fetch completed job offers
+        let completedJobs = await Promise.all(
+            employer.completedJobOffersIds.map(async (jobId) => {
+                const job = await getOneJob(jobId);
+                return {
+                    freelancerAddress: job.freelancerAddress,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                    salary: job.salary,
+                    location: job.location,
+                };
+            })
+        );
+        setCompletedJobOffers(completedJobs);
+
+        // fetch total paid
+        if (employer.completedJobOffersIds.length == 0) return;
+        let totalPaid = await Promise.all(
+            employer.completedJobOffersIds.reduce(async (acc, jobId) => {
+                const job = await getOneJob(jobId);
+                return acc + parseInt(job.salary.toString());
+            }, 0)
+        );
+        setTotalFreelancerEarn(totalPaid);
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -234,7 +239,7 @@ export function useFreePharma() {
             const data = await readContract({
                 address: contractAddress,
                 abi: contractABI,
-                functionName: "getFreelancers"
+                functionName: "getFreelancers",
             });
             return data;
         } catch (err) {
@@ -266,6 +271,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Profile updated !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -282,6 +288,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Candidature envoyée !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -299,6 +306,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Candidate confirmed !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -316,6 +324,8 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Job completed !");
+            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -333,6 +343,8 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Salary claimed !");
+            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -386,6 +398,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Profile updated !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -402,6 +415,8 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Freelancer hired !");
+            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -418,6 +433,8 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Job completed !");
+            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -441,6 +458,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Mission créée avec succès !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -490,56 +508,120 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Mission modifiée avec succès !");
+            loadContract();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
 
-    // ::::::::::: Data Fetching :::::::::::
-
-    /*
-    const fetchStoredValues = async () => {
-        // get all logs
-        const ValueStoredLogs = await client.getLogs({
-            address: contractAddress,
-            event: parseAbiItem(
-                "event ValueStored(address author, uint value)"
-            ),
-            fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
-            toBlock: "latest", // default value, no need to specify
-        });
-        setValueStoredLogs(ValueStoredLogs);
-
-        // process data
-        const processedValueStored = await Promise.all(
-            ValueStoredLogs.map(async (log) => {
-                return { author: log.args.author, value: log.args.value };
-            })
-        );
-        setValueStoredData(
-            processedValueStored.map((storedValue) => ({
-                author: storedValue.author,
-                value: storedValue.value.toString(),
-            }))
+    const setUpListeners = useCallback(() => {
+        // event FreelancerApplied
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "FreelancerApplied",
+            },
+            (log) => {
+                loadContract();
+            }
         );
 
-        // Set state hook
-        const value = await getStoredData();
-        setStoredValue(value.toString());
-    };
-    */
+        // event FreelancerApplied
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "FreelancerConfirmedCandidature",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event FreelancerCompletedJob
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "FreelancerCompletedJob",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event FreelancerClaimedSalary
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "FreelancerClaimedSalary",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event FreelancerPaid
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "FreelancerPaid",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event EmployerHiredFreelancer
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "EmployerHiredFreelancer",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event EmployerCompletedJob
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "EmployerCompletedJob",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+
+        // event JobCreated
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "JobCreated",
+            },
+            (log) => {
+                loadContract();
+            }
+        );
+    }, []);
 
     useEffect(() => {
         if (!isConnected) return;
         try {
             loadContract();
-            // fetchStoredValues();
-            // setUpListeners();
+            setUpListeners();
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
-    }, [isConnected, address, chain?.id]);
+    }, [isConnected, address, chain?.id, userProfile]);
 
     // ::::::::::: Returned data :::::::::::
     return {
@@ -557,7 +639,6 @@ export function useFreePharma() {
         completedJobOffers,
         totalFreelancerEarn,
         setTotalFreelancerEarn,
-
 
         // Functions
         createFreelancer,

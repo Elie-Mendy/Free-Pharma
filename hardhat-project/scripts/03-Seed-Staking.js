@@ -34,19 +34,6 @@ async function main() {
         process.env.STAKING_MANAGER_ADDRESS
     );
 
-    // PHARM Minting
-    console.log("PHARM Minting...");
-    await tokenPHARM.mint(
-        stakingManager.address,
-        ethers.utils.parseEther("1000000000")
-    );
-    await tokenPHARM.mint(
-        employer1.address,
-        ethers.utils.parseEther("1000000000")
-    );
-    await tokenPHARM
-        .connect(employer1)
-        .approve(stakingManager.address, ethers.utils.parseEther("1000000000"));
 
     /* ::::::::::::::: Stacking seeding table :::::::::::::::::: */
 

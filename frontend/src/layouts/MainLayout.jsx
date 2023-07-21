@@ -1,6 +1,6 @@
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/header/Header";
-import { Box, Flex, Hide, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Hide, Spacer, Text, useBreakpointValue } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { useWagmi } from "@/hooks/useWagmi";
 import Connexion from "@/components/connexion.jsx/Connexion";
@@ -76,7 +76,8 @@ export default function MainLayout({ children }) {
                                 </Flex>
                             </Flex>
                         </Box>
-                        <Box w={"full"} h={"full"} >
+                        <Spacer />
+                        <Box mt={10} w={"full"} justifySelf={"flex-end"} >
                             <Footer />
                         </Box>
                     </Flex>

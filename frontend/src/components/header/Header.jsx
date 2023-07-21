@@ -33,7 +33,8 @@ const Header = ({ onShowSidebar }) => {
                             as={"span"}
                             bgGradient="linear(to-r, red.400,pink.400)"
                             bgClip="text"
-                            letterSpacing={"0.2rem"}
+                            fontSize={{ base: "3xl", md: "4xl" }}
+                            letterSpacing={{md:"0.2rem"}}
                         >
                             FREE PHARMA
                         </Text>{" "}
