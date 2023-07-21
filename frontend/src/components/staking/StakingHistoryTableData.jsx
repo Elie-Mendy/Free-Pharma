@@ -17,6 +17,7 @@ import {
     Tabs,
 } from "@chakra-ui/react";
 import { useContext } from "react";
+import { useWagmi } from "@/hooks/useWagmi";
 
 const TableData = ({ data }) => {
     const bg = useColorModeValue("white", "gray.700");
@@ -54,17 +55,32 @@ const TableData = ({ data }) => {
 };
 
 export const StakingHistoryTableData = () => {
+    const { address } = useWagmi();
     const { pharmDeposits, ethDeposits, pharmWithdrawals, ethWithdrawals, stackingRewards } = useContext(StakingManagerContext);
 
     // process deposits
     const mergedDeposits = [...pharmDeposits, ...ethDeposits];
-    const sortedByTimestampDeposits = mergedDeposits.sort(
+    const filteredOnaddressDeposits = mergedDeposits.filter(
+        (deposit) => deposit.address === address
+    );
+    const sortedByTimestampDeposits = filteredOnaddressDeposits.sort(
         (a, b) => b.timestamp - a.timestamp
     );
 
     // process withdrawals
     const mergedWithdrawals = [...pharmWithdrawals, ...ethWithdrawals];
-    const sortedByTimestampWithdrawals = mergedWithdrawals.sort(
+    const filteredOnaddressWithdrawals = mergedWithdrawals.filter(
+        (withdrawal) => withdrawal.address === address
+    );
+    const sortedByTimestampWithdrawals = filteredOnaddressWithdrawals.sort(
+        (a, b) => b.timestamp - a.timestamp
+    );
+
+    // process rewards
+    const filteredOnaddressRewards = stackingRewards.filter(
+        (reward) => reward.address === address
+    );
+    const sortedByTimestampRewards = filteredOnaddressRewards.sort(
         (a, b) => b.timestamp - a.timestamp
     );
     
@@ -89,7 +105,7 @@ export const StakingHistoryTableData = () => {
                     <TableData data={sortedByTimestampWithdrawals} />
                 </TabPanel>
                 <TabPanel px={0}>
-                    <TableData data={stackingRewards}/>
+                    <TableData data={sortedByTimestampRewards}/>
                 </TabPanel>
             </TabPanels>
         </Tabs>

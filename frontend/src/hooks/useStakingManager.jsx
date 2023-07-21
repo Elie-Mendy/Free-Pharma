@@ -28,6 +28,10 @@ export function useStakingManager() {
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
+    const [demoMode, setDemoMode] = useState(false);
+    const [totalValueLocked, setTotalValueLocked] = useState(0);
+    const [percentageOfTotalStaked, setPercentageOfTotalStaked] = useState(0);
+    const [bonusCoefficient, setBonusCoefficient] = useState(0);
     const [currentUserStakingInfos, setcurrentUserStakingInfos] = useState({});
     const [pharmDeposits, setPharmDeposits] = useState([]);
     const [pharmWithdrawals, setPharmWithdrawals] = useState([]);
@@ -46,17 +50,73 @@ export function useStakingManager() {
         });
 
         // get stored value
+        // let globalStakingInfos = await stakingManager.getGlobalStakingInfos();
+        let APR = await getAPR();
         let currentUserInfo = await getUser(address);
+        let totalValueLocked = await getTotalValueLocked();
+        let percentageOfTotalStaked = await getPercentageOfTotalStaked(address);
+        let bonusCoefficient = await getBonusCoefficient(address);
+
         // Set state hook
         setContract(stakingManager);
+        setDemoMode(await getDemoMode());
         setcurrentUserStakingInfos({
             PHARMStaked: convertInUSD(currentUserInfo.pharmAmountStaked),
             ETHStaked: convertInUSD(currentUserInfo.ethAmountStaked),
-            PHARMRewards: convertInUSD(currentUserInfo.pendingRewards)
+            PHARMRewards: convertInUSD(currentUserInfo.pendingRewards),
         });
+        setTotalValueLocked(convertInUSD(totalValueLocked));
+        setPercentageOfTotalStaked(percentageOfTotalStaked);
+        setBonusCoefficient(
+            parseInt(APR.toString()) / 100 +
+                parseInt(bonusCoefficient.toString()) / 100
+        );
+
+        console.log("demoMode", demoMode)
     };
 
     // ::::::::::: Contract Functions :::::::::::
+
+    const switchDemoMode = async () => {
+        try {
+            const { request } = await prepareWriteContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "switchDemoMode",
+            });
+            const { hash } = await writeContract(request);
+            throwNotif("info", "Demo mode switched !");
+            return hash;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getDemoMode = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "DemoMode",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getAPR = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "APR",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
 
     const getUser = async (_userAddress) => {
         try {
@@ -64,6 +124,47 @@ export function useStakingManager() {
                 address: contractAddress,
                 abi: contractABI,
                 functionName: "getUser",
+                args: [_userAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getTotalValueLocked = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getTotalValueLocked",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getPercentageOfTotalStaked = async (_userAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getPercentageOfTotalStaked",
+                args: [_userAddress],
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getBonusCoefficient = async (_userAddress) => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "getBonusCoefficient",
                 args: [_userAddress],
             });
             return data;
@@ -188,7 +289,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
-                        token: "PHARM"
+                        token: "PHARM",
                     };
                 })
             )
@@ -216,7 +317,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
-                        token: "PHARM"
+                        token: "PHARM",
                     };
                 })
             )
@@ -244,7 +345,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
-                        token: "ETH"
+                        token: "ETH",
                     };
                 })
             )
@@ -272,7 +373,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
-                        token: "ETH"
+                        token: "ETH",
                     };
                 })
             )
@@ -291,7 +392,7 @@ export function useStakingManager() {
             ),
             fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
-        
+
         const rewards = (
             await Promise.all(
                 rewardsLogs.map(async (log, i) => {
@@ -300,7 +401,7 @@ export function useStakingManager() {
                         address: String(log.args.userAddress),
                         amount: convertInUSD(log.args.amount),
                         timestamp: Number(log.args.timestamp),
-                        token: "PHARM"
+                        token: "PHARM",
                     };
                 })
             )
@@ -308,7 +409,6 @@ export function useStakingManager() {
 
         setStackingRewards(rewards);
     };
-
 
     useEffect(() => {
         if (!isConnected) return;
@@ -326,17 +426,11 @@ export function useStakingManager() {
         }
     }, [isConnected, address, chain?.id]);
 
-
-
     // ::::::::::: HELPER :::::::::::
 
-
-    const convertInUSD= (_amount) => {
-        return Math.round(
-            (_amount.toString() / 10 ** 18) *
-                100
-        ) / 100
-    }
+    const convertInUSD = (_amount) => {
+        return Math.round((_amount.toString() / 10 ** 18) * 100) / 100;
+    };
 
     // ::::::::::: Returned data :::::::::::
     return {
@@ -344,6 +438,7 @@ export function useStakingManager() {
         contractAddress,
 
         // State contract
+        demoMode,
         contract,
         currentUserStakingInfos,
         pharmDeposits,
@@ -351,7 +446,9 @@ export function useStakingManager() {
         ethDeposits,
         ethWithdrawals,
         stackingRewards,
-        
+        totalValueLocked,
+        percentageOfTotalStaked,
+        bonusCoefficient,
 
         // Functions
         stakePHARM,
@@ -359,6 +456,7 @@ export function useStakingManager() {
         stakeETH,
         unstakeETH,
         claimRewards,
+        switchDemoMode,
 
         // Events
 

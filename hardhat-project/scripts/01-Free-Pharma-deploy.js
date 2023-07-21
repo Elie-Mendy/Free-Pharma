@@ -53,6 +53,13 @@ async function main() {
     await tokenPHARM
         .connect(employer1)
         .approve(stakingManager.address, ethers.utils.parseEther("1000000000"));
+    
+    // StakingManager configuration
+    console.log("Setting MINTER_ROLE...");
+    await tokenPHARM.grantRole(
+        ethers.utils.id("MINTER_ROLE"),
+        stakingManager.address
+    );
 
 
     // log contract address

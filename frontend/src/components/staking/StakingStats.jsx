@@ -50,14 +50,28 @@ function StatsCard(props) {
 
 export default function StakingStats() {
     const { allowanceForStackingManager } = useContext(TokenPHARMContext);
-    const { currentUserStakingInfos } = useContext(StakingManagerContext);
+    const {
+        currentUserStakingInfos,
+        totalValueLocked,
+        percentageOfTotalStaked,
+    } = useContext(StakingManagerContext);
 
     return (
         <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 4 }}
+                columns={{ base: 1, md: 2, lg: 3 }}
                 spacing={{ base: 5, lg: 8 }}
             >
+                <StatsCard
+                    title={"Total stacké"}
+                    stat={`ETH: ${totalValueLocked}`}
+                    icon={<BsCoin size={"3em"} />}
+                />
+                <StatsCard
+                    title={"pourcentage participation"}
+                    stat={`ETH: ${percentageOfTotalStaked}`}
+                    icon={<BsCoin size={"3em"} />}
+                />
                 <StatsCard
                     title={"montant stacké"}
                     stat={`ETH: ${currentUserStakingInfos?.ETHStaked}`}

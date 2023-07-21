@@ -9,6 +9,7 @@ export const StakingManagerProvider = ({ children }) => {
         contractAddress,
 
         // State contract
+        demoMode,
         contract,
         currentUserStakingInfos,
         pharmDeposits,
@@ -16,6 +17,9 @@ export const StakingManagerProvider = ({ children }) => {
         ethDeposits,
         ethWithdrawals,
         stackingRewards,
+        totalValueLocked,
+        percentageOfTotalStaked,
+        bonusCoefficient,
 
         // FunctionsstakePHARM,
         stakePHARM,
@@ -23,6 +27,7 @@ export const StakingManagerProvider = ({ children }) => {
         stakeETH,
         unstakeETH,
         claimRewards,
+        switchDemoMode,
 
         // Events
 
@@ -33,15 +38,20 @@ export const StakingManagerProvider = ({ children }) => {
         () => ({
             // Static data
             contractAddress,
+            
+
+            // State contract
+            demoMode,
+            contract,
             currentUserStakingInfos,
             pharmDeposits,
             pharmWithdrawals,
             ethDeposits,
             ethWithdrawals,
             stackingRewards,
-
-            // State contract
-            contract,
+            totalValueLocked,
+            percentageOfTotalStaked,
+            bonusCoefficient,
 
             // FunctionsstakePHARM,
             stakePHARM,
@@ -49,6 +59,7 @@ export const StakingManagerProvider = ({ children }) => {
             stakeETH,
             unstakeETH,
             claimRewards,
+            switchDemoMode,
 
             // Events
 
@@ -59,6 +70,7 @@ export const StakingManagerProvider = ({ children }) => {
             contractAddress,
 
             // State contract
+            demoMode,
             contract,
             currentUserStakingInfos,
             pharmDeposits,
@@ -66,13 +78,17 @@ export const StakingManagerProvider = ({ children }) => {
             ethDeposits,
             ethWithdrawals,
             stackingRewards,
+            totalValueLocked,
+            percentageOfTotalStaked,
+            bonusCoefficient,
 
-            // FunctionsstakePHARM,
+            // Functions,
             stakePHARM,
             unstakePHARM,
             stakeETH,
             unstakeETH,
             claimRewards,
+            switchDemoMode,
 
             // Events
 
