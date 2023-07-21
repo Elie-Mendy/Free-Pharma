@@ -1,6 +1,13 @@
 const hre = require("hardhat");
+require("dotenv").config();
 
 async function main() {
+    console.log("Fetching accounts...");
+    let [admin, employer1, employer2, employer3, ...freelancers] =
+        await ethers.getSigners();
+
+    /// contract deployment 
+    console.log("Deploying contracts...");
     // PHARM token deployment
     const TokenPHARM = await hre.ethers.getContractFactory("TokenPHARM");
     const tokenPHARM = await TokenPHARM.deploy();
@@ -23,7 +30,9 @@ async function main() {
     await dataStorage.setBusinessLogicContract(freePharma.address);
 
     // PriceProvider deployment
-    const PriceProvider = await hre.ethers.getContractFactory("PriceProvider");
+    let client = process.env.CLIENT_CHAIN;
+    let priceProviderLabel = client != "hardhat" ? "PriceProvider": "MockPriceProvider";
+    const PriceProvider = await hre.ethers.getContractFactory(priceProviderLabel);
     const priceProvider = await PriceProvider.deploy();
     await priceProvider.deployed();
 
@@ -36,17 +45,21 @@ async function main() {
     await stakingManager.deployed();
 
     // Pre-minting of PHARM tokens
+    console.log("PHARM Minting...");
     await tokenPHARM.mint(
         stakingManager.address,
         ethers.utils.parseEther("1000000000")
     );
+    await tokenPHARM
+        .connect(employer1)
+        .approve(stakingManager.address, ethers.utils.parseEther("1000000000"));
 
 
     // log contract address
     console.log(`TokenPHARM deployed to ${tokenPHARM.address}`);
     console.log(`DataStorage deployed to ${dataStorage.address}`);
     console.log(`FreePharma deployed to ${freePharma.address}`);
-    console.log(`PriceProvider deployed to ${priceProvider.address}`);
+    console.log(`${priceProviderLabel} deployed to ${priceProvider.address}`);
     console.log(`StakingManager deployed to ${stakingManager.address}`);
     
 }

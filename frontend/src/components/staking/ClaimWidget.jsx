@@ -10,7 +10,7 @@ import { useContext } from "react";
 
 function ClaimWidget() {
     const { currentUserStakingInfos, claimRewards } = useContext(StakingManagerContext);
-
+    console.log(currentUserStakingInfos)
     return (
         <Stack
             bg={useColorModeValue("gray.50", "gray.700")}
