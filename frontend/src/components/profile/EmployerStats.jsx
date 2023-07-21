@@ -50,8 +50,8 @@ function StatsCard(props) {
 }
 
 export default function EmployerStats() {
-
-    const { totalFreelancerEarn, currentJobOffers, completedJobOffers} = useContext(FreePharmaContext);
+    const { totalFreelancerEarn, currentJobOffers, completedJobOffers } =
+        useContext(FreePharmaContext);
 
     return (
         <Box
@@ -84,7 +84,7 @@ export default function EmployerStats() {
                     icon={<AiOutlineFileDone size={"3em"} />}
                 />
                 <StatsCard
-                    title={"Budjet total"}
+                    title={"Budget total"}
                     stat={`€${totalFreelancerEarn}`}
                     icon={<BsCashCoin size={"3em"} />}
                 />

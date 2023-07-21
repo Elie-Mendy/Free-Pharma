@@ -60,10 +60,8 @@ export default function JobForm({ jobOffer }) {
 
                     location
                 );
-                throwNotif("info", "Mission modifiée avec succès !");
             } else {
                 createJob(startTimestamp, endTimestamp, salary, location);
-                throwNotif("info", "Mission créée avec succès !");
             }
         }
     };

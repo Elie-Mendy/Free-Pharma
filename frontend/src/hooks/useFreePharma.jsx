@@ -35,9 +35,6 @@ export function useFreePharma() {
     const [completedJobOffers, setCompletedJobOffers] = useState([]);
     const [totalFreelancerEarn, setTotalFreelancerEarn] = useState(0);
 
-    // ::::::::::: LOGS & DATA :::::::::::
-    // const [valueStoredLogs, setValueStoredLogs] = useState([]);
-
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
         // get contract with connected provider
@@ -284,7 +281,7 @@ export function useFreePharma() {
                 args: [Number(_jobId)],
             });
             const { hash } = await writeContract(request);
-            throwNotif("info", "Applied for job !");
+            throwNotif("info", "Candidature envoyée !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -443,7 +440,7 @@ export function useFreePharma() {
                 args: [_startDate, _endDate, _salary, _location],
             });
             const { hash } = await writeContract(request);
-            throwNotif("info", "Job created !");
+            throwNotif("info", "Mission créée avec succès !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -492,30 +489,12 @@ export function useFreePharma() {
                 args: [_jobId, _salary, _startDate, _endDate, _location],
             });
             const { hash } = await writeContract(request);
-            throwNotif("info", "Job updated !");
+            throwNotif("info", "Mission modifiée avec succès !");
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
-
-    // ::::::::::: Contract Events :::::::::::
-
-    /*
-    function setUpListeners() {
-        // event VoterRegistered
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "ValueStored",
-            },
-            (log) => {
-                fetchStoredValues();
-            }
-        );
-    }
-    */
 
     // ::::::::::: Data Fetching :::::::::::
 
@@ -560,7 +539,7 @@ export function useFreePharma() {
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
-    }, [isConnected, address, chain?.id, userProfile]);
+    }, [isConnected, address, chain?.id]);
 
     // ::::::::::: Returned data :::::::::::
     return {

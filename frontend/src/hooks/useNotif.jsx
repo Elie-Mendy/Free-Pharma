@@ -13,7 +13,7 @@ export const useNotif = () => {
                     title: "Confirmation:",
                     description: message,
                     status: "success",
-                    duration: 9000,
+                    duration: 2000,
                     position: "top",
                     isClosable: true,
                 });
@@ -24,7 +24,7 @@ export const useNotif = () => {
                     title: "Erreur:",
                     description: message,
                     status: "error",
-                    duration: 9000,
+                    duration: 5000,
                     position: "top-right",
                     isClosable: true,
                 });

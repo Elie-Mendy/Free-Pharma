@@ -45,7 +45,12 @@ export function useTokenPHARM() {
             abi: contractABI,
             walletClient,
         });
+        loadPHARMdata();
+        setContract(tokenPHARM);
+        
+    };
 
+    const loadPHARMdata = async () => {
         // get stored value
         let PHARMsupply = await totalSupply();
         PHARMsupply = parseInt(PHARMsupply.toString()) / 10 ** 18;
@@ -80,7 +85,6 @@ export function useTokenPHARM() {
         setAllowanceForStackingManager(
             PHARMallowanceForStackingManager.toString()
         );
-        setContract(tokenPHARM);
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -152,6 +156,7 @@ export function useTokenPHARM() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Allowance increased !");
+            loadPHARMdata();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -173,6 +178,7 @@ export function useTokenPHARM() {
 
             const { hash } = await writeContract(request);
             throwNotif("info", "Allowance decreased !");
+            loadPHARMdata();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -189,94 +195,13 @@ export function useTokenPHARM() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Allowance decreased !");
+            loadPHARMdata();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
 
-    /*
-    const getStoredData = async () => {
-        try {
-            const data = await readContract({
-                address: contractAddress,
-                abi: contractABI,
-                functionName: "storedData",
-            });
-            return data;
-        } catch (err) {
-            throwNotif("error", err.message);
-        }
-    };
-    const setValue = async (_value) => {
-        if (!_value) return;
-        try {
-            const { request } = await prepareWriteContract({
-                address: contractAddress,
-                abi: contractABI,
-                functionName: "set",
-                args: [Number(_value)],
-            });
-            const { hash } = await writeContract(request);
-            throwNotif("info", "Value stored !");
-            return hash;
-        } catch (err) {
-            throwNotif("error", err.message);
-        }
-    };
-    */
-
-    // ::::::::::: Contract Events :::::::::::
-
-    /*
-    function setUpListeners() {
-        // event VoterRegistered
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "ValueStored",
-            },
-            (log) => {
-                fetchStoredValues();
-            }
-        );
-    }
-    */
-
-    // ::::::::::: Data Fetching :::::::::::
-
-    /*
-    const fetchStoredValues = async () => {
-        // get all logs
-        const ValueStoredLogs = await client.getLogs({
-            address: contractAddress,
-            event: parseAbiItem(
-                "event ValueStored(address author, uint value)"
-            ),
-            fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
-            toBlock: "latest", // default value, no need to specify
-        });
-        setValueStoredLogs(ValueStoredLogs);
-
-        // process data
-        const processedValueStored = await Promise.all(
-            ValueStoredLogs.map(async (log) => {
-                return { author: log.args.author, value: log.args.value };
-            })
-        );
-        setValueStoredData(
-            processedValueStored.map((storedValue) => ({
-                author: storedValue.author,
-                value: storedValue.value.toString(),
-            }))
-        );
-
-        // Set state hook
-        const value = await getStoredData();
-        setStoredValue(value.toString());
-    };
-    */
 
     useEffect(() => {
         if (!isConnected) return;
@@ -309,6 +234,7 @@ export function useTokenPHARM() {
         allowanceForStackingManager,
 
         // Functions
+        loadPHARMdata,
         approve,
         increaseAllowance,
         decreaseAllowance,

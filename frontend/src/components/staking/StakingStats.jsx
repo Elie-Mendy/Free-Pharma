@@ -14,6 +14,8 @@ import { ApprovalModal } from "./ApprovalModal";
 import { useContext } from "react";
 import { StakingManagerContext } from "@/providers/StakingManagerProvider";
 import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
+import { FaChartPie, FaChartBar } from "react-icons/fa";
+import { BiTransfer } from "react-icons/bi";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -64,28 +66,29 @@ export default function StakingStats() {
             >
                 <StatsCard
                     title={"Total stacké"}
-                    stat={`ETH: ${totalValueLocked}`}
-                    icon={<BsCoin size={"3em"} />}
-                />
-                <StatsCard
-                    title={"pourcentage participation"}
-                    stat={`ETH: ${percentageOfTotalStaked}`}
-                    icon={<BsCoin size={"3em"} />}
-                />
-                <StatsCard
-                    title={"montant stacké"}
-                    stat={`ETH: ${currentUserStakingInfos?.ETHStaked}`}
-                    icon={<BsCoin size={"3em"} />}
+                    stat={`PHARM: ${totalValueLocked}`}
+                    icon={<FaChartBar size={"3em"} />}
                 />
                 <StatsCard
                     title={"montant stacké"}
                     stat={`PHARM: ${currentUserStakingInfos?.PHARMStaked}`}
+                    icon={<BsCoin BsCoin size={"3em"} />}
+                />
+                <StatsCard
+                    title={"montant stacké"}
+                    stat={`ETH: ${currentUserStakingInfos?.ETHStaked}`}
                     icon={<FaEthereum size={"3em"} />}
                 />
                 <StatsCard
+                    title={"pourcentage participation"}
+                    stat={`${percentageOfTotalStaked} %`}
+                    icon={<FaChartPie size={"3em"} />}
+                />
+
+                <StatsCard
                     title={"transfert approuvé"}
                     stat={allowanceForStackingManager}
-                    icon={<BsCashCoin size={"3em"} />}
+                    icon={<BiTransfer size={"3em"} />}
                 />
                 <ApprovalModal />
             </SimpleGrid>

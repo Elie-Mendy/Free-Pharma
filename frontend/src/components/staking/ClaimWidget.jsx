@@ -17,8 +17,8 @@ function ClaimWidget() {
         bonusCoefficient,
         claimRewards,
         demoMode,
+        loadStakingManagerData,
     } = useContext(StakingManagerContext);
-    console.log("DemoMode", demoMode);
     return (
         <Stack
             bg={useColorModeValue("gray.50", "gray.700")}

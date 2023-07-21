@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNotif } from "@/hooks/useNotif";
 import { useWagmi } from "./useWagmi";
@@ -23,12 +23,14 @@ export function useStakingManager() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { throwNotif } = useNotif();
-    const { allowance } = useTokenPHARM();
+    const { allowance, loadPHARMdata } = useTokenPHARM();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
     const [demoMode, setDemoMode] = useState(false);
+    const [ethPrice, setEthPrice] = useState(0); // in USD
+    const [pharmPrice, setPharmPrice] = useState(0); // in USD
     const [totalValueLocked, setTotalValueLocked] = useState(0);
     const [percentageOfTotalStaked, setPercentageOfTotalStaked] = useState(0);
     const [bonusCoefficient, setBonusCoefficient] = useState(0);
@@ -49,17 +51,24 @@ export function useStakingManager() {
             walletClient,
         });
 
+        setContract(stakingManager);
+        loadStakingManagerData();
+    };
+
+    const loadStakingManagerData = async () => {
         // get stored value
-        // let globalStakingInfos = await stakingManager.getGlobalStakingInfos();
         let APR = await getAPR();
+        let ETHprice = await getETHprice();
+        let PHARMprice = await getPHARMprice();
         let currentUserInfo = await getUser(address);
         let totalValueLocked = await getTotalValueLocked();
         let percentageOfTotalStaked = await getPercentageOfTotalStaked(address);
         let bonusCoefficient = await getBonusCoefficient(address);
 
         // Set state hook
-        setContract(stakingManager);
         setDemoMode(await getDemoMode());
+        setEthPrice(convertInUSD(ETHprice));
+        setPharmPrice(convertInUSD(PHARMprice));
         setcurrentUserStakingInfos({
             PHARMStaked: convertInUSD(currentUserInfo.pharmAmountStaked),
             ETHStaked: convertInUSD(currentUserInfo.ethAmountStaked),
@@ -71,8 +80,7 @@ export function useStakingManager() {
             parseInt(APR.toString()) / 100 +
                 parseInt(bonusCoefficient.toString()) / 100
         );
-
-        console.log("demoMode", demoMode)
+        loadPHARMdata();
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -86,6 +94,7 @@ export function useStakingManager() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Demo mode switched !");
+            loadStakingManagerData();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -98,6 +107,32 @@ export function useStakingManager() {
                 address: contractAddress,
                 abi: contractABI,
                 functionName: "DemoMode",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getPHARMprice = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "PHARMprice",
+            });
+            return data;
+        } catch (err) {
+            throwNotif("error", err.message);
+        }
+    };
+
+    const getETHprice = async () => {
+        try {
+            const data = await readContract({
+                address: contractAddress,
+                abi: contractABI,
+                functionName: "ETHprice",
             });
             return data;
         } catch (err) {
@@ -187,6 +222,8 @@ export function useStakingManager() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "PHARM staked !");
+            loadStakingManagerData();
+            loadPHARMdata();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -388,7 +425,7 @@ export function useStakingManager() {
         const rewardsLogs = await client.getLogs({
             address: contractAddress,
             event: parseAbiItem(
-                "event ClaimRewards(address indexed userAddress, uint amount, uint timestamp)"
+                "event RewardsClaimed(address indexed userAddress, uint amount, uint timestamp)"
             ),
             fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
@@ -421,10 +458,85 @@ export function useStakingManager() {
             getSkakingETHDeposits();
             getSkakingETHWithdrawals();
             getSkakingRewards();
+            setUpListeners();
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
     }, [isConnected, address, chain?.id]);
+
+    const setUpListeners = useCallback(() => {
+        // event StakePHARM
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "StakePHARM",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+
+        // event UnstakePHARM
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "UnstakePHARM",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+
+        // event StakeETH
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "StakeETH",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+
+        // event StakeETH
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "StakeETH",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+
+        // event UnstakeETH
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "UnstakeETH",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+
+        // event RewardsClaimed
+        watchContractEvent(
+            {
+                address: contractAddress,
+                abi: contractABI,
+                eventName: "RewardsClaimed",
+            },
+            (log) => {
+                loadStakingManagerData();
+            }
+        );
+    }, []);
 
     // ::::::::::: HELPER :::::::::::
 
@@ -439,6 +551,8 @@ export function useStakingManager() {
 
         // State contract
         demoMode,
+        ethPrice,
+        pharmPrice,
         contract,
         currentUserStakingInfos,
         pharmDeposits,
@@ -451,6 +565,7 @@ export function useStakingManager() {
         bonusCoefficient,
 
         // Functions
+        loadStakingManagerData,
         stakePHARM,
         unstakePHARM,
         stakeETH,
