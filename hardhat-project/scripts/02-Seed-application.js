@@ -36,6 +36,7 @@ async function main() {
 
     // PHARM Minting
     console.log("PHARM Minting...");
+    await tokenPHARM.mint(employer1.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer2.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer3.address, ethers.utils.parseEther("1000000000"));
 
