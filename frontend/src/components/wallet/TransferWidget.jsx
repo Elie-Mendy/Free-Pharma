@@ -14,16 +14,9 @@ function TransferWidget() {
             <Stack spacing={4}>
                 <Heading
                     color={useColorModeValue("gray.800", "white")}
-                    fontSize={{ base: "2xl", sm: "3xl"}}
+                    fontSize={{ base: "2xl", sm: "3xl" }}
                 >
-                    Envoyer des{" "}
-                    <Text
-                        as={"span"}
-                        bgGradient="linear(to-r, red.400,pink.400)"
-                        bgClip="text"
-                    >
-                        PHARM{" "}
-                    </Text>
+                    Envoyer des tokens
                 </Heading>
                 <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

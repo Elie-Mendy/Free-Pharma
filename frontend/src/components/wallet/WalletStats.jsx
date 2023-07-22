@@ -1,6 +1,5 @@
 import {
     Box,
-    chakra,
     Flex,
     SimpleGrid,
     Stat,
@@ -11,8 +10,9 @@ import {
 import { AiOutlineBarChart } from "react-icons/ai";
 import { FaWallet } from "react-icons/fa";
 import { BsCashCoin } from "react-icons/bs";
-import { ProfileModal } from "../profile/ProfileModal";
 import { ApprovalModal } from "./ApprovalModal";
+import { useContext } from "react";
+import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -48,31 +48,31 @@ function StatsCard(props) {
 }
 
 export default function WalletStats() {
+    const {
+        totalSupplyInfo,
+        balanceOfUser,
+        allowanceForFreePharma,
+        allowanceForStackingManager,
+    } = useContext(TokenPHARMContext);
     return (
-        <Box
-            
-            mx={"auto"}
-            mt={10}
-            pt={5}
-            w={"100%"}
-        >
+        <Box mx={"auto"} mt={10} pt={5} w={"100%"}>
             <SimpleGrid
                 columns={{ base: 1, md: 2, lg: 4 }}
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
                     title={"Supply totale"}
-                    stat={"7"}
+                    stat={totalSupplyInfo}
                     icon={<AiOutlineBarChart size={"3em"} />}
                 />
                 <StatsCard
                     title={"balance"}
-                    stat={"1"}
+                    stat={balanceOfUser}
                     icon={<FaWallet size={"3em"} />}
                 />
                 <StatsCard
-                    title={"transfer approuvé"}
-                    stat={"€780"}
+                    title={"transfert approuvé"}
+                    stat={allowanceForFreePharma}
                     icon={<BsCashCoin size={"3em"} />}
                 />
                 <ApprovalModal />

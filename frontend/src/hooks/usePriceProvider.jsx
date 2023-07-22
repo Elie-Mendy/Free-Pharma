@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNotif } from "@/hooks/useNotif";
+import { useWagmi } from "./useWagmi";
 
 import {
     getWalletClient,
@@ -10,26 +11,26 @@ import {
     readContract,
     watchContractEvent,
 } from "@wagmi/core";
-import { useAccount, useNetwork } from "wagmi";
+
 import { parseAbiItem } from "viem";
 
 import { config, client } from "@/config";
-const contractAddress = config.contracts.simpleStorage.address;
-const contractABI = config.contracts.simpleStorage.abi;
 
-export function useSimpleStorage() {
-    const { isConnected, address } = useAccount();
-    const { chain } = useNetwork();
-    const { setInfo, setError } = useNotif();
+const contractAddress = config.contracts.PriceProvider.address;
+const contractABI = config.contracts.PriceProvider.abi;
+
+export function usePriceProvider() {
+    // ::::::::::: CONFIG :::::::::::
+    const { isConnected, address, chain } = useWagmi();
+    const { throwNotif } = useNotif();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
     const [contract, setContract] = useState({});
-    const [storedValue, setStoredValue] = useState("");
+    // const [storedValue, setStoredValue] = useState("");
 
     // ::::::::::: LOGS & DATA :::::::::::
-    const [valueStoredLogs, setValueStoredLogs] = useState([]);
-    const [valueStoredData, setValueStoredData] = useState([]);
+    // const [valueStoredLogs, setValueStoredLogs] = useState([]);
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
@@ -42,16 +43,15 @@ export function useSimpleStorage() {
         });
 
         // get stored value
-        const value = await getStoredData();
 
         // Set state hook
         setContract(simpleStorage);
-        setStoredValue(value.toString());
     };
 
     
     // ::::::::::: Contract Functions :::::::::::
 
+    /*
     const getStoredData = async () => {
         try {
             const data = await readContract({
@@ -61,7 +61,7 @@ export function useSimpleStorage() {
             });
             return data;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
     const setValue = async (_value) => {
@@ -74,15 +74,17 @@ export function useSimpleStorage() {
                 args: [Number(_value)],
             });
             const { hash } = await writeContract(request);
-            setInfo("Value stored !");
+            throwNotif("info", "Value stored !");
             return hash;
         } catch (err) {
-            setError(err.message);
+            throwNotif("error", err.message);
         }
     };
+    */
 
     // ::::::::::: Contract Events :::::::::::
 
+    /*
     function setUpListeners() {
         // event VoterRegistered
         watchContractEvent(
@@ -96,9 +98,11 @@ export function useSimpleStorage() {
             }
         );
     }
+    */
 
     // ::::::::::: Data Fetching :::::::::::
 
+    /*
     const fetchStoredValues = async () => {
         // get all logs
         const ValueStoredLogs = await client.getLogs({
@@ -128,18 +132,18 @@ export function useSimpleStorage() {
         const value = await getStoredData();
         setStoredValue(value.toString());
     };
-
+    */
 
     useEffect(() => {
         if (!isConnected) return;
         try {
             loadContract();
-            fetchStoredValues();
-            setUpListeners();
+            // fetchStoredValues();
+            // setUpListeners();
         } catch (error) {
             toast({
                 title: "Error Contract !",
-                description: "Impossible de trouver le contract.",
+                description: "Erreur lors du chargement du contrat.",
                 status: "error",
                 duration: 9000,
                 position: "top-right",
@@ -160,15 +164,11 @@ export function useSimpleStorage() {
 
         // State contract
         contract,
-        storedValue,
 
         // Functions
-        setValue,
 
         // Events
-        valueStoredLogs,
 
         // Data
-        valueStoredData,
     };
 }

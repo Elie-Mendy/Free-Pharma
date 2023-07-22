@@ -8,11 +8,14 @@ import {
     Avatar,
     AvatarGroup,
     useBreakpointValue,
-    Box,
+    HStack,
+    Hide,
+    Spacer,
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 import ConnexionForm from "./ConnexionForm";
 import RegistrationForm from "./RegistrationForm";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const avatars = [
     {
@@ -37,10 +40,21 @@ const avatars = [
     },
 ];
 
-export default function Connexion({isConnected, isRegistered}) {
-    
+export default function Connexion({ isConnected, isRegistered }) {
     return (
-        <Flex p={5} position={"relative"} h={"100%"} align={"center"}>
+        <Flex
+            p={5}
+            position={"relative"}
+            direction={{ base: "column" }}
+            h={{ sm: "100%" }}
+            align={"center"}
+            justify={"center"}
+        >
+            <HStack justifySelf={"flex-start"} alignSelf={"flex-end"}>
+                {isConnected && <ConnectButton />}
+                <ColorModeSwitcher />
+            </HStack>
+            <Spacer />
             <Container
                 as={SimpleGrid}
                 maxW={"7xl"}
@@ -48,9 +62,9 @@ export default function Connexion({isConnected, isRegistered}) {
                 spacing={{ base: 10, lg: 32 }}
                 py={{ base: 10, sm: 20, lg: 32 }}
             >
-                <Stack spacing={{ base: 10, md: 20 }}  justify={"center"}>
+                <Stack spacing={{ base: 10, md: 20 }} justify={"center"}>
                     <Heading
-                        zIndex={9999}
+                        zIndex={2}
                         lineHeight={1.1}
                         fontSize={{
                             base: "3xl",
@@ -146,11 +160,11 @@ export default function Connexion({isConnected, isRegistered}) {
                         </Flex>
                     </Stack>
                 </Stack>
-                { isConnected ?  <RegistrationForm /> : <ConnexionForm /> }
+                <HStack justifySelf={"flex-start"} justify={"center"}>
+                    {isConnected ? <RegistrationForm /> : <ConnexionForm />}
+                </HStack>
             </Container>
-            <Box alignSelf={"flex-start"}>
-                <ColorModeSwitcher />
-            </Box>
+            <Spacer />
         </Flex>
     );
 }

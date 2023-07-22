@@ -1,7 +1,13 @@
-import { Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
-import BuySellForm from "./BuySellForm";
-
-function BuySellWidget() {
+import {
+    HStack,
+    Heading,
+    Stack,
+    Text,
+    useColorModeValue,
+} from "@chakra-ui/react";
+import StakingForm from "./StakingForm";
+import { StakingInfoModal } from "./StakingInfoModal";
+function StakingWidget() {
     return (
         <Stack
             bg={useColorModeValue("gray.50", "gray.700")}
@@ -25,14 +31,21 @@ function BuySellWidget() {
                     </Text>
                     Retirer
                 </Heading>
-                <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe veritatis adipisci
-                </Text>
+                <HStack spacing={4}>
+                    <Text
+                        color={"gray.500"}
+                        fontSize={{ base: "sm", sm: "md" }}
+                    >
+                        Le rendement annualisé est de 5%. un bonus s&apos;applique en
+                        fonction du pourcentage de votre participation à la
+                        valeur totale stackée.
+                    </Text>
+                    <StakingInfoModal />
+                </HStack>
             </Stack>
-            <BuySellForm />
+            <StakingForm />
         </Stack>
     );
 }
 
-export default BuySellWidget;
+export default StakingWidget;

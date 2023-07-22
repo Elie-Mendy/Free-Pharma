@@ -16,7 +16,7 @@ export const HireModal = () => {
 
     return (
         <>  
-            <Button variant={"outline"} onClick={onOpen}>Embaucher</Button>
+            <Button variant={"outline"} onClick={onOpen}>Recruter</Button>
 
             <Modal size={"5xl"} onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay

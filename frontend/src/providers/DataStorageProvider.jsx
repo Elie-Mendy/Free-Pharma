@@ -1,26 +1,25 @@
 import { createContext, useMemo } from "react";
-import { useSimpleStorage } from "@/hooks/useSimpleStorage";
+import { useDataStorage } from "@/hooks/useDataStorage";
 
-export const SimpleStorageContext = createContext();
+export const DataStorageContext = createContext();
 
-export const SimpleStorageProvider = ({ children }) => {
+export const DataStorageProvider = ({ children }) => {
     const {
         // Static data
         contractAddress,
 
         // State contract
         contract,
-        storedValue,
+        currentUser,
+        userProfile,
+        setUserProfile,
 
         // Functions
-        setValue,
 
         // Events
-        valueStoredLogs,
 
         // Data
-        valueStoredData,
-    } = useSimpleStorage();
+    } = useDataStorage();
 
     const values = useMemo(
         () => ({
@@ -29,16 +28,15 @@ export const SimpleStorageProvider = ({ children }) => {
 
             // State contract
             contract,
-            storedValue,
+            currentUser,
+            userProfile,
+            setUserProfile,
 
             // Functions
-            setValue,
 
             // Events
-            valueStoredLogs,
 
             // Data
-            valueStoredData,
         }),
         [
             // Static data
@@ -46,23 +44,22 @@ export const SimpleStorageProvider = ({ children }) => {
 
             // State contract
             contract,
-            storedValue,
+            currentUser,
+            userProfile,
+            setUserProfile,
 
             // Functions
-            setValue,
 
             // Events
-            valueStoredLogs,
 
             // Data
-            valueStoredData,
         ]
     );
 
     // Contexts
     return (
-        <SimpleStorageContext.Provider value={values}>
+        <DataStorageContext.Provider value={values}>
             {children}
-        </SimpleStorageContext.Provider>
+        </DataStorageContext.Provider>
     );
 };

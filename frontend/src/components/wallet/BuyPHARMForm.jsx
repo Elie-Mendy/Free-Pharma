@@ -1,3 +1,6 @@
+import { useWagmi } from "@/hooks/useWagmi";
+import { config } from "@/config";
+
 import {
     Button,
     Flex,
@@ -6,12 +9,20 @@ import {
     Stack,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext, useState } from "react";
+import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
 
-export default function BuySellForm() {
+export default function BuyPHARMForm() {
+    const { address } = useWagmi();
+    const [amount, setAmount] = useState(0);
+    const { mint } = useContext(TokenPHARMContext);
+
     return (
         <Flex as={"form"} direction={"column"} align={"stretch"} gap={4}>
             <Stack spacing={4}>
                 <Input
+                    type={"number"}
+                    onChange={(e) => setAmount(e.target.value)}
                     placeholder="Montant"
                     bg={useColorModeValue("gray.100", "gray.600")}
                     border={0}
@@ -23,28 +34,17 @@ export default function BuySellForm() {
             </Stack>
             <HStack w={"full"} gap={4}>
                 <Button
+                    onClick={() => mint(address, amount * 10 ** 18)}
                     fontFamily={"heading"}
                     w={"full"}
-                    bgGradient="linear(to-r, green.300,green.500)"
+                    bgGradient="linear(to-r, red.300,pink.400)"
                     color={"white"}
                     _hover={{
-                        bgGradient: "linear(to-r, green.400,green.600)",
+                        bgGradient: "linear(to-r, red.400,pink.600)",
                         boxShadow: "xl",
                     }}
                 >
-                    Déposer
-                </Button>
-                <Button
-                    fontFamily={"heading"}
-                    w={"full"}
-                    bgGradient="linear(to-r, red.300,red.500)"
-                    color={"white"}
-                    _hover={{
-                        bgGradient: "linear(to-r, red.400,red.600)",
-                        boxShadow: "xl",
-                    }}
-                >
-                    Retirer
+                    Acheter
                 </Button>
             </HStack>
         </Flex>

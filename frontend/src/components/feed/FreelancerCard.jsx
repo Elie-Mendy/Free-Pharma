@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
+
 import {
     Badge,
     Box,
@@ -12,6 +15,8 @@ import { BsFillBriefcaseFill, BsCashCoin } from "react-icons/bs";
 import { HireModal } from "./HireModal";
 
 export const FreelancerCard = () => {
+    const { userProfile } = useContext(DataStorageContext);
+
     return (
         <Box
             bg="white"
@@ -27,7 +32,7 @@ export const FreelancerCard = () => {
                 h={56}
                 fit="cover"
                 objectPosition="center"
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+                src="https://blog.mieux-etre.fr/wp-content/uploads/2023/01/role_pharmacienne-1080x675.jpg"
                 alt="avatar"
             />
             <Flex
@@ -161,7 +166,7 @@ export const FreelancerCard = () => {
                         color: "gray.200",
                     }}
                 >
-                    <HireModal />
+                    {userProfile == "employer" && <HireModal />}
                 </Flex>
             </Box>
         </Box>

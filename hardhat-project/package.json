@@ -8,6 +8,8 @@
     "deploy:simplestorage": "npx hardhat run scripts/00-SimpleStorage-deploy.js --network localhost",
     "deploy:local": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network localhost",
     "deploy:sepolia": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network sepolia",
+    "seed:local": "npx hardhat run scripts/02-Seed-application.js --network localhost",
+    "seed:sepolia": "npx hardhat run scripts/02-Seed-application.js --network sepolia",
     "deploy:goerli": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network goerli",
     "clean": "npx hardhat clean"
   },
@@ -24,6 +26,7 @@
     "chai": "^4.3.7",
     "hardhat": "^2.16.1",
     "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-docgen": "^1.3.0",
     "hardhat-gas-reporter": "^1.0.9",
     "solidity-coverage": "^0.8.4",
     "ts-node": "^10.9.1",
@@ -31,6 +34,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
     "@openzeppelin/contracts": "^4.9.2",
     "dotenv": "^16.3.1"
   }

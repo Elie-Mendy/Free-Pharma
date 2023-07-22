@@ -1,11 +1,12 @@
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/header/Header";
-import { Box, Flex, Hide, useBreakpointValue } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, Flex, Hide, Spacer, Text, useBreakpointValue } from "@chakra-ui/react";
+import { useContext, useState } from "react";
 import { useWagmi } from "@/hooks/useWagmi";
 import Connexion from "@/components/connexion.jsx/Connexion";
 import Footer from "@/components/footer/Footer";
 import BlurBackground from "@/components/generic/BlurBackground";
+import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 const smVariant = { navigation: "drawer", navigationButton: true };
 const mdVariant = { navigation: "sidebar", navigationButton: false };
@@ -13,25 +14,30 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
-    const isFreelance = true;
-    const isEmployer = false;
-
+    const { userProfile } = useContext(DataStorageContext);
+    
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-
-    const isRegistered = isFreelance || isEmployer;
+    
+    const isRegistered = userProfile != "unknown" && userProfile != null;
     const showConnexion = !isConnected || !isRegistered;
     // if not connected, display the connexion page
-
     return (
         <Flex direction={"column"} h={"100vh"}>
             {showConnexion ? (
-                <Connexion
-                    isConnected={isConnected}
-                    isRegistered={isRegistered}
-                />
+                <>
+                    <Hide below="lg">
+                        <Box>
+                            <BlurBackground />
+                        </Box>
+                    </Hide>
+                    <Connexion
+                        isConnected={isConnected}
+                        isRegistered={isRegistered}
+                    />
+                </>
             ) : (
                 <>
                     <Sidebar
@@ -70,7 +76,8 @@ export default function MainLayout({ children }) {
                                 </Flex>
                             </Flex>
                         </Box>
-                        <Box w={"full"}>
+                        <Spacer />
+                        <Box mt={10} w={"full"} justifySelf={"flex-end"} >
                             <Footer />
                         </Box>
                     </Flex>

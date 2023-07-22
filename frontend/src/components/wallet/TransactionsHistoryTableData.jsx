@@ -27,43 +27,52 @@ const TableData = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                <Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
-                    </Tr><Tr>
+                    </Tr>
+                    <Tr>
                         <Td>0x0a9ae5B1207F91b0b5EE53ae947427E1AfaAEAD9</Td>
                         <Td>15/07/2022</Td>
                         <Td>50</Td>
@@ -79,16 +88,13 @@ export const TransactionsHistoryTableData = () => {
         <Tabs isFitted colorScheme="twitter">
             <TabList>
                 <Tab fontSize={"xl"} fontWeight={"bold"}>
-                    Dépots
+                    Entrées
                 </Tab>
                 <Tab fontSize={"xl"} fontWeight={"bold"}>
-                    Retraits
+                    Sorties
                 </Tab>
             </TabList>
             <TabPanels>
-                <TabPanel px={0}>
-                    <TableData />
-                </TabPanel>
                 <TabPanel px={0}>
                     <TableData />
                 </TabPanel>

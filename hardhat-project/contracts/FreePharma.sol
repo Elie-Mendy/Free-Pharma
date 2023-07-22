@@ -5,12 +5,14 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "./IDataStorage.sol";
+import "../interfaces/IDataStorage.sol";
 
 /**
  * @title FreePharma
  * @author Elie MENDY
  * @notice You can use this contract for only the most educational purpose
+ * @notice This contract is a POC of a freelancing platform
+ * @notice This contract is the business logic of the platform
  */
 contract FreePharma is AccessControl {
     /* ::::::::::::::: ROLES :::::::::::::::::: */
@@ -116,6 +118,18 @@ contract FreePharma is AccessControl {
         uint timestamp
     );
 
+    /// @notice Event triggered when an employer hire a freelancer.
+    /// @param employerAddress the employer's address.
+    /// @param freelancerAddress the freelancer's address.
+    /// @param jobId the job's id.
+    /// @param timestamp the event datetime.
+    event EmployerHiredFreelancer(
+        address employerAddress,
+        address freelancerAddress,
+        uint jobId,
+        uint timestamp
+    );
+
     /// @notice Event triggered when an employer indicate a job as completed.
     /// @param employerAddress the employer's address.
     /// @param timestamp the event datetime.
@@ -162,15 +176,23 @@ contract FreePharma is AccessControl {
     error FreelancerNotExists();
     error EmployerNotExists();
     error JobNotExists();
+    error EmployerHasNotEnoughFunds();
 
     /* ::::::::::::::: MODIFIERS :::::::::::::::::: */
 
     modifier jobChecked(uint jobId, IDataStorage.JobStatus status) {
-        if (jobId >  dataStorage.getJobCount()) {
+        if (jobId >=  dataStorage.getJobCount()) {
             revert JobNotExists();
         }
         
         if (dataStorage.getJobStatus(jobId) != status) {
+            revert NotAuthorized("Job status forbid this action");
+        }
+        _;
+    }
+
+    modifier jobOpen(uint jobId) {
+        if (dataStorage.getJobStatus(jobId) > IDataStorage.JobStatus.CONFIRMATION_PENDING) {
             revert NotAuthorized("Job status forbid this action");
         }
         _;
@@ -197,14 +219,35 @@ contract FreePharma is AccessControl {
     /// Freelancers
 
     /// @notice create a new freelancer.
+    /// @param _name the freelancer's name.
+    /// @param _email the freelancer's email.
+    /// @param _location the freelancer's location.
+    /// @param _averageDailyRate the freelancer's average daily rate.
+    /// @param _available the freelancer's availability.
+    /// @param _visible the freelancer's visiblility.
     /// @dev function called at the first registration of the voter.
     /// @dev emit a FreelancerCreated event.
-    function createFreelancer() public {
+    function createFreelancer(
+        string calldata _name, 
+        string calldata _email,
+        string calldata _location,
+        uint _averageDailyRate,
+        bool _available,
+        bool _visible
+    ) public {
         if (hasRole(FREELANCER_ROLE, msg.sender)) {
             revert AlreadyRegistered();
         }
         _setupRole(FREELANCER_ROLE, msg.sender);
-        dataStorage.createFreelancer(msg.sender);
+        dataStorage.createFreelancer(
+            msg.sender, 
+            _name, 
+            _email,
+            _location,
+            _averageDailyRate,
+            _available,
+            _visible
+    );
         emit FreelancerCreated(msg.sender, block.timestamp);
     }
 
@@ -212,6 +255,9 @@ contract FreePharma is AccessControl {
     /// @param _freelancerAddresses, the id of the freelancer.
     /// @return Freelancer, a representation of the selected frelancer.
     function getOneFreelancer(address _freelancerAddresses) public view returns(IDataStorage.Freelancer memory) {
+        if(!hasRole(FREELANCER_ROLE, _freelancerAddresses)) {
+            revert FreelancerNotExists();
+        }
         return dataStorage.getFreelancer(_freelancerAddresses);
     }
 
@@ -223,6 +269,7 @@ contract FreePharma is AccessControl {
 
     /// @notice allow a freelancer to modify his attributes.
     /// @param _name the freelancer's name.
+    /// @param _email the freelancer's email.
     /// @param _location the freelancer's location.
     /// @param _averageDailyRate the freelancer's average daily rate.
     /// @param _available the freelancer's availablility.
@@ -231,17 +278,19 @@ contract FreePharma is AccessControl {
     /// @dev emit a FreelancerUpdated event.
     function setFreelancer(
         string calldata _name,
+        string calldata _email,
         string calldata _location,
         uint _averageDailyRate,
         bool _available,
         bool _visible
     ) public onlyRole(FREELANCER_ROLE)  {
-        if (dataStorage.getFreelancer(msg.sender).created_at != 0) {
+        if (dataStorage.getFreelancer(msg.sender).created_at == 0) {
             revert FreelancerNotExists();
         }
         dataStorage.setFreelancer(
             msg.sender,
             _name,
+            _email,
             _location,
             _averageDailyRate,
             _available,
@@ -297,13 +346,15 @@ contract FreePharma is AccessControl {
         onlyRole(FREELANCER_ROLE) 
         jobChecked(_jobId, IDataStorage.JobStatus.CONFIRMATION_PENDING) 
     {
+        if (dataStorage.freelancerAppliedToJob(msg.sender,_jobId) ) {
+            revert NotAuthorized("You was not hired for that job");
+        }
         if (dataStorage.getJobFreelancerAddress(_jobId) != address(0)) {
             revert NotAuthorized("Another freelancer already confirmed for this job");
         }
-
         address employerAddress = dataStorage.getJobEmployerAddress(_jobId);
         if (tokenPHARM.balanceOf(employerAddress) < dataStorage.getJobSalary(_jobId)) {
-            revert NotAuthorized("Employer doesn't have enough PHARM tokens");
+            revert EmployerHasNotEnoughFunds();
         }
 
         dataStorage.confirmCandidature(_jobId, msg.sender);
@@ -340,9 +391,10 @@ contract FreePharma is AccessControl {
     {   
         // check the end date + 2 days (for this sample project we use minutes)
         if (dataStorage.getJobEndDate(_jobId) + 2 minutes > block.timestamp) {
-            revert NotAuthorized("You can't claim your salary yet");
+            revert NotAuthorized("you can't claim your salary yet");
         }
         dataStorage.payFreelancer(_jobId);
+        dataStorage.processClaim(_jobId);
         emit FreelancerClaimedSalary(msg.sender, _jobId, block.timestamp);
     }
 
@@ -350,14 +402,17 @@ contract FreePharma is AccessControl {
     /// Employers
 
     /// @notice create a new employer.
+    /// @param _name the name of the employer.
+    /// @param _email the email of the employer.
+    /// @param _visible the visibility of the employer.
     /// @dev function called at the first registration of the employer.
     /// @dev emit a EmployerCreated event.
-    function createEmployer() public {
+    function createEmployer(string calldata _name, string calldata _email, bool _visible) public {
         if (hasRole(EMPLOYER_ROLE, msg.sender)) {
             revert AlreadyRegistered();
         }
         _setupRole(EMPLOYER_ROLE, msg.sender);
-        dataStorage.createEmployer(msg.sender);
+        dataStorage.createEmployer(msg.sender, _name, _email, _visible);
         emit EmployerCreated(msg.sender, block.timestamp);
     }
 
@@ -365,6 +420,9 @@ contract FreePharma is AccessControl {
     /// @param _employerAddresses, the id of the employer.
     /// @return Employer, a representation of the selected frelancer.
     function getOneEmployer(address _employerAddresses) public view returns(IDataStorage.Employer memory) {
+        if(!hasRole(EMPLOYER_ROLE, _employerAddresses)) {
+            revert EmployerNotExists();
+        }
         return dataStorage.getEmployer(_employerAddresses);
     }
 
@@ -375,21 +433,21 @@ contract FreePharma is AccessControl {
     }
 
     /// @notice allow an employer to modify his attributes.
-    /// @param _employerAddress the employer's address.
     /// @param _name the employer's name.
+    /// @param _email the employer's email.
     /// @param _visible the employer's visibility.
     /// @dev can only be called by an employer.
     /// @dev emit a EmployerUpdated event.
     function setEmployer(
-        address _employerAddress,
         string calldata _name,
+        string calldata _email,
         bool _visible
     ) public onlyRole(EMPLOYER_ROLE) {
-        if(dataStorage.getEmployer(_employerAddress).created_at == 0) {
+        if(dataStorage.getEmployer(msg.sender).created_at == 0) {
             revert EmployerNotExists();
         }
-        dataStorage.setEmployer(_employerAddress, _name, _visible);
-        emit EmployerUpdated(_employerAddress,_name, _visible, block.timestamp);
+        dataStorage.setEmployer(msg.sender, _name, _email, _visible);
+        emit EmployerUpdated(msg.sender,_name, _visible, block.timestamp);
     }
 
     /// @notice allow an employer to create a new job.
@@ -408,7 +466,7 @@ contract FreePharma is AccessControl {
     ) public onlyRole(EMPLOYER_ROLE) {
         
         if (tokenPHARM.balanceOf(msg.sender) < _salary) {
-            revert NotAuthorized("Employer doesn't have enough PHARM tokens");
+            revert EmployerHasNotEnoughFunds();
         }
         uint jobId =  dataStorage.getJobCount();
         dataStorage.createJob(
@@ -434,7 +492,16 @@ contract FreePharma is AccessControl {
     /// @param _jobId the job's id.
     /// @return Job, a representation of the selected job.
     function getOneJob(uint _jobId) public view returns(IDataStorage.Job memory) {
+        if(_jobId > dataStorage.getJobCount()) {
+            revert JobNotExists();
+        }
         return dataStorage.getJob(_jobId);
+    }
+
+    /// @notice fetch all jobs.
+    /// @return Job[], an array of jobs.
+    function getJobs() public view returns(IDataStorage.Job[] memory) {
+        return dataStorage.getJobs();
     }
 
     /// @notice allow an employer to modify the attributes of a given job.
@@ -483,13 +550,14 @@ contract FreePharma is AccessControl {
     /// @dev can only be called by an employer.
     /// @dev can't be called once the job has started.
     /// @dev define the job's freelancerAddress
-    function hireFreelancer(address freelancerAddress, uint _jobId) 
+    function hireFreelancer( uint _jobId,address freelancerAddress) 
         public 
         onlyRole(EMPLOYER_ROLE) 
-        employerChecked(_jobId) 
-        jobChecked(_jobId, IDataStorage.JobStatus.OPEN) 
+        employerChecked(_jobId)
+        jobOpen(_jobId) 
     {
-        dataStorage.hireFreelancer(freelancerAddress, _jobId);
+        dataStorage.hireFreelancer(_jobId, freelancerAddress);
+        emit EmployerHiredFreelancer(msg.sender, freelancerAddress, _jobId, block.timestamp);
     }
 
     /// @notice allow an employer to indicate a job as completed.

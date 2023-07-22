@@ -6,14 +6,14 @@ import { FreelancerCard } from "@/components/feed/FreelancerCard";
 import SearchBar from "@/components/generic/Searchbar";
 import BlurBackground from "@/components/generic/BlurBackground";
 import { OfferCard } from "@/components/feed/OfferCard";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
-
-const freelancers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const offers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Index = () => {
     const [searchMode, setSearchMode] = useState("");
 
+    const { freelancers } = useContext(FreePharmaContext);
+    const { jobs } = useContext(FreePharmaContext);
     return (
         <MainLayout>
             <Flex
@@ -37,8 +37,8 @@ const Index = () => {
 
                     <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} gap={10}>
                         {searchMode === "offers"
-                            ? freelancers.map((key) => <OfferCard key={key}/>)
-                            : offers.map((key) => <FreelancerCard key={key}/>)}
+                            ? jobs.map((job, index) => <OfferCard job={job} jobId={index} key={index}/>)
+                            : freelancers.map((freelancer, index) => <FreelancerCard freelancer={freelancer} jobId={index} key={index}/>)}
                     </SimpleGrid>
                     
                 </Flex>

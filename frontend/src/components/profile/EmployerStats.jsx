@@ -11,7 +11,10 @@ import {
 import { CgFileDocument } from "react-icons/cg";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { BsCashCoin } from "react-icons/bs";
-import { ProfileModal } from "./ProfileModal";
+import { EmployerProfileModal } from "./EmployerProfileModal";
+import { MissionModal } from "./MissionModal";
+import { useContext } from "react";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
 function StatsCard(props) {
     const { title, stat, icon } = props;
@@ -47,6 +50,9 @@ function StatsCard(props) {
 }
 
 export default function EmployerStats() {
+    const { totalFreelancerEarn, currentJobOffers, completedJobOffers } =
+        useContext(FreePharmaContext);
+
     return (
         <Box
             maxW="7xl"
@@ -64,25 +70,26 @@ export default function EmployerStats() {
                 Récapitulatif des missions
             </chakra.h1>
             <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 4 }}
+                columns={{ base: 1, md: 2, xl: 5 }}
                 spacing={{ base: 5, lg: 8 }}
             >
                 <StatsCard
                     title={"Offres postées"}
-                    stat={"7"}
+                    stat={currentJobOffers?.length}
                     icon={<CgFileDocument size={"3em"} />}
                 />
                 <StatsCard
                     title={"Freelancers engagés"}
-                    stat={"1"}
+                    stat={completedJobOffers?.length}
                     icon={<AiOutlineFileDone size={"3em"} />}
                 />
                 <StatsCard
-                    title={"Budjet total"}
-                    stat={"€780"}
+                    title={"Budget total"}
+                    stat={`€${totalFreelancerEarn}`}
                     icon={<BsCashCoin size={"3em"} />}
                 />
-                <ProfileModal />
+                <EmployerProfileModal />
+                <MissionModal />
             </SimpleGrid>
         </Box>
     );
