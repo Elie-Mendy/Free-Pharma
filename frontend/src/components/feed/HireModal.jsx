@@ -11,12 +11,12 @@ import {
 } from "@chakra-ui/react";
 import { MissionsTableData } from "./MissionsTableData";
 
-export const HireModal = () => {
+export const HireModal = ({available}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <>  
-            <Button variant={"outline"} onClick={onOpen}>Recruter</Button>
+            <Button disabled={!available} variant={"outline"} onClick={onOpen}>Recruter</Button>
 
             <Modal size={"5xl"} onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay

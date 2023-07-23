@@ -70,17 +70,17 @@ export default function StakingStats() {
                     icon={<FaChartBar size={"3em"} />}
                 />
                 <StatsCard
-                    title={"montant stacké"}
+                    title={"vos PHARM stackés"}
                     stat={`PHARM: ${currentUserStakingInfos?.PHARMStaked}`}
                     icon={<BsCoin size={"3em"} />}
                 />
                 <StatsCard
-                    title={"montant stacké"}
+                    title={"vos ETH stackés"}
                     stat={`ETH: ${currentUserStakingInfos?.ETHStaked}`}
                     icon={<FaEthereum size={"3em"} />}
                 />
                 <StatsCard
-                    title={"pourcentage participation"}
+                    title={"pourcentage participation TVL"}
                     stat={`${percentageOfTotalStaked} %`}
                     icon={<FaChartPie size={"3em"} />}
                 />

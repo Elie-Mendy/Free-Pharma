@@ -12,9 +12,10 @@ import {
     watchContractEvent,
 } from "@wagmi/core";
 
-import { parseAbiItem } from "viem";
+import { getAddress, parseAbiItem } from "viem";
 
 import { config, client } from "@/config";
+import { useContractEvent } from "wagmi";
 
 const contractAddress = config.contracts.TokenPHARM.address;
 const contractABI = config.contracts.TokenPHARM.abi;
@@ -26,6 +27,7 @@ export function useTokenPHARM() {
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
+    const [isContractLoading, setIsContractLoading] = useState(false);
     const [contract, setContract] = useState({});
     const [totalSupplyInfo, setTotalSupplyInfo] = useState(0);
     const [balanceOfUser, setBalanceOfUser] = useState(0);
@@ -47,7 +49,7 @@ export function useTokenPHARM() {
         });
         loadPHARMdata();
         setContract(tokenPHARM);
-        
+        setIsContractLoading(false);
     };
 
     const loadPHARMdata = async () => {
@@ -202,9 +204,10 @@ export function useTokenPHARM() {
         }
     };
 
+    
 
     useEffect(() => {
-        if (!isConnected) return;
+        if (!isConnected || isContractLoading) return;
         try {
             loadContract();
             // fetchStoredValues();
@@ -220,6 +223,62 @@ export function useTokenPHARM() {
             });
         }
     }, [isConnected, address, chain?.id]);
+
+
+
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "StakePHARM",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
+                loadPHARMdata();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "StakeETH",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
+                loadPHARMdata();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "UnstakePHARM",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
+                loadPHARMdata();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "UnstakeETH",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
+                loadPHARMdata();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "RewardsUpdated",
+        listener(log) {
+            loadPHARMdata();
+        },
+    });
+
 
     // ::::::::::: Returned data :::::::::::
     return {

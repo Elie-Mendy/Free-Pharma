@@ -24,6 +24,7 @@ export function useFreePharma() {
     const { userProfile, setUserProfile } = useContext(DataStorageContext);
 
     // ::::::::::: STATE :::::::::::
+    const [isContractLoading, setIsContractLoading] = useState(false);
     const [contract, setContract] = useState({});
     const [jobs, setJobs] = useState([]);
     const [freelancers, setFreelancers] = useState([]);
@@ -55,27 +56,18 @@ export function useFreePharma() {
         } else if (userProfile == "employer") {
             loadEmployerData();
         }
+        setIsContractLoading(false);
     };
 
     const loadFreelancerData = async () => {
         let freelancer = await getOneFreelancer(address);
-        console.log(freelancer);
         setCurrentUser(freelancer);
         if (!freelancer) return;
         // fetch current job applied
         let currentJobs = await Promise.all(
             freelancer.appliedJobIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    id: jobId,
-                    employerAddress:
-                        job.employerAddress.substring(0, 15) + "...",
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    candidates: job.candidates,
-                    location: job.location,
-                };
+                let job = await getOneJob(jobId);
+                return { id: Number(jobId), ...job };
             })
         );
         setCurrentJobOffers(currentJobs);
@@ -83,14 +75,8 @@ export function useFreePharma() {
         // fetch started job offers
         let startedJobs = await Promise.all(
             freelancer.hiredJobIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    employerAddress: job.employerAddress,
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    location: job.location,
-                };
+                let job = await getOneJob(jobId);
+                return { id: Number(jobId), ...job };
             })
         );
         setStartedJobOffers(startedJobs);
@@ -98,26 +84,17 @@ export function useFreePharma() {
         // fetch completed job offers
         let completedJobs = await Promise.all(
             freelancer.completedJobIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    employerAddress: job.employerAddress,
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    location: job.location,
-                };
+                let job = await getOneJob(jobId);
+                return { id: Number(jobId), ...job };
             })
         );
         setCompletedJobOffers(completedJobs);
 
         // fetch total earn
-        if (freelancer.completedJobIds.length == 0) return;
-        let totalEarn = await Promise.all(
-            freelancer.completedJobIds.reduce(async (acc, jobId) => {
-                const job = await getOneJob(jobId);
-                return acc + parseInt(job.salary.toString());
-            }, 0)
-        );
+        if (freelancer.completedJobIds.length === 0) return;
+        let totalEarn = completedJobs.reduce((acc, job) => {
+            return acc + Number(job.salary);
+        }, 0);
         setTotalFreelancerEarn(totalEarn);
     };
 
@@ -130,58 +107,34 @@ export function useFreePharma() {
 
         // fetch current job offers
         let currentJobs = await Promise.all(
-            employer.currentJobOffersIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    id: jobId,
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    candidates: job.candidates,
-                    location: job.location,
-                };
-            })
+            employer.currentJobOffersIds.map(
+                async (jobId) => await getOneJob(jobId)
+            )
         );
         setCurrentJobOffers(currentJobs);
 
         // fetch started job offers
         let startedJobs = await Promise.all(
-            employer.startedJobOffersIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    freelancerAddress: job.freelancerAddress,
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    location: job.location,
-                };
-            })
+            employer.startedJobOffersIds.map(
+                async (jobId) => await getOneJob(jobId)
+            )
         );
         setStartedJobOffers(startedJobs);
 
         // fetch completed job offers
         let completedJobs = await Promise.all(
-            employer.completedJobOffersIds.map(async (jobId) => {
-                const job = await getOneJob(jobId);
-                return {
-                    freelancerAddress: job.freelancerAddress,
-                    startDate: job.startDate,
-                    endDate: job.endDate,
-                    salary: job.salary,
-                    location: job.location,
-                };
-            })
+            employer.completedJobOffersIds.map(
+                async (jobId) => await getOneJob(jobId)
+            )
         );
         setCompletedJobOffers(completedJobs);
 
         // fetch total paid
         if (employer.completedJobOffersIds.length == 0) return;
-        let totalPaid = await Promise.all(
-            employer.completedJobOffersIds.reduce(async (acc, jobId) => {
-                const job = await getOneJob(jobId);
-                return acc + parseInt(job.salary.toString());
-            }, 0)
-        );
+        let totalPaid = completedJobs.reduce((acc, job) => {
+            return acc + Number(job.salary);
+        }, 0);
+
         setTotalFreelancerEarn(totalPaid);
     };
 
@@ -296,7 +249,6 @@ export function useFreePharma() {
     };
 
     const confirmCandidature = async (_jobId) => {
-        if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -314,7 +266,6 @@ export function useFreePharma() {
     };
 
     const completeFreelancerJob = async (_jobId) => {
-        if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -333,7 +284,6 @@ export function useFreePharma() {
     };
 
     const claimSalary = async (_jobId) => {
-        if (!_value) return;
         try {
             const { request } = await prepareWriteContract({
                 address: contractAddress,
@@ -614,7 +564,7 @@ export function useFreePharma() {
     }, []);
 
     useEffect(() => {
-        if (!isConnected) return;
+        if (!isConnected || isContractLoading) return;
         try {
             loadContract();
             setUpListeners();

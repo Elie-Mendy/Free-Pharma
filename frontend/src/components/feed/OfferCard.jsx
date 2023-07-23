@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { DataStorageContext } from "@/providers/DataStorageProvider";
 import { FreePharmaContext } from "@/providers/FreePharmaProvider";
-
+import moment from "moment";
 import {
     Badge,
     Box,
@@ -16,9 +16,20 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin, BsCalendar3 } from "react-icons/bs";
 
-export const OfferCard = ({jobId}) => {
+export const OfferCard = ({job}) => {
     const { userProfile } = useContext(DataStorageContext);
     const { applyForJob } = useContext(FreePharmaContext);
+    let startDate = moment(
+        new Date(
+            parseInt(job.startDate.toString()) *
+                1000
+        )
+    ).format("YYYY-MM-DD");
+    let endDate = moment(
+        new Date(
+            parseInt(job.endDate.toString()) * 1000
+        )
+    ).format("YYYY-MM-DD");
     return (
         <Box
             mt="auto"
@@ -60,7 +71,7 @@ export const OfferCard = ({jobId}) => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 1
+                        PHARMA
                     </Badge>
                     <Badge
                         px={2}
@@ -69,7 +80,7 @@ export const OfferCard = ({jobId}) => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 2
+                        VENTE
                     </Badge>
                     <Badge
                         px={2}
@@ -78,7 +89,7 @@ export const OfferCard = ({jobId}) => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 3
+                        ANIMATION
                     </Badge>
                 </Flex>
             </Flex>
@@ -92,7 +103,7 @@ export const OfferCard = ({jobId}) => {
                         color: "white",
                     }}
                 >
-                    Titre du poste
+                    Animateur commerciale
                 </Text>
 
                 <Text
@@ -102,7 +113,7 @@ export const OfferCard = ({jobId}) => {
                         color: "gray.400",
                     }}
                 >
-                    Description du poste...
+                    Assurer la promotion de deux gammes de produits...
                 </Text>
 
                 <Flex
@@ -116,7 +127,7 @@ export const OfferCard = ({jobId}) => {
                     <Icon as={BsFillBriefcaseFill} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        Préparateur en pharlacie
+                        2 ans d'expérience
                     </Text>
                 </Flex>
 
@@ -131,7 +142,7 @@ export const OfferCard = ({jobId}) => {
                     <Icon as={MdLocationOn} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        Toulouse
+                        {job.location}
                     </Text>
                 </Flex>
 
@@ -146,7 +157,7 @@ export const OfferCard = ({jobId}) => {
                     <Icon as={BsCalendar3} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        01/01/2021 - 05/02/2021
+                        {startDate} - {endDate}
                     </Text>
                 </Flex>
 
@@ -161,7 +172,7 @@ export const OfferCard = ({jobId}) => {
                     <Icon as={BsCashCoin} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="md" fontWeight={"bold"}>
-                        540€
+                        {job.salary.toString()}€
                     </Text>
                 </Flex>
                 <Flex

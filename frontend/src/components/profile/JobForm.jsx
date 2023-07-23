@@ -57,7 +57,7 @@ export default function JobForm({ jobOffer }) {
                 setJob(
                     jobOffer.id,
                     salary,
-
+                    startTimestamp, endTimestamp,
                     location
                 );
             } else {

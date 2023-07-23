@@ -14,11 +14,13 @@ import {
     TabPanel,
     TabPanels,
     Tabs,
+    Icon,
 } from "@chakra-ui/react";
 import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 import { EditMissionModal } from "./EditMissionModal";
+import { PiMagnifyingGlassLight } from "react-icons/pi";
 
-const TableData = ({ data }) => {
+const TableData = ({ data, tab }) => {
     const bg = useColorModeValue("white", "gray.700");
     return (
         <TableContainer rounded={"xl"} shadow={"xl"} w={"100%"} bg={bg}>
@@ -28,7 +30,7 @@ const TableData = ({ data }) => {
                         <Th>Début</Th>
                         <Th>Fin</Th>
                         <Th>Rémunération</Th>
-                        <Th>Candidats</Th>
+                        <Th>{tab === 1 ? "Candidats" : "Freelance"}</Th>
                         <Th>Détails</Th>
                     </Tr>
                 </Thead>
@@ -48,16 +50,28 @@ const TableData = ({ data }) => {
                                 parseInt(jobOffer.endDate.toString()) * 1000
                             )
                         ).format("YYYY-MM-DD");
-                        
-                        
+
                         return (
                             <Tr key={idx}>
                                 <Td>{startDate}</Td>
                                 <Td>{endDate}</Td>
                                 <Td>{jobOffer.salary.toString()}</Td>
-                                <Td>{jobOffer?.candidates?.length}</Td>
                                 <Td>
-                                    <EditMissionModal jobOffer={jobOffer} />
+                                    {jobOffer?.status === 0
+                                        ? jobOffer?.candidates?.length
+                                        : jobOffer.freelancerAddress}
+                                </Td>
+                                <Td>
+                                    {jobOffer?.status === 0 && (
+                                        <EditMissionModal jobOffer={jobOffer} />
+                                    )}
+                                    {jobOffer?.status > 0 && (
+                                        <Icon
+                                            as={PiMagnifyingGlassLight}
+                                            h={"1.2rem"}
+                                            w={"1.2rem"}
+                                        />
+                                    )}
                                 </Td>
                             </Tr>
                         );
@@ -87,13 +101,13 @@ export const EmployerTableData = () => {
             </TabList>
             <TabPanels>
                 <TabPanel>
-                    <TableData data={currentJobOffers} tab={1}/>
+                    <TableData data={currentJobOffers} tab={1} />
                 </TabPanel>
                 <TabPanel>
-                    <TableData data={startedJobOffers} tab={2}/>
+                    <TableData data={startedJobOffers} tab={2} />
                 </TabPanel>
                 <TabPanel>
-                    <TableData data={completedJobOffers} tab={3}/>
+                    <TableData data={completedJobOffers} tab={3} />
                 </TabPanel>
             </TabPanels>
         </Tabs>
