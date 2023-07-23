@@ -23,7 +23,7 @@ Ce projet s'éforce également de remplir les deux suivants :
 
 ## Video Présentation
 
-[Lien vers la vidéo (In progress)](http://oopsy.com)
+[Lien vers la vidéo](https://www.loom.com/share/14d65c3a354f40b386325679b59a8bd1)
 
 ## Website Demo (Vercel)
 
