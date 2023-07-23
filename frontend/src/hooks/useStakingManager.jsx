@@ -27,6 +27,7 @@ export function useStakingManager() {
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
+    const [isContractLoading, setIsContractLoading] = useState(false);
     const [contract, setContract] = useState({});
     const [demoMode, setDemoMode] = useState(false);
     const [ethPrice, setEthPrice] = useState(0); // in USD
@@ -53,6 +54,7 @@ export function useStakingManager() {
 
         setContract(stakingManager);
         loadStakingManagerData();
+        setIsContractLoading(false);
     };
 
     const loadStakingManagerData = async () => {
@@ -70,9 +72,9 @@ export function useStakingManager() {
         setEthPrice(convertInUSD(ETHprice));
         setPharmPrice(convertInUSD(PHARMprice));
         setcurrentUserStakingInfos({
-            PHARMStaked: convertInUSD(currentUserInfo.pharmAmountStaked),
-            ETHStaked: convertInUSD(currentUserInfo.ethAmountStaked),
-            PHARMRewards: convertInUSD(currentUserInfo.pendingRewards),
+            PHARMStaked: convertInUSD(currentUserInfo?.pharmAmountStaked),
+            ETHStaked: convertInUSD(currentUserInfo?.ethAmountStaked),
+            PHARMRewards: convertInUSD(currentUserInfo?.pendingRewards),
         });
         setTotalValueLocked(convertInUSD(totalValueLocked));
         setPercentageOfTotalStaked(percentageOfTotalStaked);
@@ -448,7 +450,7 @@ export function useStakingManager() {
     };
 
     useEffect(() => {
-        if (!isConnected) return;
+        if (!isConnected || isContractLoading) return;
         try {
             loadContract();
 

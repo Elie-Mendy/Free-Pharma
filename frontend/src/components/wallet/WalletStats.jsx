@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineBarChart } from "react-icons/ai";
 import { FaWallet } from "react-icons/fa";
-import { BsCashCoin } from "react-icons/bs";
+import { BiTransfer } from "react-icons/bi";
 import { ApprovalModal } from "./ApprovalModal";
 import { useContext } from "react";
 import { TokenPHARMContext } from "@/providers/TokenPHARMProvider";
@@ -73,7 +73,7 @@ export default function WalletStats() {
                 <StatsCard
                     title={"transfert approuvé"}
                     stat={allowanceForFreePharma}
-                    icon={<BsCashCoin size={"3em"} />}
+                    icon={<BiTransfer size={"3em"} />}
                 />
                 <ApprovalModal />
             </SimpleGrid>

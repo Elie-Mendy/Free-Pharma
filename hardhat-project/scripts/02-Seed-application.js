@@ -36,8 +36,18 @@ async function main() {
 
     // PHARM Minting
     console.log("PHARM Minting...");
+    await tokenPHARM.mint(employer1.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer2.address, ethers.utils.parseEther("1000000000"));
     await tokenPHARM.mint(employer3.address, ethers.utils.parseEther("1000000000"));
+    
+    // PHARM Approve
+    console.log("PHARM Approve...");
+    await tokenPHARM.connect(employer1).approve(freePharma.address, ethers.utils.parseEther("1000000000"));
+    await tokenPHARM.connect(employer1).approve(dataStorage.address, ethers.utils.parseEther("1000000000"));
+    await tokenPHARM.connect(employer2).approve(freePharma.address, ethers.utils.parseEther("1000000000"));
+    await tokenPHARM.connect(employer2).approve(dataStorage.address, ethers.utils.parseEther("1000000000"));
+    await tokenPHARM.connect(employer3).approve(freePharma.address, ethers.utils.parseEther("1000000000"));
+    await tokenPHARM.connect(employer3).approve(dataStorage.address, ethers.utils.parseEther("1000000000"));
 
 
     /* :::::::::::::::  Free PHARMA Scenario :::::::::::::::::: */
@@ -53,7 +63,7 @@ async function main() {
     ///     - each employer create at least 10 jobs
     console.log("Creating jobs...")
     let startDate = new Date(2023, 0, 1); // January 1, 2023
-    let endDate = new Date(2023, 10, 1); // January 1, 2023
+    let endDate = new Date(2023, 2, 1); // January 1, 2023
     let startDateTimestamp = Math.floor(startDate.getTime() / 1000);
     let endDateTimestamp = Math.floor(endDate.getTime() / 1000);
 

@@ -22,6 +22,7 @@ export function useDataStorage() {
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
+    const [isContractLoading, setIsContractLoading] = useState(false);
     const [contract, setContract] = useState({});
     const [currentUser, setCurrentUser] = useState({});
     const [userProfile, setUserProfile] = useState({});
@@ -43,11 +44,9 @@ export function useDataStorage() {
 
         // get stored value
         await getUserInfo(address);
-        console.log("contractAddress", contractAddress);
-        console.log("currentUser", currentUser);
-        console.log("userProfile", userProfile);
         // Set state hook
         setContract(dataStorage);
+        setIsContractLoading(false);
     };
 
     // ::::::::::: Contract Functions :::::::::::
@@ -100,11 +99,9 @@ export function useDataStorage() {
     };
 
     useEffect(() => {
-        if (!isConnected) return;
+        if (!isConnected || isContractLoading) return;
         try {
             loadContract();
-            // fetchStoredValues();
-            // setUpListeners();
         } catch (error) {
             toast({
                 title: "Error Contract !",

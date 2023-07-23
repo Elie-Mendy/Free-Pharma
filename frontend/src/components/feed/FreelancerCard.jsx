@@ -14,9 +14,8 @@ import { MdLocationOn, MdEmail } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin } from "react-icons/bs";
 import { HireModal } from "./HireModal";
 
-export const FreelancerCard = () => {
+export const FreelancerCard = ({freelancer}) => {
     const { userProfile } = useContext(DataStorageContext);
-
     return (
         <Box
             bg="white"
@@ -55,7 +54,7 @@ export const FreelancerCard = () => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 1
+                        PHARMA
                     </Badge>
                     <Badge
                         px={2}
@@ -64,7 +63,7 @@ export const FreelancerCard = () => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 2
+                        VENTE
                     </Badge>
                     <Badge
                         px={2}
@@ -73,7 +72,7 @@ export const FreelancerCard = () => {
                         fontWeight={"bold"}
                         color={"white"}
                     >
-                        SKILL 3
+                        ANIMATION
                     </Badge>
                 </Flex>
             </Flex>
@@ -87,7 +86,7 @@ export const FreelancerCard = () => {
                         color: "white",
                     }}
                 >
-                    Pseudonyme
+                    {freelancer.name}
                 </Text>
 
                 <Text
@@ -126,7 +125,7 @@ export const FreelancerCard = () => {
                     <Icon as={MdLocationOn} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        Toulouse
+                        {freelancer.location}
                     </Text>
                 </Flex>
                 <Flex
@@ -140,7 +139,7 @@ export const FreelancerCard = () => {
                     <Icon as={MdEmail} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        freelance@example.com
+                        {freelancer.email}
                     </Text>
                 </Flex>
                 <Flex
@@ -154,7 +153,7 @@ export const FreelancerCard = () => {
                     <Icon as={BsCashCoin} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="md" fontWeight={"bold"}>
-                        140€/jour
+                        {freelancer.averageDailyRate.toString()}€/jour
                     </Text>
                 </Flex>
                 <Flex
@@ -166,7 +165,7 @@ export const FreelancerCard = () => {
                         color: "gray.200",
                     }}
                 >
-                    {userProfile == "employer" && <HireModal />}
+                    {userProfile == "employer" && <HireModal available={freelancer.available} />}
                 </Flex>
             </Box>
         </Box>
