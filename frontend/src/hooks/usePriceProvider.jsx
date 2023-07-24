@@ -6,9 +6,6 @@ import { useWagmi } from "./useWagmi";
 import {
     getWalletClient,
     getContract,
-    prepareWriteContract,
-    writeContract,
-    readContract,
 } from "@wagmi/core";
 
 import { parseAbiItem } from "viem";
@@ -30,6 +27,7 @@ export function usePriceProvider() {
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
+        console.log("PRICE PROVIDER : Loading contract...");
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const simpleStorage = getContract({
@@ -46,6 +44,7 @@ export function usePriceProvider() {
 
     useEffect(() => {
         if (!isConnected || isContractLoading) return;
+        console.log("PRICE PROVIDER : Loading contract...");
         try {
             loadContract();
         } catch (error) {

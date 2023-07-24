@@ -42,7 +42,7 @@ export function useTokenPHARM() {
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const tokenPHARM = getContract({
-            address: contractAddress,
+            address: getAddress(config.contracts.TokenPHARM.address),
             abi: contractABI,
             walletClient,
         });
@@ -54,6 +54,7 @@ export function useTokenPHARM() {
     const loadPHARMdata = async () => {
         // get stored value
         let PHARMsupply = await totalSupply();
+        if (PHARMsupply === undefined) return;
         PHARMsupply = parseInt(PHARMsupply.toString()) / 10 ** 18;
         PHARMsupply = Math.round(PHARMsupply * 100) / 100;
 
@@ -93,7 +94,7 @@ export function useTokenPHARM() {
     const totalSupply = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "totalSupply",
             });
@@ -106,7 +107,7 @@ export function useTokenPHARM() {
     const balanceOf = async (_address) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "balanceOf",
                 args: [_address],
@@ -120,7 +121,7 @@ export function useTokenPHARM() {
     const allowance = async (_ownerAddress, _spenderAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "allowance",
                 args: [_ownerAddress, _spenderAddress],
@@ -134,7 +135,7 @@ export function useTokenPHARM() {
     const approve = async (_address, _amount) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "approve",
                 args: [_address, Number(_amount)],
@@ -150,7 +151,7 @@ export function useTokenPHARM() {
     const increaseAllowance = async (_address, _amount) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "increaseAllowance",
                 args: [_address, Number(_amount)],
@@ -171,7 +172,7 @@ export function useTokenPHARM() {
         }
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "decreaseAllowance",
                 args: [_address, Number(_amount)],
@@ -189,7 +190,7 @@ export function useTokenPHARM() {
     const mint = async (_address, _amount) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.TokenPHARM.address),
                 abi: contractABI,
                 functionName: "mint",
                 args: [_address, Number(_amount)],
@@ -202,8 +203,6 @@ export function useTokenPHARM() {
             throwNotif("error", err.message);
         }
     };
-
-    
 
     useEffect(() => {
         if (!isConnected || isContractLoading) return;
@@ -221,7 +220,7 @@ export function useTokenPHARM() {
         }
     }, [isConnected, address, chain?.id]);
 
-
+    // ::::::::::: Contract Events :::::::::::
 
     useContractEvent({
         address: getAddress(config.contracts.StakingManager.address),
@@ -275,7 +274,6 @@ export function useTokenPHARM() {
             loadPHARMdata();
         },
     });
-
 
     // ::::::::::: Returned data :::::::::::
     return {

@@ -11,6 +11,7 @@
     "seed:local": "npx hardhat run scripts/02-Seed-application.js --network localhost",
     "seed:sepolia": "npx hardhat run scripts/02-Seed-application.js --network sepolia",
     "deploy:goerli": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network goerli",
+    "deploy:mumbai": "npx hardhat run scripts/01-Free-Pharma-deploy.js --network mumbai",
     "clean": "npx hardhat clean"
   },
   "devDependencies": {

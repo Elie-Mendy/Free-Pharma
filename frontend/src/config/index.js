@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { mainnet, sepolia, goerli, hardhat } from "viem/chains";
+import { mainnet, sepolia, goerli, polygonMumbai, hardhat } from "viem/chains";
 import ABIs from "@/config/ABIs.json";
 
 export const config = {
@@ -35,6 +35,8 @@ const chain =
         ? sepolia
         : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "goerli"
         ? goerli
+        : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "mumbai"
+        ? polygonMumbai
         : hardhat;
 
 export const client = createPublicClient({
