@@ -3292,6 +3292,12 @@
         },
         {
             "anonymous": false,
+            "inputs": [],
+            "name": "DemoModeSwitched",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
             "inputs": [
                 {
                     "indexed": true,

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DataStorageContext } from "@/providers/DataStorageProvider";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
 import {
     Badge,
@@ -15,7 +15,7 @@ import { BsFillBriefcaseFill, BsCashCoin } from "react-icons/bs";
 import { HireModal } from "./HireModal";
 
 export const FreelancerCard = ({freelancer}) => {
-    const { userProfile } = useContext(DataStorageContext);
+    const { userProfile } = useContext(FreePharmaContext);
     return (
         <Box
             bg="white"

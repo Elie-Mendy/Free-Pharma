@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { useNotif } from "@/hooks/useNotif";
 import { FreePharmaContext } from "@/providers/FreePharmaProvider";
-import { DataStorageContext } from "@/providers/DataStorageProvider";
 
 import {
     Box,
@@ -15,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 export default function FreelancerForm() {
-    const { userProfile, setUserProfile } = useContext(DataStorageContext);
+    const { userProfile, setUserProfile } = useContext(FreePharmaContext);
 
     const { createFreelancer, setFreelancer, currentUser } =
         useContext(FreePharmaContext);

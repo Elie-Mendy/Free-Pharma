@@ -9,27 +9,25 @@ import {
     prepareWriteContract,
     writeContract,
     readContract,
-    watchContractEvent,
 } from "@wagmi/core";
 
 import { config, client } from "@/config";
-import { useTokenPHARM } from "./useTokenPHARM";
-import { parseEther, parseAbiItem } from "viem";
+import { parseEther, parseAbiItem, getAddress } from "viem";
+import { useContractEvent } from "wagmi";
 
-const contractAddress = config.contracts.StakingManager.address;
+
 const contractABI = config.contracts.StakingManager.abi;
 
 export function useStakingManager() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { throwNotif } = useNotif();
-    const { allowance, loadPHARMdata } = useTokenPHARM();
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
     const [isContractLoading, setIsContractLoading] = useState(false);
+    const [demoMode, setDemoMode] = useState(false); // [TODO] : get from contract
     const [contract, setContract] = useState({});
-    const [demoMode, setDemoMode] = useState(false);
     const [ethPrice, setEthPrice] = useState(0); // in USD
     const [pharmPrice, setPharmPrice] = useState(0); // in USD
     const [totalValueLocked, setTotalValueLocked] = useState(0);
@@ -47,18 +45,17 @@ export function useStakingManager() {
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const stakingManager = getContract({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             abi: contractABI,
             walletClient,
         });
-
         setContract(stakingManager);
-        loadStakingManagerData();
         setIsContractLoading(false);
     };
 
     const loadStakingManagerData = async () => {
         // get stored value
+        let demoMode = await getDemoMode();
         let APR = await getAPR();
         let ETHprice = await getETHprice();
         let PHARMprice = await getPHARMprice();
@@ -68,7 +65,7 @@ export function useStakingManager() {
         let bonusCoefficient = await getBonusCoefficient(address);
 
         // Set state hook
-        setDemoMode(await getDemoMode());
+        setDemoMode(demoMode);
         setEthPrice(convertInUSD(ETHprice));
         setPharmPrice(convertInUSD(PHARMprice));
         setcurrentUserStakingInfos({
@@ -82,21 +79,30 @@ export function useStakingManager() {
             parseInt(APR.toString()) / 100 +
                 parseInt(bonusCoefficient.toString()) / 100
         );
-        loadPHARMdata();
     };
+
+    useEffect(() => {
+        if (!isConnected || isContractLoading) return;
+        try {
+            loadContract();
+            loadStakingManagerData();
+
+        } catch (error) {
+            throwNotif("error", "Erreur lors du chargement du contrat.");
+        }
+    }, [isConnected, address, chain?.id]);
 
     // ::::::::::: Contract Functions :::::::::::
 
     const switchDemoMode = async () => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "switchDemoMode",
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Demo mode switched !");
-            loadStakingManagerData();
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -106,7 +112,7 @@ export function useStakingManager() {
     const getDemoMode = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "DemoMode",
             });
@@ -119,7 +125,7 @@ export function useStakingManager() {
     const getPHARMprice = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "PHARMprice",
             });
@@ -132,7 +138,7 @@ export function useStakingManager() {
     const getETHprice = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "ETHprice",
             });
@@ -145,7 +151,7 @@ export function useStakingManager() {
     const getAPR = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "APR",
             });
@@ -158,7 +164,7 @@ export function useStakingManager() {
     const getUser = async (_userAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "getUser",
                 args: [_userAddress],
@@ -172,7 +178,7 @@ export function useStakingManager() {
     const getTotalValueLocked = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "getTotalValueLocked",
             });
@@ -185,7 +191,7 @@ export function useStakingManager() {
     const getPercentageOfTotalStaked = async (_userAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "getPercentageOfTotalStaked",
                 args: [_userAddress],
@@ -199,7 +205,7 @@ export function useStakingManager() {
     const getBonusCoefficient = async (_userAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "getBonusCoefficient",
                 args: [_userAddress],
@@ -217,15 +223,14 @@ export function useStakingManager() {
         }
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "stakePHARM",
                 args: [Number(_amount)],
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "PHARM staked !");
-            loadStakingManagerData();
-            loadPHARMdata();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -239,7 +244,7 @@ export function useStakingManager() {
         }
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "unstakePHARM",
                 args: [Number(_amount)],
@@ -259,7 +264,7 @@ export function useStakingManager() {
         }
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "stakeETH",
                 value: parseEther(_amount),
@@ -279,7 +284,7 @@ export function useStakingManager() {
         }
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "unstakeETH",
                 args: [Number(_amount)],
@@ -295,7 +300,7 @@ export function useStakingManager() {
     const claimRewards = async () => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.StakingManager.address),
                 abi: contractABI,
                 functionName: "claimRewards",
             });
@@ -310,14 +315,14 @@ export function useStakingManager() {
     // ::::::::::: Contract Events :::::::::::
 
     const getSkakingPHARMDeposits = async () => {
-        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 1500);
 
         const depositsLogs = await client.getLogs({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             event: parseAbiItem(
                 "event StakePHARM(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
 
         const deposits = (
@@ -333,19 +338,18 @@ export function useStakingManager() {
                 })
             )
         ).map((w) => w);
-
         setPharmDeposits(deposits);
     };
 
     const getSkakingPHARMWithdrawals = async () => {
-        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 1500);
 
         const withdrawalsLogs = await client.getLogs({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             event: parseAbiItem(
                 "event UnstakePHARM(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
 
         const withdrawals = (
@@ -366,14 +370,14 @@ export function useStakingManager() {
     };
 
     const getSkakingETHDeposits = async () => {
-        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 1500);
 
         const depositsLogs = await client.getLogs({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             event: parseAbiItem(
                 "event StakeETH(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
 
         const deposits = (
@@ -394,14 +398,14 @@ export function useStakingManager() {
     };
 
     const getSkakingETHWithdrawals = async () => {
-        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 1500);
 
         const withdrawalsLogs = await client.getLogs({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             event: parseAbiItem(
                 "event UnstakeETH(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
 
         const withdrawals = (
@@ -422,14 +426,14 @@ export function useStakingManager() {
     };
 
     const getSkakingRewards = async () => {
-        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 15000);
+        const fromBlock = BigInt(Number(await client.getBlockNumber()) - 1500);
 
         const rewardsLogs = await client.getLogs({
-            address: contractAddress,
+            address: getAddress(config.contracts.StakingManager.address),
             event: parseAbiItem(
                 "event RewardsClaimed(address indexed userAddress, uint amount, uint timestamp)"
             ),
-            fromBlock: BigInt(process.env.NEXT_PUBLIC_DEPLOYMENT_BLOCK),
+            fromBlock: Number(fromBlock) >= 0 ? fromBlock : BigInt(0),
         });
 
         const rewards = (
@@ -450,106 +454,92 @@ export function useStakingManager() {
     };
 
     useEffect(() => {
-        if (!isConnected || isContractLoading) return;
+        if (isContractLoading || !contract) return;
         try {
-            loadContract();
-
-            // get events logs
             getSkakingPHARMDeposits();
             getSkakingPHARMWithdrawals();
             getSkakingETHDeposits();
             getSkakingETHWithdrawals();
             getSkakingRewards();
-            setUpListeners();
         } catch (error) {
             throwNotif("error", "Erreur lors du chargement du contrat.");
         }
-    }, [isConnected, address, chain?.id]);
+    }, [isContractLoading, contract]);
 
-    const setUpListeners = useCallback(() => {
-        // event StakePHARM
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "StakePHARM",
-            },
-            (log) => {
+    // ::::::::::: Contract Events Listeners :::::::::::
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "StakePHARM",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
                 loadStakingManagerData();
             }
-        );
+        },
+    });
 
-        // event UnstakePHARM
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "UnstakePHARM",
-            },
-            (log) => {
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "StakeETH",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
                 loadStakingManagerData();
             }
-        );
+        },
+    });
 
-        // event StakeETH
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "StakeETH",
-            },
-            (log) => {
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "UnstakePHARM",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
                 loadStakingManagerData();
             }
-        );
+        },
+    });
 
-        // event StakeETH
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "StakeETH",
-            },
-            (log) => {
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "UnstakeETH",
+        listener(log) {
+            if (String(address) === String(log[0].args.userAddress)) {
                 loadStakingManagerData();
             }
-        );
+        },
+    });
 
-        // event UnstakeETH
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "UnstakeETH",
-            },
-            (log) => {
-                loadStakingManagerData();
-            }
-        );
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "RewardsUpdated",
+        listener(log) {
+            loadStakingManagerData();
+        },
+    });
 
-        // event RewardsClaimed
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "RewardsClaimed",
-            },
-            (log) => {
-                loadStakingManagerData();
-            }
-        );
-    }, []);
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "DemoModeSwitched",
+        listener(log) {
+            loadStakingManagerData();
+        },
+    });
 
     // ::::::::::: HELPER :::::::::::
 
     const convertInUSD = (_amount) => {
+        if(!_amount) return 0;
         return Math.round((_amount.toString() / 10 ** 18) * 100) / 100;
     };
 
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
-        contractAddress,
+        isContractLoading,
 
         // State contract
         demoMode,

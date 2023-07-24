@@ -59,6 +59,7 @@ contract StakingManager is Ownable {
         uint timestamp
     );
     event RewardsUpdated();
+    event DemoModeSwitched();
 
     /* ::::::::::::::: FUNCTIONS :::::::::::::::::: */
 
@@ -66,6 +67,7 @@ contract StakingManager is Ownable {
     /// @dev only the owner can call this function.
     function switchDemoMode() external onlyOwner {
         DemoMode = !DemoMode;
+        emit DemoModeSwitched();
     }
 
     /// @notice Get User Info.

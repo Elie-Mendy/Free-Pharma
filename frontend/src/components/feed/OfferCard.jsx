@@ -17,8 +17,7 @@ import { MdLocationOn } from "react-icons/md";
 import { BsFillBriefcaseFill, BsCashCoin, BsCalendar3 } from "react-icons/bs";
 
 export const OfferCard = ({job}) => {
-    const { userProfile } = useContext(DataStorageContext);
-    const { applyForJob } = useContext(FreePharmaContext);
+    const { applyForJob, userProfile} = useContext(FreePharmaContext);
     let startDate = moment(
         new Date(
             parseInt(job.startDate.toString()) *
@@ -127,7 +126,7 @@ export const OfferCard = ({job}) => {
                     <Icon as={BsFillBriefcaseFill} h={6} w={6} mr={2} />
 
                     <Text px={2} fontSize="sm">
-                        2 ans d'expérience
+                        2 ans d`&apos;expérience
                     </Text>
                 </Flex>
 

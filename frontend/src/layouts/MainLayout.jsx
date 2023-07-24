@@ -6,7 +6,7 @@ import { useWagmi } from "@/hooks/useWagmi";
 import Connexion from "@/components/connexion.jsx/Connexion";
 import Footer from "@/components/footer/Footer";
 import BlurBackground from "@/components/generic/BlurBackground";
-import { DataStorageContext } from "@/providers/DataStorageProvider";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
 const smVariant = { navigation: "drawer", navigationButton: true };
 const mdVariant = { navigation: "sidebar", navigationButton: false };
@@ -14,8 +14,7 @@ const mdVariant = { navigation: "sidebar", navigationButton: false };
 export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
-    const { userProfile } = useContext(DataStorageContext);
-    
+    const { userProfile } = useContext(FreePharmaContext);
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
