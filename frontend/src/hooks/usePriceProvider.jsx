@@ -9,7 +9,6 @@ import {
     prepareWriteContract,
     writeContract,
     readContract,
-    watchContractEvent,
 } from "@wagmi/core";
 
 import { parseAbiItem } from "viem";
@@ -26,11 +25,8 @@ export function usePriceProvider() {
     const toast = useToast();
 
     // ::::::::::: STATE :::::::::::
+    const [isContractLoading, setIsContractLoading] = useState(false);
     const [contract, setContract] = useState({});
-    // const [storedValue, setStoredValue] = useState("");
-
-    // ::::::::::: LOGS & DATA :::::::::::
-    // const [valueStoredLogs, setValueStoredLogs] = useState([]);
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = async () => {
@@ -42,113 +38,18 @@ export function usePriceProvider() {
             walletClient,
         });
 
-        // get stored value
-
         // Set state hook
         setContract(simpleStorage);
+        setIsContractLoading(false);
     };
 
-    
-    // ::::::::::: Contract Functions :::::::::::
-
-    /*
-    const getStoredData = async () => {
-        try {
-            const data = await readContract({
-                address: contractAddress,
-                abi: contractABI,
-                functionName: "storedData",
-            });
-            return data;
-        } catch (err) {
-            throwNotif("error", err.message);
-        }
-    };
-    const setValue = async (_value) => {
-        if (!_value) return;
-        try {
-            const { request } = await prepareWriteContract({
-                address: contractAddress,
-                abi: contractABI,
-                functionName: "set",
-                args: [Number(_value)],
-            });
-            const { hash } = await writeContract(request);
-            throwNotif("info", "Value stored !");
-            return hash;
-        } catch (err) {
-            throwNotif("error", err.message);
-        }
-    };
-    */
-
-    // ::::::::::: Contract Events :::::::::::
-
-    /*
-    function setUpListeners() {
-        // event VoterRegistered
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "ValueStored",
-            },
-            (log) => {
-                fetchStoredValues();
-            }
-        );
-    }
-    */
-
-    // ::::::::::: Data Fetching :::::::::::
-
-    /*
-    const fetchStoredValues = async () => {
-        // get all logs
-        const ValueStoredLogs = await client.getLogs({
-            address: contractAddress,
-            event: parseAbiItem(
-                "event ValueStored(address author, uint value)"
-            ),
-            fromBlock: client.chain.name === "Sepolia" ? 3872551n : 0n,
-            toBlock: "latest", // default value, no need to specify
-        });
-        setValueStoredLogs(ValueStoredLogs);
-
-        // process data
-        const processedValueStored = await Promise.all(
-            ValueStoredLogs.map(async (log) => {
-                return { author: log.args.author, value: log.args.value };
-            })
-        );
-        setValueStoredData(
-            processedValueStored.map((storedValue) => ({
-                author: storedValue.author,
-                value: storedValue.value.toString(),
-            }))
-        );
-
-        // Set state hook
-        const value = await getStoredData();
-        setStoredValue(value.toString());
-    };
-    */
 
     useEffect(() => {
-        if (!isConnected) return;
+        if (!isConnected || isContractLoading) return;
         try {
             loadContract();
-            // fetchStoredValues();
-            // setUpListeners();
         } catch (error) {
-            toast({
-                title: "Error Contract !",
-                description: "Erreur lors du chargement du contrat.",
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
+            throwNotif("error", "Erreur lors du chargement du contrat. PriceProvider");
         }
     }, [
         isConnected,

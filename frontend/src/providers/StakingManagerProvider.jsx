@@ -6,10 +6,9 @@ export const StakingManagerContext = createContext();
 export const StakingManagerProvider = ({ children }) => {
     const {
         // Static data
-        contractAddress,
+        isContractLoading,
 
         // State contract
-        demoMode,
         ethPrice,
         pharmPrice,
         contract,
@@ -23,8 +22,8 @@ export const StakingManagerProvider = ({ children }) => {
         percentageOfTotalStaked,
         bonusCoefficient,
 
-        // FunctionsstakePHARM,
-        loadStakingManagerData,
+        // Functions
+        getDemoMode,
         stakePHARM,
         unstakePHARM,
         stakeETH,
@@ -39,12 +38,10 @@ export const StakingManagerProvider = ({ children }) => {
 
     const values = useMemo(
         () => ({
-            // Static data
-            contractAddress,
+            isContractLoading,
             
 
             // State contract
-            demoMode,
             ethPrice,
             pharmPrice,
             contract,
@@ -58,8 +55,8 @@ export const StakingManagerProvider = ({ children }) => {
             percentageOfTotalStaked,
             bonusCoefficient,
 
-            // FunctionsstakePHARM,
-            loadStakingManagerData,
+            // Functions
+            getDemoMode,
             stakePHARM,
             unstakePHARM,
             stakeETH,
@@ -73,10 +70,9 @@ export const StakingManagerProvider = ({ children }) => {
         }),
         [
             // Static data
-            contractAddress,
+            isContractLoading,
 
             // State contract
-            demoMode,
             ethPrice,
             pharmPrice,
             contract,
@@ -91,7 +87,7 @@ export const StakingManagerProvider = ({ children }) => {
             bonusCoefficient,
 
             // Functions,
-            loadStakingManagerData,
+            getDemoMode,
             stakePHARM,
             unstakePHARM,
             stakeETH,
