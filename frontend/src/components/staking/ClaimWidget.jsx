@@ -17,7 +17,6 @@ function ClaimWidget() {
         bonusCoefficient,
         claimRewards,
         demoMode,
-        loadStakingManagerData,
     } = useContext(StakingManagerContext);
     return (
         <Stack

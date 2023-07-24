@@ -26,6 +26,7 @@ export function useStakingManager() {
 
     // ::::::::::: STATE :::::::::::
     const [isContractLoading, setIsContractLoading] = useState(false);
+    const [demoMode, setDemoMode] = useState(false); // [TODO] : get from contract
     const [contract, setContract] = useState({});
     const [ethPrice, setEthPrice] = useState(0); // in USD
     const [pharmPrice, setPharmPrice] = useState(0); // in USD
@@ -54,6 +55,7 @@ export function useStakingManager() {
 
     const loadStakingManagerData = async () => {
         // get stored value
+        let demoMode = await getDemoMode();
         let APR = await getAPR();
         let ETHprice = await getETHprice();
         let PHARMprice = await getPHARMprice();
@@ -63,6 +65,7 @@ export function useStakingManager() {
         let bonusCoefficient = await getBonusCoefficient(address);
 
         // Set state hook
+        setDemoMode(demoMode);
         setEthPrice(convertInUSD(ETHprice));
         setPharmPrice(convertInUSD(PHARMprice));
         setcurrentUserStakingInfos({
@@ -335,7 +338,6 @@ export function useStakingManager() {
                 })
             )
         ).map((w) => w);
-
         setPharmDeposits(deposits);
     };
 
@@ -451,19 +453,18 @@ export function useStakingManager() {
         setStackingRewards(rewards);
     };
 
-    // useEffect(() => {
-    //     if (isContractLoading, stakingManager) return;
-    //     try {
-    //         // get events logs
-    //         // getSkakingPHARMDeposits();
-    //         // getSkakingPHARMWithdrawals();
-    //         // getSkakingETHDeposits();
-    //         // getSkakingETHWithdrawals();
-    //         // getSkakingRewards();
-    //     } catch (error) {
-    //         throwNotif("error", "Erreur lors du chargement du contrat.");
-    //     }
-    // }, [isContractLoading, stakingManager]);
+    useEffect(() => {
+        if (isContractLoading || !contract) return;
+        try {
+            getSkakingPHARMDeposits();
+            getSkakingPHARMWithdrawals();
+            getSkakingETHDeposits();
+            getSkakingETHWithdrawals();
+            getSkakingRewards();
+        } catch (error) {
+            throwNotif("error", "Erreur lors du chargement du contrat.");
+        }
+    }, [isContractLoading, contract]);
 
     // ::::::::::: Contract Events Listeners :::::::::::
     useContractEvent({
@@ -519,6 +520,15 @@ export function useStakingManager() {
         },
     });
 
+    useContractEvent({
+        address: getAddress(config.contracts.StakingManager.address),
+        abi: config.contracts.StakingManager.abi,
+        eventName: "DemoModeSwitched",
+        listener(log) {
+            loadStakingManagerData();
+        },
+    });
+
     // ::::::::::: HELPER :::::::::::
 
     const convertInUSD = (_amount) => {
@@ -532,6 +542,7 @@ export function useStakingManager() {
         isContractLoading,
 
         // State contract
+        demoMode,
         ethPrice,
         pharmPrice,
         contract,
@@ -546,7 +557,6 @@ export function useStakingManager() {
         bonusCoefficient,
 
         // Functions
-        getDemoMode,
         loadStakingManagerData,
         stakePHARM,
         unstakePHARM,

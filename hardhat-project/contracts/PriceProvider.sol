@@ -11,7 +11,8 @@ contract PriceProvider is Ownable {
 
     /// @notice ETH/USD price feed
     constructor() {
-        dataFeedETH = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+        //dataFeedETH = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306); // sepolia
+        dataFeedETH = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e); // goerli
     }
 
     /// @notice Get the latest ETH/USD price

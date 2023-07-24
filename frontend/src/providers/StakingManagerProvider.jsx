@@ -9,6 +9,7 @@ export const StakingManagerProvider = ({ children }) => {
         isContractLoading,
 
         // State contract
+        demoMode,
         ethPrice,
         pharmPrice,
         contract,
@@ -23,7 +24,6 @@ export const StakingManagerProvider = ({ children }) => {
         bonusCoefficient,
 
         // Functions
-        getDemoMode,
         stakePHARM,
         unstakePHARM,
         stakeETH,
@@ -42,6 +42,7 @@ export const StakingManagerProvider = ({ children }) => {
             
 
             // State contract
+            demoMode,
             ethPrice,
             pharmPrice,
             contract,
@@ -56,7 +57,6 @@ export const StakingManagerProvider = ({ children }) => {
             bonusCoefficient,
 
             // Functions
-            getDemoMode,
             stakePHARM,
             unstakePHARM,
             stakeETH,
@@ -73,6 +73,7 @@ export const StakingManagerProvider = ({ children }) => {
             isContractLoading,
 
             // State contract
+            demoMode,
             ethPrice,
             pharmPrice,
             contract,
@@ -87,7 +88,6 @@ export const StakingManagerProvider = ({ children }) => {
             bonusCoefficient,
 
             // Functions,
-            getDemoMode,
             stakePHARM,
             unstakePHARM,
             stakeETH,
