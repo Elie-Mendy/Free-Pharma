@@ -220,6 +220,8 @@ export function useTokenPHARM() {
         }
     }, [isConnected, address, chain?.id]);
 
+    // ::::::::::: Contract Events :::::::::::
+
     useContractEvent({
         address: getAddress(config.contracts.StakingManager.address),
         abi: config.contracts.StakingManager.abi,

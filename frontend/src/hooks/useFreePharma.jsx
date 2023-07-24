@@ -38,7 +38,7 @@ export function useFreePharma() {
     const [totalFreelancerEarn, setTotalFreelancerEarn] = useState(0);
 
     // ::::::::::: Contract Loading :::::::::::
-    const loadContract = async () => {
+    const loadContract = useCallback(async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const freePharma = getContract({
@@ -54,7 +54,7 @@ export function useFreePharma() {
         // Set state hook
         setContract(freePharma);
         setIsContractLoading(false);
-    };
+    }, [address]);
 
     const loadFreelancerData = async () => {
         let freelancer = await getOneFreelancer(address);
@@ -500,7 +500,7 @@ export function useFreePharma() {
             throwNotif("error", err.message);
         }
     };
-
+    
     // ::::::::::: Contract Watchers :::::::::::
     useContractEvent({
         address: getAddress(config.contracts.FreePharma.address),
@@ -653,7 +653,7 @@ export function useFreePharma() {
             }
         },
     });
-
+    
 
 
     useEffect(() => {
