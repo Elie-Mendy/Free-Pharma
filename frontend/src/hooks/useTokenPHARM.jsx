@@ -9,7 +9,6 @@ import {
     prepareWriteContract,
     writeContract,
     readContract,
-    watchContractEvent,
 } from "@wagmi/core";
 
 import { getAddress, parseAbiItem } from "viem";
@@ -210,12 +209,10 @@ export function useTokenPHARM() {
         if (!isConnected || isContractLoading) return;
         try {
             loadContract();
-            // fetchStoredValues();
-            // setUpListeners();
         } catch (error) {
             toast({
                 title: "Error Contract !",
-                description: "Erreur lors du chargement du contrat.",
+                description: "Erreur lors du chargement du contrat. TokenPHARM",
                 status: "error",
                 duration: 9000,
                 position: "top-right",

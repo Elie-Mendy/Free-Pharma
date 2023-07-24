@@ -8,23 +8,27 @@ import {
     prepareWriteContract,
     writeContract,
     readContract,
-    watchContractEvent,
 } from "@wagmi/core";
 
 import { config } from "@/config";
 import { DataStorageContext } from "@/providers/DataStorageProvider";
+import { getAddress } from "viem";
+import { useContractEvent } from "wagmi";
 
 const contractAddress = config.contracts.FreePharma.address;
 const contractABI = config.contracts.FreePharma.abi;
-
+const FREELANCER_ROLE =
+    "0xdee5dd6a5465c6132eda87e8cb3980b287f43d6f5332a897e4a238c66a15aec2";
+const EMPLOYER_ROLE =
+    "0xfc7c36207174f786648d2e624616a4b40e15fd7f0268b4e36af5057f0c43c835";
 export function useFreePharma() {
     // ::::::::::: CONFIG :::::::::::
     const { isConnected, address, chain } = useWagmi();
     const { throwNotif } = useNotif();
-    const { userProfile, setUserProfile } = useContext(DataStorageContext);
 
     // ::::::::::: STATE :::::::::::
     const [isContractLoading, setIsContractLoading] = useState(false);
+    const [userProfile, setUserProfile] = useState("unknown");
     const [contract, setContract] = useState({});
     const [jobs, setJobs] = useState([]);
     const [freelancers, setFreelancers] = useState([]);
@@ -38,7 +42,7 @@ export function useFreePharma() {
     const loadContract = async () => {
         // get contract with connected provider
         const walletClient = await getWalletClient();
-        const FreePharma = getContract({
+        const freePharma = getContract({
             address: contractAddress,
             abi: contractABI,
             walletClient,
@@ -49,13 +53,7 @@ export function useFreePharma() {
         setFreelancers(await getFreelancers());
 
         // Set state hook
-        setContract(FreePharma);
-
-        if (userProfile == "freelancer") {
-            loadFreelancerData();
-        } else if (userProfile == "employer") {
-            loadEmployerData();
-        }
+        setContract(freePharma);
         setIsContractLoading(false);
     };
 
@@ -137,6 +135,46 @@ export function useFreePharma() {
 
         setTotalFreelancerEarn(totalPaid);
     };
+
+    // Roles
+    const getUserProfile = useCallback(async () => {
+        // IsEMployer
+        try {
+            const data = await readContract({
+                address: config.contracts.FreePharma.address,
+                abi: config.contracts.FreePharma.abi,
+                functionName: "hasRole",
+                args: [FREELANCER_ROLE, getAddress(address)],
+            });
+            setUserProfile("employer");
+        } catch (error) {
+            setUserProfile("unknown");
+        }
+        // IsFreelancer
+        try {
+            const data = await readContract({
+                address: config.contracts.FreePharma.address,
+                abi: config.contracts.FreePharma.abi,
+                functionName: "hasRole",
+                args: [EMPLOYER_ROLE, getAddress(address)],
+            });
+            setUserProfile("employer");
+        } catch (error) {
+            setUserProfile("unknown");
+        }
+    }, [address]);
+
+    useEffect(() => {
+        if (!address || !contract || !isContractLoading) return;
+        getUserProfile();
+        if (userProfile == "freelancer") {
+            throwNotif("info", "Freelancer");
+            loadFreelancerData();
+        } else if (userProfile == "employer") {
+            throwNotif("info", "Employer");
+            loadEmployerData();
+        }
+    }, [address, contract, isContractLoading]);
 
     // ::::::::::: Contract Functions :::::::::::
 
@@ -258,7 +296,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Candidate confirmed !");
-            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -275,7 +313,6 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Job completed !");
-            loadContract();
 
             return hash;
         } catch (err) {
@@ -293,7 +330,6 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Salary claimed !");
-            loadContract();
 
             return hash;
         } catch (err) {
@@ -348,7 +384,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Profile updated !");
-            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -365,7 +401,6 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Freelancer hired !");
-            loadContract();
 
             return hash;
         } catch (err) {
@@ -383,7 +418,6 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Job completed !");
-            loadContract();
 
             return hash;
         } catch (err) {
@@ -408,7 +442,7 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Mission créée avec succès !");
-            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
@@ -458,118 +492,178 @@ export function useFreePharma() {
             });
             const { hash } = await writeContract(request);
             throwNotif("info", "Mission modifiée avec succès !");
-            loadContract();
+
             return hash;
         } catch (err) {
             throwNotif("error", err.message);
         }
     };
 
-    const setUpListeners = useCallback(() => {
-        // event FreelancerApplied
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "FreelancerApplied",
-            },
-            (log) => {
-                loadContract();
+    // ::::::::::: Contract Watchers :::::::::::
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerUpdated",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event FreelancerApplied
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "FreelancerConfirmedCandidature",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerApplied",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event FreelancerCompletedJob
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "FreelancerCompletedJob",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerConfirmedCandidature",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event FreelancerClaimedSalary
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "FreelancerClaimedSalary",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerCompletedJob",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event FreelancerPaid
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "FreelancerPaid",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerClaimedSalary",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event EmployerHiredFreelancer
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "EmployerHiredFreelancer",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "FreelancerPaid",
+        listener(log) {
+            if (String(address) === String(log[0].args.freelancerAddress)) {
+                loadEmployerData();
             }
-        );
+        },
+    });
 
-        // event EmployerCompletedJob
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "EmployerCompletedJob",
-            },
-            (log) => {
-                loadContract();
-            }
-        );
 
-        // event JobCreated
-        watchContractEvent(
-            {
-                address: contractAddress,
-                abi: contractABI,
-                eventName: "JobCreated",
-            },
-            (log) => {
-                loadContract();
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "EmployerUpdated",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                loadEmployerData();
             }
-        );
-    }, []);
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "EmployerHiredFreelancer",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                loadEmployerData();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "EmployerHiredFreelancer",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                loadEmployerData();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "JobCreated",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                if (userProfile == "freelancer")
+                    loadFreelancerData();
+                else if (userProfile == "employer")
+                    loadEmployerData();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "EmployerCompletedJob",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                if (userProfile == "freelancer")
+                    loadFreelancerData();
+                else if (userProfile == "employer")
+                    loadEmployerData();
+            }
+        },
+    });
+
+
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "JobCreated",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                loadEmployerData();
+            }
+        },
+    });
+
+    useContractEvent({
+        address: getAddress(config.contracts.FreePharma.address),
+        abi: config.contracts.FreePharma.abi,
+        eventName: "JobUpdated",
+        listener(log) {
+            if (String(address) === String(log[0].args.employerAddress)) {
+                loadEmployerData();
+            }
+        },
+    });
+
+
 
     useEffect(() => {
         if (!isConnected || isContractLoading) return;
         try {
             loadContract();
-            setUpListeners();
+            getUserProfile();
         } catch (error) {
-            throwNotif("error", "Erreur lors du chargement du contrat.");
+            throwNotif(
+                "error",
+                "Erreur lors du chargement du contrat. FreePharma"
+            );
         }
     }, [isConnected, address, chain?.id, userProfile]);
 
@@ -581,6 +675,7 @@ export function useFreePharma() {
 
         // State contract
         contract,
+        userProfile,
         jobs,
         freelancers,
         currentUser,
@@ -592,7 +687,6 @@ export function useFreePharma() {
 
         // Functions
         createFreelancer,
-        getOneFreelancer,
         setFreelancer,
         applyForJob,
         confirmCandidature,
