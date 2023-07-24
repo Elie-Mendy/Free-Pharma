@@ -21,9 +21,10 @@ import {
 import { FiEdit } from "react-icons/fi";
 import FreelancerForm from "./FreelancerForm";
 import EmployerForm from "./EmployerForm";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
 export const FreelancerProfileModal = () => {
-    const { userProfile } = useContext(DataStorageContext);
+    const { userProfile } = useContext(FreePharmaContext);
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const data = {

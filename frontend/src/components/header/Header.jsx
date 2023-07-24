@@ -10,10 +10,10 @@ import {
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { ColorModeSwitcher } from "../generic/ColorSwitcher";
 import { useContext } from "react";
-import { DataStorageContext } from "@/providers/DataStorageProvider";
+import { FreePharmaContext } from "@/providers/FreePharmaProvider";
 
 const Header = ({ onShowSidebar }) => {
-    const { userProfile } = useContext(DataStorageContext);
+    const { userProfile } = useContext(FreePharmaContext);
 
     return (
         <>

@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { mainnet, sepolia, hardhat } from "viem/chains";
+import { mainnet, sepolia, goerli, hardhat } from "viem/chains";
 import ABIs from "@/config/ABIs.json";
 
 export const config = {
@@ -33,6 +33,8 @@ const chain =
         ? mainnet
         : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "sepolia"
         ? sepolia
+        : process.env.NEXT_PUBLIC_CLIENT_CHAIN === "goerli"
+        ? goerli
         : hardhat;
 
 export const client = createPublicClient({

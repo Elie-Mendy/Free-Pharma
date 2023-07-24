@@ -28,13 +28,14 @@ import {
     optimism,
     arbitrum,
     sepolia,
+    goerli,
     hardhat,
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 // wagmi config
 const { chains, publicClient } = configureChains(
-    [mainnet, polygon, optimism, arbitrum, sepolia, hardhat],
+    [mainnet, polygon, optimism, arbitrum, sepolia, goerli, hardhat],
     [publicProvider()]
 );
 

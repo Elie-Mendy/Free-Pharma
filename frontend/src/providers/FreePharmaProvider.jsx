@@ -10,6 +10,7 @@ export const FreePharmaProvider = ({ children }) => {
 
         // State contract
         contract,
+        userProfile,
         jobs,
         freelancers,
         currentUser,
@@ -50,6 +51,7 @@ export const FreePharmaProvider = ({ children }) => {
 
             // State contract
             contract,
+            userProfile,
             jobs,
             freelancers,
             currentUser,
@@ -88,6 +90,7 @@ export const FreePharmaProvider = ({ children }) => {
 
             // State contract
             contract,
+            userProfile,
             jobs,
             freelancers,
             currentUser,

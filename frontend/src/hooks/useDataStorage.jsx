@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNotif } from "@/hooks/useNotif";
 import { useWagmi } from "./useWagmi";
@@ -33,7 +33,8 @@ export function useDataStorage() {
     // const [valueStoredLogs, setValueStoredLogs] = useState([]);
 
     // ::::::::::: Contract Loading :::::::::::
-    const loadContract = async () => {
+    const loadContract = useCallback(async () => {
+        if(!isConnected || !address) return;
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const dataStorage = getContract({
@@ -42,12 +43,11 @@ export function useDataStorage() {
             walletClient,
         });
 
-        // get stored value
-        await getUserInfo(address);
+        
         // Set state hook
         setContract(dataStorage);
         setIsContractLoading(false);
-    };
+    },[address]);
 
     // ::::::::::: Contract Functions :::::::::::
 
@@ -84,18 +84,18 @@ export function useDataStorage() {
     // ::::::::::: HELPERS :::::::::::
 
     const getUserInfo = async (_address) => {
-        let freelancer = await getFreelancer(_address);
-        let employer = await getEmployer(_address);
+        // let freelancer = await getFreelancer(_address);
+        // let employer = await getEmployer(_address);
 
-        if (freelancer && freelancer.created_at != 0) {
-            setUserProfile("freelancer");
-            setCurrentUser(freelancer);
-        } else if (employer && employer.created_at != 0) {
-            await setUserProfile("employer");
-            setCurrentUser(employer);
-        } else {
-            setUserProfile("unknown");
-        }
+        // if (freelancer && freelancer.created_at != 0) {
+        //     setUserProfile("freelancer");
+        //     setCurrentUser(freelancer);
+        // } else if (employer && employer.created_at != 0) {
+        //     await setUserProfile("employer");
+        //     setCurrentUser(employer);
+        // } else {
+        //     setUserProfile("unknown");
+        // }
     };
 
     useEffect(() => {
@@ -103,16 +103,9 @@ export function useDataStorage() {
         try {
             loadContract();
         } catch (error) {
-            toast({
-                title: "Error Contract !",
-                description: "Erreur lors du chargement du contrat.",
-                status: "error",
-                duration: 9000,
-                position: "top-right",
-                isClosable: true,
-            });
+            throwNotif("error","Erreur lors du chargement du contrat. DataStorage");
         }
-    }, [isConnected, address, chain?.id, userProfile]);
+    }, [isConnected, address, chain?.id, userProfile,isContractLoading,loadContract, throwNotif]);
 
     // ::::::::::: Returned data :::::::::::
     return {

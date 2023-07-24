@@ -320,6 +320,11 @@ describe("StakingManager", function (accounts) {
                     let demoMode = await stakingManager.DemoMode();
                     assert.isTrue(demoMode);
                 });
+
+                it("should emit a DemoModeSwitched event", async function () {
+                    await expect(stakingManager.switchDemoMode())
+                        .to.emit(stakingManager, "DemoModeSwitched")
+                });
             });
 
             describe("lastBlockUpdateTime()", () => {
