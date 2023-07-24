@@ -34,6 +34,7 @@ export function useDataStorage() {
 
     // ::::::::::: Contract Loading :::::::::::
     const loadContract = useCallback(async () => {
+        console.log("DATA STORAGE : Loading contract...");
         if(!isConnected || !address) return;
         // get contract with connected provider
         const walletClient = await getWalletClient();
@@ -105,7 +106,7 @@ export function useDataStorage() {
         } catch (error) {
             throwNotif("error","Erreur lors du chargement du contrat. DataStorage");
         }
-    }, [isConnected, address, chain?.id, userProfile,isContractLoading,loadContract, throwNotif]);
+    }, [isConnected, address, chain?.id]);
 
     // ::::::::::: Returned data :::::::::::
     return {

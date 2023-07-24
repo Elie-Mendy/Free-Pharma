@@ -17,8 +17,8 @@ import {
     rainbowWallet,
     argentWallet,
     trustWallet,
-    injectedWallet
-} from '@rainbow-me/rainbowkit/wallets';
+    injectedWallet,
+} from "@rainbow-me/rainbowkit/wallets";
 
 // Wagmi provider
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
@@ -29,20 +29,30 @@ import {
     arbitrum,
     sepolia,
     goerli,
+    polygonMumbai,
     hardhat,
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 // wagmi config
 const { chains, publicClient } = configureChains(
-    [mainnet, polygon, optimism, arbitrum, sepolia, goerli, hardhat],
+    [
+        mainnet,
+        polygon,
+        optimism,
+        arbitrum,
+        sepolia,
+        goerli,
+        polygonMumbai,
+        hardhat,
+    ],
     [publicProvider()]
 );
 
 const projectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID;
 const connectors = connectorsForWallets([
     {
-        groupName: 'Recommended',
+        groupName: "Recommended",
         wallets: [
             injectedWallet({ chains }),
             metaMaskWallet({ projectId, chains }),
@@ -50,7 +60,7 @@ const connectors = connectorsForWallets([
         ],
     },
     {
-        groupName: 'Others',
+        groupName: "Others",
         wallets: [
             walletConnectWallet({ projectId, chains }),
             coinbaseWallet({ chains, appName: projectId }),
