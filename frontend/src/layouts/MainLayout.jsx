@@ -15,6 +15,8 @@ export default function MainLayout({ children }) {
     // fetching connexions data from useWagmi hook
     const { isConnected } = useWagmi();
     const { userProfile } = useContext(FreePharmaContext);
+
+    console.log("main layout", userProfile)
     // sidebars parameters
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const variants = useBreakpointValue({ base: smVariant, md: mdVariant });

@@ -15,7 +15,6 @@ import { DataStorageContext } from "@/providers/DataStorageProvider";
 import { getAddress } from "viem";
 import { useContractEvent } from "wagmi";
 
-const contractAddress = config.contracts.FreePharma.address;
 const contractABI = config.contracts.FreePharma.abi;
 const FREELANCER_ROLE =
     "0xdee5dd6a5465c6132eda87e8cb3980b287f43d6f5332a897e4a238c66a15aec2";
@@ -43,7 +42,7 @@ export function useFreePharma() {
         // get contract with connected provider
         const walletClient = await getWalletClient();
         const freePharma = getContract({
-            address: contractAddress,
+            address: getAddress(config.contracts.FreePharma.address),
             abi: contractABI,
             walletClient,
         });
@@ -146,6 +145,7 @@ export function useFreePharma() {
                 functionName: "hasRole",
                 args: [FREELANCER_ROLE, getAddress(address)],
             });
+            console.log("freelancer", data)
             setUserProfile("employer");
         } catch (error) {
             setUserProfile("unknown");
@@ -158,6 +158,8 @@ export function useFreePharma() {
                 functionName: "hasRole",
                 args: [EMPLOYER_ROLE, getAddress(address)],
             });
+            console.log("employer", data)
+
             setUserProfile("employer");
         } catch (error) {
             setUserProfile("unknown");
@@ -190,7 +192,7 @@ export function useFreePharma() {
     ) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "createFreelancer",
                 args: [
@@ -214,7 +216,7 @@ export function useFreePharma() {
     const getOneFreelancer = async (_freelancerAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "getOneFreelancer",
                 args: [_freelancerAddress],
@@ -228,7 +230,7 @@ export function useFreePharma() {
     const getFreelancers = async (_freelancerAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "getFreelancers",
             });
@@ -248,7 +250,7 @@ export function useFreePharma() {
     ) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "setFreelancer",
                 args: [
@@ -272,7 +274,7 @@ export function useFreePharma() {
     const applyForJob = async (_jobId) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "applyForJob",
                 args: [Number(_jobId)],
@@ -289,7 +291,7 @@ export function useFreePharma() {
     const confirmCandidature = async (_jobId) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "confirmCandidature",
                 args: [Number(_jobId)],
@@ -306,7 +308,7 @@ export function useFreePharma() {
     const completeFreelancerJob = async (_jobId) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "completeFreelancerJob",
                 args: [Number(_jobId)],
@@ -323,7 +325,7 @@ export function useFreePharma() {
     const claimSalary = async (_jobId) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "claimSalary",
                 args: [Number(_jobId)],
@@ -346,7 +348,7 @@ export function useFreePharma() {
     ) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "createEmployer",
                 args: [_name, _email, _visible],
@@ -363,7 +365,7 @@ export function useFreePharma() {
     const getOneEmployer = async (_employerAddress) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "getOneEmployer",
                 args: [_employerAddress],
@@ -377,7 +379,7 @@ export function useFreePharma() {
     const setEmployer = async (_name = "", _email = "", _visible = false) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "setEmployer",
                 args: [_name, _email, _visible],
@@ -394,7 +396,7 @@ export function useFreePharma() {
     const hireFreelancer = async (_jobId, _freelancerAddress) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "hireFreelancer",
                 args: [_jobId, _freelancerAddress],
@@ -411,7 +413,7 @@ export function useFreePharma() {
     const completeEmployerJob = async (_jobId) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "completeEmployerJob",
                 args: [_jobId],
@@ -435,7 +437,7 @@ export function useFreePharma() {
     ) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "createJob",
                 args: [_startDate, _endDate, _salary, _location],
@@ -452,7 +454,7 @@ export function useFreePharma() {
     const getOneJob = async (_jobId) => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "getOneJob",
                 args: [_jobId],
@@ -466,7 +468,7 @@ export function useFreePharma() {
     const getJobs = async () => {
         try {
             const data = await readContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "getJobs",
             });
@@ -485,7 +487,7 @@ export function useFreePharma() {
     ) => {
         try {
             const { request } = await prepareWriteContract({
-                address: contractAddress,
+                address: getAddress(config.contracts.FreePharma.address),
                 abi: contractABI,
                 functionName: "setJob",
                 args: [_jobId, _salary, _startDate, _endDate, _location],
@@ -670,7 +672,6 @@ export function useFreePharma() {
     // ::::::::::: Returned data :::::::::::
     return {
         // Static data
-        contractAddress,
         address,
 
         // State contract

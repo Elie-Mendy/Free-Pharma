@@ -26,6 +26,7 @@
     "sc:deploy:local": "npm run deploy:local --workspace=hardhat-project",
     "sc:deploy:sepolia": "npm run deploy:sepolia --workspace=hardhat-project",
     "sc:deploy:goerli": "npm run deploy:goerli --workspace=hardhat-project",
+    "sc:deploy:mumbai": "npm run deploy:mumbai --workspace=hardhat-project",
     "sc:seed:local": "npm run seed:local --workspace=hardhat-project",
     "sc:seed:sepolia": "npm run seed:sepolia --workspace=hardhat-project",
     "dapp:dev": "npm run dev --workspace=frontend",
