@@ -139,28 +139,32 @@ export function useFreePharma() {
     const getUserProfile = useCallback(async () => {
         // IsEMployer
         try {
-            const data = await readContract({
+            let data = await readContract({
                 address: config.contracts.FreePharma.address,
                 abi: config.contracts.FreePharma.abi,
                 functionName: "hasRole",
                 args: [FREELANCER_ROLE, getAddress(address)],
             });
-            console.log("freelancer", data)
-            if(data) return;
-        } catch (error) {
-            setUserProfile("unknown");
-        }
-        // IsFreelancer
-        try {
-            const data = await readContract({
-                address: config.contracts.FreePharma.address,
-                abi: config.contracts.FreePharma.abi,
-                functionName: "hasRole",
-                args: [EMPLOYER_ROLE, getAddress(address)],
-            });
-            console.log("employer", data)
+            if (data) {
 
-            setUserProfile("employer");
+                console.log("freelancer", data)
+                setUserProfile("freelancer");
+            }
+            else {
+                data = await readContract({
+                    address: config.contracts.FreePharma.address,
+                    abi: config.contracts.FreePharma.abi,
+                    functionName: "hasRole",
+                    args: [EMPLOYER_ROLE, getAddress(address)],
+                });
+
+                if (data) {
+                    console.log("employer", data)
+                    setUserProfile("employer");
+                } else {
+                    setUserProfile("unknown");
+                }
+            }
         } catch (error) {
             setUserProfile("unknown");
         }
