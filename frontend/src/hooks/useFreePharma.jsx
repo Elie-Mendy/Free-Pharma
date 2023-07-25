@@ -146,7 +146,7 @@ export function useFreePharma() {
                 args: [FREELANCER_ROLE, getAddress(address)],
             });
             console.log("freelancer", data)
-            setUserProfile("employer");
+            if(data) return;
         } catch (error) {
             setUserProfile("unknown");
         }
@@ -166,17 +166,6 @@ export function useFreePharma() {
         }
     }, [address]);
 
-    useEffect(() => {
-        if (!address || !contract || !isContractLoading) return;
-        getUserProfile();
-        if (userProfile == "freelancer") {
-            throwNotif("info", "Freelancer");
-            loadFreelancerData();
-        } else if (userProfile == "employer") {
-            throwNotif("info", "Employer");
-            loadEmployerData();
-        }
-    }, [address, contract, isContractLoading]);
 
     // ::::::::::: Contract Functions :::::::::::
 
@@ -508,7 +497,7 @@ export function useFreePharma() {
         eventName: "FreelancerUpdated",
         listener(log) {
             if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+                loadFreelancerData();
             }
         },
     });
@@ -519,7 +508,7 @@ export function useFreePharma() {
         eventName: "FreelancerApplied",
         listener(log) {
             if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+                loadFreelancerData();
             }
         },
     });
@@ -530,7 +519,7 @@ export function useFreePharma() {
         eventName: "FreelancerConfirmedCandidature",
         listener(log) {
             if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+                loadFreelancerData();
             }
         },
     });
@@ -541,7 +530,7 @@ export function useFreePharma() {
         eventName: "FreelancerCompletedJob",
         listener(log) {
             if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+                loadFreelancerData();
             }
         },
     });
@@ -552,7 +541,7 @@ export function useFreePharma() {
         eventName: "FreelancerClaimedSalary",
         listener(log) {
             if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+                loadFreelancerData();
             }
         },
     });
@@ -562,8 +551,11 @@ export function useFreePharma() {
         abi: config.contracts.FreePharma.abi,
         eventName: "FreelancerPaid",
         listener(log) {
-            if (String(address) === String(log[0].args.freelancerAddress)) {
-                loadEmployerData();
+            if (String(address) === String(log[0].args.employerAddress)) {
+                if (userProfile == "freelancer")
+                    loadFreelancerData();
+                else if (userProfile == "employer")
+                    loadEmployerData();
             }
         },
     });
@@ -667,7 +659,7 @@ export function useFreePharma() {
                 "Erreur lors du chargement du contrat. FreePharma"
             );
         }
-    }, [isConnected, address, chain?.id, userProfile]);
+    }, [isConnected, address, chain?.id]);
 
     // ::::::::::: Returned data :::::::::::
     return {
