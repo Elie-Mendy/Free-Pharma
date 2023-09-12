@@ -48,6 +48,9 @@ Le reste des commandes est disponible dans le fichier `package.json`
 ## Installation du projet
 ```sh
 git clone https://github.com/Elie-Mendy/Free-Pharma.git
+cd frontend
+yarn
+cd ../hardhat-project
 yarn
 ```
 
